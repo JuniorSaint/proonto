@@ -46,7 +46,6 @@ public class AgencyBankService {
         if (agencyBankRequest.getId() != null) {
             AgencyBankResponseId response = findById(agencyBankRequest.getId());
         }
-
         if (agencyBankRequest.getBank().getId() == null)
             throw new BadRequestException("It's not allowed agency without bank");
 

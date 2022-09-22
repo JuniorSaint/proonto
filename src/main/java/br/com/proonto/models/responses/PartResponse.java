@@ -26,7 +26,7 @@ public class PartResponse {
     private String ORGAOEMISSOR;
     private String NACIONALIDADE;
     private String ESTADOCIVIL;
-    private String PACTO;
+    private PactResponseId PACTO;
     private String REGIMEBENS;
     private String PROFISSAO;
     private String FILIACAO1;

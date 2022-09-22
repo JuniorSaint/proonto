@@ -1,15 +1,13 @@
 package br.com.proonto.services;
 
 import br.com.proonto.exceptions.EntityNotFoundException;
-import br.com.proonto.models.entities.Bank;
 import br.com.proonto.models.entities.ModalitiesOfOperation;
 import br.com.proonto.models.entities.ModalityOfOperation;
 import br.com.proonto.models.requests.ModalitiesOfOperationRequest;
-import br.com.proonto.models.responses.BankResponseId;
-import br.com.proonto.models.responses.ModalitiesOfOperationResponse;
+import br.com.proonto.models.requests.ModalityOfOperationRequest;
 import br.com.proonto.models.responses.ModalitiesOfOperationResponseId;
-import br.com.proonto.models.responses.ModalityOfOperationResponse;
 import br.com.proonto.repositories.ModalitiesOfOperationRepository;
+import br.com.proonto.repositories.ModalityOfOperationRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,17 +24,20 @@ public class ModalitiesOfOperationsService {
     @Autowired
     private ModalitiesOfOperationRepository repository;
     @Autowired
-    private ModalityOfOperationService service;
+    private ModalityOfOperationRepository modalityRepository;
     @Autowired
     private ModelMapper mapper;
     ModalitiesOfOperation modalitiesOfOperation = new ModalitiesOfOperation();
 
     @Transactional
     public ModalitiesOfOperationResponseId saveUpdate(ModalitiesOfOperationRequest request){
-        List<ModalityOfOperation> response = service.saveUpdate(request.getMODALIDADESOPERACAO());
-
-        modalitiesOfOperation.setMODALIDADESOPERACAO(response);
-        return mapper.map(repository.save(modalitiesOfOperation), ModalitiesOfOperationResponseId.class);
+        ModalitiesOfOperation resp = repository.save(mapper.map(request,ModalitiesOfOperation.class));
+        List<ModalityOfOperation> modality = new ArrayList<>();
+        for (ModalityOfOperationRequest mod : request.getMODALIDADESOPERACAO()) {
+            mod.setMODALIDADESOPERACAO(resp);
+            modality.add(modalityRepository.save(mapper.map(mod, ModalityOfOperation.class)));
+        }
+        return mapper.map(resp, ModalitiesOfOperationResponseId.class);
     }
 
     @Transactional(readOnly = true)

@@ -15,6 +15,5 @@ public class ProductResponse implements Serializable {
     private String DESCRICAO;
     private String QUALIDADE;
     private String QUANTIDADE;
-    private CPRRequest CPR;
     private RegistryRequest LOCALPRODUCAO;
 }

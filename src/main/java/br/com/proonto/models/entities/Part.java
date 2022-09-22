@@ -10,6 +10,7 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.hateoas.RepresentationModel;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.Instant;
@@ -38,12 +39,15 @@ public class Part extends RepresentationModel<Part> implements Serializable {
     private String ORGAOEMISSOR;
     private String NACIONALIDADE;
     private String ESTADOCIVIL;
-    private String PACTO;
     private String REGIMEBENS;
     private String PROFISSAO;
     private String FILIACAO1;
     private String FILIACAO2;
     private String CPFCONJUGE;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "pacto_id", referencedColumnName = "id")
+    private Pact PACTO;
 
     @CreationTimestamp
     private Instant createdAt;
@@ -66,6 +70,6 @@ public class Part extends RepresentationModel<Part> implements Serializable {
     private Contact CONTATO;
 
     @ManyToOne
-    @JoinColumn(name="contrato_id")
+    @JoinColumn(name = "contrato_id")
     private Contract CONTRATO;
 }

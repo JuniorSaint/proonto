@@ -1,6 +1,8 @@
 package br.com.proonto.controllers;
 
 import br.com.proonto.models.entities.Part;
+import br.com.proonto.models.requests.PartRequest;
+import br.com.proonto.models.responses.PartResponseId;
 import br.com.proonto.services.PartService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,25 +22,25 @@ public class PartController {
     private PartService service;
 
     @PostMapping
-    public ResponseEntity<Part> save(@RequestBody @Valid Part debtorRequestPost) {
+    public ResponseEntity<PartResponseId> save(@RequestBody @Valid PartRequest request) {
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(service.saveUpdate(debtorRequestPost));
+                .body(service.saveUpdate(request));
     }
 
     @PutMapping
-    public ResponseEntity<Part> update(@RequestBody @Valid Part debtorRequestPost) {
+    public ResponseEntity<PartResponseId> update(@RequestBody @Valid PartRequest request) {
         return ResponseEntity.status(HttpStatus.OK)
-                .body(service.saveUpdate(debtorRequestPost));
+                .body(service.saveUpdate(request));
     }
 
     @GetMapping
-    public ResponseEntity<List<Part>> findAll() {
+    public ResponseEntity<List<PartResponseId>> findAll() {
         return ResponseEntity.status(HttpStatus.ACCEPTED)
                 .body(service.findAll());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Part> findById(@PathVariable(value = "id") Long id) {
+    public ResponseEntity<PartResponseId> findById(@PathVariable(value = "id") Long id) {
         return ResponseEntity.status(HttpStatus.ACCEPTED)
                 .body(service.findById(id));
     }

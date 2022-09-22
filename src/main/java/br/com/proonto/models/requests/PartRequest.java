@@ -1,16 +1,11 @@
 package br.com.proonto.models.requests;
 
-import br.com.proonto.models.entities.Address;
-import br.com.proonto.models.entities.Contact;
-import br.com.proonto.models.entities.Contract;
-import br.com.proonto.models.entities.Qualification;
 import br.com.proonto.models.enums.GenderType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import java.time.LocalDate;
 import java.util.List;
-
 
 @NoArgsConstructor
 @Getter
@@ -26,7 +21,7 @@ public class PartRequest {
     private String ORGAOEMISSOR;
     private String NACIONALIDADE;
     private String ESTADOCIVIL;
-    private String PACTO;
+    private PactRequest PACTO;
     private String REGIMEBENS;
     private String PROFISSAO;
     private String FILIACAO1;
@@ -35,5 +30,4 @@ public class PartRequest {
     private AddressRequest ENDERECO;
     private List<QualificationRequest> QUALIFICACOES;
     private ContactRequest CONTATO;
-    private ContractRequest CONTRATO;
 }
