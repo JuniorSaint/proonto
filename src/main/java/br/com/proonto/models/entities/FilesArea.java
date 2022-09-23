@@ -9,28 +9,22 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
-@Table(name = "file")
+@Table(name = "files")
 @NoArgsConstructor
 @Getter
 @Setter
 @AllArgsConstructor
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-public class FileArea implements Serializable {
+public class FilesArea implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String NOME;
-    private String TIPO;
 
-    @ManyToOne
-    @JoinColumn(name = "area_id")
-    private Area AREA;
-
-    @ManyToOne
-    @JoinColumn(name="arquivo_id", nullable=false)
-    private FilesArea ARQUIVO;
+    @OneToMany(mappedBy="ARQUIVO")
+    List<FileArea> ARQUIVOS;
 }

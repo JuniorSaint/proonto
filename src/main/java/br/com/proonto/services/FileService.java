@@ -27,15 +27,13 @@ public class FileService {
     ModelMapper mapper;
     @Autowired
     Utils utils;
-    FileArea file = new FileArea();
 
     @Transactional
-    public FileResponseId saveUpdate(FileRequest fileRequest) {
-        if (fileRequest.getId() != null) {
-            FileResponseId response = findById(fileRequest.getId());
+    public FileRequest saveUpdate(FileRequest request) {
+        if (request.getId() != null) {
+            FileResponseId response = findById(request.getId());
         }
-        mapper.map(fileRequest, file);
-        return mapper.map(repository.save(file), FileResponseId.class);
+        return mapper.map(repository.save( mapper.map(request, FileArea.class)), FileRequest.class);
     }
 
     @Transactional(readOnly = true)

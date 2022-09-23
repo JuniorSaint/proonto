@@ -28,5 +28,4 @@ public class GuaranteeRequest {
     private String GRAU;
     private Area AREA;
     private List<RegistryRequest> REGISTROS;
-    private Contract CONTRATO;
 }

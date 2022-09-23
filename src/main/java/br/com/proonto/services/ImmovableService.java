@@ -4,8 +4,10 @@ import br.com.proonto.configs.Utils;
 import br.com.proonto.controllers.ImmovableController;
 import br.com.proonto.exceptions.DataBaseException;
 import br.com.proonto.exceptions.EntityNotFoundException;
+import br.com.proonto.models.entities.Address;
 import br.com.proonto.models.entities.Immovable;
 import br.com.proonto.models.requests.ImmovableRequest;
+import br.com.proonto.models.responses.ImmovableResponseId;
 import br.com.proonto.repositories.AddressRespository;
 import br.com.proonto.repositories.ImmovableRepository;
 import org.modelmapper.ModelMapper;
@@ -36,37 +38,34 @@ public class ImmovableService {
     Immovable immovable = new Immovable();
 
     @Transactional
-    public Immovable saveUpdate(ImmovableRequest immovableRequestPost) {
-//        mapper.map(immovableRequestPost, immovable);
-//        immovable.setCpf(immovable.getCpf().replaceAll("\\D", ""));
-//        if (immovable.getId() != null) {
-//            Immovable resp = findById(immovable.getId());
-//        }
-//        immovable.setAddress(addressRespository.save(immovable.getAddress()));
-//        Immovable response = repository.save(immovable);
-//        return response;
-        return null;
+    public ImmovableRequest saveUpdate(ImmovableRequest request) {
+        if (request.getId() != null) {
+            ImmovableResponseId resp = findById(request.getId());
+        }
+        mapper.map(request, immovable);
+        immovable.setENDERECO(addressRespository.save(mapper.map(request.getENDERECO(), Address.class)));
+        return mapper.map(repository.save(immovable), ImmovableRequest.class);
     }
 
     @Transactional(readOnly = true)
-    public Immovable findById(Long id) {
+    public ImmovableResponseId findById(Long id) {
         Optional<Immovable> response = repository.findById(id);
         if (response.isEmpty()) {
-            throw new EntityNotFoundException("Immovable" + NOT_FOUND + "id: "+ id);
+            throw new EntityNotFoundException("Immovable" + NOT_FOUND + "id: " + id);
         }
-        return response.get();
+        return mapper.map(response.get(), ImmovableResponseId.class);
     }
 
     @Transactional(readOnly = true)
-    public List<Immovable> findAll() {
-        return repository.findAll();
+    public List<ImmovableResponseId> findAll() {
+        return utils.mapListIntoDtoList(repository.findAll(), ImmovableResponseId.class);
     }
 
     @Transactional
     public String delete(Long id) {
         try {
-            Immovable response = findById(id);
-            repository.delete(response);
+            ImmovableResponseId response = findById(id);
+            repository.deleteById(id);
             return "Immovable" + DELETE_MESSAGE;
         } catch (DataIntegrityViolationException e) {
             throw new DataBaseException("Integrity violation");

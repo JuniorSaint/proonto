@@ -45,11 +45,11 @@ public class AgencyBank implements Serializable {
     @UpdateTimestamp
     private Instant updatedAt;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne()
     @JoinColumn(name = "bank_id", referencedColumnName = "id")
     private Bank bank;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne()
     @JoinColumn(name = "contato_id", referencedColumnName = "id")
     private Contact contact;
 }

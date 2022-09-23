@@ -35,5 +35,5 @@ public class Product implements Serializable {
     @OneToOne
     @MapsId
     @JoinColumn(name = "local_producao_id")
-    private Registry LOCALPRODUCAO;
+    private LocationProdution LOCALPRODUCAO;
 }

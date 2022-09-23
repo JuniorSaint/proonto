@@ -28,7 +28,7 @@ public class CPR implements Serializable {
     @OneToMany(mappedBy="CPR")
     private List<Product> PRODUTOS;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne()
     @JoinColumn(name = "financeiro_id", referencedColumnName = "id")
     private Financial FINANCEIRO;
 

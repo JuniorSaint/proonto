@@ -45,7 +45,7 @@ public class Part extends RepresentationModel<Part> implements Serializable {
     private String FILIACAO2;
     private String CPFCONJUGE;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne()
     @JoinColumn(name = "pacto_id", referencedColumnName = "id")
     private Pact PACTO;
 
@@ -54,7 +54,7 @@ public class Part extends RepresentationModel<Part> implements Serializable {
     @UpdateTimestamp
     private Instant updatedAt;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne()
     @JoinColumn(name = "endereco_id", referencedColumnName = "id")
     private Address ENDERECO;
 
@@ -65,7 +65,7 @@ public class Part extends RepresentationModel<Part> implements Serializable {
             inverseJoinColumns = @JoinColumn(name = "qualification_id"))
     private List<Qualification> QUALIFICACOES;
 
-    @OneToOne(cascade = CascadeType.REMOVE)
+    @OneToOne()
     @JoinColumn(name = "contato_id", referencedColumnName = "id")
     private Contact CONTATO;
 

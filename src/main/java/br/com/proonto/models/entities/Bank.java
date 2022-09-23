@@ -40,15 +40,4 @@ public class Bank extends RepresentationModel<Bank> implements Serializable {
 
     @OneToOne(mappedBy = "bank")
     private AgencyBank AGENCYBANK;
-
-    public Bank(Long id, String code, String ispb, String cnpj, String nameBank, String url, Instant createdAt, Instant updatedAt) {
-        this.id = id;
-        this.code = code;
-        this.ispb = ispb;
-        this.cnpj = cnpj;
-        this.nameBank = nameBank;
-        this.url = url;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
-    }
 }

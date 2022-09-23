@@ -26,15 +26,15 @@ public class PresenterRepresentative implements Serializable {
     private String TIPOPESSOA;
     private String CPFCNPJ;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne()
     @JoinColumn(name = "endereco_id", referencedColumnName = "id")
     private Address ENDERECO;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne()
     @JoinColumn(name = "contato_id", referencedColumnName = "id")
     private Contact CONTATO;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne()
     @JoinColumn(name = "representante_id", referencedColumnName = "id")
     private Representative REPRESENTANTE;
 

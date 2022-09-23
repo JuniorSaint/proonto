@@ -11,13 +11,10 @@ import lombok.Setter;
 @Getter
 @Setter
 public class RegistryRequest {
-
     private Long id;
     private String CNS;
     private String LIVRO;
     private String NUMEROREGISTRO;
     private String COMPLEMENTO;
     private ImmovableRequest IMOVEL;
-    private GuaranteeRequest GUARANTEE;
-    private ProductRequest PRODUTO;
 }

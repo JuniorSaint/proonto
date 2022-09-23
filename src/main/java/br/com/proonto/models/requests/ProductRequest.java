@@ -1,12 +1,11 @@
 package br.com.proonto.models.requests;
 
-import br.com.proonto.models.entities.CPR;
-import br.com.proonto.models.entities.Registry;
+import br.com.proonto.models.entities.LocationProdution;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import java.io.Serializable;
 
+import java.io.Serializable;
 
 @NoArgsConstructor
 @Getter
@@ -16,5 +15,5 @@ public class ProductRequest implements Serializable {
     private String DESCRICAO;
     private String QUALIDADE;
     private String QUANTIDADE;
-    private RegistryRequest LOCALPRODUCAO;
+    private LocationProductionRequest LOCALPRODUCAO;
 }

@@ -2,6 +2,7 @@ package br.com.proonto.controllers;
 
 import br.com.proonto.models.entities.Immovable;
 import br.com.proonto.models.requests.ImmovableRequest;
+import br.com.proonto.models.responses.ImmovableResponseId;
 import br.com.proonto.services.ImmovableService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,22 +22,22 @@ public class ImmovableController {
     private ImmovableService service;
 
     @PostMapping
-    public ResponseEntity<Immovable> save(@RequestBody @Valid ImmovableRequest immovableRequestPost) {
+    public ResponseEntity<ImmovableRequest> save(@RequestBody @Valid ImmovableRequest request) {
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(service.saveUpdate(immovableRequestPost));
+                .body(service.saveUpdate(request));
     }
     @PutMapping
-    public ResponseEntity<Immovable> update(@RequestBody @Valid ImmovableRequest immovableRequestPost) {
+    public ResponseEntity<ImmovableRequest> update(@RequestBody @Valid ImmovableRequest request) {
         return ResponseEntity.status(HttpStatus.OK)
-                .body(service.saveUpdate(immovableRequestPost));
+                .body(service.saveUpdate(request));
     }
     @GetMapping
-    public ResponseEntity<List<Immovable>> findAll() {
+    public ResponseEntity<List<ImmovableResponseId>> findAll() {
         return ResponseEntity.status(HttpStatus.ACCEPTED)
                 .body(service.findAll());
     }
     @GetMapping("/{id}")
-    public ResponseEntity<Immovable> findById(@PathVariable(value = "id") Long id) {
+    public ResponseEntity<ImmovableResponseId> findById(@PathVariable(value = "id") Long id) {
         return ResponseEntity.status(HttpStatus.ACCEPTED)
                 .body(service.findById(id));
     }

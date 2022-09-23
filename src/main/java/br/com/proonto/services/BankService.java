@@ -30,14 +30,14 @@ public class BankService {
     private ModelMapper mapper;
     @Autowired
     private Utils utils;
-    Bank bank = new Bank();
+
 
     @Transactional
     public BankResponseId saveUpdate(BankRequest bankRequest) {
         if (bankRequest.getId() != null) {
             BankResponseId responseBank = findById(bankRequest.getId());
         }
-        mapper.map(bankRequest, bank);
+      Bank bank =  mapper.map(bankRequest, Bank.class);
         if (bank.getCnpj() != null)
             bank.setCnpj(bank.getCnpj().replaceAll("\\D", ""));
 
