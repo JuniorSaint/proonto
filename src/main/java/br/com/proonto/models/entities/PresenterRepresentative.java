@@ -34,7 +34,7 @@ public class PresenterRepresentative implements Serializable {
     @JoinColumn(name = "contato_id", referencedColumnName = "id")
     private Contact CONTATO;
 
-    @OneToOne()
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "representante_id", referencedColumnName = "id")
     private Representative REPRESENTANTE;
 

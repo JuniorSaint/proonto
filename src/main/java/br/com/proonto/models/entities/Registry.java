@@ -25,22 +25,11 @@ public class Registry implements Serializable {
     private String NUMEROREGISTRO;
     private String COMPLEMENTO;
 
-    @OneToOne()
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "imovel_id", referencedColumnName = "id")
     private Immovable IMOVEL;
-
-    @ManyToOne
-    @JoinColumn(name = "register_id")
-    private Guarantee GUARANTEE;
-
-    @OneToOne(mappedBy = "LOCALPRODUCAO")
-    @PrimaryKeyJoinColumn
-    private Product PRODUTO;
 
     @OneToOne(mappedBy = "REGISTRO")
     private LocationProdution LOCALPRODUCAO;
 
-    @ManyToOne
-    @JoinColumn(name="registro_id")
-    private Registry REGISTRO;
 }

@@ -32,8 +32,8 @@ public class Product implements Serializable {
     @JoinColumn(name="cpr_id")
     private CPR CPR;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @MapsId
     @JoinColumn(name = "local_producao_id")
-    private LocationProdution LOCALPRODUCAO;
+    private Registry LOCALPRODUCAO;
 }

@@ -24,7 +24,7 @@ public class LocationProdution implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne()
+    @OneToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "registro_id", referencedColumnName = "id")
     private Registry REGISTRO;
 }

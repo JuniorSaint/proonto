@@ -51,7 +51,7 @@ public class Contract implements Serializable {
     @OneToMany(mappedBy="CONTRATO")
     private List<Part> PARTES;
 
-    @OneToOne()
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "cpr_id", referencedColumnName = "id")
     private CPR CPR;
 

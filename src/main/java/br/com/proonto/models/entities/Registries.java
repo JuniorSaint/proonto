@@ -22,6 +22,6 @@ public class Registries implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany(mappedBy="REGISTRO")
-    private List<Registry> REGISTROS;
+//    @OneToMany(mappedBy="REGISTRO")
+//    private List<Registry> REGISTROS;
 }
