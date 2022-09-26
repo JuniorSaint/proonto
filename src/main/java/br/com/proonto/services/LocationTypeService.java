@@ -4,9 +4,14 @@ import br.com.proonto.configs.Utils;
 import br.com.proonto.exceptions.DataBaseException;
 import br.com.proonto.exceptions.EntityNotFoundException;
 import br.com.proonto.models.entities.Bank;
+import br.com.proonto.models.entities.LocationType;
 import br.com.proonto.models.requests.BankRequest;
+import br.com.proonto.models.requests.LocationTypeRequest;
+import br.com.proonto.models.responses.BankResponse;
 import br.com.proonto.models.responses.BankResponseId;
+import br.com.proonto.models.responses.LocationTypeResponse;
 import br.com.proonto.repositories.BankRepository;
+import br.com.proonto.repositories.LocationTypeRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -20,9 +25,9 @@ import static br.com.proonto.configs.CP.DELETE_MESSAGE;
 import static br.com.proonto.configs.CP.NOT_FOUND;
 
 @Service
-public class BankService {
+public class LocationTypeService {
     @Autowired
-    private BankRepository repository;
+    private LocationTypeRepository repository;
     @Autowired
     private ModelMapper mapper;
     @Autowired
@@ -30,37 +35,33 @@ public class BankService {
 
 
     @Transactional
-    public BankResponseId saveUpdate(BankRequest request) {
-        if (request.getId() != null) {
-            BankResponseId responseBank = findById(request.getId());
+    public LocationTypeResponse saveUpdate(LocationTypeRequest request) {
+        if (request.getDomain() != null) {
+            LocationTypeResponse responseBank = findById(request.getDomain());
         }
-      Bank bank =  mapper.map(request, Bank.class);
-        if (bank.getCnpj() != null)
-            bank.setCnpj(bank.getCnpj().replaceAll("\\D", ""));
-
-        return mapper.map(repository.save(bank), BankResponseId.class);
+        return mapper.map(repository.save(mapper.map(request, LocationType.class)), LocationTypeResponse.class);
     }
 
     @Transactional(readOnly = true)
-    public BankResponseId findById(Long id) {
-        Optional<Bank> response = repository.findById(id);
+    public LocationTypeResponse findById(String id) {
+        Optional<LocationType> response = repository.findById(id);
         if (response.isEmpty()) {
-            throw new EntityNotFoundException("Bank" + NOT_FOUND + "id: " + id);
+            throw new EntityNotFoundException("Location type" + NOT_FOUND + "id: " + id);
         }
-        return mapper.map(response.get(), BankResponseId.class);
+        return mapper.map(response.get(), LocationTypeResponse.class);
     }
 
     @Transactional(readOnly = true)
-    public List<BankResponseId> findAll() {
-        return utils.mapListIntoDtoList(repository.findAll(), BankResponseId.class);
+    public List<LocationTypeResponse> findAll() {
+        return utils.mapListIntoDtoList(repository.findAll(), LocationTypeResponse.class);
     }
 
     @Transactional
-    public String delete(Long id) {
+    public String delete(String id) {
         try {
-            BankResponseId response = findById(id);
+            LocationTypeResponse response = findById(id);
             repository.deleteById(id);
-            return "Bank" + DELETE_MESSAGE;
+            return "Location type" + DELETE_MESSAGE;
         } catch (DataIntegrityViolationException e) {
             throw new DataBaseException("Integrity violation");
         }
