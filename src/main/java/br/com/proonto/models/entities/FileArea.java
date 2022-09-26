@@ -29,8 +29,4 @@ public class FileArea implements Serializable {
     @ManyToOne
     @JoinColumn(name = "area_id")
     private Area AREA;
-
-    @ManyToOne
-    @JoinColumn(name="arquivo_id", nullable=false)
-    private FilesArea ARQUIVO;
 }

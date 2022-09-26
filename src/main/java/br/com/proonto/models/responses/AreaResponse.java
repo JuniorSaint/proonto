@@ -13,5 +13,4 @@ import java.util.List;
 public class AreaResponse {
     private String DESCRICAO;
     private List<FileResponse> ARQUIVOS;
-    private GuaranteeResponse GUARANTEE;
 }

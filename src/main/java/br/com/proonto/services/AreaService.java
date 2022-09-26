@@ -3,16 +3,10 @@ package br.com.proonto.services;
 import br.com.proonto.configs.Utils;
 import br.com.proonto.exceptions.EntityNotFoundException;
 import br.com.proonto.models.entities.Area;
-import br.com.proonto.models.entities.Bank;
-import br.com.proonto.models.entities.FileArea;
 import br.com.proonto.models.requests.AreaRequest;
-import br.com.proonto.models.requests.BankRequest;
 import br.com.proonto.models.requests.FileRequest;
-import br.com.proonto.models.requests.FilesRequest;
 import br.com.proonto.models.responses.AreaResponseId;
-import br.com.proonto.models.responses.BankResponseId;
 import br.com.proonto.repositories.AreaRepository;
-import br.com.proonto.repositories.BankRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,10 +36,10 @@ public class AreaService {
             AreaResponseId responseBank = findById(request.getId());
         }
         List<FileRequest> fileRequestList = new ArrayList<>();
-        for(FileRequest fileArea :  request.getARQUIVOS().getARQUIVOS()){
+        for(FileRequest fileArea :  request.getARQUIVOS()){
             fileRequestList.add(fileService.saveUpdate(fileArea));
         }
-        request.getARQUIVOS().setARQUIVOS(fileRequestList);
+        request.setARQUIVOS(fileRequestList);
         return mapper.map(repository.save(mapper.map(request, Area.class)), AreaResponseId.class);
     }
 

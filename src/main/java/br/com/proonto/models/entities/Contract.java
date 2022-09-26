@@ -32,19 +32,19 @@ public class Contract implements Serializable {
     private LocalDate DATACONTRATO;
     private String LOCALCONTRATO;
 
-    @OneToOne()
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "remetente_id", referencedColumnName = "id")
     private PresenterRepresentative REMETENTE;
 
-    @OneToOne()
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "apresentante_id", referencedColumnName = "id")
     private PresenterRepresentative APRESENTANTE;
 
-    @OneToOne()
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "financeiro_id", referencedColumnName = "id")
     private Financial FINANCEIRO;
 
-    @OneToOne()
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "modalidade_id", referencedColumnName = "id")
     private ModalityOfOperation MODALIDADESOPERACAO;
 
@@ -65,7 +65,7 @@ public class Contract implements Serializable {
     private List<LetterOfAttorney> PROCURACOES;
 
     @OneToMany(mappedBy="CONTRATO")
-    private List<Authorization> AUTORIZACOES;
+    private List<AuthorizationList> AUTORIZACOES;
 
     @OneToMany(mappedBy="CONTRATO")
     private List<Clause> CLAUSULASADICIONAIS;

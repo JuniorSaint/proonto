@@ -26,6 +26,6 @@ public class GuaranteeRequest {
     private String MARCA;
     private String PERIODOPRODUCAO;
     private String GRAU;
-    private Area AREA;
+    private AreaRequest AREA;
     private List<RegistryRequest> REGISTROS;
 }

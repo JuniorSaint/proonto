@@ -14,5 +14,4 @@ public class FileRequest {
     private Long id;
     private String NOME;
     private String TIPO;
-    private Area AREA;
 }

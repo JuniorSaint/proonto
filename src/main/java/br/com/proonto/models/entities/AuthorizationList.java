@@ -12,13 +12,13 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "authorization")
+@Table(name = "authorizationList")
 @NoArgsConstructor
 @Getter
 @Setter
 @AllArgsConstructor
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-public class Authorization implements Serializable {
+public class AuthorizationList implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id

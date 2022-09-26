@@ -25,10 +25,10 @@ public class CPR implements Serializable {
     private String PERIODO;
     private String CONDICOES;
 
-//    @OneToMany(mappedBy="CPR")
-//    private List<Product> PRODUTOS;
+    @OneToMany(mappedBy="CPR")
+    private List<Product> PRODUTOS;
 
-    @OneToOne()
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "financeiro_id", referencedColumnName = "id")
     private Financial FINANCEIRO;
 }

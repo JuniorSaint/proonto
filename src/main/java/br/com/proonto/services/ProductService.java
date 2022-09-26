@@ -37,9 +37,7 @@ public class ProductService {
         if (request.getId() != null) {
             ProductResponseId resp = findById(request.getId());
         }
-        ProductRequest request1 = request;
-        Product res = repository.save(mapper.map(request, Product.class));
-        return mapper.map(res, ProductResponseId.class);
+        return mapper.map(repository.save(mapper.map(request, Product.class)), ProductResponseId.class);
     }
 
     public ProductResponseId findById(Long id) {

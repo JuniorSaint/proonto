@@ -24,7 +24,7 @@ public class ContractResponse {
     private List<PartResponse> PARTES;
     private CPRResponse CPR;
     private List<GuaranteeResponse> GARANTIAS;
-    private List<DajesResponse> IMPOSTOS;
+    private List<DajeResponse> IMPOSTOS;
     private List<LetterOfAttorneyResponse> PROCURACOES;
     private List<AuthorizationResponse> AUTORIZACOES;
     private List<ClauseResponse> CLAUSULASADICIONAIS;

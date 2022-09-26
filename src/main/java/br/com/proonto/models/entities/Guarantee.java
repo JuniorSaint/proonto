@@ -36,11 +36,11 @@ public class Guarantee implements Serializable {
     private String PERIODOPRODUCAO;
     private String GRAU;
 
-    @OneToOne()
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "area_id", referencedColumnName = "id")
     private Area AREA;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "registro_id")
     private List<Registry> REGISTROS;
 

@@ -28,4 +28,8 @@ public class Registry implements Serializable {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "imovel_id", referencedColumnName = "id")
     private Immovable IMOVEL;
+
+    @ManyToOne(cascade=CascadeType.PERSIST)
+    @JoinColumn(name="registro_id")
+    private Guarantee GUARANTIA;
 }

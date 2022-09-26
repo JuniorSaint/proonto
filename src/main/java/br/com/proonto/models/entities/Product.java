@@ -28,9 +28,9 @@ public class Product implements Serializable {
     private String QUALIDADE;
     private String QUANTIDADE;
 
-//    @ManyToOne
-//    @JoinColumn(name="cpr_id")
-//    private CPR CPR;
+    @ManyToOne
+    @JoinColumn(name="cpr_id")
+    private CPR CPR;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "local_producao_id")

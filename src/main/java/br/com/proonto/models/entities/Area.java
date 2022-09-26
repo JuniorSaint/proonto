@@ -26,10 +26,7 @@ public class Area implements Serializable {
     @Column(columnDefinition = "TEXT")
     private String DESCRICAO;
 
-
-	private FilesArea ARQUIVOS;
-
-    @OneToOne(mappedBy = "AREA")
-    @PrimaryKeyJoinColumn
-    private Guarantee GUARANTEE;
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "registro_id")
+    private List<FileArea> ARQUIVOS;
 }

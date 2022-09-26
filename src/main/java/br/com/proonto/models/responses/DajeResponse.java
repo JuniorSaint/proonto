@@ -1,6 +1,5 @@
 package br.com.proonto.models.responses;
 
-import br.com.proonto.models.entities.Dajes;
 import lombok.*;
 
 @Getter
@@ -13,5 +12,4 @@ public class DajeResponse {
     private Double VALOR;
     private String ISENTO;
     private String JUSTIFICATIVA;
-    private DajesResponse DAJES;
 }
