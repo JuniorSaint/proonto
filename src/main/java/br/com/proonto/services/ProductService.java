@@ -37,13 +37,9 @@ public class ProductService {
         if (request.getId() != null) {
             ProductResponseId resp = findById(request.getId());
         }
-//        ImmovableRequest immovableRequest = immovableService.saveUpdate(request.getLOCALPRODUCAO().getREGISTRO().getIMOVEL());
-//        request.getLOCALPRODUCAO().getREGISTRO().setIMOVEL(immovableRequest);
-//        RegistryRequest registryRequest = registryService.saveUpdate(request.getLOCALPRODUCAO().getREGISTRO());
-//        request.getLOCALPRODUCAO().setREGISTRO(registryRequest);
-//        LocationProductionRequest locationProductionRequest = locationService.saveUpdate(request.getLOCALPRODUCAO());
-//        request.setLOCALPRODUCAO(locationProductionRequest);
-        return mapper.map(repository.save(mapper.map(request, Product.class)), ProductResponseId.class);
+        ProductRequest request1 = request;
+        Product res = repository.save(mapper.map(request, Product.class));
+        return mapper.map(res, ProductResponseId.class);
     }
 
     public ProductResponseId findById(Long id) {

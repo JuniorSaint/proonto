@@ -28,8 +28,4 @@ public class Registry implements Serializable {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "imovel_id", referencedColumnName = "id")
     private Immovable IMOVEL;
-
-    @OneToOne(mappedBy = "REGISTRO")
-    private LocationProdution LOCALPRODUCAO;
-
 }

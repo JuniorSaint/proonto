@@ -41,10 +41,4 @@ public class Financial implements Serializable {
     private String FORO;
     private String INDEXADOR;
     private String COMISSAOFISCALIZACAO;
-
-    @OneToOne(mappedBy = "FINANCEIRO")
-    private CPR CPR;
-
-    @OneToOne(mappedBy = "FINANCEIRO")
-    private Contract CONTRATO;
 }

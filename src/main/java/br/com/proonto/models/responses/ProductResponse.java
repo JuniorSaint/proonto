@@ -1,5 +1,6 @@
 package br.com.proonto.models.responses;
 
+import br.com.proonto.models.entities.LocationProdution;
 import br.com.proonto.models.requests.RegistryRequest;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,5 +13,5 @@ public class ProductResponse {
     private String DESCRICAO;
     private String QUALIDADE;
     private String QUANTIDADE;
-    private RegistryRequest LOCALPRODUCAO;
+    private LocationProductionResponse LOCALPRODUCAO;
 }

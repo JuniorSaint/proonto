@@ -32,7 +32,4 @@ public class Address implements Serializable {
     private String TORRE;
     private String COMPLEMENTO;
     private String CEP;
-
-    @OneToOne(mappedBy = "ENDERECO")
-    private PresenterRepresentative PRESENTERREPRESENTATIVE;
 }

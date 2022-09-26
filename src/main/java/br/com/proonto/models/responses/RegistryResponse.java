@@ -16,6 +16,4 @@ public class RegistryResponse {
     private String NUMEROREGISTRO;
     private String COMPLEMENTO;
     private ImmovableResponse IMOVEL;
-    private GuaranteeResponse GUARANTEE;
-    private ProductResponse PRODUTO;
 }

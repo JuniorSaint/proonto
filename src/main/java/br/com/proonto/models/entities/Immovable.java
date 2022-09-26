@@ -39,7 +39,7 @@ public class Immovable extends RepresentationModel<Immovable> implements Seriali
     @UpdateTimestamp
     private Instant updatedAt;
 
-    @OneToOne()
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "endereco_id", referencedColumnName = "id")
     private Address ENDERECO;
 }
