@@ -28,8 +28,4 @@ public class AuthorizationList implements Serializable {
     private String DECLARO;
     @Column(columnDefinition = "TEXT")
     private String AUTORIZO;
-
-    @ManyToOne
-    @JoinColumn(name="contrato_id")
-    private Contract CONTRATO;
 }

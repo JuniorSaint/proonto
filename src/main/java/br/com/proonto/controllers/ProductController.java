@@ -32,4 +32,5 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.ACCEPTED)
                 .body(service.findById(id));
     }
+
 }

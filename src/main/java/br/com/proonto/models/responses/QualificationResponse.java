@@ -11,5 +11,5 @@ import java.io.Serializable;
 @Setter
 public class QualificationResponse implements Serializable {
     private static final long serialVersionUID = 1L;
-    private String QUALIFICACOES;
+    private String QUALIFICACAO;
 }

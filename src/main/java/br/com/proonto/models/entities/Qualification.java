@@ -20,5 +20,9 @@ public class Qualification implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String QUALIFICACOES;
+    private String QUALIFICACAO;
+
+    @ManyToOne
+    @JoinColumn(name="parte_id")
+    private Part PARTE;
 }

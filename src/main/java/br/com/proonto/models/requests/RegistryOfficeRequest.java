@@ -17,5 +17,4 @@ public class RegistryOfficeRequest implements Serializable {
     private Long id;
     private String CNS;
     private String NOME;
-    private ContractRequest CONTRATO;
 }

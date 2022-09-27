@@ -33,6 +33,7 @@ public class CPRService {
         return mapper.map(repository.save(mapper.map(request, CPR.class)), CPRResponse.class);
     }
 
+    @Transactional(readOnly = true)
     public CPRResponse findById(Long id) {
         Optional<CPR> response = repository.findById(id);
         if (response.isEmpty()) {

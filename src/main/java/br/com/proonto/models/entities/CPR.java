@@ -25,7 +25,7 @@ public class CPR implements Serializable {
     private String PERIODO;
     private String CONDICOES;
 
-    @OneToMany(mappedBy="CPR")
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Product> PRODUTOS;
 
     @OneToOne(cascade = CascadeType.ALL)

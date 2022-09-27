@@ -9,6 +9,7 @@ import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 import java.time.Instant;
@@ -25,6 +26,7 @@ public class UserRequestPost implements Serializable {
     private static final long serialVersionUID = 1L;
     private String name;
     @NotEmpty(message = "Email is a mandatory field.")
+    @Email(message = "Email is formatted wrong.")
     private String email;
     @NotEmpty(message = "Password is a mandatory field.")
     private String password;

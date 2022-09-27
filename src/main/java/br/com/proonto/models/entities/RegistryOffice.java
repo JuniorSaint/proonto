@@ -23,8 +23,4 @@ public class RegistryOffice implements Serializable {
     private Long id;
     private String CNS;
     private String NOME;
-
-    @ManyToOne
-    @JoinColumn(name="contrato_id")
-    private Contract CONTRATO;
 }

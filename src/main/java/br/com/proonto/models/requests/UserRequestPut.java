@@ -17,19 +17,10 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-public class UserRequestPut implements Serializable {
+public class UserRequestPut extends UserRequestPost implements Serializable {
     private static final long serialVersionUID = 1L;
     @NotEmpty(message = "Id is a mandatory field.")
     private Long id;
-    private String name;
-    @NotEmpty(message = "Email is a mandatory field.")
-    private String email;
-    @NotEmpty(message = "Password is a mandatory field.")
-    private String password;
-    private String cpf;
-    private Boolean active;
-    private List<Permission> permissions;
     @UpdateTimestamp
     private Instant updatedAt;
 }

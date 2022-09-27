@@ -26,12 +26,12 @@ public class ContractRequest implements Serializable {
     private PresenterRepresentativeRequest REMETENTE;
     private PresenterRepresentativeRequest APRESENTANTE;
     private FinancialRequest FINANCEIRO;
-    private ModalityOfOperationRequest MODALIDADESOPERACAO;
+    private List<ModalityOfOperationRequest> MODALIDADESOPERACAO;
     private List<PartRequest> PARTES;
     private CPRRequest CPR;
     private List<GuaranteeRequest> GARANTIAS;
-    private List<DajesRequest> IMPOSTOS;
+    private List<DajeRequest> IMPOSTOS;
     private List<LetterOfAttorneyRequest> PROCURACOES;
-    private List<AuthorizationRequest> AUTORIZACOES;
+    private AuthorizationRequest AUTORIZACOES;
     private List<ClauseRequest> CLAUSULASADICIONAIS;
 }

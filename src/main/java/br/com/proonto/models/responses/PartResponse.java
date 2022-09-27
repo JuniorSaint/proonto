@@ -34,7 +34,7 @@ public class PartResponse implements Serializable {
     private String FILIACAO1;
     private String FILIACAO2;
     private String CPFCONJUGE;
-    private AddressResponse ENDERECO;
-    private List<QualificationResponse> QUALIFICACOES;
-    private ContactResponse CONTATO;
+    private AddressResponseId ENDERECO;
+    private List<QualificationResponseId> QUALIFICACOES;
+    private ContactResponseId CONTATO;
 }

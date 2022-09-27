@@ -1,6 +1,5 @@
 package br.com.proonto.models.requests;
 
-import br.com.proonto.models.entities.Dajes;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -21,5 +20,4 @@ public class DajeRequest implements Serializable {
     private Double VALOR;
     private String ISENTO;
     private String JUSTIFICATIVA;
-    private Dajes DAJES;
 }

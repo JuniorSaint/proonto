@@ -11,6 +11,5 @@ import java.io.Serializable;
 @Setter
 public class LocationProductionResponse implements Serializable {
     private static final long serialVersionUID = 1L;
-    private Long id;
-    private RegistryResponse REGISTRO;
+    private RegistryResponseId REGISTRO;
 }

@@ -15,5 +15,4 @@ public class AuthorizationRequest implements Serializable {
     private Long id;
     private String DECLARO;
     private String AUTORIZO;
-    private ContractRequest CONTRATO;
 }

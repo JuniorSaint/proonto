@@ -18,5 +18,5 @@ public class RegistryResponse implements Serializable {
     private String LIVRO;
     private String NUMEROREGISTRO;
     private String COMPLEMENTO;
-    private ImmovableResponse IMOVEL;
+    private ImmovableResponseId IMOVEL;
 }

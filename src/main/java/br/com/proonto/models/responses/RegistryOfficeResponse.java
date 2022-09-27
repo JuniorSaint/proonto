@@ -14,5 +14,4 @@ import java.io.Serializable;
 public class RegistryOfficeResponse implements Serializable {
     private static final long serialVersionUID = 1L;
     private String CNS;
-    private String NOME;
 }

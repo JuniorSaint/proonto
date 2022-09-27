@@ -15,5 +15,5 @@ public class ImmovableResponse implements Serializable {
     private String DESCRICAO;
     private String TIPOLOCALIZACAO;
     private String TIPOIMOVEL;
-    private AddressResponse ENDERECO;
+    private AddressResponseId ENDERECO;
 }

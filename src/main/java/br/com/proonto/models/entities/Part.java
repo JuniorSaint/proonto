@@ -38,6 +38,8 @@ public class Part extends RepresentationModel<Part> implements Serializable {
     private String DOCUMENTO;
     private String ORGAOEMISSOR;
     private String NACIONALIDADE;
+    private String UNIAOESTAVEL;
+    private String OUTROREGIME;
     private String ESTADOCIVIL;
     private String REGIMEBENS;
     private String PROFISSAO;
@@ -58,11 +60,7 @@ public class Part extends RepresentationModel<Part> implements Serializable {
     @JoinColumn(name = "endereco_id", referencedColumnName = "id")
     private Address ENDERECO;
 
-    @ManyToMany
-    @JoinTable(
-            name = "parts_qualifications",
-            joinColumns = @JoinColumn(name = "parts_id"),
-            inverseJoinColumns = @JoinColumn(name = "qualification_id"))
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Qualification> QUALIFICACOES;
 
     @OneToOne(cascade = CascadeType.ALL)

@@ -24,5 +24,5 @@ public class GuaranteeResponse implements Serializable {
     private String PERIODOPRODUCAO;
     private String GRAU;
     private AreaResponse AREA;
-    private List<RegistryResponse> REGISTROS;
+    private List<RegistryResponseId> REGISTROS;
 }

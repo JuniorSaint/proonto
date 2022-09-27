@@ -26,5 +26,4 @@ public class LetterOfAttorneyRequest implements Serializable {
     private String FOLHA;
     private String NUMEROREGISTRO;
     private LocalDate DATAREGISTRO;
-    private ContractRequest CONTRATO;
 }

@@ -1,4 +1,4 @@
-package br.com.proonto.models.requests;
+package br.com.proonto.models.responses;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,8 +9,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Getter
 @Setter
-public class QualificationRequest implements Serializable {
+public class LocationProductionResponseId extends LocationProductionResponse {
     private static final long serialVersionUID = 1L;
     private Long id;
-    private String QUALIFICACAO;
 }

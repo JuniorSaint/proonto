@@ -1,13 +1,8 @@
 package br.com.proonto.services;
 
 import br.com.proonto.configs.Utils;
-import br.com.proonto.models.entities.ModalitiesOfOperation;
 import br.com.proonto.models.entities.ModalityOfOperation;
-import br.com.proonto.models.requests.ModalitiesOfOperationRequest;
 import br.com.proonto.models.requests.ModalityOfOperationRequest;
-import br.com.proonto.models.responses.ModalitiesOfOperationResponseId;
-import br.com.proonto.models.responses.ModalityOfOperationResponse;
-import br.com.proonto.repositories.ModalitiesOfOperationRepository;
 import br.com.proonto.repositories.ModalityOfOperationRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -31,6 +31,6 @@ public class Daje implements Serializable {
     private String JUSTIFICATIVA;
 
     @ManyToOne
-    @JoinColumn(name="daje_id")
-    private Dajes DAJES;
+    @JoinColumn(name="contrato_id")
+    private Contract CONTRATO;
 }

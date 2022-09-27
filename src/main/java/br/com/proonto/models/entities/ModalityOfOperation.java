@@ -25,6 +25,6 @@ public class ModalityOfOperation implements Serializable {
     private String DESTINOFINANCIAMENTO;
 
     @ManyToOne
-    @JoinColumn(name="modality_id")
-    private ModalitiesOfOperation MODALIDADESOPERACAO;
+    @JoinColumn(name="contrato_id")
+    private Contract CONTRATO;
 }

@@ -1,16 +1,16 @@
-package br.com.proonto.models.requests;
+package br.com.proonto.models.responses;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 @NoArgsConstructor
 @Getter
 @Setter
-public class QualificationRequest implements Serializable {
+public class LetterOfAttorneyResponseId extends LetterOfAttorneyResponse {
     private static final long serialVersionUID = 1L;
     private Long id;
-    private String QUALIFICACAO;
 }

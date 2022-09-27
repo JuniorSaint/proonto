@@ -16,5 +16,5 @@ public class ProductResponse implements Serializable {
     private String DESCRICAO;
     private String QUALIDADE;
     private String QUANTIDADE;
-    private LocationProductionResponse LOCALPRODUCAO;
+    private LocationProductionResponseId LOCALPRODUCAO;
 }

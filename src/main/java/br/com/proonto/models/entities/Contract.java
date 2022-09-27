@@ -23,10 +23,12 @@ public class Contract implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @OneToMany(mappedBy="CONTRATO")
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "contract_registryoffice",
+            joinColumns = @JoinColumn(name = "contract_id"),
+            inverseJoinColumns = @JoinColumn(name = "registryoffice_id"))
     private List<RegistryOffice> CARTORIOS;
-
     private String NUMEROCONTRATO;
     private String TIPOCEDULA;
     private LocalDate DATACONTRATO;
@@ -44,29 +46,29 @@ public class Contract implements Serializable {
     @JoinColumn(name = "financeiro_id", referencedColumnName = "id")
     private Financial FINANCEIRO;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "modalidade_id", referencedColumnName = "id")
-    private ModalityOfOperation MODALIDADESOPERACAO;
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ModalityOfOperation> MODALIDADESOPERACAO;
 
-    @OneToMany(mappedBy="CONTRATO")
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Part> PARTES;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "cpr_id", referencedColumnName = "id")
     private CPR CPR;
 
-    @OneToMany(mappedBy="CONTRATO")
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Guarantee> GARANTIAS;
 
-    @OneToMany(mappedBy="CONTRATO")
-    private List<Dajes> IMPOSTOS;
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Daje> IMPOSTOS;
 
-    @OneToMany(mappedBy="CONTRATO")
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<LetterOfAttorney> PROCURACOES;
 
-    @OneToMany(mappedBy="CONTRATO")
-    private List<AuthorizationList> AUTORIZACOES;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "authorization_id", referencedColumnName = "id")
+    private AuthorizationList AUTORIZACOES;
 
-    @OneToMany(mappedBy="CONTRATO")
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Clause> CLAUSULASADICIONAIS;
 }

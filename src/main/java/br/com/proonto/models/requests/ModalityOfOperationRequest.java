@@ -1,6 +1,5 @@
 package br.com.proonto.models.requests;
 
-import br.com.proonto.models.entities.ModalitiesOfOperation;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,5 +15,4 @@ public class ModalityOfOperationRequest implements Serializable {
     private String MODALIDADE;
     private String ORIGEMRECURSOS;
     private String DESTINOFINANCIAMENTO;
-    private ModalitiesOfOperation MODALIDADESOPERACAO;
 }
