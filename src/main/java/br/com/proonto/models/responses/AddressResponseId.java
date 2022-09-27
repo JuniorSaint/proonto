@@ -7,6 +7,6 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class AddressResponseId extends AddressResponse{
+public class AddressResponseId extends AddressResponse {
  private Long id;
 }

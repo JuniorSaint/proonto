@@ -8,13 +8,15 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Builder
 @Getter
 @Setter
 @AllArgsConstructor
-public class GuaranteeRequest {
+public class GuaranteeRequest implements Serializable {
+    private static final long serialVersionUID = 1L;
     private Long id;
     private String TIPOGARANTIA;
     private String TIPOBEM;

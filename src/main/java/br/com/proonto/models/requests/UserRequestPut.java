@@ -8,6 +8,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.validation.constraints.NotEmpty;
+import java.io.Serializable;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.util.List;
@@ -17,7 +18,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class UserRequestPut {
+public class UserRequestPut implements Serializable {
+    private static final long serialVersionUID = 1L;
     @NotEmpty(message = "Id is a mandatory field.")
     private Long id;
     private String name;

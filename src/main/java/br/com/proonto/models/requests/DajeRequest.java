@@ -6,11 +6,14 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
+
 @Builder
 @Getter
 @Setter
 @AllArgsConstructor
-public class DajeRequest {
+public class DajeRequest implements Serializable {
+    private static final long serialVersionUID = 1L;
     private Long id;
     private String EMISSOR;
     private String NUMERO;

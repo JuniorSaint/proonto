@@ -16,8 +16,6 @@ import java.io.Serializable;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
-@JsonIdentityInfo(generator= ObjectIdGenerators.IntSequenceGenerator.class, property="@id")
 public class GuaranteeTypeSubRequest implements Serializable {
     private static final long serialVersionUID = 1L;
 

@@ -4,6 +4,7 @@ import br.com.proonto.models.entities.PresenterRepresentative;
 import lombok.*;
 
 import javax.persistence.OneToOne;
+import java.io.Serializable;
 
 
 @Getter
@@ -11,7 +12,8 @@ import javax.persistence.OneToOne;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class AddressRequest {
+public class AddressRequest implements Serializable {
+    private static final long serialVersionUID = 1L;
     private Long id;
     private String TIPOLOGRADOURO;
     private String LOGRADOURO;

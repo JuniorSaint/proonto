@@ -12,7 +12,8 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public class ModalityOfTheOperationRequest{
+public class ModalityOfTheOperationRequest implements Serializable {
+    private static final long serialVersionUID = 1L;
     private String domain;
     private String description;
     private Boolean active;

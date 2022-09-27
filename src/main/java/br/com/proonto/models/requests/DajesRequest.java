@@ -17,7 +17,8 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-public class DajesRequest{
+public class DajesRequest implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     private Long id;
     private List<DajeRequest> DAJES;

@@ -6,12 +6,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Getter
 @Setter
 @NoArgsConstructor
-public class FinancialResponse {
+public class FinancialResponse implements Serializable {
+    private static final long serialVersionUID = 1L;
     private Double VALORTOTAL;
     private String VALOREXTENSO;
     private String CRITERIOOBTENCAOLIQUIDACAO;

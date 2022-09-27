@@ -14,7 +14,8 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public class ContractRequest{
+public class ContractRequest implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     private Long id;
     private List<RegistryOfficeRequest> CARTORIOS;

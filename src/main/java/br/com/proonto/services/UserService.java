@@ -72,8 +72,7 @@ public class UserService {
             userEntity.setCpf(userEntity.getCpf().replaceAll("\\D", ""));
         }
         User response = repository.save(userEntity);
-        return mapper.map(response, UserResponse.class)
-                .add(linkTo(methodOn(UserController.class).findAllUsers()).withRel("List of users"));
+        return mapper.map(response, UserResponse.class);
     }
 
     @Transactional
@@ -123,9 +122,7 @@ public class UserService {
     @Transactional(readOnly = true)
     public List<UserResponse> findAll() {
         List<User> response = repository.findAll();
-        List<UserResponse> resp = utils.mapListIntoDtoList(response, UserResponse.class);
-        resp.stream().forEach(p -> p.add(linkTo(methodOn(UserController.class).findById(p.getId())).withSelfRel()));
-        return resp;
+        return utils.mapListIntoDtoList(response, UserResponse.class);
     }
 
 //    public String validatePassword(LogInRequest logInRequest) {

@@ -11,12 +11,14 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import java.io.Serializable;
 import java.time.Instant;
 
 @NoArgsConstructor
 @Getter
 @Setter
-public class ImmovableRequest {
+public class ImmovableRequest implements Serializable {
+    private static final long serialVersionUID = 1L;
     private Long id;
     private String EDIFICACAO;
     private String DESCRICAO;

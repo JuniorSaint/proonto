@@ -6,12 +6,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @NoArgsConstructor
 @Getter
 @Setter
-public class LetterOfAttorneyRequest {
+public class LetterOfAttorneyRequest implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     private Long id;
     private String REPRESENTANTE;
