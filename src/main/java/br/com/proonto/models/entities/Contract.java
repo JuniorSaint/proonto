@@ -71,4 +71,8 @@ public class Contract implements Serializable {
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Clause> CLAUSULASADICIONAIS;
+
+    @ManyToOne
+    @JoinColumn(name="contratos_id")
+    private Contracts CONTRATO;
 }

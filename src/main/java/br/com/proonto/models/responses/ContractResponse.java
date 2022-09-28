@@ -12,8 +12,6 @@ import java.util.List;
 @NoArgsConstructor
 public class ContractResponse implements Serializable {
     private static final long serialVersionUID = 1L;
-
-    private Long id;
     private List<RegistryOfficeResponseId> CARTORIOS;
     private String NUMEROCONTRATO;
     private String TIPOCEDULA;
