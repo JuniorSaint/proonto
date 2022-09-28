@@ -2,12 +2,8 @@ package br.com.proonto.services;
 
 import br.com.proonto.exceptions.EntityNotFoundException;
 import br.com.proonto.models.entities.Guarantee;
-import br.com.proonto.models.entities.Product;
-import br.com.proonto.models.entities.Registry;
 import br.com.proonto.models.requests.GuaranteeRequest;
 import br.com.proonto.models.responses.GuaranteeResponse;
-import br.com.proonto.models.responses.ProductResponseId;
-import br.com.proonto.models.responses.RegistryResponse;
 import br.com.proonto.repositories.GuaranteeRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
