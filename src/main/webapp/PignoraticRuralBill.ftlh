@@ -18,8 +18,8 @@
             FORMA DE PAGAMENTO adiante descrita, a <strong> COOPERATIVA </strong>,
             pessoa jurídica de direito privado, inscrita no CNPJ sob
             25.258.258/0001-20, com sede administrativa na Rua das acácias,... ou à
-            sua ordem, a quantia de <strong>${ VALORTOTAL ?string.currency} </strong> (${
-            VALOREXTENSO } ), em moeda corrente nacional. O crédito deferido
+            sua ordem, a quantia de <strong>${ tst.FINANCEIRO.VALORTOTAL ?string.currency} </strong> (${
+            tst.FINANCEIRO.VALOREXTENSO } ), em moeda corrente nacional. O crédito deferido
             destina-se ao financiamento de custeio agrícola para sua produção de
             {pignor.product}, safra {pignor.harvest}, conforme documentos anexos,
             e que será utilizado mediante liberação em conta produção.

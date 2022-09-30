@@ -1,15 +1,19 @@
 package br.com.proonto.models.responses;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.io.Serializable;
 
+@Builder
 @Getter
 @Setter
 @NoArgsConstructor
-public class GuaranteeResponseId extends GuaranteeResponse  implements Serializable {
+@AllArgsConstructor
+public class DictionaryResponse implements Serializable {
     private static final long serialVersionUID = 1L;
+
     private Long id;
+    private String from;
+    private String to;
+    private Boolean active;
 }

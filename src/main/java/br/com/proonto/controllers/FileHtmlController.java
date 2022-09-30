@@ -19,9 +19,6 @@ public class FileHtmlController {
     @GetMapping("/{id}")
     public String contractHtml(Model model, @PathVariable(value = "id") Long id) {
         ContractResponse contract = service.findById(id);
-        model.addAttribute("TIPOCEDULA", contract.getTIPOCEDULA());
-        model.addAttribute("VALORTOTAL", contract.getFINANCEIRO().getVALORTOTAL());
-        model.addAttribute("VALOREXTENSO", contract.getFINANCEIRO().getVALOREXTENSO());
         model.addAttribute("tst", contract);
         return "PignoraticRuralBill";
     }

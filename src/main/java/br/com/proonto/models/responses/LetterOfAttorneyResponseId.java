@@ -10,7 +10,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Getter
 @Setter
-public class LetterOfAttorneyResponseId extends LetterOfAttorneyResponse {
+public class LetterOfAttorneyResponseId extends LetterOfAttorneyResponse  implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long id;
 }

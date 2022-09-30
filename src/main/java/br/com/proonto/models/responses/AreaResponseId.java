@@ -4,11 +4,13 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.util.List;
 
 @NoArgsConstructor
 @Getter
 @Setter
-public class AreaResponseId extends AreaResponse{
+public class AreaResponseId extends AreaResponse implements Serializable {
+    private static final long serialVersionUID = 1L;
     private Long id;
 }

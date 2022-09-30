@@ -9,7 +9,7 @@ import java.io.Serializable;
 @Getter
 @Setter
 @NoArgsConstructor
-public class ModalityOfOperationResponseId extends ModalityOfOperationResponse {
+public class ModalityOfOperationResponseId extends ModalityOfOperationResponse  implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long id;
 }
