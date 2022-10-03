@@ -14,4 +14,8 @@ import java.time.LocalDate;
 public class FinancialResponseId extends FinancialResponse  implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long id;
+    private String TAXAJUROSNOMINALANUALPOREXTENSO;
+    private String TAXAJUROSNOMINALMENSALPOREXTENSO;
+    private String TAXAJUROSEFETIVAMENSALPOREXTENSO;
+    private String TAXAJUROSEFETIVAANUALPOREXTENSO;
 }

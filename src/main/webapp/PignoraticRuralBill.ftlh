@@ -18,8 +18,8 @@
             FORMA DE PAGAMENTO adiante descrita, a <strong> COOPERATIVA </strong>,
             pessoa jurídica de direito privado, inscrita no CNPJ sob
             25.258.258/0001-20, com sede administrativa na Rua das acácias,... ou à
-            sua ordem, a quantia de <strong>${ tst.FINANCEIRO.VALORTOTAL ?string.currency} </strong> (${
-            tst.FINANCEIRO.VALOREXTENSO } ), em moeda corrente nacional. O crédito deferido
+            sua ordem, a quantia de <strong> @_FINANCEIRO.VALORTOTAL_@ </strong> (@_FINANCEIRO.VALOREXTENSO _@ ),
+            em moeda corrente nacional. O crédito deferido
             destina-se ao financiamento de custeio agrícola para sua produção de
             {pignor.product}, safra {pignor.harvest}, conforme documentos anexos,
             e que será utilizado mediante liberação em conta produção.
@@ -58,7 +58,7 @@
             sobre o valor inadimplido, os encargos financeiros abaixo, em
             substituição aos encargos de normalidade pactuados:
         </section>
-        <ol>a) Juros moratórios à taxa efetiva de ${tst.FINANCEIRO.TAXAJUROSEFETIVAANUAL }% (---por extenso---) ao
+        <ol>a) Juros moratórios à taxa efetiva de ${@_FINANCEIRO.TAXAJUROSEFETIVAANUAL_@ }% (@_FINANCEIRO.TAXAJUROSEFETIVAANUALPOREXTENSO}_@) ao
             ano;
         </ol>
     </div>
@@ -74,7 +74,7 @@
         <#include "/header-pignoratic.ftlh">
     </header>
     <section>
-        <ol>b) Juros remuneratórios à taxa efetiva de ${tst.FINANCEIRO.TAXAJUROSEFETIVAMENSAL}% (---por extenso---)
+        <ol>b) Juros remuneratórios à taxa efetiva de @_FINANCEIRO.TAXAJUROSEFETIVAMENSAL_@% (@_FINANCEIRO.TAXAJUROSEFETIVAMENSALPOREXTENSO_@)
             ao mês;
         </ol>
         <ol> c) Correção monetária pelo IGPM, ou qualquer outro índice que vier a substituí-lo;</ol>
@@ -84,7 +84,7 @@
     </section>
 
     <section>
-        <strong> FORMA DE PAGAMENTO</strong>>: Sem prejuízo do vencimento retro estipulado e das demais
+        <strong> FORMA DE PAGAMENTO</strong>: Sem prejuízo do vencimento retro estipulado e das demais
         exigibilidades
         previstas nas demais cláusulas inclusive encargos financeiros básicos e adicionais, obrigo-me a pagar a
         ${tst.APRESENTANTE.NOME ? upperCase}, o valor total descrito acima em parcela única, na data do vencimento da
@@ -93,7 +93,7 @@
     </section>
 
     <section>
-        <strong>VENCIMENTO EXTRAORDINÁRIO</strong>>: Declaro-me ciente de que na falta de cumprimento de quaisquer
+        <strong>VENCIMENTO EXTRAORDINÁRIO</strong>: Declaro-me ciente de que na falta de cumprimento de quaisquer
         das obrigações
         por mim assumidas não só neste título, como em outros instrumentos que por ventura tenha firmado ou venha
         a firmar com a ${tst.APRESENTANTE.NOME}, ou ainda, pela ocorrência de quaisquer dos

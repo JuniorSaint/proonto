@@ -11,7 +11,8 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public class ContractResponseId extends ContractResponse {
+public class ContractResponseId extends ContractResponse  implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long id;
+    private String VENCIMENTOPOREXTENSO;
 }

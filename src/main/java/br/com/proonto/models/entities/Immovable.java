@@ -1,6 +1,5 @@
 package br.com.proonto.models.entities;
 
-
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.AllArgsConstructor;
@@ -10,11 +9,9 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.hateoas.RepresentationModel;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.Instant;
-import java.time.LocalDate;
 
 @Entity
 @Table(name = "immovable")

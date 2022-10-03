@@ -3,7 +3,6 @@ package br.com.proonto.models.entities;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.*;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -33,6 +32,7 @@ public class Contract implements Serializable {
     private String TIPOCEDULA;
     private LocalDate DATACONTRATO;
     private String LOCALCONTRATO;
+    private String VENCIMENTOPOREXTENSO;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "remetente_id", referencedColumnName = "id")

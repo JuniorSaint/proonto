@@ -1,11 +1,6 @@
 package br.com.proonto.models.requests;
 
-import br.com.proonto.models.entities.Contract;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.*;
-
-import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 

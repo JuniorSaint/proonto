@@ -1,11 +1,7 @@
 package br.com.proonto.models.requests;
 
-import br.com.proonto.models.entities.PresenterRepresentative;
 import lombok.*;
-
-import javax.persistence.OneToOne;
 import java.io.Serializable;
-
 
 @Getter
 @Setter

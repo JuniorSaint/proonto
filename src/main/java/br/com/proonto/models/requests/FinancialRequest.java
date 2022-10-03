@@ -3,7 +3,6 @@ package br.com.proonto.models.requests;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import java.io.Serializable;
 
 @Getter
@@ -19,10 +18,13 @@ public class FinancialRequest implements Serializable {
     private Double SALDOREMANESCENTE;
     private Double VALORPARCELAINICIAL;
     private String FORMAPAGAMENTO;
-    private Double TAXAJUROSNOMINALANUAL;
+    private String TAXAJUROSNOMINALANUALPOREXTENSO;
     private Double TAXAJUROSNOMINALMENSAL;
+    private String TAXAJUROSNOMINALMENSALPOREXTENSO;
     private Double TAXAJUROSEFETIVAMENSAL;
+    private String TAXAJUROSEFETIVAMENSALPOREXTENSO;
     private Double TAXAJUROSEFETIVAANUAL;
+    private String TAXAJUROSEFETIVAANUALPOREXTENSO;
     private String PRACAPAGAMENTO;
     private String FORO;
     private String INDEXADOR;

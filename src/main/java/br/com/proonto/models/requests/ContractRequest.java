@@ -23,6 +23,7 @@ public class ContractRequest implements Serializable {
     private String TIPOCEDULA;
     private LocalDate DATACONTRATO;
     private String LOCALCONTRATO;
+    private String VENCIMENTOPOREXTENSO;
     private PresenterRepresentativeRequest REMETENTE;
     private PresenterRepresentativeRequest APRESENTANTE;
     private FinancialRequest FINANCEIRO;

@@ -11,9 +11,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class DictionaryResponse implements Serializable {
     private static final long serialVersionUID = 1L;
-
-    private Long id;
-    private String from;
-    private String to;
+    private String fromDic;
+    private String toDic;
     private Boolean active;
 }

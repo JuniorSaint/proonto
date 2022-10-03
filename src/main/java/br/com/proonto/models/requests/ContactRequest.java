@@ -1,9 +1,6 @@
 package br.com.proonto.models.requests;
 
-import br.com.proonto.models.entities.AgencyBank;
-import br.com.proonto.models.entities.PresenterRepresentative;
 import lombok.*;
-
 import java.io.Serializable;
 
 @Getter

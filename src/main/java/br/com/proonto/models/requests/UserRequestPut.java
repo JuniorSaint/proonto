@@ -1,17 +1,14 @@
 package br.com.proonto.models.requests;
 
-import br.com.proonto.models.entities.Permission;
-import lombok.*;
-
-import lombok.experimental.SuperBuilder;
-import org.hibernate.annotations.CreationTimestamp;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 import java.time.Instant;
-import java.time.LocalDate;
-import java.util.List;
 
 @Getter
 @Setter

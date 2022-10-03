@@ -3,7 +3,6 @@ package br.com.proonto.models.entities;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.*;
-
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -21,7 +20,7 @@ public class Dictionary implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String from;
-    private String to;
+    private String fromDic;
+    private String toDic;
     private Boolean active;
 }

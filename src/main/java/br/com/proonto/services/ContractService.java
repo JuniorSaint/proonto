@@ -10,6 +10,7 @@ import br.com.proonto.models.requests.ContractRequest;
 import br.com.proonto.models.responses.CPRResponse;
 import br.com.proonto.models.responses.ContactResponse;
 import br.com.proonto.models.responses.ContractResponse;
+import br.com.proonto.models.responses.ContractResponseId;
 import br.com.proonto.repositories.ContractRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,20 +36,20 @@ public class ContractService {
 
 
     @Transactional
-    public ContractResponse saveUpdate(ContractRequest request) {
+    public ContractResponseId saveUpdate(ContractRequest request) {
         if (request.getId() != null) {
             ContractResponse resp = findById(request.getId());
         }
-        return mapper.map(repository.save(mapper.map(request, Contract.class)), ContractResponse.class);
+        return mapper.map(repository.save(mapper.map(request, Contract.class)), ContractResponseId.class);
     }
 
     @Transactional(readOnly = true)
-    public ContractResponse findById(Long id) {
+    public ContractResponseId findById(Long id) {
         Optional<Contract> response = repository.findById(id);
         if (response.isEmpty()) {
             throw new EntityNotFoundException("Contract" + NOT_FOUND + "id: " + id);
         }
-        return mapper.map(response, ContractResponse.class);
+        return mapper.map(response, ContractResponseId.class);
     }
     @Transactional
     public String delete(Long id) {

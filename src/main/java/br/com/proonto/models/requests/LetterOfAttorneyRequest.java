@@ -1,11 +1,9 @@
 package br.com.proonto.models.requests;
 
-import br.com.proonto.models.entities.Contract;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 

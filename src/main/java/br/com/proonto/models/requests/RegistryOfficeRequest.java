@@ -1,7 +1,6 @@
 package br.com.proonto.models.requests;
 
 
-import br.com.proonto.models.entities.Contract;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
