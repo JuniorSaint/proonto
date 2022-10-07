@@ -29,4 +29,6 @@ public class FinancialRequest implements Serializable {
     private String FORO;
     private String INDEXADOR;
     private String COMISSAOFISCALIZACAO;
+    private Double MULTA;
+    private String MULTAPOREXTENSO;
 }

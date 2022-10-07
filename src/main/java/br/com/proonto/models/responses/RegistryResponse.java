@@ -1,5 +1,6 @@
 package br.com.proonto.models.responses;
 
+import br.com.proonto.models.entities.RegistryOffice;
 import br.com.proonto.models.requests.GuaranteeRequest;
 import br.com.proonto.models.requests.ImmovableRequest;
 import br.com.proonto.models.requests.ProductRequest;
@@ -14,7 +15,7 @@ import java.io.Serializable;
 @Setter
 public class RegistryResponse implements Serializable {
     private static final long serialVersionUID = 1L;
-    private String CNS;
+    private RegistryOffice CNS;
     private String LIVRO;
     private String NUMEROREGISTRO;
     private String COMPLEMENTO;

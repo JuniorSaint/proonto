@@ -62,4 +62,6 @@ public class ContractService {
             throw new EntityNotFoundException("Contract" + NOT_FOUND + "id: " + id);
         }
     }
+
+
 }

@@ -19,7 +19,9 @@ public class Registry implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String CNS;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "cns_id", referencedColumnName = "id")
+    private RegistryOffice CNS;
     private String LIVRO;
     private String NUMEROREGISTRO;
     private String COMPLEMENTO;

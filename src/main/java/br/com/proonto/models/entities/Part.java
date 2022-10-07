@@ -1,5 +1,6 @@
 package br.com.proonto.models.entities;
 
+import br.com.proonto.models.enums.CreditorTypeEnum;
 import br.com.proonto.models.enums.GenderType;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -45,6 +46,7 @@ public class Part extends RepresentationModel<Part> implements Serializable {
     private String FILIACAO1;
     private String FILIACAO2;
     private String CPFCONJUGE;
+    private CreditorTypeEnum TIPODECREDOR;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "pacto_id", referencedColumnName = "id")

@@ -22,4 +22,6 @@ public class RegistryOffice implements Serializable {
     private Long id;
     private String CNS;
     private String NOME;
+    private String COMARCA;
+    private String UF;
 }

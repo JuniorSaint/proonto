@@ -9,7 +9,8 @@ import lombok.Getter;
 @Getter
 public enum GenderType {
     MASCULINO(1, "masculino"),
-    FEMININO(2, "feminino");
+    FEMININO(2, "feminino"),
+    EM_BRANCO(3, "");
 
     private final Integer guid;
     private final String description;

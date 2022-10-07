@@ -23,7 +23,6 @@ public class ContractRequest implements Serializable {
     private String TIPOCEDULA;
     private LocalDate DATACONTRATO;
     private String LOCALCONTRATO;
-    private String VENCIMENTOPOREXTENSO;
     private PresenterRepresentativeRequest REMETENTE;
     private PresenterRepresentativeRequest APRESENTANTE;
     private FinancialRequest FINANCEIRO;
@@ -35,4 +34,14 @@ public class ContractRequest implements Serializable {
     private List<LetterOfAttorneyRequest> PROCURACOES;
     private AuthorizationRequest AUTORIZACOES;
     private List<ClauseRequest> CLAUSULASADICIONAIS;
+
+    //Doesn't belong the original xml, these variable it's to complete the form
+    private String VENCIMENTOPOREXTENSO;
+    private LocalDate VENCIMENTO;
+    private LocalDate COBRANCAENCARGOAPARTIR;
+    private String TITULODOCABECALHO;
+    private String CIDADEESTADODATACONTRATO;
+    private String UMIDADE;
+    private String IMPUREZA;
+    private String AVARIADOS_ARDIDOS;
 }

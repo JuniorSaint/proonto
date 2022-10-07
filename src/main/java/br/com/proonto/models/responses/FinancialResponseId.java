@@ -18,4 +18,6 @@ public class FinancialResponseId extends FinancialResponse  implements Serializa
     private String TAXAJUROSNOMINALMENSALPOREXTENSO;
     private String TAXAJUROSEFETIVAMENSALPOREXTENSO;
     private String TAXAJUROSEFETIVAANUALPOREXTENSO;
+    private Double MULTA;
+    private String MULTAPOREXTENSO;
 }

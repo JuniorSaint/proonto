@@ -32,7 +32,7 @@ public class Contract implements Serializable {
     private String TIPOCEDULA;
     private LocalDate DATACONTRATO;
     private String LOCALCONTRATO;
-    private String VENCIMENTOPOREXTENSO;
+
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "remetente_id", referencedColumnName = "id")
@@ -73,6 +73,20 @@ public class Contract implements Serializable {
     private List<Clause> CLAUSULASADICIONAIS;
 
     @ManyToOne
-    @JoinColumn(name="contratos_id")
+    @JoinColumn(name = "contratos_id")
     private Contracts CONTRATO;
+
+    @ManyToOne
+    @JoinColumn(name="template_id")
+    private Template template;
+
+    //Doesn't belong the original xml, these variable it's to complete the form
+    private String VENCIMENTOPOREXTENSO;
+    private LocalDate VENCIMENTO;
+    private LocalDate COBRANCAENCARGOAPARTIR;
+    private String TITULODOCABECALHO;
+    private String CIDADEESTADODATACONTRATO;
+    private String UMIDADE;
+    private String IMPUREZA;
+    private String AVARIADOS_ARDIDOS;
 }
