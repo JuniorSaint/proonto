@@ -32,19 +32,16 @@ public class FileHtmlController {
 
     @GetMapping("/{id}")
     public String contractHtml(Model model, @PathVariable(value = "id") Long id) throws IOException, TemplateException {
-        String test = fileHtmlService.recordDataToDb(id);
-        Pignoratics pignoratics = fileHtmlService.createDataToBuildFile(5L);
         StringTemplateLoader stringLoader = new StringTemplateLoader();
-        stringLoader.putTemplate("OKTemp", test);
+        stringLoader.putTemplate("templateToShow", fileHtmlService.recordDataToDb(id));
 
         Configuration configuration = new Configuration(Configuration.VERSION_2_3_30);
         configuration.setTemplateLoader(stringLoader);
 
         Map<String, Object> rootObject = new HashMap<>();
+        rootObject.put("tst", fileHtmlService.createDataToBuildFile(5L));
 
-        rootObject.put("tst", pignoratics);
-
-        Template template = configuration.getTemplate("OKTemp");
+        Template template = configuration.getTemplate("templateToShow");
 
         StringWriter stringWriter = new StringWriter();
         template.process(rootObject, stringWriter);

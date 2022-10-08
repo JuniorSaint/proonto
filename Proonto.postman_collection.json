@@ -1,0 +1,1390 @@
+{
+	"info": {
+		"_postman_id": "640c7fd9-b929-4315-ae31-3089820bcfd9",
+		"name": "Proonto",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11618265"
+	},
+	"item": [
+		{
+			"name": "Immovable",
+			"item": [
+				{
+					"name": "Save - Immovable",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"owner\": \"Clovis Teixeira Assis\",\n    \"rg\": \"M-2.365.365\",\n    \"cpf\": \"888.999.555-00\",\n    \"maritalStatus\": \"casado\",\n    \"cns\": \"cns\",\n    \"book\": \"livro 21\",\n    \"registrationNumberTranscript\": \"6-b\",\n    \"description\": \"propriedade pertencente ao a familia do proprietário mencionado\",\n    \"locationType\": \"tipo de localização\",\n    \"propertyType\": \"tipo de propriedade\",\n    \"address\": {\n        \"street\": \"Br 383, km 3\",\n        \"number\": \"1800\",\n        \"district\": \"Zona rural\",\n        \"city\": \"Diamantina\",\n        \"uf\": \"MG\",\n        \"zipCode\": \"36.250-200\",\n        \"batch\": \"Lote 158 e 160\",\n        \"complement\": \"propriedade localizada entre o distrito um e dois\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/immovable",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"immovable"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update - Immovable",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"owner\": \"Clovis Teixeira Assis Marinho - alterado\",\n    \"rg\": \"M-2.365.365\",\n    \"cpf\": \"888.999.555-00\",\n    \"maritalStatus\": \"casado\",\n    \"cns\": \"cns\",\n    \"book\": \"livro 21\",\n    \"registrationNumberTranscript\": \"6-b\",\n    \"description\": \"propriedade pertencente a familia do proprietário mencionado\",\n    \"locationType\": \"tipo de localização\",\n    \"propertyType\": \"tipo de propriedade\",\n    \"address\": {\n        \"id\": 1,\n        \"street\": \"Br 383, km 22 - alterado\",\n        \"number\": \"1800\",\n        \"district\": \"Zona rural\",\n        \"city\": \"Diamantina\",\n        \"uf\": \"MG\",\n        \"zipCode\": \"36.250-200\",\n        \"batch\": \"Lote 158 e 160\",\n        \"block\": null,\n        \"complement\": \"propriedade localizada entre o distrito um e dois dos Palmares\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/immovable",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"immovable"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/immovable",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"immovable"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/immovable/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"immovable",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete - Immovable",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/immovable/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"immovable",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bank",
+			"item": [
+				{
+					"name": "Find by Id - Bank",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/bank/402",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"bank",
+								"402"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update - Bank",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 2,\n    \"code\": \"014\",\n    \"ispb\": \"09274232\",\n    \"cnpj\": \"09274232000102\",\n    \"nameBank\": \"State Street Brasil S.A. - Banco Comercial\",\n    \"url\": \"statebrasil@statebrasil.com\"    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/bank",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"bank"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post - Bank",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"000000\",\n    \"ispb\": \"09274232\",\n    \"cnpj\": \"09.274.232/0001-02\",\n    \"nameBank\": \"teste de post\",\n    \"url\": \"www.post.com.br\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/bank",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"bank"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find all - Bank",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/bank",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"bank"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete - Bank",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/bank/721",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"bank",
+								"721"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Agency_Bank",
+			"item": [
+				{
+					"name": "Post - Agency bank",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"agency\": \"78548\",\n    \"count\": \"125423-2\",\n    \"active\": true,\n    \"contact\": {\n        \"nome\": \"Maria Aparecida\",\n        \"email\": \"maria@maria.com\",\n        \"telefone\": \"32-15515-8525\"\n    },\n    \"bank\": {\n        \"id\": 1\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local8080}}v1/agency-bank",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"agency-bank"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find by Id - Agency bank",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/agency-bank/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"agency-bank",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update - Agency bank",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 4,\n    \"agency\": \"78548\",\n    \"count\": \"125423-2\",\n    \"active\": true,\n    \"contact\": {\n        \"id\": 2,\n        \"name\": \"John Doe\",\n        \"email\": \"doe@gi.com.br\",\n        \"phone\": \"(32) 99999-8888\"\n    },\n    \"bank\": {\n        \"id\": 2\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/agency-bank/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"agency-bank",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find all - Agency Bank",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/agencybank/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"agencybank",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete - Agency Bank",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/agencybank/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"agencybank",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Property_Type",
+			"item": [
+				{
+					"name": "Find all - Property type",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/propertytype",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"propertytype"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find by Id - Property type",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/propertytype/01",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"propertytype",
+								"01"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post - Property type",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"domain\": \"999\",\n  \"description\": \"teste property\",\n  \"active\": true\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/propertytype",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"propertytype"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put - Property type",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"domain\": \"999\",\n    \"description\": \"teste property update\",\n    \"active\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/propertytype",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"propertytype"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete - Property type",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/propertytype/999",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"propertytype",
+								"999"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Guarantee_Type",
+			"item": [
+				{
+					"name": "Find all - Guarantee type",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/guaranteetype",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"guaranteetype"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find by id - Guarantee type",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/guaranteetype/01",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"guaranteetype",
+								"01"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post - Guarantee Type",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"domain\": \"500\",\n  \"description\": \"teste guarantee\",\n  \"active\": \"ACTIVE\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/guaranteetype",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"guaranteetype"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put - Guarantee Type",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"domain\": \"500\",\n  \"description\": \"teste guarantee update\",\n  \"active\": true\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/guaranteetype",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"guaranteetype"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete - Guarantee type",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/guaranteetype/500",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"guaranteetype",
+								"500"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Guarantee_Type_Sub",
+			"item": [
+				{
+					"name": "Find all - Guarantee type sub",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/guaranteetypesub",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"guaranteetypesub"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find by id - Guarantee type sub",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/guaranteetypesub/001",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"guaranteetypesub",
+								"001"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post - Guarantee type sub",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"500\",\n    \"sub\": \"02\",\n    \"description\": \"teste sub guaranteeType\",\n  \"active\": \"ACTIVE\",\n    \"guaranteeType\": {\n        \"domain\": \"500\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/guaranteetypesub",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"guaranteetypesub"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put - Guarantee type sub",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"500\",\n    \"sub\": \"02\",\n    \"description\": \"teste sub guaranteeType update\",\n    \"active\": true,\n    \"guaranteeType\": {       \n        \"domain\": \"12\"        \n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/guaranteetypesub",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"guaranteetypesub"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete - Guarantee type sub",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/guaranteetypesub/500",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"guaranteetypesub",
+								"500"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Find all - Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Local8080}}v1/users/",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post - user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"José Atanazio\",\n  \"email\": \"junior@idipi.com.br\",\n  \"password\": \"123456\",\n  \"cpf\": \"882.882.954-00\",\n  \"active\": true\n\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local8080}}v1/users/",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put - user",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 6,\n    \"name\": \"José Atanazio da silva\",\n    \"email\": \"junior@idipi.com.br\",\n    \"active\": true,\n    \"createdAt\": \"2022-08-30\",\n    \"updatedAt\": \"2022-08-30\",\n    \"cpf\": \"882.882.882-00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local8080}}v1/users/",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find by id - user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Local8080}}v1/users/6",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"users",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete - user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{Local8080}}v1/users/6",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"users",
+								"6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "File",
+			"item": [
+				{
+					"name": "Post - File",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Maria\",\n    \"cpf\": \"882.852.852-20\",\n    \"income\": 5000.1,\n    \"birthDate\": \"2006-10-15\",\n    \"children\": 3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local8080}}v1/file/",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"file",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Presenter",
+			"item": [
+				{
+					"name": "Post - Presenter",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Banco do Brasil\",\n    \"tipopessoa\": \"1\",\n    \"cpfcnpj\": \"11.111.111/1111-11\",\n    \"endereco\": {\n        \"tipologradouro\": \"1\",\n        \"logradouro\": \"Rua dos testes\",\n        \"numero\": \"36-B\",\n        \"bairro\": \"Centro\",\n        \"cidade\": \"Carandaí\",\n        \"uf\": \"MG\",\n        \"lote\": \"twertwert \",\n        \"quadra\": \" twetrw\",\n        \"torre\": \" twertwert\",\n        \"complemento\": \"Em frente ao hospital\",\n        \"cep\": \"36.100-000\"\n    },\n    \"representante\": {\n        \"nome\": \"Nome do representante\",\n        \"cpfcnpj\": \"888.888.888-00\"\n    },\n    \"contato\": {\n        \"nome\": \"Nome do Contato\",\n        \"telefone\": \"(32) 99999-1111\",\n        \"email\": \"contato@contato.com.br\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local8080}}v1/presenter/",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"presenter",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put = Presenter",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 2,\n    \"nome\": \"Banco do Brasil Updadte\",\n    \"cpfcnpj\": \"11.111.111/1111-11\",\n    \"endereco\": {\n        \"id\": 2,\n        \"tipologradouro\": \"1\",\n        \"logradouro\": \"Rua dos testes Updadte\",\n        \"numero\": \"36-B\",\n        \"bairro\": \"Centro\",\n        \"cidade\": \"Carandaí\",\n        \"uf\": \"MG\",\n        \"lote\": \"twertwert \",\n        \"quadra\": \" twetrw\",\n        \"torre\": \" twertwert\",\n        \"complemento\": \"Em frente ao hospital\",\n        \"cep\": \"36.100-000\"\n    },\n    \"representante\": {\n        \"id\": 2,\n        \"nome\": \"Nome do representante Update\",\n        \"cpfcnpj\": \"888.888.888-00\"\n    },\n    \"contato\": {\n        \"id\": 8,\n        \"telefone\": \"(32) 99999-1111\",\n        \"nome\": \"Nome do Contato Update\",\n        \"email\": \"contato@contato.com.br\"\n    },\n    \"tipopessoa\": \"1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local8080}}v1/presenter/",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"presenter",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find by id - Presenter",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Local8080}}v1/presenter/2",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"presenter",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Financial",
+			"item": [
+				{
+					"name": "Post - Financial",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"valortotal\": 10000.0,\n  \"valorextenso\": \"Dez mil reais\",\n  \"criterioobtencaoliquidacao\": \"criterio de avaliação\",\n  \"moeda\": \"790\",\n  \"saldoremanescente\": 500.0,\n  \"valorparcelainicial\": 500.0,\n  \"formapagamento\": \"Forma de pagamento\",\n  \"taxajurosnominalanual\": 1.8,\n  \"taxajurosnominalmensal\": 0.8,\n  \"taxajurosefetivamensal\": 0.5,\n  \"taxajurosefetivaanual\": 10.0,\n  \"pracapagamento\": \"Praça de pagamento\",\n  \"foro\": \"Foro\",\n  \"indexador\": \"1\",\n  \"comissaofiscalizacao\": \"Comissão fiscalizadora\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local8080}}v1/financial/",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"financial",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put - Financial",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 2,\n    \"valortotal\": 100000.0,\n    \"valorextenso\": \"cem mil reais\",\n    \"criterioobtencaoliquidacao\": \"criterio de avaliação\",\n    \"moeda\": \"790\",\n    \"saldoremanescente\": 500.0,\n    \"valorparcelainicial\": 500.0,\n    \"formapagamento\": \"Forma de pagamento\",\n    \"taxajurosnominalanual\": 1.8,\n    \"taxajurosnominalmensal\": 0.8,\n    \"taxajurosefetivamensal\": 0.5,\n    \"taxajurosefetivaanual\": 10.0,\n    \"pracapagamento\": \"Praça de pagamento\",\n    \"foro\": \"Foro\",\n    \"indexador\": \"1\",\n    \"comissaofiscalizacao\": \"Comissão fiscalizadora\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local8080}}v1/financial/",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"financial",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Modalidaties",
+			"item": [
+				{
+					"name": "Post - Modalidaty",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"modalidadesoperacao\": [\n        {\n            \"modalidade\": \"modalidade 1\",\n            \"origemrecursos\": \"origem dos recursos 1\",\n            \"destinofinanciamento\": \"destino do financiamento 1\"\n        },\n        {\n            \"modalidade\": \"modalidade 2\",\n            \"origemrecursos\": \"origem dos recursos 2\",\n            \"destinofinanciamento\": \"destino do financiamento 1\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local8080}}v1/modality/",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"modality",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find by id - Modality",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Local8080}}v1/modality/4",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"modality",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Part",
+			"item": [
+				{
+					"name": "Part - Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"endereco\": {\n        \"tipologradouro\": \"Rua dos testes\",\n        \"logradouro\": \"1\",\n        \"numero\": \"1365\",\n        \"bairro\": \"centro\",\n        \"cidade\": \"Juiz de Fora\",\n        \"uf\": \"MG\",\n        \"lote\": \"Lote 1\",\n        \"quadra\": \"\",\n        \"torre\": \"\",\n        \"complemento\": \"perto da estrada velha\",\n        \"cep\": \"36.258-200\"\n    },\n    \"cpfcnpj\": \"882.885.888-00\",\n    \"pacto\": {\n        \"folha\": \"Folha 1\",\n        \"local\": \"Lima Duarte\",\n        \"data\": \"2022-09-22\",\n        \"registro\": \"registro 1\",\n        \"livro\": \"livro 1\",\n        \"cartorio\": \"152\"\n    },\n    \"nome\": \"Maria do Nascimento Silva\",\n    \"tipopessoa\": \"1\",\n    \"genero\": \"MASCULINO\",\n    \"datanascimento\": \"1985-09-22\",\n    \"documento\": \"M-6.888.555\",\n    \"orgaoemissor\": \"SSPMG\",\n    \"nacionalidade\": \"brasileira\",\n    \"estadocivil\": \"1\",\n    \"regimebens\": \"1\",\n    \"profissao\": \"Contador\",\n    \"filiacao1\": \"José Anuciação Silva\",\n    \"filiacao2\": \"Maria Florinda Silva\",\n    \"cpfconjuge\": \"584.584.584-00\",\n    \"qualificacoes\": [\n        {\n            \"qualificacoes\": \"Qualificação 1\"\n        },\n        {\n            \"qualificacoes\": \"Qualificação 2\"\n        }\n    ],\n    \"contato\": {\n        \"telefone\": \"(32) 89985-2552\",\n        \"email\": \"doe@doe.com.br\",\n        \"nome\": \"John Doe\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local8080}}v1/part",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"part"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Part - Find by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Local8080}}v1/part/1",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"part",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Product - Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"descricao\": \"Descrição do produto\",\n    \"qualidade\": \"boa\",\n    \"quantidade\": \"1000\",\n    \"localproducao\": {\n        \"registro\": {\n            \"complemento\": \"Complemento registro\",\n            \"livro\": \"livro registro\",\n            \"cns\": \"cns registro\",\n            \"numeroregistro\": \"numero do registro \",\n            \"imovel\": {\n                \"descricao\": \"descrição do imóvel\",\n                \"endereco\": {\n                    \"tipologradouro\": \"1\",\n                    \"logradouro\": \"Rua dos teste 4\",\n                    \"numero\": \"365N\",\n                    \"bairro\": \"Culhões\",\n                    \"cidade\": \"Miradouro\",\n                    \"uf\": \"MG\",\n                    \"lote\": \"Lote 10\",\n                    \"quadra\": \"quadra 21\",\n                    \"torre\": \"torre\",\n                    \"complemento\": \"Complemento registro\",\n                    \"cep\": \"56.258-524\"\n                },\n                \"tipolocalizacao\": \"tipo de localização do imóvel\",\n                \"tipoimovel\": \"tipo de imóvel\",\n                \"edificacao\": \"tipo de edificação\"\n            }\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local8080}}v1/product",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product - Find by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Local8080}}v1/product/1",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"product",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Guarantee",
+			"item": [
+				{
+					"name": "Post - Guarantee",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"valor\": 1522.2,\n    \"area\": {\n        \"arquivos\": [\n            {\n                \"tipo\": \"arquivo 1\",\n                \"nome\": \"area 1\"\n            },\n            {\n                \"tipo\": \"arquivo 2\",\n                \"nome\": \"area 2\"\n            }\n        ],\n        \"descricao\": \"descrição da área\"\n    },\n    \"tipogarantia\": \"tipografia garantia\",\n    \"tipobem\": \"tipo de bem\",\n    \"percentualcomprometido\": 1.2,\n    \"qualidade\": \"boa\",\n    \"quantidade\": 5000,\n    \"marca\": \"ainda não sei\",\n    \"periodoproducao\": \"2022 - 2023\",\n    \"grau\": \"10\",\n    \"registros\": [\n        {\n            \"numeroregistro\": \"numero do registro \",\n            \"imovel\": {\n                \"endereco\": {\n                    \"tipologradouro\": \"1\",\n                    \"logradouro\": \"Rua dos teste 4\",\n                    \"numero\": \"365N\",\n                    \"bairro\": \"Culhões\",\n                    \"cidade\": \"Miradouro\",\n                    \"uf\": \"MG\",\n                    \"lote\": \"Lote 10\",\n                    \"quadra\": \"quadra 21\",\n                    \"torre\": \"torre\",\n                    \"complemento\": \"Complemento registro\",\n                    \"cep\": \"56.258-524\"\n                },\n                \"descricao\": \"descrição do imóvel\",\n                \"edificacao\": \"tipo de edificação\",\n                \"tipolocalizacao\": \"tipo de localização do imóvel\",\n                \"tipoimovel\": \"tipo de imóvel\"\n            },\n            \"complemento\": \"Complemento registro\",\n            \"cns\": \"cns registro\",\n            \"livro\": \"livro registro\"\n        }\n    ],\n    \"descricao\": \"Descrição da garantia\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local8080}}v1/guarantee",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"guarantee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Gurantee - Find by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Local8080}}v1/guarantee/8",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"guarantee",
+								"8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Contract",
+			"item": [
+				{
+					"name": "Post - Contract",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"titulodocabecalho\": \"CÉDULA RURAL PIGNORATÍCIA\",\n    \"cidadeestadodatacontrato\": \"Nova Andradina- MS, 01 de outubro de 2022.\",\n    \"vencimentoporextenso\": \"25 de dezembro de 2023\",\n    \"vencimento\": \"2023-12-25\",\n    \"cobrancaencargoapartir\": \"2024-01-25\",\n    \"cartorios\": [\n        {\n            \"uf\": \"SP\",\n            \"nome\": \"Cartório Savio Motta\",\n            \"comarca\": \"Andradina\",\n            \"cns\": \"119719\"\n        },\n        {\n            \"uf\": \"MT\",\n            \"nome\": \"Cartório Ormindo Maia\",\n            \"comarca\": \"Nova Andradina\",\n            \"cns\": \"119719\"\n        }\n    ],\n    \"numerocontrato\": \"1522-25\",\n    \"tipocedula\": \"CPR\",\n    \"datacontrato\": \"2022-09-27\",\n    \"localcontrato\": \"Carandaí\",\n    \"remetente\": {\n        \"nome\": \"Banco Remetente\",\n        \"tipopessoa\": \"2\",\n        \"cpfcnpj\": \"25.258.258/0001-20\",\n        \"endereco\": {\n            \"complemento\": \"Complemento endereço remetente\",\n            \"cep\": \"36.250-250\",\n            \"tipologradouro\": \"645\",\n            \"logradouro\": \"Rua endereço remetente\",\n            \"quadra\": \"Quadra remetente\",\n            \"bairro\": \"Bairro remetente\",\n            \"numero\": \"365-B\",\n            \"cidade\": \"Juiz de Fora\",\n            \"uf\": \"MG\",\n            \"lote\": \"Lote Rementente\",\n            \"torre\": \"Torre remetente\"\n        },\n        \"contato\": {\n            \"nome\": \"Contato remetente\",\n            \"email\": \"remetente@remetente.com.br\",\n            \"telefone\": \"(32) 99999-8887\"\n        },\n        \"representante\": {\n            \"cpfcnpj\": \"852.258.258-00\",\n            \"nome\": \"José das Coves\"\n        }\n    },\n    \"apresentante\": {\n        \"nome\": \"Cooperativa dos Produtores Rurais de Carandaí\",\n        \"tipopessoa\": \"1\",\n        \"cpfcnpj\": \"258.258.369/0001-20\",\n        \"endereco\": {\n            \"complemento\": \"Complemento endereço apresentante\",\n            \"cep\": \"36.250-250\",\n            \"tipologradouro\": \"645\",\n            \"logradouro\": \"Rua endereço apresentante\",\n            \"quadra\": \"Quadra apresentante\",\n            \"bairro\": \"Bairro apresentante\",\n            \"numero\": \"365-B\",\n            \"cidade\": \"Juiz de Fora\",\n            \"uf\": \"MG\",\n            \"lote\": \"Lote apresentante\",\n            \"torre\": \"Torre apresentante\"\n        },\n        \"contato\": {\n            \"nome\": \"Maria Joaquina da Silva\",\n            \"email\": \"quin@quim.com.br\",\n            \"telefone\": \"(32) 99999-8887\"\n        },\n        \"representante\": {\n            \"cpfcnpj\": \"159.159.159-20\",\n            \"nome\": \"john Doe\"\n        }\n    },\n    \"financeiro\": {\n        \"valortotal\": 500000.0,\n        \"valorextenso\": \"Quinhentos mil reais\",\n        \"criterioobtencaoliquidacao\": \"critério\",\n        \"moeda\": \"790\",\n        \"saldoremanescente\": 450000.0,\n        \"valorparcelainicial\": 50000.0,\n        \"formapagamento\": \"Forma pagamento\",\n        \"taxajurosnominalanual\": 7.5,\n        \"taxajurosnominalmensal\": 0.6,\n        \"taxajurosefetivamensal\": 0.7,\n        \"taxajurosefetivaanual\": 7.9,\n        \"pracapagamento\": \"Carandaí\",\n        \"foro\": \"Carandaí\",\n        \"indexador\": \"5\",\n        \"comissaofiscalizacao\": \"Comissão fiscalizadora\",\n        \"taxajurosnominalanualporextenso\": \"sete e meio por cento\",\n        \"taxajurosnominalmensalporextenso\": \"zero ponto seis por cento\",\n        \"taxajurosefetivamensalporextenso\": \"zero ponto sete por cento\",\n        \"taxajurosefetivaanualporextenso\": \"sete ponto nove por cento\",\n        \"multa\": 2.0,\n        \"multaporextenso\": \"Dois por cento\"\n    },\n    \"modalidadesoperacao\": [\n        {\n            \"origemrecursos\": \"origem dos recursos\",\n            \"destinofinanciamento\": \"destino do financiamento\",\n            \"modalidade\": \"modalidade\"\n        }\n    ],\n    \"partes\": [\n        {\n            \"nome\": \"Salvador da Cruz Regini\",\n            \"qualificacoes\": [\n                {\n                    \"qualificacao\": \"5\"\n                },\n                {\n                    \"qualificacao\": \"10\"\n                }\n            ],\n            \"tipopessoa\": \"1\",\n            \"cpfcnpj\": \"257.257.257-20\",\n            \"genero\": \"MASCULINO\",\n            \"datanascimento\": \"1985-09-27\",\n            \"documento\": \"M258.258.369\",\n            \"orgaoemissor\": \"SSPMG\",\n            \"nacionalidade\": \"Brasileira\",\n            \"estadocivil\": \"2\",\n            \"uniaoestavel\": \" \",\n            \"pacto\": {\n                \"folha\": \"Folha 10\",\n                \"cartorio\": \"158\",\n                \"local\": \"São José do Pádua\",\n                \"data\": \"2022-09-27\",\n                \"livro\": \"Livro 10\",\n                \"registro\": \"Registro b52\"\n            },\n            \"regimebens\": \"3\",\n            \"outroregime\": \"\",\n            \"profissao\": \"Agricultor\",\n            \"endereco\": {\n                \"complemento\": \"Complemento endereço partes\",\n                \"cep\": \"36.250-250\",\n                \"tipologradouro\": \"645\",\n                \"logradouro\": \"Rua endereço partes\",\n                \"quadra\": \"Quadra partes\",\n                \"bairro\": \"Bairro partes\",\n                \"numero\": \"365-B\",\n                \"cidade\": \"Correia de Almeida\",\n                \"uf\": \"MG\",\n                \"lote\": \"Lote partes\",\n                \"torre\": \"Torre partes\"\n            },\n            \"contato\": {\n                \"nome\": \"Contato novamente\",\n                \"email\": \"novamente@novamente.com\",\n                \"telefone\": \"(36) 98798-2585\"\n            },\n            \"filiacao1\": \"Jose Maria Silva\",\n            \"filiacao2\": \"Maria Jose Silva\",\n            \"cpfconjuge\": \"357.357.357-25\"\n        },\n        {\n            \"nome\": \"Cooperativa dos Produtores Rurais de Carandaí\",\n            \"qualificacoes\": [\n                {\n                    \"qualificacao\": \"3\"\n                }\n            ],\n            \"tipopessoa\": \"2\",\n            \"cpfcnpj\": \"00.000.000/2222-22\",\n            \"genero\": \"EM_BRANCO\",\n            \"datanascimento\": \" \",\n            \"documento\": \" \",\n            \"orgaoemissor\": \" \",\n            \"nacionalidade\": \" \",\n            \"estadocivil\": \" \",\n            \"uniaoestavel\": \" \",\n            \"pacto\": {\n                \"folha\": \"Folha 10\",\n                \"cartorio\": \"158\",\n                \"local\": \"São José do Pádua\",\n                \"data\": \"2022-09-27\",\n                \"livro\": \"Livro 10\",\n                \"registro\": \"Registro b52\"\n            },\n            \"regimebens\": \" \",\n            \"outroregime\": \" \",\n            \"profissao\": \" \",\n            \"endereco\": {\n                \"complemento\": \"Complemento endereço partes\",\n                \"cep\": \"36.250-250\",\n                \"tipologradouro\": \"645\",\n                \"logradouro\": \"Rua endereço partes\",\n                \"quadra\": \"Quadra partes\",\n                \"bairro\": \"Bairro partes\",\n                \"numero\": \"365-B\",\n                \"cidade\": \"Correia de Almeida\",\n                \"uf\": \"MG\",\n                \"lote\": \"Lote partes\",\n                \"torre\": \"Torre partes\"\n            },\n            \"contato\": {\n                \"nome\": \"Contato Cooperativa\",\n                \"email\": \"novamente@novamente.com\",\n                \"telefone\": \"(36) 98798-2585\"\n            },\n            \"filiacao1\": \" \",\n            \"filiacao2\": \" \",\n            \"cpfconjuge\": \" \"\n        },\n        {\n            \"nome\": \"Priscila Fontine\",\n            \"qualificacoes\": [\n                {\n                    \"qualificacao\": \"14\"\n                }\n            ],\n            \"tipopessoa\": \"1\",\n            \"cpfcnpj\": \"257.257.257-20\",\n            \"genero\": \"FEMININO\",\n            \"datanascimento\": \"1985-09-27\",\n            \"documento\": \"M258.258.369\",\n            \"orgaoemissor\": \"SSPMG\",\n            \"nacionalidade\": \"Brasileira\",\n            \"estadocivil\": \"2\",\n            \"uniaoestavel\": \"união estável\",\n            \"pacto\": {\n                \"folha\": \"Folha 10\",\n                \"cartorio\": \"158\",\n                \"local\": \"São José do Pádua\",\n                \"data\": \"2022-09-27\",\n                \"livro\": \"Livro 10\",\n                \"registro\": \"Registro b52\"\n            },\n            \"regimebens\": \"3\",\n            \"outroregime\": \"\",\n            \"profissao\": \"Gerente Administrivo\",\n            \"endereco\": {\n                \"complemento\": \"Complemento endereço partes\",\n                \"cep\": \"36.250-250\",\n                \"tipologradouro\": \"645\",\n                \"logradouro\": \"Rua endereço partes\",\n                \"quadra\": \"Quadra partes\",\n                \"bairro\": \"Bairro partes\",\n                \"numero\": \"365-B\",\n                \"cidade\": \"Correia de Almeida\",\n                \"uf\": \"MG\",\n                \"lote\": \"Lote partes\",\n                \"torre\": \"Torre partes\"\n            },\n            \"contato\": {\n                \"nome\": \"\",\n                \"email\": \"novamente@novamente.com\",\n                \"telefone\": \"(36) 98798-2585\"\n            },\n            \"filiacao1\": \"Jose Maria Silva\",\n            \"filiacao2\": \"Maria Jose Silva\",\n            \"cpfconjuge\": \"357.357.357-25\"\n        },\n        {\n            \"nome\": \"Maria das Graça Pereira\",\n            \"qualificacoes\": [\n                {\n                    \"qualificacao\": \"17\"\n                }\n            ],\n            \"tipopessoa\": \"1\",\n            \"cpfcnpj\": \"258.247.259-20\",\n            \"genero\": \"FEMININO\",\n            \"datanascimento\": \"1990-09-27\",\n            \"documento\": \"6.258.258.369\",\n            \"orgaoemissor\": \"EB\",\n            \"nacionalidade\": \"Brasileira\",\n            \"estadocivil\": \"2\",\n            \"uniaoestavel\": \"união estável\",\n            \"pacto\": {\n                \"folha\": \"Folha 10\",\n                \"cartorio\": \"158\",\n                \"local\": \"São José do Pádua\",\n                \"data\": \"2022-09-27\",\n                \"livro\": \"Livro 10\",\n                \"registro\": \"Registro b52\"\n            },\n            \"regimebens\": \"3\",\n            \"outroregime\": \"\",\n            \"profissao\": \"Empresária\",\n            \"endereco\": {\n                \"complemento\": \"Complemento endereço partes\",\n                \"cep\": \"36.250-250\",\n                \"tipologradouro\": \"645\",\n                \"logradouro\": \"Rua endereço partes\",\n                \"quadra\": \"Quadra partes\",\n                \"bairro\": \"Bairro partes\",\n                \"numero\": \"365-B\",\n                \"cidade\": \"Correia de Almeida\",\n                \"uf\": \"MG\",\n                \"lote\": \"Lote partes\",\n                \"torre\": \"Torre partes\"\n            },\n            \"contato\": {\n                \"nome\": \"Júlio Martins\",\n                \"email\": \"julio@novamente.com\",\n                \"telefone\": \"(36) 25874-2585\"\n            },\n            \"filiacao1\": \"Sebastiao Gonçalves Pinto\",\n            \"filiacao2\": \"Maria Jose Silva Pinto\",\n            \"cpfconjuge\": \"369.777.357-25\"\n        }\n    ],\n    \"cpr\": {\n        \"produtos\": [\n            {\n                \"descricao\": \"BOI DA RAÇA MARFRIG\",\n                \"qualidade\": \"BOI ANGUS MISTURADO COM O WAGYU, COM PESAGEM DE 600 KG CADA UM\",\n                \"quantidade\": \"100 CABEÇAS DE BOI\",\n                \"localproducao\": {\n                    \"registro\": {\n                        \"cns\": {\n                            \"uf\": \"MT\",\n                            \"nome\": \"Cartório Ormindo Maia\",\n                            \"comarca\": \"Nova Andradina\",\n                            \"cns\": \"119719\"\n                        },\n                        \"livro\": \"livro registro\",\n                        \"numeroregistro\": \"numero do registro \",\n                        \"complemento\": \"Complemento registro 2\",\n                        \"imovel\": {\n                            \"descricao\": \"descrição do imóvel\",\n                            \"tipolocalizacao\": \"tipo de localização do imóvel\",\n                            \"tipoimovel\": \"tipo de imóvel\",\n                            \"edificacao\": \"tipo de edificação\",\n                            \"endereco\": {\n                                \"tipologradouro\": \"1\",\n                                \"logradouro\": \"Rua dos teste 4\",\n                                \"numero\": \"365N\",\n                                \"bairro\": \"Culhões\",\n                                \"cidade\": \"Miradouro\",\n                                \"uf\": \"MG\",\n                                \"lote\": \"Lote 10\",\n                                \"quadra\": \"quadra 21\",\n                                \"torre\": \"torre\",\n                                \"complemento\": \"Complemento registro\",\n                                \"cep\": \"56.258-524\"\n                            }\n                        }\n                    }\n                }\n            }\n        ],\n        \"financeiro\": {\n            \"valortotal\": 249998.8,\n            \"valorextenso\": \"Dez mil reais\",\n            \"criterioobtencaoliquidacao\": \"criterio de avaliação\",\n            \"moeda\": \"790\",\n            \"saldoremanescente\": 500.0,\n            \"valorparcelainicial\": 500.0,\n            \"formapagamento\": \"Forma de pagamento\",\n            \"taxajurosnominalanual\": 1.8,\n            \"taxajurosnominalmensal\": 0.8,\n            \"taxajurosefetivamensal\": 0.5,\n            \"taxajurosefetivaanual\": 10.0,\n            \"pracapagamento\": \"Praça de pagamento\",\n            \"foro\": \"Foro\",\n            \"indexador\": \"1\",\n            \"comissaofiscalizacao\": \"Comissão fiscalizadora\"\n        },\n        \"localentrega\": \"SÃO PAULO\",\n        \"periodo\": \"OS BOIS SERÃO PREPARADOS ATÉ 20/04/2023\",\n        \"condicoes\": \"ELES SERÃO ENTREGUES LIMPOS\"\n    },\n    \"garantias\": [\n        {\n            \"registros\": [\n                {\n                    \"numeroregistro\": \"12237\",\n                    \"imovel\": {\n                        \"endereco\": {\n                            \"tipologradouro\": \"1\",\n                            \"logradouro\": \"Rua dos teste 4\",\n                            \"numero\": \"365N\",\n                            \"bairro\": \"Culhões\",\n                            \"cidade\": \"Miradouro\",\n                            \"uf\": \"MG\",\n                            \"lote\": \"Lote 10\",\n                            \"quadra\": \"quadra 21\",\n                            \"torre\": \"torre\",\n                            \"complemento\": \"Complemento registro\",\n                            \"cep\": \"56.258-524\"\n                        },\n                        \"descricao\": \"descrição do imóvel\",\n                        \"edificacao\": \"tipo de edificação\",\n                        \"tipolocalizacao\": \"2\",\n                        \"tipoimovel\": \"28\"\n                    },\n                    \"complemento\": \"COM RESERVA DE USUFRUTO VITALICIO DE 50% A ANA MARIA SALVADOR CAPARROZ.\",\n                    \"cns\": {\n                        \"uf\": \"MT\",\n                        \"nome\": \"Cartório Ormindo Maia\",\n                        \"comarca\": \"Nova Andradina\",\n                        \"cns\": \"119715\"\n                    },\n                    \"livro\": \"livro registro\"\n                }\n            ],\n            \"tipogarantia\": \"0322\",\n            \"tipobem\": \"32\",\n            \"descricao\": \"VACA COM 72 MESES\",\n            \"percentualcomprometido\": 0.0,\n            \"valor\": 451500.00,\n            \"qualidade\": \"boa\",\n            \"quantidade\": 36,\n            \"marca\": \"ainda não sei\",\n            \"periodoproducao\": \"2022 - 2023\",\n            \"area\": {},\n            \"grau\": \"PRIMEIRO GRAU\"\n        }\n    ],\n    \"impostos\": [\n        {\n            \"numero\": \"2125\",\n            \"emissor\": \"emissor impostos\",\n            \"serie\": \"serie impostos\",\n            \"valor\": 2000.0,\n            \"isento\": \"não\",\n            \"justificativa\": \"justificativa impostos\"\n        }\n    ],\n    \"procuracoes\": [\n        {\n            \"numero\": \"1234\",\n            \"representante\": \"996.054.000-72\",\n            \"contrato\": \"contrato procuração\",\n            \"representado\": \"00.000.000/2222-22\",\n            \"tiporegistro\": \"5\",\n            \"orgao\": \"1 TABELIAO DE NOTAS DE SP\",\n            \"formaregistro\": \"Forma de registro procuração\",\n            \"numerolivro\": \"123\",\n            \"folha\": \"234\",\n            \"numeroregistro\": \"número registro procuração\",\n            \"dataregistro\": \"2022-09-27\"\n        }\n    ],\n    \"autorizacoes\": {\n        \"declaro\": \"DECLARO QUE ESTES DADOS CORRESPONDEM FIDEDIGNAMENTE AOS QUE CONSTAM NO RESPECTIVO INSTRUMENTO PARTICULAR COM FORÇA DE ESCRITURA PÚBLICA OU TÍTULO DE CRÉDITO QUE LHE DEU ORIGEM, FORMALIZADO COM TODAS AS CLÁUSULAS OBRIGATÓRIAS, QUE SE ENCONTRA EM SEU ARQUIVO, E QUE FOI VERIFICADA A IDENTIFICAÇÃO E A REGULARIDADE DA REPRESENTAÇÃO DAS PARTES QUE SUBSCREVERAM O DOCUMENTO ORIGINAL.\",\n        \"autorizo\": \"AUTORIZO O OFICIAL DE REGISTRO DE IMÓVEIS A PRATICAR OS ATOS EXCLUSIVAMENTE COM BASE NOS DADOS PRESENTES NESTE DOCUMENTO.\"\n    },\n    \"clausulasadicionais\": [\n        {\n            \"clausula\": \"CLAUSULA DO CONTRATO ADITIVO SE HOUVER\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local8080}}v1/contract/",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"contract",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find by Id - Contract",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Local8080}}v1/contract/1",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"contract",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CPR",
+			"item": [
+				{
+					"name": "CPR  - Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"localentrega\": \"Local entrega CPR\",\n    \"periodo\": \"2022 - 2023\",\n    \"condicoes\": \"ainda não sei\",\n    \"produtos\": [\n        {\n            \"descricao\": \"Descrição do produto 2\",\n            \"qualidade\": \"boa\",\n            \"quantidade\": \"1500\",\n            \"localproducao\": {\n                \"registro\": {\n                    \"complemento\": \"Complemento registro 2\",\n                    \"livro\": \"livro registro\",\n                    \"cns\": \"cns registro\",\n                    \"numeroregistro\": \"numero do registro \",\n                    \"imovel\": {\n                        \"descricao\": \"descrição do imóvel\",\n                        \"endereco\": {\n                            \"tipologradouro\": \"1\",\n                            \"logradouro\": \"Rua dos teste 4\",\n                            \"numero\": \"365N\",\n                            \"bairro\": \"Culhões\",\n                            \"cidade\": \"Miradouro\",\n                            \"uf\": \"MG\",\n                            \"lote\": \"Lote 10\",\n                            \"quadra\": \"quadra 21\",\n                            \"torre\": \"torre\",\n                            \"complemento\": \"Complemento registro\",\n                            \"cep\": \"56.258-524\"\n                        },\n                        \"tipolocalizacao\": \"tipo de localização do imóvel\",\n                        \"tipoimovel\": \"tipo de imóvel\",\n                        \"edificacao\": \"tipo de edificação\"\n                    }\n                }\n            }\n        },\n        {\n            \"descricao\": \"Descrição do produto 3\",\n            \"qualidade\": \"boa\",\n            \"quantidade\": \"1850\",\n            \"localproducao\": {\n                \"registro\": {\n                    \"complemento\": \"Complemento registro 3\",\n                    \"livro\": \"livro registro\",\n                    \"cns\": \"cns registro\",\n                    \"numeroregistro\": \"numero do registro \",\n                    \"imovel\": {\n                        \"descricao\": \"descrição do imóvel\",\n                        \"endereco\": {\n                            \"tipologradouro\": \"1\",\n                            \"logradouro\": \"Rua dos teste 4\",\n                            \"numero\": \"365N\",\n                            \"bairro\": \"Culhões\",\n                            \"cidade\": \"Miradouro\",\n                            \"uf\": \"MG\",\n                            \"lote\": \"Lote 10\",\n                            \"quadra\": \"quadra 21\",\n                            \"torre\": \"torre\",\n                            \"complemento\": \"Complemento registro\",\n                            \"cep\": \"56.258-524\"\n                        },\n                        \"tipolocalizacao\": \"tipo de localização do imóvel\",\n                        \"tipoimovel\": \"tipo de imóvel\",\n                        \"edificacao\": \"tipo de edificação\"\n                    }\n                }\n            }\n        }\n    ],\n    \"financeiro\": {\n        \"valortotal\": 10000.0,\n        \"valorextenso\": \"Dez mil reais\",\n        \"criterioobtencaoliquidacao\": \"criterio de avaliação\",\n        \"moeda\": \"790\",\n        \"saldoremanescente\": 500.0,\n        \"valorparcelainicial\": 500.0,\n        \"formapagamento\": \"Forma de pagamento\",\n        \"taxajurosnominalanual\": 1.8,\n        \"taxajurosnominalmensal\": 0.8,\n        \"taxajurosefetivamensal\": 0.5,\n        \"taxajurosefetivaanual\": 10.0,\n        \"pracapagamento\": \"Praça de pagamento\",\n        \"foro\": \"Foro\",\n        \"indexador\": \"1\",\n        \"comissaofiscalizacao\": \"Comissão fiscalizadora\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local8080}}v1/cpr",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"cpr"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Contracts",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Dictionary",
+			"item": [
+				{
+					"name": "Post - Dictionary",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"fromDic\": \"@_VENCIMENTOEXTENSO_@ \",\n  \"toDic\": \"${tst.VENCIMENTOEXTENSO}\",\n  \"active\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local8080}}v1/dictionary/",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"dictionary",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ContractStorage",
+			"item": [
+				{
+					"name": "Contract Storage - Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{Local8080}}v1/html/text/",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"html",
+								"text",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
