@@ -2,30 +2,30 @@ package br.com.proonto.models.entities;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 
-
-@Builder
 @Entity
-@Table(name = "template")
+@Table(name = "notification")
 @NoArgsConstructor
 @Getter
 @Setter
 @AllArgsConstructor
-@JsonIdentityInfo(generator= ObjectIdGenerators.IntSequenceGenerator.class, property="id")
-public class Template implements Serializable {
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+public class Notification implements Serializable {
     private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(columnDefinition="TEXT")
-    private String body;
+    private String field;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "contract_id", referencedColumnName = "id")
-    private Contract contract;
+    @ManyToOne
+    @JoinColumn(name="user_id", nullable=false)
+    private User user;
 }

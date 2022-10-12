@@ -76,8 +76,7 @@ public class Contract implements Serializable {
     @JoinColumn(name = "contratos_id")
     private Contracts CONTRATO;
 
-    @ManyToOne
-    @JoinColumn(name="template_id")
+    @OneToOne(mappedBy = "contract")
     private Template template;
 
     //Doesn't belong the original xml, these variable it's to complete the form

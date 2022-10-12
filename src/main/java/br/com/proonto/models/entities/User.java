@@ -35,6 +35,14 @@ public class User implements  Serializable {
     @UpdateTimestamp
     private Instant updatedAt;
 
+    @OneToMany(mappedBy="user")
+    private List<Notification> notifications;
+
+    @ManyToOne
+    @JoinColumn(name="creditor_id", nullable=false)
+    private Creditor creditor;
+
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_permission", joinColumns = {@JoinColumn(name = "id_user")},
     inverseJoinColumns = {@JoinColumn(name = "id_permission")})
