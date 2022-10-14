@@ -13,17 +13,17 @@ import java.io.Serializable;
 import java.util.List;
 
 @Entity
-@Table(name = "creditor")
 @NoArgsConstructor
 @Getter
 @Setter
 @AllArgsConstructor
+@DiscriminatorValue("creditor")
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Creditor extends Part implements Serializable {
     private static final long serialVersionUID = 1L;
-    private CreditorTypeEnum typeFiliation;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    private CreditorTypeEnum typeFiliation;
+    @OneToOne
     @JoinColumn(name = "parameter_id", referencedColumnName = "id")
     private Parameter parameter;
 
@@ -32,5 +32,9 @@ public class Creditor extends Part implements Serializable {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "matrix_id", referencedColumnName = "id")
-    private Creditor matrix;
+    private Creditor branch;
+
+    @OneToOne
+    @JoinColumn(name = "template_id", referencedColumnName = "id")
+    private Template template;
 }

@@ -19,8 +19,12 @@ public class ModalityOfOperation implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String MODALIDADE;
-    private String ORIGEMRECURSOS;
+    @OneToOne
+    @JoinColumn(name = "modalidade_id", referencedColumnName = "id")
+    private ModalityOfTheOperationSub MODALIDADE;
+    @OneToOne
+    @JoinColumn(name = "origem_recursos_id", referencedColumnName = "id")
+    private ResourcesOriginSub ORIGEMRECURSOS;
     private String DESTINOFINANCIAMENTO;
 
     @ManyToOne

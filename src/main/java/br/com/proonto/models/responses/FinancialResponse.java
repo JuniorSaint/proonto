@@ -17,7 +17,7 @@ public class FinancialResponse implements Serializable {
     private Double VALORTOTAL;
     private String VALOREXTENSO;
     private String CRITERIOOBTENCAOLIQUIDACAO;
-    private String MOEDA;
+    private CurrencyResponse MOEDA;
     private Double SALDOREMANESCENTE;
     private Double VALORPARCELAINICIAL;
     private String FORMAPAGAMENTO;
@@ -27,6 +27,6 @@ public class FinancialResponse implements Serializable {
     private Double TAXAJUROSEFETIVAANUAL;
     private String PRACAPAGAMENTO;
     private String FORO;
-    private String INDEXADOR;
+    private IndexerResponse INDEXADOR;
     private String COMISSAOFISCALIZACAO;
 }

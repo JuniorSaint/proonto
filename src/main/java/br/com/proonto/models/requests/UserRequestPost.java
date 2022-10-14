@@ -1,5 +1,7 @@
 package br.com.proonto.models.requests;
 
+import br.com.proonto.models.entities.Creditor;
+import br.com.proonto.models.entities.Notification;
 import br.com.proonto.models.entities.Permission;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,7 +9,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
@@ -33,4 +37,7 @@ public class UserRequestPost implements Serializable {
     @CreationTimestamp
     private Instant createdAt;
     private List<Permission> permissions;
+    private List<Notification> notifications;
+    @NotBlank(message = "Creditor is a mandatory field.")
+    private Creditor creditor;
 }

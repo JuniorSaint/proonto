@@ -23,10 +23,4 @@ public class Contact implements Serializable {
     private String NOME;
     private String TELEFONE;
     private String EMAIL;
-
-    @OneToOne(mappedBy = "contact")
-    private AgencyBank AGENCYBANK;
-
-    @OneToOne(mappedBy = "CONTATO")
-    private PresenterRepresentative PRESENTERREPRESENTATIVE;
 }

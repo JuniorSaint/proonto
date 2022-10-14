@@ -24,7 +24,4 @@ public class Representative implements Serializable {
     private Long id;
     private String NOME;
     private String CPFCNPJ;
-
-    @OneToOne(mappedBy = "REPRESENTANTE")
-    private PresenterRepresentative PRESENTERREPRESENTATIVE;
 }

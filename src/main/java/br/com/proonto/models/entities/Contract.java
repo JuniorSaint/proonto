@@ -29,18 +29,20 @@ public class Contract implements Serializable {
             inverseJoinColumns = @JoinColumn(name = "registryoffice_id"))
     private List<RegistryOffice> CARTORIOS;
     private String NUMEROCONTRATO;
-    private String TIPOCEDULA;
+    @OneToOne
+    @JoinColumn(name = "tipo_cedula_id", referencedColumnName = "domain")
+    private BallotType TIPOCEDULA;
     private LocalDate DATACONTRATO;
     private String LOCALCONTRATO;
 
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "remetente_id", referencedColumnName = "id")
-    private PresenterRepresentative REMETENTE;
+    private Sender REMETENTE;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "apresentante_id", referencedColumnName = "id")
-    private PresenterRepresentative APRESENTANTE;
+    private Presenter APRESENTANTE;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "financeiro_id", referencedColumnName = "id")
@@ -76,7 +78,8 @@ public class Contract implements Serializable {
     @JoinColumn(name = "contratos_id")
     private Contracts CONTRATO;
 
-    @OneToOne(mappedBy = "contract")
+    @OneToOne
+    @JoinColumn(name = "template_id", referencedColumnName = "id")
     private Template template;
 
     //Doesn't belong the original xml, these variable it's to complete the form

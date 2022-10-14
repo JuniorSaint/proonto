@@ -18,7 +18,7 @@ import java.time.Instant;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIdentityInfo(generator= ObjectIdGenerators.IntSequenceGenerator.class, property="id")
-public class PropertyType extends RepresentationModel<PropertyType> implements Serializable {
+public class PropertyType implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id

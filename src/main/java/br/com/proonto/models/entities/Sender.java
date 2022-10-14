@@ -6,17 +6,16 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.Table;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "sender")
 @NoArgsConstructor
 @Getter
 @Setter
-
+@DiscriminatorValue("sender")
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-public class Sender extends Part implements Serializable {
+public class Sender extends Presenter implements Serializable {
     private static final long serialVersionUID = 1L;
 }

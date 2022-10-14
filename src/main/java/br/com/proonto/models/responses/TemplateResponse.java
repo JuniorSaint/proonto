@@ -1,6 +1,7 @@
 package br.com.proonto.models.responses;
 
 import br.com.proonto.models.entities.Contract;
+import br.com.proonto.models.entities.Creditor;
 import lombok.*;
 
 import java.io.Serializable;

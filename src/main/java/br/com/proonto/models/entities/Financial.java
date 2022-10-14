@@ -25,7 +25,9 @@ public class Financial implements Serializable {
     private Double VALORTOTAL;
     private String VALOREXTENSO;
     private String CRITERIOOBTENCAOLIQUIDACAO;
-    private String MOEDA;
+    @OneToOne
+    @JoinColumn(name = "moeda_id", referencedColumnName = "domain")
+    private Currency MOEDA;
     private Double SALDOREMANESCENTE;
     private Double VALORPARCELAINICIAL;
     @Column(columnDefinition = "TEXT")
@@ -40,7 +42,9 @@ public class Financial implements Serializable {
     private String TAXAJUROSEFETIVAANUALPOREXTENSO;
     private String PRACAPAGAMENTO;
     private String FORO;
-    private String INDEXADOR;
+    @OneToOne
+    @JoinColumn(name = "indexador_id", referencedColumnName = "id")
+    private IndexerSub INDEXADOR;
     private String COMISSAOFISCALIZACAO;
     private Double MULTA;
     private String MULTAPOREXTENSO;

@@ -26,7 +26,9 @@ public class LetterOfAttorney implements Serializable {
     private String REPRESENTANTE;
     private String REPRESENTADO;
     private String NUMERO;
-    private String TIPOREGISTRO;
+    @OneToOne
+    @JoinColumn(name = "tipo_registro_id", referencedColumnName = "code")
+    private RecordTypesTable TIPOREGISTRO;
     private String ORGAO;
     private String FORMAREGISTRO;
     private String NUMEROLIVRO;

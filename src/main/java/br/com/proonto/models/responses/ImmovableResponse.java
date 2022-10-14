@@ -1,5 +1,8 @@
 package br.com.proonto.models.responses;
 
+import br.com.proonto.models.entities.Address;
+import br.com.proonto.models.entities.LocationType;
+import br.com.proonto.models.entities.PropertyType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,7 +16,7 @@ public class ImmovableResponse implements Serializable {
     private static final long serialVersionUID = 1L;
     private String EDIFICACAO;
     private String DESCRICAO;
-    private String TIPOLOCALIZACAO;
-    private String TIPOIMOVEL;
-    private AddressResponseId ENDERECO;
+    private LocationType TIPOLOCALIZACAO;
+    private PropertyType TIPOIMOVEL;
+    private Address ENDERECO;
 }

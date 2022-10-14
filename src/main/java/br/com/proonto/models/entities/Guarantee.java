@@ -23,8 +23,12 @@ public class Guarantee implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String TIPOGARANTIA;
-    private String TIPOBEM;
+    @OneToOne
+    @JoinColumn(name = "tipo_garantia_id", referencedColumnName = "id")
+    private GuaranteeTypeSub TIPOGARANTIA;
+    @OneToOne
+    @JoinColumn(name = "tipo_bem_id", referencedColumnName = "domain")
+    private PropertyType TIPOBEM;
     @Column(columnDefinition = "TEXT")
     private String DESCRICAO;
     private Double PERCENTUALCOMPROMETIDO;

@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.*;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import java.io.Serializable;
 
@@ -25,5 +26,9 @@ public class AddressType implements Serializable {
     private String abbreviation;
     private String street;
     private Boolean active;
+
+    @OneToOne(mappedBy = "TIPOLOGRADOURO")
+    private Address address;
+
 }
 

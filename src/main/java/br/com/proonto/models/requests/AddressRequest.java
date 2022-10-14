@@ -1,5 +1,6 @@
 package br.com.proonto.models.requests;
 
+import br.com.proonto.models.entities.AddressType;
 import lombok.*;
 import java.io.Serializable;
 
@@ -11,7 +12,7 @@ import java.io.Serializable;
 public class AddressRequest implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long id;
-    private String TIPOLOGRADOURO;
+    private AddressTypeRequest TIPOLOGRADOURO;
     private String LOGRADOURO;
     private String NUMERO;
     private String BAIRRO;

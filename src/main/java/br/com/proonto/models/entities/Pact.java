@@ -30,6 +30,7 @@ public class Pact implements Serializable {
     private String LIVRO;
     private String FOLHA;
 
-    @OneToOne(mappedBy = "PACTO")
+    @OneToOne
+    @JoinColumn(name = "parte_id", referencedColumnName = "id")
     private Part PARTE;
 }

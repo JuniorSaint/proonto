@@ -1,5 +1,6 @@
 package br.com.proonto.models.responses;
 
+import br.com.proonto.models.entities.BallotType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,11 +15,11 @@ public class ContractResponse implements Serializable {
     private static final long serialVersionUID = 1L;
     private List<RegistryOfficeResponseId> CARTORIOS;
     private String NUMEROCONTRATO;
-    private String TIPOCEDULA;
+    private BallotType TIPOCEDULA;
     private LocalDate DATACONTRATO;
     private String LOCALCONTRATO;
-    private PresenterRepresentativeResponseId REMETENTE;
-    private PresenterRepresentativeResponseId APRESENTANTE;
+    private SenderResponseId REMETENTE;
+    private PresenterResponseId APRESENTANTE;
     private FinancialResponseId FINANCEIRO;
     private List<ModalityOfOperationResponseId> MODALIDADESOPERACAO;
     private List<PartResponseId> PARTES;

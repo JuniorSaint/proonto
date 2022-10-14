@@ -1,5 +1,7 @@
 package br.com.proonto.models.requests;
 
+import br.com.proonto.models.entities.Currency;
+import br.com.proonto.models.entities.IndexerSub;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,7 +16,7 @@ public class FinancialRequest implements Serializable {
     private Double VALORTOTAL;
     private String VALOREXTENSO;
     private String CRITERIOOBTENCAOLIQUIDACAO;
-    private String MOEDA;
+    private Currency MOEDA;
     private Double SALDOREMANESCENTE;
     private Double VALORPARCELAINICIAL;
     private String FORMAPAGAMENTO;
@@ -27,7 +29,7 @@ public class FinancialRequest implements Serializable {
     private String TAXAJUROSEFETIVAANUALPOREXTENSO;
     private String PRACAPAGAMENTO;
     private String FORO;
-    private String INDEXADOR;
+    private IndexerSub INDEXADOR;
     private String COMISSAOFISCALIZACAO;
     private Double MULTA;
     private String MULTAPOREXTENSO;

@@ -31,7 +31,9 @@ public class Part extends RepresentationModel<Part> implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String NOME;
-    private String TIPOPESSOA;
+    @OneToOne
+    @JoinColumn(name = "tipo_pessoa_id", referencedColumnName = "domain")
+    private PersonType TIPOPESSOA;
     private String CPFCNPJ;
     private GenderType GENERO;
     private LocalDate DATANASCIMENTO;
@@ -39,18 +41,20 @@ public class Part extends RepresentationModel<Part> implements Serializable {
     private String ORGAOEMISSOR;
     private String NACIONALIDADE;
     private String UNIAOESTAVEL;
-    private String OUTROREGIME;
-    private String ESTADOCIVIL;
-    private String REGIMEBENS;
+    @OneToOne
+    @JoinColumn(name = "outro_regime_id", referencedColumnName = "domain")
+    private PropertyRegime OUTROREGIME;
+    @OneToOne
+    @JoinColumn(name = "estado_civil_id", referencedColumnName = "domain")
+    private MaritalStatus ESTADOCIVIL;
+    @OneToOne
+    @JoinColumn(name = "regime_bens_id", referencedColumnName = "domain")
+    private PropertyRegime REGIMEBENS;
     private String PROFISSAO;
     private String FILIACAO1;
     private String FILIACAO2;
     private String CPFCONJUGE;
     private CreditorTypeEnum TIPODECREDOR;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "pacto_id", referencedColumnName = "id")
-    private Pact PACTO;
 
     @CreationTimestamp
     private Instant createdAt;

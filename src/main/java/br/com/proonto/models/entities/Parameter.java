@@ -1,6 +1,7 @@
 package br.com.proonto.models.entities;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -27,7 +28,4 @@ public class Parameter implements Serializable {
     private Double minRegistryOffice;
     private Double maxRegistryOffice;
     private Boolean active;
-
-    @OneToOne(mappedBy = "parameter")
-    private Creditor creditor;
 }

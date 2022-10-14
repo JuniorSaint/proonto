@@ -20,11 +20,11 @@ public class ContractRequest implements Serializable {
     private Long id;
     private List<RegistryOfficeRequest> CARTORIOS;
     private String NUMEROCONTRATO;
-    private String TIPOCEDULA;
+    private BallotType TIPOCEDULA;
     private LocalDate DATACONTRATO;
     private String LOCALCONTRATO;
-    private PresenterRepresentativeRequest REMETENTE;
-    private PresenterRepresentativeRequest APRESENTANTE;
+    private SenderRequest REMETENTE;
+    private PresenterRequest APRESENTANTE;
     private FinancialRequest FINANCEIRO;
     private List<ModalityOfOperationRequest> MODALIDADESOPERACAO;
     private List<PartRequest> PARTES;

@@ -29,8 +29,12 @@ public class Immovable extends RepresentationModel<Immovable> implements Seriali
     private String EDIFICACAO;
     @Column(columnDefinition = "TEXT")
     private String DESCRICAO;
-    private String TIPOLOCALIZACAO;
-    private String TIPOIMOVEL;
+    @OneToOne
+    @JoinColumn(name = "tipo_localizacao_id", referencedColumnName = "domain")
+    private LocationType TIPOLOCALIZACAO;
+    @OneToOne
+    @JoinColumn(name = "tipo_imovel_id", referencedColumnName = "domain")
+    private PropertyType TIPOIMOVEL;
     @CreationTimestamp
     private Instant createdAt;
     @UpdateTimestamp

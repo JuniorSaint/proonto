@@ -9,8 +9,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Getter
 @Setter
-public class RepresentativeResponse implements Serializable {
+public class PresenterResponseId extends PresenterResponse implements Serializable {
     private static final long serialVersionUID = 1L;
-    private String NOME;
-    private String CPFCNPJ;
+    private Long id;
 }

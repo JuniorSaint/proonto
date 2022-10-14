@@ -120,12 +120,11 @@ public class FileHtmlService {
                 .headerTitle(result.getTITULODOCABECALHO())
                 .cityStateDateOfContract(result.getCIDADEESTADODATACONTRATO())
                 .contractNumber(result.getNUMEROCONTRATO())
-                .typeOfBanknote(result.getTIPOCEDULA())
                 .value(result.getFINANCEIRO().getVALORTOTAL())
                 .valueUnabbreviated(result.getFINANCEIRO().getVALOREXTENSO())
                 .creditor(partCreditor.getNOME())
                 .cnpjCreditor(partCreditor.getCPFCNPJ())
-                .streetCreditor(partCreditor.getENDERECO().getLOGRADOURO())
+
                 .numberCreditor(partCreditor.getENDERECO().getNUMERO())
                 .districtCreditor(partCreditor.getENDERECO().getBAIRRO())
                 .cityCreditor(partCreditor.getENDERECO().getCIDADE())
@@ -156,7 +155,7 @@ public class FileHtmlService {
                 .faithfulDepositary(partFaithfulDepositary.getNOME())
                 .maritalStatusfaithful(partFaithfulDepositary.getESTADOCIVIL())
                 .cpfFaithful(partFaithfulDepositary.getCPFCNPJ())
-                .streetFaithful(partFaithfulDepositary.getENDERECO().getLOGRADOURO())
+
                 .numberFaithful(partFaithfulDepositary.getENDERECO().getNUMERO())
                 .districtFaithful(partFaithfulDepositary.getENDERECO().getBAIRRO())
                 .cityFaithful(partFaithfulDepositary.getENDERECO().getCIDADE())
@@ -165,7 +164,7 @@ public class FileHtmlService {
                 .debtor(partDebitor.getNOME())
                 .maritalStatusDebtor(partDebitor.getESTADOCIVIL())
                 .cpfDebtor(partDebitor.getCPFCNPJ())
-                .streetDebtor(partDebitor.getENDERECO().getLOGRADOURO())
+
                 .numberDebtor(partDebitor.getENDERECO().getNUMERO())
                 .districtDebtor(partDebitor.getENDERECO().getBAIRRO())
                 .cityDebtor(partDebitor.getENDERECO().getCIDADE())

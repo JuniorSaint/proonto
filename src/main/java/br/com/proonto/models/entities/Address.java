@@ -20,7 +20,6 @@ public class Address implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String TIPOLOGRADOURO;
     private String LOGRADOURO;
     private String NUMERO;
     private String BAIRRO;
@@ -31,4 +30,8 @@ public class Address implements Serializable {
     private String TORRE;
     private String COMPLEMENTO;
     private String CEP;
+
+    @OneToOne
+    @JoinColumn(name = "address_type_id", referencedColumnName = "code")
+    private AddressType TIPOLOGRADOURO;
 }

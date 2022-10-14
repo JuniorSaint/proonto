@@ -1,27 +1,20 @@
-package br.com.proonto.models.entities;
+package br.com.proonto.models.responses;
+
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.*;
 
-import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
-
 
 @Builder
-@Entity
-@Table(name = "template")
-@NoArgsConstructor
 @Getter
 @Setter
+@NoArgsConstructor
 @AllArgsConstructor
 @JsonIdentityInfo(generator= ObjectIdGenerators.IntSequenceGenerator.class, property="id")
-public class Template implements Serializable {
+public class AddressTypeReponse implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @Column(columnDefinition="TEXT")
-    private String body;
+    private String street;
 }
+

@@ -58,7 +58,6 @@ public class PartService {
         }
         Part response = mapper.map(part, Part.class);
         response.setENDERECO(addressRespository.save(mapper.map(part.getENDERECO(), Address.class)));
-        response.setPACTO(pactRepository.save(mapper.map(part.getPACTO(), Pact.class)));
         response.setCONTATO(contactRepository.save(mapper.map(part.getCONTATO(), Contact.class)));
         response.setQUALIFICACOES(res);
         Part result = repository.save(response);

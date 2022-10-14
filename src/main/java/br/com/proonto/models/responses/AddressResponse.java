@@ -10,7 +10,7 @@ import java.io.Serializable;
 public class AddressResponse implements Serializable {
     private static final long serialVersionUID = 1L;
     private String TIPOLOGRADOURO;
-    private String LOGRADOURO;
+    private AddressTypeReponse LOGRADOURO;
     private String NUMERO;
     private String BAIRRO;
     private String CIDADE;
