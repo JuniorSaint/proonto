@@ -1,28 +1,24 @@
 package br.com.proonto.services;
 
-import br.com.proonto.configs.Utils;
-import br.com.proonto.exceptions.DataBaseException;
-import br.com.proonto.exceptions.EntityNotFoundException;
-import br.com.proonto.models.entities.Bank;
-import br.com.proonto.models.entities.ModalityOfTheOperation;
-import br.com.proonto.models.requests.BankRequest;
-import br.com.proonto.models.requests.ModalityOfOperationRequest;
-import br.com.proonto.models.requests.ModalityOfTheOperationRequest;
-import br.com.proonto.models.responses.BankResponseId;
-import br.com.proonto.models.responses.ModalityOfTheOperationResponse;
-import br.com.proonto.repositories.BankRepository;
-import br.com.proonto.repositories.ModalityOfTheOperationRepository;
+import static br.com.proonto.configs.CP.DELETE_MESSAGE;
+import static br.com.proonto.configs.CP.NOT_FOUND;
+
+import java.util.List;
+import java.util.Optional;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-import java.util.Optional;
-
-import static br.com.proonto.configs.CP.DELETE_MESSAGE;
-import static br.com.proonto.configs.CP.NOT_FOUND;
+import br.com.proonto.configs.Utils;
+import br.com.proonto.exceptions.DataBaseException;
+import br.com.proonto.exceptions.EntityNotFoundException;
+import br.com.proonto.models.entities.ModalityOfTheOperation;
+import br.com.proonto.models.requests.ModalityOfTheOperationRequest;
+import br.com.proonto.models.responses.ModalityOfTheOperationResponse;
+import br.com.proonto.repositories.ModalityOfTheOperationRepository;
 
 @Service
 public class ModalityOfTheOperationService {

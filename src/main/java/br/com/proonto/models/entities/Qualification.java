@@ -22,7 +22,7 @@ public class Qualification implements Serializable {
 
     @OneToOne
     @JoinColumn(name = "qualificacao_id", referencedColumnName = "domain")
-    private PersonType QUALIFICACAO;
+    private PartsRole QUALIFICACAO;
 
     @ManyToOne
     @JoinColumn(name="parte_id")

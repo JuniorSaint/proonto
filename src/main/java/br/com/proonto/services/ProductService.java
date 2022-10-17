@@ -1,23 +1,19 @@
 package br.com.proonto.services;
 
-import br.com.proonto.exceptions.EntityNotFoundException;
-import br.com.proonto.models.entities.Product;
-import br.com.proonto.models.requests.ImmovableRequest;
-import br.com.proonto.models.requests.LocationProductionRequest;
-import br.com.proonto.models.requests.ProductRequest;
-import br.com.proonto.models.requests.RegistryRequest;
-import br.com.proonto.models.responses.ProductResponseId;
-import br.com.proonto.repositories.LocationProductionRepository;
-import br.com.proonto.repositories.ProductRepository;
-import br.com.proonto.repositories.RegistryRepository;
+import static br.com.proonto.configs.CP.NOT_FOUND;
+
+import java.util.Optional;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Optional;
-
-import static br.com.proonto.configs.CP.NOT_FOUND;
+import br.com.proonto.exceptions.EntityNotFoundException;
+import br.com.proonto.models.entities.Product;
+import br.com.proonto.models.requests.ProductRequest;
+import br.com.proonto.models.responses.ProductResponseId;
+import br.com.proonto.repositories.ProductRepository;
 
 @Service
 public class ProductService {

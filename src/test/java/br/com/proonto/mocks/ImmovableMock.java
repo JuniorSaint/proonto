@@ -1,9 +1,5 @@
 package br.com.proonto.mocks;
 
-import br.com.proonto.models.entities.Address;
-
-import static br.com.proonto.mocks.AddressMock.ADDRESS;
-
 public interface ImmovableMock {
 
     public static final String OWNER = "José Anuciaçao Silva";
@@ -16,6 +12,6 @@ public interface ImmovableMock {
     public static final String DESCRIPTION = "descrição do imóvel";
     public static final String LOCATION_TYPE = "Tipo de localização";
     public static final String PROPERTY_TYPE = "Property type";
-    public static final Address ADDRESS_IMMOVABLE = ADDRESS;
+    // public static final Address ADDRESS_IMMOVABLE = ADDRESS;
 
 }

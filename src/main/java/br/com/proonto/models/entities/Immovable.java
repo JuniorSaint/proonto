@@ -26,6 +26,7 @@ public class Immovable extends RepresentationModel<Immovable> implements Seriali
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String DADOSARRENDAMENTO;
     private String EDIFICACAO;
     @Column(columnDefinition = "TEXT")
     private String DESCRICAO;

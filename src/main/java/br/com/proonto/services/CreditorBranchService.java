@@ -3,13 +3,12 @@ package br.com.proonto.services;
 import br.com.proonto.configs.Utils;
 import br.com.proonto.exceptions.DataBaseException;
 import br.com.proonto.exceptions.EntityNotFoundException;
-import br.com.proonto.models.entities.Bank;
+import br.com.proonto.models.entities.Contact;
 import br.com.proonto.models.entities.Creditor;
-import br.com.proonto.models.requests.BankRequest;
-import br.com.proonto.models.requests.CreditorRequest;
-import br.com.proonto.models.responses.BankResponseId;
-import br.com.proonto.models.responses.CreditorResponseId;
-import br.com.proonto.repositories.BankRepository;
+import br.com.proonto.models.requests.CreditorBranchRequest;
+import br.com.proonto.models.responses.CreditorBranchResponse;
+import br.com.proonto.models.responses.CreditorBranchResponseId;
+import br.com.proonto.models.responses.CreditorMatrixResponseId;
 import br.com.proonto.repositories.CreditorRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,39 +23,41 @@ import static br.com.proonto.configs.CP.DELETE_MESSAGE;
 import static br.com.proonto.configs.CP.NOT_FOUND;
 
 @Service
-public class CreditorService {
+public class CreditorBranchService {
     @Autowired
     private CreditorRepository repository;
     @Autowired
     private ModelMapper mapper;
     @Autowired
     private Utils utils;
-
+    Contact contact = new Contact();
 
     @Transactional
-    public CreditorResponseId saveUpdate(CreditorRequest request) {
+    public CreditorBranchResponseId saveUpdate(CreditorBranchRequest request) {
+
         if (request.getId() != null) {
             findById(request.getId());
         }
         Creditor response = mapper.map(request, Creditor.class);
-        if (response.getCPFCNPJ() != null)
-            response.setCPFCNPJ(response.getCPFCNPJ().replaceAll("\\D", ""));
-
-        return mapper.map(repository.save(response), CreditorResponseId.class);
+        response.setCPFCNPJ(response.getCPFCNPJ().replaceAll("\\D", ""));
+        if (response.getCONTATO().getTELEFONE() != null) {
+            response.setCONTATO(Contact.builder().id(response.getCONTATO().getId()).NOME(response.getCONTATO().getNOME()).EMAIL(response.getCONTATO().getEMAIL()).TELEFONE(response.getCONTATO().getTELEFONE().replaceAll("\\D", "")).build());
+        }
+        return mapper.map(repository.save(response), CreditorBranchResponseId.class);
     }
 
     @Transactional(readOnly = true)
-    public CreditorResponseId findById(Long id) {
+    public CreditorBranchResponseId findById(Long id) {
         Optional<Creditor> response = repository.findById(id);
         if (response.isEmpty()) {
-            throw new EntityNotFoundException("Creditor" + NOT_FOUND + "id: " + id);
+            throw new EntityNotFoundException("Creditor Branch" + NOT_FOUND + "id: " + id);
         }
-        return mapper.map(response.get(), CreditorResponseId.class);
+        return mapper.map(response.get(), CreditorBranchResponseId.class);
     }
 
     @Transactional(readOnly = true)
-    public List<CreditorResponseId> findAll() {
-        return utils.mapListIntoDtoList(repository.findAll(), CreditorResponseId.class);
+    public List<CreditorBranchResponseId> findAll() {
+        return utils.mapListIntoDtoList(repository.findAll(), CreditorBranchResponseId.class);
     }
 
     @Transactional
@@ -64,7 +65,7 @@ public class CreditorService {
         try {
             findById(id);
             repository.deleteById(id);
-            return "Creditor" + DELETE_MESSAGE;
+            return "Creditor Branch" + DELETE_MESSAGE;
         } catch (DataIntegrityViolationException e) {
             throw new DataBaseException("Integrity violation");
         }

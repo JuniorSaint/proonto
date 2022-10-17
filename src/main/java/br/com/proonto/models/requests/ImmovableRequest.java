@@ -27,4 +27,5 @@ public class ImmovableRequest implements Serializable {
     private LocationType TIPOLOCALIZACAO;
     private PropertyType TIPOIMOVEL;
     private Address ENDERECO;
+    private String DADOSARRENDAMENTO;
 }

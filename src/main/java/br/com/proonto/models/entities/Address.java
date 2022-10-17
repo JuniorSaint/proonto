@@ -34,4 +34,5 @@ public class Address implements Serializable {
     @OneToOne
     @JoinColumn(name = "address_type_id", referencedColumnName = "code")
     private AddressType TIPOLOGRADOURO;
+
 }

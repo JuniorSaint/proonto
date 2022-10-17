@@ -1,12 +1,10 @@
 package br.com.proonto.models.responses;
 
+import br.com.proonto.models.entities.Address;
 import br.com.proonto.models.entities.Creditor;
 import br.com.proonto.models.entities.Parameter;
 import br.com.proonto.models.entities.Template;
 import br.com.proonto.models.enums.CreditorTypeEnum;
-import br.com.proonto.models.requests.AddressRequest;
-import br.com.proonto.models.requests.ContactRequest;
-import br.com.proonto.models.requests.QualificationRequest;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,16 +15,17 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-public class CreditorResponse implements Serializable {
+public class CreditorBranchResponse implements Serializable {
     private static final long serialVersionUID = 1L;
     private String NOME;
-    private String TIPOPESSOA;
+    private PersonTypeResponse TIPOPESSOA;
     private String CPFCNPJ;
-    private AddressRequest ENDERECO;
-    private List<QualificationRequest> QUALIFICACOES;
-    private ContactRequest CONTATO;
-    private CreditorTypeEnum typeFiliation;
+    private CreditorTypeEnum TIPODECREDOR;
     private Parameter parameter;
-    private Creditor branch;
+    private List<UserResponse> users;
+    private Creditor matrix;
     private Template template;
+    private Address ENDERECO;
+    private List<QualificationResponseId> QUALIFICACOES;
+    private ContactResponseId CONTATO;
 }

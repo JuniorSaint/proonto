@@ -1,36 +1,40 @@
 package br.com.proonto.services;
 
-import br.com.proonto.configs.Utils;
-import br.com.proonto.controllers.PartController;
-import br.com.proonto.exceptions.DataBaseException;
-import br.com.proonto.exceptions.EntityNotFoundException;
-import br.com.proonto.models.entities.*;
-import br.com.proonto.models.requests.PartRequest;
-import br.com.proonto.models.requests.QualificationRequest;
-import br.com.proonto.models.responses.PartResponse;
-import br.com.proonto.models.responses.PartResponseId;
-import br.com.proonto.repositories.*;
+import static br.com.proonto.configs.CP.DELETE_MESSAGE;
+import static br.com.proonto.configs.CP.NOT_FOUND;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-
-import static br.com.proonto.configs.CP.DELETE_MESSAGE;
-import static br.com.proonto.configs.CP.NOT_FOUND;
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
+import br.com.proonto.configs.Utils;
+import br.com.proonto.exceptions.DataBaseException;
+import br.com.proonto.exceptions.EntityNotFoundException;
+import br.com.proonto.models.entities.Address;
+import br.com.proonto.models.entities.Contact;
+import br.com.proonto.models.entities.Part;
+import br.com.proonto.models.entities.Qualification;
+import br.com.proonto.models.requests.PartRequest;
+import br.com.proonto.models.requests.QualificationRequest;
+import br.com.proonto.models.responses.PartResponseId;
+import br.com.proonto.repositories.AddressRepository;
+import br.com.proonto.repositories.ContactRepository;
+import br.com.proonto.repositories.PactRepository;
+import br.com.proonto.repositories.PartRepository;
+import br.com.proonto.repositories.QualificationRepository;
 
 @Service
 public class PartService {
     @Autowired
     private PartRepository repository;
     @Autowired
-    private AddressRespository addressRespository;
+    private AddressRepository addressRespository;
     @Autowired
     private PactRepository pactRepository;
     @Autowired

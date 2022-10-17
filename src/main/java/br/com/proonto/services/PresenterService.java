@@ -1,28 +1,24 @@
 package br.com.proonto.services;
 
-import br.com.proonto.configs.Utils;
-import br.com.proonto.exceptions.DataBaseException;
-import br.com.proonto.exceptions.EntityNotFoundException;
-import br.com.proonto.models.entities.Creditor;
-import br.com.proonto.models.entities.Presenter;
-import br.com.proonto.models.requests.CreditorRequest;
-import br.com.proonto.models.requests.PresenterRequest;
-import br.com.proonto.models.responses.CreditorResponseId;
-import br.com.proonto.models.responses.PresenterResponse;
-import br.com.proonto.models.responses.PresenterResponseId;
-import br.com.proonto.repositories.CreditorRepository;
-import br.com.proonto.repositories.PresenterRepository;
+import static br.com.proonto.configs.CP.DELETE_MESSAGE;
+import static br.com.proonto.configs.CP.NOT_FOUND;
+
+import java.util.List;
+import java.util.Optional;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-import java.util.Optional;
-
-import static br.com.proonto.configs.CP.DELETE_MESSAGE;
-import static br.com.proonto.configs.CP.NOT_FOUND;
+import br.com.proonto.configs.Utils;
+import br.com.proonto.exceptions.DataBaseException;
+import br.com.proonto.exceptions.EntityNotFoundException;
+import br.com.proonto.models.entities.Presenter;
+import br.com.proonto.models.requests.PresenterRequest;
+import br.com.proonto.models.responses.PresenterResponseId;
+import br.com.proonto.repositories.PresenterRepository;
 
 @Service
 public class PresenterService {

@@ -1,7 +1,6 @@
 package br.com.proonto.mocks;
 
 import java.time.Instant;
-import java.time.LocalDate;
 
 public interface MessageMock {
     Long ID = 1L;

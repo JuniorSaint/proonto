@@ -1,5 +1,6 @@
 package br.com.proonto.models.responses;
 
+import br.com.proonto.models.requests.AddressTypeRequest;
 import lombok.*;
 
 import java.io.Serializable;
@@ -9,8 +10,8 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class AddressResponse implements Serializable {
     private static final long serialVersionUID = 1L;
-    private String TIPOLOGRADOURO;
-    private AddressTypeReponse LOGRADOURO;
+    private AddressTypeReponse TIPOLOGRADOURO;
+    private String LOGRADOURO;
     private String NUMERO;
     private String BAIRRO;
     private String CIDADE;

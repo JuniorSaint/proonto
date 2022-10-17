@@ -18,7 +18,6 @@ import java.io.Serializable;
 @JsonIdentityInfo(generator= ObjectIdGenerators.IntSequenceGenerator.class, property="id")
 public class TypeOfRealty implements Serializable {
     private static final long serialVersionUID = 1L;
-
     @Id
     private String domain;
     private String description;

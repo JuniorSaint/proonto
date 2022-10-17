@@ -1,8 +1,5 @@
 package br.com.proonto.mocks;
 
-import static br.com.proonto.mocks.AddressMock.ADDRESS;
-import static br.com.proonto.mocks.MessageMock.*;
-
 public interface DebtorMock {
     public static final String NAME_DEBTOR = "John Doe";
     public static final String CNPJCPF_DEBTOR = "882.882.882-12";

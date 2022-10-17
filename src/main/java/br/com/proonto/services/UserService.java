@@ -1,16 +1,11 @@
 package br.com.proonto.services;
 
-import br.com.proonto.configs.Utils;
-import br.com.proonto.controllers.UserController;
-import br.com.proonto.exceptions.BadRequestException;
-import br.com.proonto.exceptions.DataBaseException;
-import br.com.proonto.exceptions.EntityNotFoundException;
-import br.com.proonto.models.entities.User;
-import br.com.proonto.models.requests.ChangePasswordRequest;
-import br.com.proonto.models.requests.UserRequestPut;
-import br.com.proonto.models.responses.UserResponse;
-import br.com.proonto.repositories.PermissionRepository;
-import br.com.proonto.repositories.UserRepository;
+import static br.com.proonto.configs.CP.DELETE_MESSAGE;
+import static br.com.proonto.configs.CP.NOT_FOUND;
+
+import java.util.List;
+import java.util.Optional;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -20,14 +15,16 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-
-import java.util.List;
-import java.util.Optional;
-
-import static br.com.proonto.configs.CP.DELETE_MESSAGE;
-import static br.com.proonto.configs.CP.NOT_FOUND;
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
+import br.com.proonto.configs.Utils;
+import br.com.proonto.exceptions.BadRequestException;
+import br.com.proonto.exceptions.DataBaseException;
+import br.com.proonto.exceptions.EntityNotFoundException;
+import br.com.proonto.models.entities.User;
+import br.com.proonto.models.requests.ChangePasswordRequest;
+import br.com.proonto.models.requests.UserRequestPut;
+import br.com.proonto.models.responses.UserResponse;
+import br.com.proonto.repositories.PermissionRepository;
+import br.com.proonto.repositories.UserRepository;
 
 @Service
 @Transactional

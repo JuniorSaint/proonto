@@ -1,15 +1,16 @@
 package br.com.proonto.services;
 
 import br.com.proonto.configs.Utils;
-import br.com.proonto.controllers.ImmovableController;
 import br.com.proonto.exceptions.DataBaseException;
 import br.com.proonto.exceptions.EntityNotFoundException;
 import br.com.proonto.models.entities.Address;
 import br.com.proonto.models.entities.Immovable;
+import br.com.proonto.models.requests.AddressRequest;
 import br.com.proonto.models.requests.ImmovableRequest;
 import br.com.proonto.models.responses.ImmovableResponseId;
-import br.com.proonto.repositories.AddressRespository;
 import br.com.proonto.repositories.ImmovableRepository;
+import br.com.proonto.repositories.LocationTypeRepository;
+import br.com.proonto.repositories.PropertyTypeRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -22,7 +23,6 @@ import java.util.Optional;
 import static br.com.proonto.configs.CP.DELETE_MESSAGE;
 import static br.com.proonto.configs.CP.NOT_FOUND;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @Service
 public class ImmovableService {
@@ -33,18 +33,24 @@ public class ImmovableService {
     @Autowired
     private Utils utils;
     @Autowired
-    private AddressRespository addressRespository;
+    private AddressService addressService;
+    @Autowired
+    private PropertyTypeRepository propertyTypeRepository;
+    @Autowired
+    private LocationTypeRepository locationTypeRepository;
 
     Immovable immovable = new Immovable();
 
     @Transactional
-    public ImmovableRequest saveUpdate(ImmovableRequest request) {
+    public ImmovableResponseId saveUpdate(ImmovableRequest request) {
         if (request.getId() != null) {
             ImmovableResponseId resp = findById(request.getId());
         }
         mapper.map(request, immovable);
-        immovable.setENDERECO(addressRespository.save(mapper.map(request.getENDERECO(), Address.class)));
-        return mapper.map(repository.save(immovable), ImmovableRequest.class);
+        immovable.setENDERECO(addressService.saveUpdate(mapper.map(request.getENDERECO(), AddressRequest.class)));
+        immovable.setTIPOIMOVEL(propertyTypeRepository.findById(request.getTIPOIMOVEL().getDomain()).get());
+        immovable.setTIPOLOCALIZACAO(locationTypeRepository.findById(request.getTIPOLOCALIZACAO().getDomain()).get());
+        return mapper.map(repository.save(immovable), ImmovableResponseId.class);
     }
 
     @Transactional(readOnly = true)

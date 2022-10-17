@@ -54,7 +54,7 @@ public class Part extends RepresentationModel<Part> implements Serializable {
     private String FILIACAO1;
     private String FILIACAO2;
     private String CPFCONJUGE;
-    private CreditorTypeEnum TIPODECREDOR;
+
 
     @CreationTimestamp
     private Instant createdAt;
