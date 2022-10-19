@@ -26,7 +26,7 @@ public class CreditorBranchRequest implements Serializable {
     private String CPFCNPJ;
     private CreditorTypeEnum TIPODECREDOR;
     private AddressRequest ENDERECO;
-    private List<QualificationRequest> QUALIFICACOES;
+    private List<PartRequest> QUALIFICACOES;
     private ContactRequest CONTATO;
     @NotBlank(message = "Matrix is a mandatory field")
     private CreditorMatrixRequest matrix;

@@ -16,9 +16,8 @@ import java.util.List;
 @Table(name = "creditor")
 @NoArgsConstructor
 @Getter
-@Setter
-@AllArgsConstructor
 
+@AllArgsConstructor
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Creditor implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -51,7 +50,7 @@ public class Creditor implements Serializable {
     private Address ENDERECO;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Qualification> QUALIFICACOES;
+    private List<PartsRole> QUALIFICACOES;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "contato_id", referencedColumnName = "id")
@@ -60,4 +59,60 @@ public class Creditor implements Serializable {
     @ManyToOne
     @JoinColumn(name = "contrato_id")
     private Contract CONTRATO;
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setNOME(String NOME) {
+        this.NOME = NOME;
+    }
+
+    public void setTIPOPESSOA(PersonType TIPOPESSOA) {
+        this.TIPOPESSOA = TIPOPESSOA;
+    }
+
+    public void setCPFCNPJ(String CPFCNPJ) {
+        if (CPFCNPJ == null) {
+            this.CPFCNPJ = CPFCNPJ;
+        } else {
+            this.CPFCNPJ = CPFCNPJ.replaceAll("\\D", "");
+        }
+    }
+
+    public void setTIPODECREDOR(CreditorTypeEnum TIPODECREDOR) {
+        this.TIPODECREDOR = TIPODECREDOR;
+    }
+
+    public void setParameter(Parameter parameter) {
+        this.parameter = parameter;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
+
+    public void setMatrix(Creditor matrix) {
+        this.matrix = matrix;
+    }
+
+    public void setTemplate(Template template) {
+        this.template = template;
+    }
+
+    public void setENDERECO(Address ENDERECO) {
+        this.ENDERECO = ENDERECO;
+    }
+
+    public void setQUALIFICACOES(List<PartsRole> QUALIFICACOES) {
+        this.QUALIFICACOES = QUALIFICACOES;
+    }
+
+    public void setCONTATO(Contact CONTATO) {
+        this.CONTATO = CONTATO;
+    }
+
+    public void setCONTRATO(Contract CONTRATO) {
+        this.CONTRATO = CONTRATO;
+    }
 }

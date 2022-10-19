@@ -19,7 +19,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIdentityInfo(generator= ObjectIdGenerators.IntSequenceGenerator.class, property="id")
-public class GuaranteeType extends RepresentationModel<GuaranteeType> implements Serializable {
+public class GuaranteeType implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id

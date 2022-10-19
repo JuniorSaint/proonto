@@ -24,18 +24,18 @@ public class Presenter implements Serializable {
     private Long id;
 
     private String NOME;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "tipo_pessoa_id", referencedColumnName = "domain")
     private PersonType TIPOPESSOA;
 
     private String CPFCNPJ;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "endereco_id", referencedColumnName = "id")
     private Address ENDERECO;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "contato_id", referencedColumnName = "id")
     private Contact CONTATO;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "representante_id", referencedColumnName = "id")
     private Representative REPRESENTANTE;
 }

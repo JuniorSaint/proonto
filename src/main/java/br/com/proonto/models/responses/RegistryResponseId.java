@@ -9,7 +9,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Getter
 @Setter
-public class RegistryResponseId implements Serializable {
+public class RegistryResponseId extends RegistryResponse implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long id;
 }

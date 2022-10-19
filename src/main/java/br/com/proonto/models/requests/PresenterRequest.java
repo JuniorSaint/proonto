@@ -22,9 +22,9 @@ public class PresenterRequest implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long id;
     private String NOME;
-    private PersonType TIPOPESSOA;
+    private PersonTypeRequest TIPOPESSOA;
     private String CPFCNPJ;
-    private Address ENDERECO;
-    private Contact CONTATO;
-    private Representative REPRESENTANTE;
+    private AddressRequest ENDERECO;
+    private ContactRequest CONTATO;
+    private RepresentativeRequest REPRESENTANTE;
 }

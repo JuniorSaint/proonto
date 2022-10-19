@@ -21,7 +21,6 @@ import java.util.List;
 @Table(name = "parts")
 @NoArgsConstructor
 @Getter
-@Setter
 @AllArgsConstructor
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Part extends RepresentationModel<Part> implements Serializable {
@@ -65,8 +64,8 @@ public class Part extends RepresentationModel<Part> implements Serializable {
     @JoinColumn(name = "endereco_id", referencedColumnName = "id")
     private Address ENDERECO;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Qualification> QUALIFICACOES;
+    @OneToMany(mappedBy="part")
+    private List<PartsRole> QUALIFICACOES;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "contato_id", referencedColumnName = "id")
@@ -75,4 +74,105 @@ public class Part extends RepresentationModel<Part> implements Serializable {
     @ManyToOne
     @JoinColumn(name = "contrato_id")
     private Contract CONTRATO;
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setNOME(String NOME) {
+        this.NOME = NOME;
+    }
+
+    public void setTIPOPESSOA(PersonType TIPOPESSOA) {
+        this.TIPOPESSOA = TIPOPESSOA;
+    }
+
+    public void setCPFCNPJ(String CPFCNPJ) {
+        if(CPFCNPJ == null){
+            this.CPFCNPJ = CPFCNPJ;
+        }else{
+            this.CPFCNPJ = CPFCNPJ.replaceAll("\\D", "");
+        }
+    }
+
+    public void setGENERO(GenderType GENERO) {
+        this.GENERO = GENERO;
+    }
+
+    public void setDATANASCIMENTO(LocalDate DATANASCIMENTO) {
+        this.DATANASCIMENTO = DATANASCIMENTO;
+    }
+
+    public void setDOCUMENTO(String DOCUMENTO) {
+        this.DOCUMENTO = DOCUMENTO;
+    }
+
+    public void setORGAOEMISSOR(String ORGAOEMISSOR) {
+        this.ORGAOEMISSOR = ORGAOEMISSOR;
+    }
+
+    public void setNACIONALIDADE(String NACIONALIDADE) {
+        this.NACIONALIDADE = NACIONALIDADE;
+    }
+
+    public void setUNIAOESTAVEL(String UNIAOESTAVEL) {
+        this.UNIAOESTAVEL = UNIAOESTAVEL;
+    }
+
+    public void setOUTROREGIME(PropertyRegime OUTROREGIME) {
+        this.OUTROREGIME = OUTROREGIME;
+    }
+
+    public void setESTADOCIVIL(MaritalStatus ESTADOCIVIL) {
+        this.ESTADOCIVIL = ESTADOCIVIL;
+    }
+
+    public void setREGIMEBENS(PropertyRegime REGIMEBENS) {
+        this.REGIMEBENS = REGIMEBENS;
+    }
+
+    public void setPROFISSAO(String PROFISSAO) {
+        this.PROFISSAO = PROFISSAO;
+    }
+
+    public void setFILIACAO1(String FILIACAO1) {
+        this.FILIACAO1 = FILIACAO1;
+    }
+
+    public void setFILIACAO2(String FILIACAO2) {
+        this.FILIACAO2 = FILIACAO2;
+    }
+
+    public void setCPFCONJUGE(String CPFCONJUGE) {
+
+        if(CPFCONJUGE == null){
+            this.CPFCONJUGE = CPFCONJUGE;
+        }else{
+            this.CPFCONJUGE = CPFCONJUGE.replaceAll("\\D", "");
+        }
+    }
+
+    public void setCreatedAt(Instant createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public void setUpdatedAt(Instant updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public void setENDERECO(Address ENDERECO) {
+        this.ENDERECO = ENDERECO;
+    }
+
+    public void setQUALIFICACOES(List<PartsRole> QUALIFICACOES) {
+        this.QUALIFICACOES = QUALIFICACOES;
+    }
+
+    public void setCONTATO(Contact CONTATO) {
+        this.CONTATO = CONTATO;
+    }
+
+    public void setCONTRATO(Contract CONTRATO) {
+        this.CONTRATO = CONTRATO;
+    }
 }

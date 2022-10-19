@@ -1,8 +1,6 @@
 package br.com.proonto.models.responses;
 
-import br.com.proonto.models.entities.Area;
-import br.com.proonto.models.entities.Contract;
-import br.com.proonto.models.entities.Registry;
+import br.com.proonto.models.entities.*;
 import lombok.*;
 
 import java.io.Serializable;
@@ -13,8 +11,8 @@ import java.util.List;
 @NoArgsConstructor
 public class GuaranteeResponse implements Serializable {
     private static final long serialVersionUID = 1L;
-    private String TIPOGARANTIA;
-    private String TIPOBEM;
+    private GuaranteeTypeSubResponseId TIPOGARANTIA;
+    private PropertyTypeResponseId TIPOBEM;
     private String DESCRICAO;
     private Double PERCENTUALCOMPROMETIDO;
     private Double VALOR;
@@ -23,6 +21,6 @@ public class GuaranteeResponse implements Serializable {
     private String MARCA;
     private String PERIODOPRODUCAO;
     private String GRAU;
-    private AreaResponse AREA;
+    private AreaResponseId AREA;
     private List<RegistryResponseId> REGISTROS;
 }

@@ -18,6 +18,5 @@ public class IndexerRequest implements Serializable {
     private String domain;
     private String description;
     private Boolean active;
-    private List<IndexerSub> indexerSubs;
 }
 

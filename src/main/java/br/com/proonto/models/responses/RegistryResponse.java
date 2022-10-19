@@ -15,7 +15,7 @@ import java.io.Serializable;
 @Setter
 public class RegistryResponse implements Serializable {
     private static final long serialVersionUID = 1L;
-    private RegistryOffice CNS;
+    private RegistryOfficeResponseId CNS;
     private String LIVRO;
     private String NUMEROREGISTRO;
     private String COMPLEMENTO;

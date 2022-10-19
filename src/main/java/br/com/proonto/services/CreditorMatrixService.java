@@ -37,10 +37,7 @@ public class CreditorMatrixService {
             findById(request.getId());
         }
         Creditor response = mapper.map(request, Creditor.class);
-            response.setCPFCNPJ(response.getCPFCNPJ().replaceAll("\\D", ""));
-        if (response.getCONTATO().getTELEFONE() != null)
-            response.setCONTATO(Contact.builder().id(response.getCONTATO().getId()).NOME(response.getCONTATO().getNOME()).EMAIL(response.getCONTATO().getEMAIL()).TELEFONE(response.getCONTATO().getTELEFONE().replaceAll("\\D", "")).build());
-            return mapper.map(repository.save(response), CreditorMatrixResponseId.class);
+        return mapper.map(repository.save(response), CreditorMatrixResponseId.class);
     }
 
     @Transactional(readOnly = true)

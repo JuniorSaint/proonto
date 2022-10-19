@@ -22,8 +22,7 @@ public class BaseInformationToBuildHtml {
     private PersonTypeRepository personTypeRepository;
     @Autowired
     private IndexerRepository indexerRepository;
-    @Autowired
-    private QualificationRepository qualificationRepository;
+
     @Autowired
     private MaritalStatusRepository maritalStatusRepository;
     @Autowired
@@ -61,14 +60,7 @@ public class BaseInformationToBuildHtml {
         return mapper.map(response.get(), IndexerResponse.class);
     }
 
-    @Transactional(readOnly = true)
-    public QualificationResponseId qualification(Long id){
-        Optional<Qualification> response = qualificationRepository.findById(id);
-        if(response.isEmpty()){
-            throw new EntityNotFoundException("Qualification" + NOT_FOUND + "id: " + id);
-        }
-        return mapper.map(response.get(), QualificationResponseId.class);
-    }
+
 
     @Transactional(readOnly = true)
     public MaritalStatusResponse qualification(String str){

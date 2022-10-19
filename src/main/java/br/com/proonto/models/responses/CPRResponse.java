@@ -17,5 +17,5 @@ public class CPRResponse implements Serializable {
     private String PERIODO;
     private String CONDICOES;
     private List<ProductResponseId> PRODUTOS;
-    private Financial FINANCEIRO;
+    private FinancialResponseId FINANCEIRO;
 }

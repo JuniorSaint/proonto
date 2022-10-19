@@ -13,7 +13,6 @@ import java.io.Serializable;
 @Table(name = "representative")
 @NoArgsConstructor
 @Getter
-@Setter
 @AllArgsConstructor
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Representative implements Serializable {
@@ -24,4 +23,16 @@ public class Representative implements Serializable {
     private Long id;
     private String NOME;
     private String CPFCNPJ;
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setNOME(String NOME) {
+        this.NOME = NOME;
+    }
+
+    public void setCPFCNPJ(String CPFCNPJ) {
+        this.CPFCNPJ = CPFCNPJ.replaceAll("\\D", "");
+    }
 }

@@ -5,12 +5,8 @@ import br.com.proonto.exceptions.DataBaseException;
 import br.com.proonto.exceptions.EntityNotFoundException;
 import br.com.proonto.models.entities.CPR;
 import br.com.proonto.models.entities.Contract;
-import br.com.proonto.models.requests.CPRRequest;
-import br.com.proonto.models.requests.ContractRequest;
-import br.com.proonto.models.responses.CPRResponse;
-import br.com.proonto.models.responses.ContactResponse;
-import br.com.proonto.models.responses.ContractResponse;
-import br.com.proonto.models.responses.ContractResponseId;
+import br.com.proonto.models.requests.*;
+import br.com.proonto.models.responses.*;
 import br.com.proonto.repositories.ContractRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,11 +32,51 @@ public class ContractService {
 
 
     @Transactional
-    public ContractResponseId saveUpdate(ContractRequest request) {
+    public ContractFirstResponse saveFirst(ContractFirstRequest request) {
         if (request.getId() != null) {
             ContractResponse resp = findById(request.getId());
         }
-        return mapper.map(repository.save(mapper.map(request, Contract.class)), ContractResponseId.class);
+        return mapper.map(repository.save(mapper.map(request, Contract.class)), ContractFirstResponse.class);
+    }
+
+    @Transactional
+    public ContractGuaranteeResponse saveGuarantee(ContractGuaranteeRequest request) {
+        if (request.getId() != null) {
+            ContractResponse resp = findById(request.getId());
+        }
+        return mapper.map(repository.save(mapper.map(request, Contract.class)), ContractGuaranteeResponse.class);
+    }
+
+    @Transactional
+    public ContractPartsResponse saveParts(ContractPartsRequest request) {
+        if (request.getId() != null) {
+            ContractResponse resp = findById(request.getId());
+        }
+        return mapper.map(repository.save(mapper.map(request, Contract.class)), ContractPartsResponse.class);
+    }
+
+    @Transactional
+    public ContractPresenterSenderResponse savePresenter(ContractPresenterSenderRequest request) {
+        if (request.getId() != null) {
+            ContractResponse resp = findById(request.getId());
+        }
+        return mapper.map(repository.save(mapper.map(request, Contract.class)), ContractPresenterSenderResponse.class);
+    }
+
+    @Transactional
+    public ContractCprResponse saveCpr(ContractCprRequest request) {
+        if (request.getId() != null) {
+            ContractResponse resp = findById(request.getId());
+        }
+        return mapper.map(repository.save(mapper.map(request, Contract.class)), ContractCprResponse.class);
+    }
+
+    @Transactional
+    public ContractFinancialResponse saveFinancial(ContractFinancialRequest request) {
+        if (request.getId() != null) {
+            ContractResponse resp = findById(request.getId());
+        }
+        return mapper.map(repository.save(mapper.map(request, Contract.class)), ContractFinancialResponse.class);
     }
 
     @Transactional(readOnly = true)

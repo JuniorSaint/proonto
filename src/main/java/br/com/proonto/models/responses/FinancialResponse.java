@@ -1,5 +1,6 @@
 package br.com.proonto.models.responses;
 
+import br.com.proonto.models.entities.IndexerSub;
 import br.com.proonto.models.requests.CPRRequest;
 import br.com.proonto.models.requests.ContractRequest;
 import lombok.Getter;
@@ -27,6 +28,6 @@ public class FinancialResponse implements Serializable {
     private Double TAXAJUROSEFETIVAANUAL;
     private String PRACAPAGAMENTO;
     private String FORO;
-    private IndexerResponse INDEXADOR;
+    private IndexerSubResponse INDEXADOR;
     private String COMISSAOFISCALIZACAO;
 }

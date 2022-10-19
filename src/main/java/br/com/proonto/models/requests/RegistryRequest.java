@@ -13,7 +13,7 @@ import java.io.Serializable;
 public class RegistryRequest implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long id;
-    private RegistryOffice CNS;
+    private RegistryOfficeRequest CNS;
     private String LIVRO;
     private String NUMEROREGISTRO;
     private String COMPLEMENTO;

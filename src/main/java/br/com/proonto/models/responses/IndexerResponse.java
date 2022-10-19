@@ -14,10 +14,6 @@ import java.util.List;
 @NoArgsConstructor
 public class IndexerResponse implements Serializable {
     private static final long serialVersionUID = 1L;
-
     private String domain;
-    private String description;
-    private Boolean active;
-    private List<IndexerSub> indexerSubs;
 }
 

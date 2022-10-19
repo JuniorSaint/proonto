@@ -12,9 +12,8 @@ import java.io.Serializable;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonIdentityInfo(generator= ObjectIdGenerators.IntSequenceGenerator.class, property="id")
 public class AddressTypeReponse implements Serializable {
     private static final long serialVersionUID = 1L;
-    private String street;
+    private String code;
 }
 

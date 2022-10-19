@@ -14,7 +14,6 @@ import java.io.Serializable;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonIdentityInfo(generator= ObjectIdGenerators.IntSequenceGenerator.class, property="id")
 public class IndexerSub implements Serializable {
     private static final long serialVersionUID = 1L;
 

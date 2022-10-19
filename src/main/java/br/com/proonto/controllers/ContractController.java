@@ -1,7 +1,7 @@
 package br.com.proonto.controllers;
 
-import br.com.proonto.models.requests.ContractRequest;
-import br.com.proonto.models.responses.ContractResponse;
+import br.com.proonto.models.requests.*;
+import br.com.proonto.models.responses.*;
 import br.com.proonto.services.ContractService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,11 +19,41 @@ public class ContractController {
     @Autowired
     private ContractService service;
 
-    @PostMapping
-    public ResponseEntity<ContractResponse> save(@RequestBody @Valid ContractRequest request) {
+    @PostMapping("/first")
+    public ResponseEntity<ContractFirstResponse> saveFirst(@RequestBody @Valid ContractFirstRequest request) {
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(service.saveUpdate(request));
+                .body(service.saveFirst(request));
     }
+    @PostMapping("/guarantee")
+    public ResponseEntity<ContractGuaranteeResponse> saveGuarantee(@RequestBody @Valid ContractGuaranteeRequest request) {
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(service.saveGuarantee(request));
+    }
+    @PostMapping("/presente")
+    public ResponseEntity<ContractPresenterSenderResponse> savePresent(@RequestBody @Valid ContractPresenterSenderRequest request) {
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(service.savePresenter(request));
+    }
+
+    @PostMapping("/parts")
+    public ResponseEntity<ContractPartsResponse> saveParts(@RequestBody @Valid ContractPartsRequest request) {
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(service.saveParts(request));
+    }
+
+    @PostMapping("/cpr")
+    public ResponseEntity<ContractCprResponse> saveCpr(@RequestBody @Valid ContractCprRequest request) {
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(service.saveCpr(request));
+    }
+
+    @PostMapping("/financial")
+    public ResponseEntity<ContractFinancialResponse> saveFinancial(@RequestBody @Valid ContractFinancialRequest request) {
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(service.saveFinancial(request));
+    }
+
+
 
     @GetMapping("/{id}")
     public ResponseEntity<ContractResponse> findById(@PathVariable(value = "id") Long id) {

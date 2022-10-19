@@ -16,8 +16,8 @@ public class ImmovableResponse implements Serializable {
     private static final long serialVersionUID = 1L;
     private String EDIFICACAO;
     private String DESCRICAO;
-    private LocationType TIPOLOCALIZACAO;
-    private PropertyType TIPOIMOVEL;
-    private Address ENDERECO;
+    private LocationTypeResponse TIPOLOCALIZACAO;
+    private PropertyTypeResponseId TIPOIMOVEL;
+    private AddressResponseId ENDERECO;
     private String DADOSARRENDAMENTO;
 }

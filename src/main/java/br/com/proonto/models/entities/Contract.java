@@ -48,30 +48,30 @@ public class Contract implements Serializable {
     @JoinColumn(name = "financeiro_id", referencedColumnName = "id")
     private Financial FINANCEIRO;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL)
     private List<ModalityOfOperation> MODALIDADESOPERACAO;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Part> PARTES;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "cpr_id", referencedColumnName = "id")
     private CPR CPR;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Guarantee> GARANTIAS;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Daje> IMPOSTOS;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL)
     private List<LetterOfAttorney> PROCURACOES;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "authorization_id", referencedColumnName = "id")
     private AuthorizationList AUTORIZACOES;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Clause> CLAUSULASADICIONAIS;
 
     @ManyToOne

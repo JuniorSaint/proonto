@@ -6,7 +6,6 @@ import br.com.proonto.exceptions.BadRequestException;
 
 import java.time.Instant;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.regex.Matcher;
@@ -27,8 +26,6 @@ import br.com.proonto.models.entities.Contract;
 import br.com.proonto.models.entities.Dictionary;
 import br.com.proonto.models.entities.Pignoratics;
 import br.com.proonto.models.responses.ContractResponseId;
-import br.com.proonto.models.responses.PartResponseId;
-import br.com.proonto.models.responses.QualificationResponseId;
 import br.com.proonto.repositories.ContractRepository;
 import br.com.proonto.repositories.DictionaryRepository;
 import freemarker.cache.StringTemplateLoader;
@@ -112,9 +109,7 @@ public class FileHtmlService {
         }
         ContractResponseId result = new ContractResponseId();
         result = mapper.map(resultOp, ContractResponseId.class);
-        PartResponseId partCreditor = findCreditor(result.getPARTES(), "3");
-        PartResponseId partDebitor = findCreditor(result.getPARTES(), "5");
-        PartResponseId partFaithfulDepositary = findCreditor(result.getPARTES(), "17");
+
         Pignoratics response = Pignoratics.builder()
                 .dueDateUnabbreviated(result.getVENCIMENTOPOREXTENSO())
                 .headerTitle(result.getTITULODOCABECALHO())
@@ -122,81 +117,25 @@ public class FileHtmlService {
                 .contractNumber(result.getNUMEROCONTRATO())
                 .value(result.getFINANCEIRO().getVALORTOTAL())
                 .valueUnabbreviated(result.getFINANCEIRO().getVALOREXTENSO())
-                .creditor(partCreditor.getNOME())
-                .cnpjCreditor(partCreditor.getCPFCNPJ())
 
-                .numberCreditor(partCreditor.getENDERECO().getNUMERO())
-                .districtCreditor(partCreditor.getENDERECO().getBAIRRO())
-                .cityCreditor(partCreditor.getENDERECO().getCIDADE())
-                .ufCreditor(partCreditor.getENDERECO().getUF())
-                .zipCodeCreditor(partCreditor.getENDERECO().getCEP())
-                .effectiveInterestPerYear(result.getFINANCEIRO().getTAXAJUROSEFETIVAANUAL())
-                .effectiveInterestPerMonth(result.getFINANCEIRO().getTAXAJUROSEFETIVAMENSAL())
-                .effectiveInterestPerYearUnabbreviated(result.getFINANCEIRO().getTAXAJUROSEFETIVAANUALPOREXTENSO())
-                .effectiveInterestPerMonthUnabbreviated(result.getFINANCEIRO().getTAXAJUROSEFETIVAMENSALPOREXTENSO())
-                .fine(result.getFINANCEIRO().getMULTA())
-                .fineUnabbreviated(result.getFINANCEIRO().getMULTAPOREXTENSO())
-                // .amount()
-                // .description()
-                // .grade()
-                // .harvest()
-                // .humidity()
-                // .impurities()
-                // .damagedAndBurnt()
-                // .streetGuarantee()
-                // .numberGuarantee()
-                // .districtGuarantee()
-                // .cityGuarantee()
-                // .ufGuarantee()
-                // .zipCodeGuarantee()
-                // .county()
-                // .cns()
-                // .ufRegistry()
-                .faithfulDepositary(partFaithfulDepositary.getNOME())
-                .maritalStatusfaithful(partFaithfulDepositary.getESTADOCIVIL())
-                .cpfFaithful(partFaithfulDepositary.getCPFCNPJ())
-
-                .numberFaithful(partFaithfulDepositary.getENDERECO().getNUMERO())
-                .districtFaithful(partFaithfulDepositary.getENDERECO().getBAIRRO())
-                .cityFaithful(partFaithfulDepositary.getENDERECO().getCIDADE())
-                .ufFaithful(partFaithfulDepositary.getENDERECO().getUF())
-                .zipCodeFaithful(partFaithfulDepositary.getENDERECO().getCEP())
-                .debtor(partDebitor.getNOME())
-                .maritalStatusDebtor(partDebitor.getESTADOCIVIL())
-                .cpfDebtor(partDebitor.getCPFCNPJ())
-
-                .numberDebtor(partDebitor.getENDERECO().getNUMERO())
-                .districtDebtor(partDebitor.getENDERECO().getBAIRRO())
-                .cityDebtor(partDebitor.getENDERECO().getCIDADE())
-                .ufDebtor(partDebitor.getENDERECO().getUF())
-                .zipCodeDebtor(partDebitor.getENDERECO().getCEP())
-                .birthdayDebtor(partDebitor.getDATANASCIMENTO())
-                .documentDebtor(partDebitor.getDOCUMENTO())
-                .issuingAgencyDebtor(partDebitor.getORGAOEMISSOR())
-                .nacionalityDebtor(partDebitor.getNACIONALIDADE())
-                .propertyRegimeDebtor(partDebitor.getREGIMEBENS())
-                .profissionDebtor(partDebitor.getPROFISSAO())
-                .filiation1Debtor(partDebitor.getFILIACAO1())
-                .filiation2Debtor(partDebitor.getFILIACAO2())
-                // .cpfSpouseDebtor(partDebitor.)
                 .build();
         return response;
     }
 
-    private PartResponseId findCreditor(List<PartResponseId> list, String str) {
-        PartResponseId part = new PartResponseId();
-        PartResponseId partResult = new PartResponseId();
-        QualificationResponseId qualification = new QualificationResponseId();
-        for (int x = 0; x < list.size(); x++) {
-            partResult = list.get(x);
-            for (int i = 0; i < partResult.getQUALIFICACOES().size(); i++) {
-                qualification = partResult.getQUALIFICACOES().get(i);
-                if (qualification.getQUALIFICACAO().equals(str)) {
-                    part = partResult;
-                }
-            }
-        }
-        return part;
-    }
+//    private PartResponseId findCreditor(List<PartResponseId> list, String str) {
+//        PartResponseId part = new PartResponseId();
+//        PartResponseId partResult = new PartResponseId();
+//        QualificationResponseId qualification = new QualificationResponseId();
+//        for (int x = 0; x < list.size(); x++) {
+//            partResult = list.get(x);
+//            for (int i = 0; i < partResult.getQUALIFICACOES().size(); i++) {
+//                qualification = partResult.getQUALIFICACOES().get(i);
+//                if (qualification.getQUALIFICACAO().equals(str)) {
+//                    part = partResult;
+//                }
+//            }
+//        }
+//        return part;
+//    }
 
 }

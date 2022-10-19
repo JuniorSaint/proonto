@@ -20,9 +20,9 @@ import java.util.List;
 public class PresenterResponse implements Serializable {
     private static final long serialVersionUID = 1L;
     private String NOME;
-    private PersonType TIPOPESSOA;
+    private PersonTypeResponse TIPOPESSOA;
     private String CPFCNPJ;
-    private Address ENDERECO;
-    private Contact CONTATO;
-    private Representative REPRESENTANTE;
+    private AddressResponseId ENDERECO;
+    private ContactResponseId CONTATO;
+    private RepresentativeResponseId REPRESENTANTE;
 }

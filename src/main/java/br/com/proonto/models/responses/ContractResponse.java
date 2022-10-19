@@ -15,13 +15,13 @@ public class ContractResponse implements Serializable {
     private static final long serialVersionUID = 1L;
     private List<RegistryOfficeResponseId> CARTORIOS;
     private String NUMEROCONTRATO;
-    private BallotType TIPOCEDULA;
+    private BallotTypeResponse TIPOCEDULA;
     private LocalDate DATACONTRATO;
     private String LOCALCONTRATO;
     private SenderResponseId REMETENTE;
     private PresenterResponseId APRESENTANTE;
     private FinancialResponseId FINANCEIRO;
-    private List<ModalityOfOperationResponseId> MODALIDADESOPERACAO;
+    private List<ModalityOfOperationResponse> MODALIDADESOPERACAO;
     private List<PartResponseId> PARTES;
     private CPRResponseId CPR;
     private List<GuaranteeResponseId> GARANTIAS;

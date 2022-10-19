@@ -22,12 +22,12 @@ public class ImmovableController {
     private ImmovableService service;
 
     @PostMapping
-    public ResponseEntity<ImmovableResponseId> save(@RequestBody @Valid ImmovableRequest request) {
+    public ResponseEntity<ImmovableRequest> save(@RequestBody @Valid ImmovableRequest request) {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(service.saveUpdate(request));
     }
     @PutMapping
-    public ResponseEntity<ImmovableResponseId> update(@RequestBody @Valid ImmovableRequest request) {
+    public ResponseEntity<ImmovableRequest> update(@RequestBody @Valid ImmovableRequest request) {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(service.saveUpdate(request));
     }

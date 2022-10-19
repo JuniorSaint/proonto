@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.hateoas.RepresentationModel;
 import javax.persistence.*;
@@ -41,7 +43,7 @@ public class Immovable extends RepresentationModel<Immovable> implements Seriali
     @UpdateTimestamp
     private Instant updatedAt;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "endereco_id", referencedColumnName = "id")
+    @OneToOne(mappedBy = "immovable", cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
     private Address ENDERECO;
 }

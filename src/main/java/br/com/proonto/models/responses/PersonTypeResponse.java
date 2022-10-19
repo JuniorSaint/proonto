@@ -17,7 +17,5 @@ import java.io.Serializable;
 public class PersonTypeResponse implements Serializable {
     private static final long serialVersionUID = 1L;
     private String domain;
-    private String description;
-    private Boolean active;
 }
 

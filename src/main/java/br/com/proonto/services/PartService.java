@@ -3,7 +3,6 @@ package br.com.proonto.services;
 import static br.com.proonto.configs.CP.DELETE_MESSAGE;
 import static br.com.proonto.configs.CP.NOT_FOUND;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,18 +15,13 @@ import org.springframework.transaction.annotation.Transactional;
 import br.com.proonto.configs.Utils;
 import br.com.proonto.exceptions.DataBaseException;
 import br.com.proonto.exceptions.EntityNotFoundException;
-import br.com.proonto.models.entities.Address;
-import br.com.proonto.models.entities.Contact;
 import br.com.proonto.models.entities.Part;
-import br.com.proonto.models.entities.Qualification;
 import br.com.proonto.models.requests.PartRequest;
-import br.com.proonto.models.requests.QualificationRequest;
 import br.com.proonto.models.responses.PartResponseId;
 import br.com.proonto.repositories.AddressRepository;
 import br.com.proonto.repositories.ContactRepository;
 import br.com.proonto.repositories.PactRepository;
 import br.com.proonto.repositories.PartRepository;
-import br.com.proonto.repositories.QualificationRepository;
 
 @Service
 public class PartService {
@@ -39,8 +33,7 @@ public class PartService {
     private PactRepository pactRepository;
     @Autowired
     private ContactRepository contactRepository;
-    @Autowired
-    private QualificationRepository qualificationRepository;
+
     @Autowired
     private ModelMapper mapper;
     @Autowired
@@ -53,18 +46,7 @@ public class PartService {
         if (part.getId() != null) {
             PartResponseId resp = findById(part.getId());
         }
-        if (part.getCPFCNPJ() != null) {
-            part.setCPFCNPJ(part.getCPFCNPJ().replaceAll("\\D", ""));
-        }
-        List<Qualification> res = new ArrayList<>();
-        for (QualificationRequest req : part.getQUALIFICACOES()) {
-            res.add(qualificationRepository.save(mapper.map(req, Qualification.class)));
-        }
-        Part response = mapper.map(part, Part.class);
-        response.setENDERECO(addressRespository.save(mapper.map(part.getENDERECO(), Address.class)));
-        response.setCONTATO(contactRepository.save(mapper.map(part.getCONTATO(), Contact.class)));
-        response.setQUALIFICACOES(res);
-        Part result = repository.save(response);
+        Part result = repository.save(mapper.map(part, Part.class));
         return mapper.map(result, PartResponseId.class);
     }
 

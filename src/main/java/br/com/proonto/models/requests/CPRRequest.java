@@ -19,5 +19,5 @@ public class CPRRequest implements Serializable {
     private String PERIODO;
     private String CONDICOES;
     private List<ProductRequest> PRODUTOS;
-    private Financial FINANCEIRO;
+    private FinancialRequest FINANCEIRO;
 }

@@ -37,7 +37,6 @@ public class GuaranteeTypeSubService {
             GuaranteeTypeSub response = findById(guaranteeTypeSubRequest.getId());
         }
         mapper.map(guaranteeTypeSubRequest, guaranteeTypeSub);
-        guaranteeTypeSub.setGuaranteeType(guaranteeTypeService.findById(guaranteeTypeSubRequest.getGuaranteeType().getDomain()));
         return repository.save(guaranteeTypeSub);
     }
 

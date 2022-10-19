@@ -21,4 +21,8 @@ public class PartsRole implements Serializable {
     private String domain;
     private String description;
     private Boolean active;
+
+    @ManyToOne
+    @JoinColumn(name="part_id")
+    private Part part;
 }

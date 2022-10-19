@@ -23,9 +23,9 @@ public class CreditorBranchResponse implements Serializable {
     private CreditorTypeEnum TIPODECREDOR;
     private Parameter parameter;
     private List<UserResponse> users;
-    private Creditor matrix;
+    private CreditorBranchResponse matrix;
     private Template template;
-    private Address ENDERECO;
-    private List<QualificationResponseId> QUALIFICACOES;
+    private AddressResponseId ENDERECO;
+    private List<PartResponseId> QUALIFICACOES;
     private ContactResponseId CONTATO;
 }

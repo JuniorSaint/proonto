@@ -1,9 +1,15 @@
 package br.com.proonto.models.requests;
 
+import br.com.proonto.models.entities.Area;
+import br.com.proonto.models.entities.GuaranteeTypeSub;
+import br.com.proonto.models.entities.PropertyType;
+import br.com.proonto.models.entities.Registry;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
@@ -14,8 +20,8 @@ import java.util.List;
 public class GuaranteeRequest implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long id;
-    private String TIPOGARANTIA;
-    private String TIPOBEM;
+    private GuaranteeTypeSubRequest TIPOGARANTIA;
+    private PropertyTypeRequest TIPOBEM;
     private String DESCRICAO;
     private Double PERCENTUALCOMPROMETIDO;
     private Double VALOR;

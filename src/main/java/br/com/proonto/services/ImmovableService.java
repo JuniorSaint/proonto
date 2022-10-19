@@ -42,7 +42,7 @@ public class ImmovableService {
     Immovable immovable = new Immovable();
 
     @Transactional
-    public ImmovableResponseId saveUpdate(ImmovableRequest request) {
+    public ImmovableRequest saveUpdate(ImmovableRequest request) {
         if (request.getId() != null) {
             ImmovableResponseId resp = findById(request.getId());
         }
@@ -50,7 +50,7 @@ public class ImmovableService {
         immovable.setENDERECO(addressService.saveUpdate(mapper.map(request.getENDERECO(), AddressRequest.class)));
         immovable.setTIPOIMOVEL(propertyTypeRepository.findById(request.getTIPOIMOVEL().getDomain()).get());
         immovable.setTIPOLOCALIZACAO(locationTypeRepository.findById(request.getTIPOLOCALIZACAO().getDomain()).get());
-        return mapper.map(repository.save(immovable), ImmovableResponseId.class);
+        return mapper.map(repository.save(immovable), ImmovableRequest.class);
     }
 
     @Transactional(readOnly = true)

@@ -10,7 +10,6 @@ import java.io.Serializable;
 @Entity
 @Table(name = "contact")
 @Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "id")
@@ -23,4 +22,24 @@ public class Contact implements Serializable {
     private String NOME;
     private String TELEFONE;
     private String EMAIL;
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setNOME(String NOME) {
+        this.NOME = NOME;
+    }
+
+    public void setTELEFONE(String TELEFONE) {
+        if(TELEFONE == null){
+            this.TELEFONE = TELEFONE;
+        }else{
+        this.TELEFONE = TELEFONE.replaceAll("\\D", "");
+        }
+    }
+
+    public void setEMAIL(String EMAIL) {
+        this.EMAIL = EMAIL;
+    }
 }
