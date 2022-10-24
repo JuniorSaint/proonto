@@ -7,6 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Configuration
@@ -23,6 +24,7 @@ public class Utils {
                 .map(element -> mapper.map(element, targetClass))
                 .collect(Collectors.toList());
     }
+
 
     public <T> Page<T> convertListIntoPage(List<T> source){
      return new PageImpl<>(source);

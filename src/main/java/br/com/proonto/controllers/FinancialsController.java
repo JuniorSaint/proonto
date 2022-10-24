@@ -14,34 +14,33 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.proonto.models.requests.AreaRequest;
-import br.com.proonto.models.responses.AreaResponse;
-import br.com.proonto.models.responses.AreaResponseId;
-import br.com.proonto.services.AreaService;
+import br.com.proonto.models.requests.FinancialRequest;
+import br.com.proonto.models.responses.FinancialResponseId;
+import br.com.proonto.services.FinancialService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 60 * 60)
-@RequestMapping("/v1/area")
-@Tag(name = "Area", description = "Manager area")
-public class AreaController {
-
+@RequestMapping("/v1/financial")
+@Tag(name = "Financial", description = "Manager financial")
+public class FinancialsController {
     @Autowired
-    private AreaService service;
+    private FinancialService service;
 
-    @PostMapping
-    public ResponseEntity<AreaResponse> save(@RequestBody @Valid AreaRequest request) {
+    @PostMapping("/{id_contract}")
+    public ResponseEntity<FinancialResponseId> save(@RequestBody @Valid FinancialRequest request, @PathVariable(value = "id_contract") Long id_contract) {
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(service.saveUpdate(request));
+                .body(service.saveUpdate(request, id_contract));
     }
-    @PutMapping
-    public ResponseEntity<AreaResponse> update(@RequestBody @Valid AreaRequest request) {
-        return ResponseEntity.status(HttpStatus.OK)
-                .body(service.saveUpdate(request));
+
+    @PutMapping("/{id_contract}")
+    public ResponseEntity<FinancialResponseId> update(@RequestBody @Valid FinancialRequest request, @PathVariable(value = "id_contract") Long id_contract) {
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(service.saveUpdate(request, id_contract));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<AreaResponseId> findById(@PathVariable(value = "id") Long id) {
+    public ResponseEntity<FinancialResponseId> findById(@PathVariable(value = "id") Long id) {
         return ResponseEntity.status(HttpStatus.ACCEPTED)
                 .body(service.findById(id));
     }

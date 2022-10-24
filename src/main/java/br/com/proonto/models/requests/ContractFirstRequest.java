@@ -8,6 +8,7 @@ import lombok.Setter;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 
 
 @Getter
@@ -17,7 +18,7 @@ public class ContractFirstRequest implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private Long id;
-    private List<RegistryOfficeRequest> CARTORIOS;
+    private Set<RegistryOfficeRequest> CARTORIOS;
     private String NUMEROCONTRATO;
     private BallotTypeRequest TIPOCEDULA;
     private LocalDate DATACONTRATO;

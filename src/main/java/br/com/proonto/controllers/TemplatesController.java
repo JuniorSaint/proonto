@@ -17,46 +17,43 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.proonto.models.requests.AgencyBankRequest;
-import br.com.proonto.models.responses.AgencyBankResponseId;
-import br.com.proonto.services.AgencyBankService;
+import br.com.proonto.models.requests.TemplateRequest;
+import br.com.proonto.models.responses.TemplateResponse;
+import br.com.proonto.services.TemplateService;
 import io.swagger.v3.oas.annotations.tags.Tag;
+
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 60 * 60)
-@RequestMapping("/v1/agency-bank")
-@Tag(name = "Agency Bank", description = "Manager Agency Bank")
-public class AgencyBankController {
+@RequestMapping("/v1/template")
+@Tag(name = "Template", description = "Manager template")
+public class TemplatesController {
     @Autowired
-    private AgencyBankService service;
+    private TemplateService service;
 
     @PostMapping
-    public ResponseEntity<AgencyBankResponseId> save(@RequestBody @Valid AgencyBankRequest agencyBank) {
+    public ResponseEntity<TemplateResponse> save(@RequestBody @Valid TemplateRequest request) {
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(service.saveUpdate(agencyBank));
+                .body(service.saveUpdate(request));
     }
-
     @PutMapping
-    public ResponseEntity<AgencyBankResponseId> update(@RequestBody @Valid AgencyBankRequest agencyBank) {
+    public ResponseEntity<TemplateResponse> update(@RequestBody @Valid TemplateRequest request) {
         return ResponseEntity.status(HttpStatus.OK)
-                .body(service.saveUpdate(agencyBank));
+                .body(service.saveUpdate(request));
     }
-
     @GetMapping
-    public ResponseEntity<List<AgencyBankResponseId>> findAll() {
+    public ResponseEntity<List<TemplateResponse>> findAll() {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(service.findAll());
     }
-
     @GetMapping("/{id}")
-    public ResponseEntity<AgencyBankResponseId> findById(@PathVariable(value = "id") Long id) {
+    public ResponseEntity<TemplateResponse> findById(@PathVariable(value = "id") Long id) {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(service.findById(id));
     }
-
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> delete(@PathVariable(value = "id") Long id) throws Exception {
-            return ResponseEntity.status(HttpStatus.OK)
-                    .body(service.delete(id));
+    public ResponseEntity<String> delete(@PathVariable(value = "id") Long id)  {
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(service.delete(id));
     }
 }

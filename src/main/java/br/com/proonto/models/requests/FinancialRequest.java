@@ -37,4 +37,5 @@ public class FinancialRequest implements Serializable {
     private String COMISSAOFISCALIZACAO;
     private Double MULTA;
     private String MULTAPOREXTENSO;
+    private ContractRequest CONTRATO;
 }

@@ -6,16 +6,44 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
+@Table(name = "sender")
 @NoArgsConstructor
 @Getter
 @Setter
-@DiscriminatorValue("sender")
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-public class Sender extends Presenter implements Serializable {
+public class Sender implements Serializable {
     private static final long serialVersionUID = 1L;
+
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String NOME;
+    private String CPFCNPJ;
+
+    @OneToOne
+    @JoinColumn(name = "tipo_pessoa_id", referencedColumnName = "domain")
+    private PersonType TIPOPESSOA;
+
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "endereco_id", referencedColumnName = "id")
+    private Address ENDERECO;
+
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "contato_id", referencedColumnName = "id")
+    private Contact CONTATO;
+
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "representante_id", referencedColumnName = "id")
+    private Representative REPRESENTANTE;
+
+    @OneToOne
+    @JoinColumn(name = "contract_id")
+    private Contract CONTRATO;
+
 }

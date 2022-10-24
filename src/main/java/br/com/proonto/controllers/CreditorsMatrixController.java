@@ -1,11 +1,7 @@
 package br.com.proonto.controllers;
 
-import br.com.proonto.models.requests.CreditorBranchRequest;
 import br.com.proonto.models.requests.CreditorMatrixRequest;
-import br.com.proonto.models.responses.CreditorBranchResponse;
-import br.com.proonto.models.responses.CreditorBranchResponseId;
 import br.com.proonto.models.responses.CreditorMatrixResponseId;
-import br.com.proonto.services.CreditorBranchService;
 import br.com.proonto.services.CreditorMatrixService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,29 +15,29 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 60 * 60)
-@RequestMapping("/v1/creditor-branch")
-@Tag(name = "Creditor Branch", description = "Manager creditor branch")
-public class CreditorBranchController {
+@RequestMapping("/v1/creditor-matrix")
+@Tag(name = "Creditor", description = "Manager creditor")
+public class CreditorsMatrixController {
     @Autowired
-    private CreditorBranchService service;
+    private CreditorMatrixService service;
 
     @PostMapping
-    public ResponseEntity<CreditorBranchResponseId> save(@RequestBody @Valid CreditorBranchRequest request) {
+    public ResponseEntity<CreditorMatrixResponseId> save(@RequestBody @Valid CreditorMatrixRequest request) {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(service.saveUpdate(request));
     }
     @PutMapping
-    public ResponseEntity<CreditorBranchResponseId> update(@RequestBody @Valid CreditorBranchRequest request) {
+    public ResponseEntity<CreditorMatrixResponseId> update(@RequestBody @Valid CreditorMatrixRequest request) {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(service.saveUpdate(request));
     }
     @GetMapping
-    public ResponseEntity<List<CreditorBranchResponseId>> findAll() {
+    public ResponseEntity<List<CreditorMatrixResponseId>> findAll() {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(service.findAll());
     }
     @GetMapping("/{id}")
-    public ResponseEntity<CreditorBranchResponseId> findById(@PathVariable(value = "id") Long id) {
+    public ResponseEntity<CreditorMatrixResponseId> findById(@PathVariable(value = "id") Long id) {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(service.findById(id));
     }

@@ -25,4 +25,8 @@ public class PartsRole implements Serializable {
     @ManyToOne
     @JoinColumn(name="part_id")
     private Part part;
+
+    @ManyToOne
+    @JoinColumn(name="creditor_id")
+    private Creditor creditor;
 }

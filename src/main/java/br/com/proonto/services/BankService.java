@@ -35,8 +35,6 @@ public class BankService {
             findById(request.getId());
         }
         Bank bank = mapper.map(request, Bank.class);
-        if (bank.getCnpj() != null)
-            bank.setCnpj(bank.getCnpj().replaceAll("\\D", ""));
 
         return mapper.map(repository.save(bank), BankResponseId.class);
     }

@@ -5,13 +5,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import br.com.proonto.models.requests.CPRRequest;
 import br.com.proonto.models.responses.CPRResponse;
@@ -20,16 +14,21 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 60 * 60)
-@RequestMapping("/v1/cpr")
+@RequestMapping("/v1/cprs")
 @Tag(name = "CPR", description = "Manager cpr")
-public class CPRController {
+public class CPRsController {
     @Autowired
     private CPRService service;
 
-    @PostMapping
-    public ResponseEntity<CPRResponse> save(@RequestBody @Valid CPRRequest request) {
+    @PostMapping("/{id_contract}")
+    public ResponseEntity<CPRResponse> save(@RequestBody @Valid CPRRequest request, @PathVariable(value = "id_contract") Long id_contract) {
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(service.saveUpdate(request));
+                .body(service.saveUpdate(request, id_contract));
+    }
+    @PutMapping("/{id_contract}")
+    public ResponseEntity<CPRResponse> update(@RequestBody @Valid CPRRequest request, @PathVariable(value = "id_contract") Long id_contract) {
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(service.saveUpdate(request, id_contract));
     }
 
     @GetMapping("/{id}")

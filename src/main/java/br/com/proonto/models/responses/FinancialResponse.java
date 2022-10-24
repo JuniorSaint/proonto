@@ -30,4 +30,5 @@ public class FinancialResponse implements Serializable {
     private String FORO;
     private IndexerSubResponse INDEXADOR;
     private String COMISSAOFISCALIZACAO;
+    private ContractOnlyIdResponse CONTRATO;
 }

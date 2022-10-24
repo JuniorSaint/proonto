@@ -1,11 +1,8 @@
 package br.com.proonto.controllers;
 
-import br.com.proonto.models.requests.BankRequest;
-import br.com.proonto.models.requests.LocationTypeRequest;
-import br.com.proonto.models.responses.BankResponseId;
-import br.com.proonto.models.responses.LocationTypeResponse;
-import br.com.proonto.services.BankService;
-import br.com.proonto.services.LocationTypeService;
+import br.com.proonto.models.requests.IndexerRequest;
+import br.com.proonto.models.responses.IndexerResponse;
+import br.com.proonto.services.IndexerService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,33 +14,33 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 60 * 60)
-@RequestMapping("/v1/location-type")
-@Tag(name = "Location Type", description = "Manager location type")
-public class LocationTypeController {
+@RequestMapping("/v1/indexer")
+@Tag(name = "Indexer", description = "Manager indexer")
+public class IndexersController {
     @Autowired
-    private LocationTypeService service;
+    private IndexerService service;
 
     @PostMapping
-    public ResponseEntity<LocationTypeResponse> save(@RequestBody @Valid LocationTypeRequest request) {
+    public ResponseEntity<IndexerResponse> save(@RequestBody @Valid IndexerRequest request) {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(service.saveUpdate(request));
     }
 
     @PutMapping
-    public ResponseEntity<LocationTypeResponse> update(@RequestBody @Valid LocationTypeRequest request) {
+    public ResponseEntity<IndexerResponse> update(@RequestBody @Valid IndexerRequest request) {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(service.saveUpdate(request));
     }
 
     @GetMapping
-    public ResponseEntity<List<LocationTypeResponse>> findAll() {
-        return ResponseEntity.status(HttpStatus.OK)
+    public ResponseEntity<List<IndexerResponse>> findAll() {
+        return ResponseEntity.status(HttpStatus.ACCEPTED)
                 .body(service.findAll());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<LocationTypeResponse> findById(@PathVariable(value = "id") String id) {
-        return ResponseEntity.status(HttpStatus.OK)
+    public ResponseEntity<IndexerResponse> findById(@PathVariable(value = "id") String id) {
+        return ResponseEntity.status(HttpStatus.ACCEPTED)
                 .body(service.findById(id));
     }
 

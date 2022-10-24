@@ -12,7 +12,6 @@ import java.io.Serializable;
 @Setter
 public class RegistryOfficeRequest implements Serializable {
     private static final long serialVersionUID = 1L;
-
     private Long id;
     private String CNS;
     private String NOME;

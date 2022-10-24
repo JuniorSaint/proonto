@@ -11,7 +11,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public class ContractFinancialResponse extends ContractCprResponse implements Serializable {
+public class ContractOnlyIdResponse implements Serializable {
     private static final long serialVersionUID = 1L;
-    private FinancialResponseId FINANCEIRO;
+    private Long id;
 }

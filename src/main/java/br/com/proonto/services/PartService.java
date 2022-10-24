@@ -6,6 +6,7 @@ import static br.com.proonto.configs.CP.NOT_FOUND;
 import java.util.List;
 import java.util.Optional;
 
+import br.com.proonto.models.requests.ContractRequest;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -33,6 +34,8 @@ public class PartService {
     private PactRepository pactRepository;
     @Autowired
     private ContactRepository contactRepository;
+    @Autowired
+    private ContractFirstService contractService;
 
     @Autowired
     private ModelMapper mapper;
@@ -42,12 +45,12 @@ public class PartService {
     Part part = new Part();
 
     @Transactional
-    public PartResponseId saveUpdate(PartRequest part) {
-        if (part.getId() != null) {
-            PartResponseId resp = findById(part.getId());
+    public PartResponseId saveUpdate(PartRequest request, Long id_contract) {
+        if (request.getId() != null) {
+            findById(request.getId());
         }
-        Part result = repository.save(mapper.map(part, Part.class));
-        return mapper.map(result, PartResponseId.class);
+        request.setCONTRATO(mapper.map(contractService.findById(id_contract), ContractRequest.class));
+        return mapper.map(repository.save(mapper.map(request, Part.class)), PartResponseId.class);
     }
 
     @Transactional(readOnly = true)
@@ -73,14 +76,4 @@ public class PartService {
         return utils.mapListIntoDtoList(repository.findAll(), PartResponseId.class);
     }
 
-    @Transactional(readOnly = true)
-    public String delete(Long id) {
-        try {
-            PartResponseId response = findById(id);
-            repository.deleteById(id);
-            return "Part" + DELETE_MESSAGE;
-        } catch (DataIntegrityViolationException e) {
-            throw new DataBaseException("Integrity violation");
-        }
-    }
 }

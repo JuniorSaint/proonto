@@ -1,11 +1,8 @@
 package br.com.proonto.controllers;
 
-import br.com.proonto.models.requests.BankRequest;
-import br.com.proonto.models.requests.DictionaryRequest;
-import br.com.proonto.models.responses.BankResponseId;
-import br.com.proonto.models.responses.DictionaryResponseId;
-import br.com.proonto.services.BankService;
-import br.com.proonto.services.DictionaryService;
+import br.com.proonto.models.requests.PresenterRequest;
+import br.com.proonto.models.responses.PresenterResponseId;
+import br.com.proonto.services.PresenterService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,29 +15,29 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 60 * 60)
-@RequestMapping("/v1/dictionary")
-@Tag(name = "Dictionary", description = "Manager dictionary")
-public class DictionaryController {
+@RequestMapping("/v1/presenters")
+@Tag(name = "Sender", description = "Manager sender")
+public class PresentersController {
     @Autowired
-    private DictionaryService service;
+    private PresenterService service;
 
-    @PostMapping
-    public ResponseEntity<DictionaryResponseId> save(@RequestBody @Valid DictionaryRequest request) {
+    @PostMapping("/{id_contract}")
+    public ResponseEntity<PresenterResponseId> save(@RequestBody @Valid PresenterRequest request, @PathVariable(value = "id_contract") Long id_contract) {
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(service.saveUpdate(request));
+                .body(service.saveUpdate(request, id_contract));
     }
-    @PutMapping
-    public ResponseEntity<DictionaryResponseId> update(@RequestBody @Valid DictionaryRequest request) {
+    @PutMapping("/{id_contract}")
+    public ResponseEntity<PresenterResponseId> update(@RequestBody @Valid PresenterRequest request, @PathVariable(value = "id_contract") Long id_contract) {
         return ResponseEntity.status(HttpStatus.OK)
-                .body(service.saveUpdate(request));
+                .body(service.saveUpdate(request, id_contract));
     }
     @GetMapping
-    public ResponseEntity<List<DictionaryResponseId>> findAll() {
+    public ResponseEntity<List<PresenterResponseId>> findAll() {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(service.findAll());
     }
     @GetMapping("/{id}")
-    public ResponseEntity<DictionaryResponseId> findById(@PathVariable(value = "id") Long id) {
+    public ResponseEntity<PresenterResponseId> findById(@PathVariable(value = "id") Long id) {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(service.findById(id));
     }

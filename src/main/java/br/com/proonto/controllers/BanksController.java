@@ -17,7 +17,7 @@ import java.util.List;
 @CrossOrigin(origins = "*", maxAge = 60 * 60)
 @RequestMapping("/v1/bank")
 @Tag(name = "Bank", description = "Manager Bank")
-public class BankController {
+public class BanksController {
     @Autowired
     private BankService service;
 

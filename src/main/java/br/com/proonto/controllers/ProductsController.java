@@ -1,8 +1,6 @@
 package br.com.proonto.controllers;
 
-import br.com.proonto.models.entities.PropertyType;
 import br.com.proonto.models.requests.ProductRequest;
-import br.com.proonto.models.requests.PropertyTypeRequest;
 import br.com.proonto.models.responses.ProductResponseId;
 import br.com.proonto.services.ProductService;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -17,7 +15,7 @@ import javax.validation.Valid;
 @CrossOrigin(origins = "*", maxAge = 60 * 60)
 @RequestMapping("/v1/product")
 @Tag(name = "Product", description = "Manager product")
-public class ProductController {
+public class ProductsController {
     @Autowired
     private ProductService service;
 

@@ -23,7 +23,7 @@ import java.util.Optional;
 @RequestMapping("/v1/users")
 @AllArgsConstructor
 @Tag(name = "User", description = "Manager users")
-public class UserController {
+public class UsersController {
     @Autowired
     private UserService service;
 

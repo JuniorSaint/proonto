@@ -39,4 +39,6 @@ public class PartRequest implements Serializable {
     private AddressRequest ENDERECO;
     private List<PartsRoleRequest> QUALIFICACOES;
     private ContactRequest CONTATO;
+    private ContractRequest CONTRATO;
 }
+  

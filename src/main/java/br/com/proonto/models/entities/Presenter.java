@@ -14,7 +14,6 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Getter
 @Setter
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Presenter implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -24,18 +23,25 @@ public class Presenter implements Serializable {
     private Long id;
 
     private String NOME;
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    private String CPFCNPJ;
+
+    @OneToOne
     @JoinColumn(name = "tipo_pessoa_id", referencedColumnName = "domain")
     private PersonType TIPOPESSOA;
 
-    private String CPFCNPJ;
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "endereco_id", referencedColumnName = "id")
     private Address ENDERECO;
+
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "contato_id", referencedColumnName = "id")
     private Contact CONTATO;
+
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "representante_id", referencedColumnName = "id")
     private Representative REPRESENTANTE;
+
+    @OneToOne
+    @JoinColumn(name = "contract_id")
+    private Contract CONTRATO;
 }

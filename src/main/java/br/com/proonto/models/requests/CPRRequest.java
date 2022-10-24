@@ -20,4 +20,5 @@ public class CPRRequest implements Serializable {
     private String CONDICOES;
     private List<ProductRequest> PRODUTOS;
     private FinancialRequest FINANCEIRO;
+    private ContractRequest CONTRATO;
 }

@@ -7,6 +7,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 
 @Builder
 @Entity
@@ -22,12 +23,13 @@ public class Contract implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL )
     @JoinTable(
             name = "contract_registryoffice",
             joinColumns = @JoinColumn(name = "contract_id"),
-            inverseJoinColumns = @JoinColumn(name = "registryoffice_id"))
-    private List<RegistryOffice> CARTORIOS;
+            inverseJoinColumns = @JoinColumn(name = "registryoffice_id")
+            )
+    private Set<RegistryOffice> CARTORIOS;
     private String NUMEROCONTRATO;
     @OneToOne
     @JoinColumn(name = "tipo_cedula_id", referencedColumnName = "domain")
@@ -36,30 +38,27 @@ public class Contract implements Serializable {
     private String LOCALCONTRATO;
 
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "remetente_id", referencedColumnName = "id")
+    @OneToOne(mappedBy = "CONTRATO", cascade = CascadeType.ALL, orphanRemoval = true)
+    @PrimaryKeyJoinColumn
     private Sender REMETENTE;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "apresentante_id", referencedColumnName = "id")
+    @OneToOne(mappedBy = "CONTRATO", cascade = CascadeType.ALL, orphanRemoval = true)
+    @PrimaryKeyJoinColumn
     private Presenter APRESENTANTE;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "financeiro_id", referencedColumnName = "id")
-    private Financial FINANCEIRO;
 
     @OneToMany(cascade = CascadeType.ALL)
     private List<ModalityOfOperation> MODALIDADESOPERACAO;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany
     private List<Part> PARTES;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "cpr_id", referencedColumnName = "id")
+    @OneToOne(mappedBy = "CONTRATO", cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
     private CPR CPR;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Guarantee> GARANTIAS;
+    @OneToMany
+    private Set<Guarantee> GARANTIAS;
 
     @OneToMany(cascade = CascadeType.ALL)
     private List<Daje> IMPOSTOS;

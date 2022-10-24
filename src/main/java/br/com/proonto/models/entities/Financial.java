@@ -51,4 +51,8 @@ public class Financial implements Serializable {
     @OneToOne
     @JoinColumn(name = "indexador_id", referencedColumnName = "id")
     private IndexerSub INDEXADOR;
+
+    @ManyToOne
+    @JoinColumn(name="contrato_id")
+    private Contract CONTRATO;
 }

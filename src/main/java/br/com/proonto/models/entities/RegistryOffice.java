@@ -14,12 +14,12 @@ import java.io.Serializable;
 @AllArgsConstructor
 @Getter
 @Setter
-@JsonIdentityInfo(generator= ObjectIdGenerators.IntSequenceGenerator.class, property="id")
 public class RegistryOffice implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(unique=true)
     private String CNS;
     private String NOME;
     private String COMARCA;

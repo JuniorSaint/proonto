@@ -25,4 +25,5 @@ public class PresenterResponse implements Serializable {
     private AddressResponseId ENDERECO;
     private ContactResponseId CONTATO;
     private RepresentativeResponseId REPRESENTANTE;
+    private ContractOnlyIdResponse CONTRATO;
 }

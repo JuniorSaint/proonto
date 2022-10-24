@@ -4,7 +4,10 @@ import br.com.proonto.configs.Utils;
 import br.com.proonto.exceptions.EntityNotFoundException;
 import br.com.proonto.models.entities.CPR;
 import br.com.proonto.models.requests.CPRRequest;
+import br.com.proonto.models.requests.ContractFirstRequest;
+import br.com.proonto.models.requests.ContractRequest;
 import br.com.proonto.models.responses.CPRResponse;
+import br.com.proonto.models.responses.CPRResponseId;
 import br.com.proonto.repositories.CPRRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,17 +23,20 @@ public class CPRService {
     @Autowired
     private CPRRepository repository;
     @Autowired
+    private ContractFirstService contractFirstService;
+    @Autowired
     private ModelMapper mapper;
     @Autowired
     private Utils utils;
 
 
     @Transactional
-    public CPRResponse saveUpdate(CPRRequest request) {
+    public CPRResponseId saveUpdate(CPRRequest request, Long id_contract) {
         if (request.getId() != null) {
             CPRResponse resp = findById(request.getId());
         }
-        return mapper.map(repository.save(mapper.map(request, CPR.class)), CPRResponse.class);
+        request.setCONTRATO(mapper.map(contractFirstService.findById(id_contract), ContractRequest.class));
+        return mapper.map(repository.save(mapper.map(request, CPR.class)), CPRResponseId.class);
     }
 
     @Transactional(readOnly = true)

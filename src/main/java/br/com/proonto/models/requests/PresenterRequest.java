@@ -27,4 +27,5 @@ public class PresenterRequest implements Serializable {
     private AddressRequest ENDERECO;
     private ContactRequest CONTATO;
     private RepresentativeRequest REPRESENTANTE;
+    private ContractRequest CONTRATO;
 }

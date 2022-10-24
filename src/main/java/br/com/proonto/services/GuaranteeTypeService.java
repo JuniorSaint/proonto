@@ -1,6 +1,5 @@
 package br.com.proonto.services;
 
-import br.com.proonto.controllers.GuaranteeTypeController;
 import br.com.proonto.exceptions.DataBaseException;
 import br.com.proonto.exceptions.EntityNotFoundException;
 import br.com.proonto.models.entities.GuaranteeType;

@@ -35,4 +35,5 @@ public class PartResponse implements Serializable {
     private AddressResponseId ENDERECO;
     private List<PartsRoleResponse> QUALIFICACOES;
     private ContactResponseId CONTATO;
+    private ContractOnlyIdResponse CONTRATO;
 }

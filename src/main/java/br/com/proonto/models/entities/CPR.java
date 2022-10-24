@@ -30,4 +30,8 @@ public class CPR implements Serializable {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "financeiro_id", referencedColumnName = "id")
     private Financial FINANCEIRO;
+
+    @OneToOne
+    @JoinColumn(name = "contrato_id")
+    private Contract CONTRATO;
 }
