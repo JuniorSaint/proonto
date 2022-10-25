@@ -15,32 +15,32 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 60 * 60)
-@RequestMapping("/v1/creditors-branch")
+@RequestMapping("/v1/creditor-branch")
 @Tag(name = "Creditor Branch", description = "Manager creditor branch")
 public class CreditorsBranchController {
     @Autowired
     private CreditorBranchService service;
 
-    @PostMapping("/{id_contract}")
-    public ResponseEntity<CreditorBranchResponseId> save(@RequestBody @Valid CreditorBranchRequest request, @PathVariable(value = "id_contract") Long id_contract) {
+    @PostMapping
+    public ResponseEntity<CreditorBranchResponseId> save(@RequestBody @Valid CreditorBranchRequest request) {
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(service.saveUpdate(request, id_contract));
+                .body(service.saveUpdate(request));
     }
-    @PutMapping("/{id_contract}/id-creditor/{id_creditor}")
-    public ResponseEntity<CreditorBranchResponseId> update(@RequestBody @Valid CreditorBranchRequest request, @PathVariable(value = "id_contract") Long id_contract, @PathVariable(value = "id_creditor") Long id_creditor) {
-        request.setId(id_creditor);
+    @PutMapping("/{id}")
+    public ResponseEntity<CreditorBranchResponseId> update(@RequestBody @Valid CreditorBranchRequest request, @PathVariable(value = "id") Long id) {
+        request.setId(id);
         return ResponseEntity.status(HttpStatus.OK)
-                .body(service.saveUpdate(request, id_contract));
+                .body(service.saveUpdate(request));
     }
     @GetMapping
     public ResponseEntity<List<CreditorBranchResponseId>> findAll() {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(service.findAll());
     }
-    @GetMapping("/{id}")
-    public ResponseEntity<CreditorBranchResponseId> findById(@PathVariable(value = "id") Long id) {
+    @GetMapping("{id_creditor}")
+    public ResponseEntity<CreditorBranchResponseId> findById(@PathVariable(value = "id_creditor") Long id_creditor) {
         return ResponseEntity.status(HttpStatus.OK)
-                .body(service.findById(id));
+                .body(service.findById(id_creditor));
     }
     @DeleteMapping("/{id}")
     public ResponseEntity<String> delete(@PathVariable(value = "id") Long id)  {

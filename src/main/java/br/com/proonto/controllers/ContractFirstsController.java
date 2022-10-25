@@ -3,7 +3,6 @@ package br.com.proonto.controllers;
 import br.com.proonto.models.requests.*;
 import br.com.proonto.models.responses.*;
 import br.com.proonto.services.ContractFirstService;
-import br.com.proonto.services.ContractService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,7 +13,7 @@ import javax.validation.Valid;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 60 * 60)
-@RequestMapping("/v1/contract-firsts")
+@RequestMapping("/v1/contract")
 @Tag(name = "Contract", description = "Manager contract")
 public class ContractFirstsController {
     @Autowired

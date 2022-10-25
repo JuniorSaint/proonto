@@ -36,11 +36,10 @@ public class CreditorBranchService {
     Contact contact = new Contact();
 
     @Transactional
-    public CreditorBranchResponseId saveUpdate(CreditorBranchRequest request, Long id_contract) {
+    public CreditorBranchResponseId saveUpdate(CreditorBranchRequest request) {
         if (request.getId() != null) {
             findById(request.getId());
         }
-        request.setCONTRATO(mapper.map(contractFirstService.findById(id_contract), ContractRequest.class));
         request.setCPFCNPJ(request.getCPFCNPJ().replaceAll("\\D", ""));
         return mapper.map(repository.save(mapper.map(request, Creditor.class)), CreditorBranchResponseId.class);
     }

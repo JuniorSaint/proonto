@@ -29,7 +29,7 @@ public class Registry implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(cascade = CascadeType.PERSIST)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "cns_id", referencedColumnName = "id")
     private RegistryOffice CNS;
     private String LIVRO;

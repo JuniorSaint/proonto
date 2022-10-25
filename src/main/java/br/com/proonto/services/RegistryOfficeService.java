@@ -76,6 +76,15 @@ public class RegistryOfficeService {
         return mapper.map(result.get(), RegistryOfficeRequest.class);
     }
 
+    @Transactional
+    public RegistryOfficeRequest checkOnlyOne(RegistryOfficeRequest request){
+        RegistryOfficeRequest result = verifyIfExist(request);
+        if(result == null){
+            return mapper.map(repository.save(mapper.map(request, RegistryOffice.class)), RegistryOfficeRequest.class);
+        }
+        return request;
+    }
+
     @Transactional(readOnly = true)
     public RegistryOfficeRequest findById(Long id) {
         return mapper.map(repository.findById(id).get(), RegistryOfficeRequest.class);

@@ -35,11 +35,11 @@ public class CreditorMatrixService {
     Contact contact = new Contact();
 
     @Transactional
-    public CreditorMatrixResponseId saveUpdate(CreditorMatrixRequest request, Long id_contract) {
+    public CreditorMatrixResponseId saveUpdate(CreditorMatrixRequest request) {
         if (request.getId() != null) {
             findById(request.getId());
         }
-        request.setCONTRATO(mapper.map(contractFirstService.findById(id_contract), ContractRequest.class));
+        request.setCPFCNPJ(request.getCPFCNPJ().replaceAll("\\D", ""));
         Creditor response = mapper.map(request, Creditor.class);
         return mapper.map(repository.save(response), CreditorMatrixResponseId.class);
     }

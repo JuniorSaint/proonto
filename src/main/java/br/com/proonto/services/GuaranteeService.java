@@ -4,9 +4,11 @@ import br.com.proonto.exceptions.DataBaseException;
 import br.com.proonto.exceptions.EntityNotFoundException;
 import br.com.proonto.models.entities.Contract;
 import br.com.proonto.models.entities.Guarantee;
+import br.com.proonto.models.entities.RegistryOffice;
 import br.com.proonto.models.requests.ContractFirstRequest;
 import br.com.proonto.models.requests.ContractRequest;
 import br.com.proonto.models.requests.GuaranteeRequest;
+import br.com.proonto.models.requests.RegistryOfficeRequest;
 import br.com.proonto.models.responses.GuaranteeResponse;
 import br.com.proonto.models.responses.GuaranteeResponseId;
 import br.com.proonto.repositories.GuaranteeRepository;
@@ -20,7 +22,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 import static br.com.proonto.configs.CP.DELETE_MESSAGE;
 import static br.com.proonto.configs.CP.NOT_FOUND;
@@ -32,6 +35,8 @@ public class GuaranteeService {
     @Autowired
     private ContractFirstService contractFirstService;
     @Autowired
+    private RegistryOfficeService registryOfficeService;
+    @Autowired
     private ModelMapper mapper;
 
     @Transactional
@@ -39,6 +44,20 @@ public class GuaranteeService {
         if (request.getId() != null) {
             findById(request.getId());
         }
+        Set<RegistryOfficeRequest> getOfCnsFromGuarantee = new HashSet<>(request.getREGISTROS().stream().map(r -> r.getCNS()).collect(Collectors.toList()));
+        Set<RegistryOffice> registryOfficeRequest = registryOfficeService.verifyIncludeAndSave(getOfCnsFromGuarantee);
+        request.getREGISTROS().stream().map(r -> r.getCNS()).collect(Collectors.toList());
+        request.getREGISTROS().stream().map(r -> {
+            String checkStrCns = r.getCNS().getCNS();
+            Iterator<RegistryOffice> namesIterator = registryOfficeRequest.iterator();
+            while (namesIterator.hasNext()) {
+                if (checkStrCns.equals(namesIterator.next().getCNS())) {
+                    RegistryOffice checkToSee = namesIterator.next();
+                    r.setCNS(mapper.map(namesIterator.next(), RegistryOfficeRequest.class));
+                }
+            }
+            return "Ok";
+        });
         request.setCONTRATO(mapper.map(contractFirstService.findById(id), ContractRequest.class));
 
         return mapper.map(repository.save(mapper.map(request, Guarantee.class)), GuaranteeResponseId.class);

@@ -21,28 +21,28 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 60 * 60)
-@RequestMapping("/v1/financial")
+@RequestMapping("/v1/contract")
 @Tag(name = "Financial", description = "Manager financial")
 public class FinancialsController {
     @Autowired
     private FinancialService service;
 
-    @PostMapping("/{id_contract}")
+    @PostMapping("/{id_contract}/financial")
     public ResponseEntity<FinancialResponseId> save(@RequestBody @Valid FinancialRequest request, @PathVariable(value = "id_contract") Long id_contract) {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(service.saveUpdate(request, id_contract));
     }
 
-    @PutMapping("/{id_contract}/id-financial/{id_financial}")
+    @PutMapping("/{id_contract}/financial/{id_financial}")
     public ResponseEntity<FinancialResponseId> update(@RequestBody @Valid FinancialRequest request, @PathVariable(value = "id_contract") Long id_contract, @PathVariable(value = "id_financial") Long id_financial) {
         request.setId(id_financial);
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(service.saveUpdate(request, id_contract));
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<FinancialResponseId> findById(@PathVariable(value = "id") Long id) {
+    @GetMapping("/{id}/financial/{id_financial}")
+    public ResponseEntity<FinancialResponseId> findById(@PathVariable(value = "id") Long id, @PathVariable(value = "id_financial") Long id_financial) {
         return ResponseEntity.status(HttpStatus.ACCEPTED)
-                .body(service.findById(id));
+                .body(service.findById(id_financial));
     }
 }

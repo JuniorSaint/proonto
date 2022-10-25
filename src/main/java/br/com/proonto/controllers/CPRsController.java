@@ -14,27 +14,27 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 60 * 60)
-@RequestMapping("/v1/cprs")
+@RequestMapping("/v1/contract")
 @Tag(name = "CPR", description = "Manager cpr")
 public class CPRsController {
     @Autowired
     private CPRService service;
 
-    @PostMapping("/{id_contract}")
+    @PostMapping("/{id_contract}/cpr")
     public ResponseEntity<CPRResponse> save(@RequestBody @Valid CPRRequest request, @PathVariable(value = "id_contract") Long id_contract) {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(service.saveUpdate(request, id_contract));
     }
-    @PutMapping("/{id_contract}/id-cpr/{id_cpr}")
+    @PutMapping("/{id_contract}/cpr/{id_cpr}")
     public ResponseEntity<CPRResponse> update(@RequestBody @Valid CPRRequest request, @PathVariable(value = "id_contract") Long id_contract, @PathVariable(value = "id_cpr") Long id_cpr) {
         request.setId(id_cpr);
         return ResponseEntity.status(HttpStatus.OK)
                 .body(service.saveUpdate(request, id_contract));
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<CPRResponse> findById(@PathVariable(value = "id") Long id) {
+    @GetMapping("/{id_contract}/cpr/{id_cpr}")
+    public ResponseEntity<CPRResponse> findById(@PathVariable(value = "id_cpr") Long id_cpr, @PathVariable(value = "id_contract") Long id_contract) {
         return ResponseEntity.status(HttpStatus.ACCEPTED)
-                .body(service.findById(id));
+                .body(service.findById(id_cpr));
     }
 }
