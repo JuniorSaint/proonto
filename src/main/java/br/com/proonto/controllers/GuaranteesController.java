@@ -27,9 +27,10 @@ public class GuaranteesController {
                 .body(service.saveUpdate(request, id_contract));
     }
 
-    @PutMapping("/{id_contract}")
-    public ResponseEntity<GuaranteeResponse> update(@PathVariable(value = "id") Long id_contract, @RequestBody @Valid GuaranteeRequest request) {
-        return ResponseEntity.status(HttpStatus.CREATED)
+    @PutMapping("/{id_contract}/id-guarantee/{id_guarantee}")
+    public ResponseEntity<GuaranteeResponse> update(@PathVariable(value = "id") Long id_contract, @RequestBody @Valid GuaranteeRequest request, @PathVariable(value = "id") Long id_guarantee) {
+        request.setId(id_guarantee);
+        return ResponseEntity.status(HttpStatus.OK)
                 .body(service.saveUpdate(request, id_contract));
     }
 

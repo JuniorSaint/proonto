@@ -63,7 +63,7 @@ public class Part extends RepresentationModel<Part> implements Serializable {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "endereco_id", referencedColumnName = "id")
     private Address ENDERECO;
-    @OneToMany(mappedBy="part")
+    @OneToMany(mappedBy="creditor")
     private List<PartsRole> QUALIFICACOES;
 
     @OneToOne(cascade = CascadeType.ALL)

@@ -8,6 +8,7 @@ import br.com.proonto.models.requests.ContractFirstRequest;
 import br.com.proonto.models.requests.ContractRequest;
 import br.com.proonto.models.requests.GuaranteeRequest;
 import br.com.proonto.models.responses.GuaranteeResponse;
+import br.com.proonto.models.responses.GuaranteeResponseId;
 import br.com.proonto.repositories.GuaranteeRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,22 +35,22 @@ public class GuaranteeService {
     private ModelMapper mapper;
 
     @Transactional
-    public GuaranteeResponse saveUpdate(GuaranteeRequest request, Long id) {
+    public GuaranteeResponseId saveUpdate(GuaranteeRequest request, Long id) {
         if (request.getId() != null) {
             findById(request.getId());
         }
         request.setCONTRATO(mapper.map(contractFirstService.findById(id), ContractRequest.class));
 
-        return mapper.map(repository.save(mapper.map(request, Guarantee.class)), GuaranteeResponse.class);
+        return mapper.map(repository.save(mapper.map(request, Guarantee.class)), GuaranteeResponseId.class);
     }
 
     @Transactional(readOnly = true)
-    public GuaranteeResponse findById(Long id) {
+    public GuaranteeResponseId findById(Long id) {
         Optional<Guarantee> response = repository.findById(id);
         if (response.isEmpty()) {
             throw new EntityNotFoundException("Gurantee" + NOT_FOUND + "id: " + id);
         }
-        return mapper.map(response.get(), GuaranteeResponse.class);
+        return mapper.map(response.get(), GuaranteeResponseId.class);
     }
 
     @Transactional

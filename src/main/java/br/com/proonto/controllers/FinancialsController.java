@@ -33,8 +33,9 @@ public class FinancialsController {
                 .body(service.saveUpdate(request, id_contract));
     }
 
-    @PutMapping("/{id_contract}")
-    public ResponseEntity<FinancialResponseId> update(@RequestBody @Valid FinancialRequest request, @PathVariable(value = "id_contract") Long id_contract) {
+    @PutMapping("/{id_contract}/id-financial/{id_financial}")
+    public ResponseEntity<FinancialResponseId> update(@RequestBody @Valid FinancialRequest request, @PathVariable(value = "id_contract") Long id_contract, @PathVariable(value = "id_financial") Long id_financial) {
+        request.setId(id_financial);
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(service.saveUpdate(request, id_contract));
     }

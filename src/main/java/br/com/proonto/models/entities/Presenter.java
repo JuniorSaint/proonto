@@ -41,7 +41,7 @@ public class Presenter implements Serializable {
     @JoinColumn(name = "representante_id", referencedColumnName = "id")
     private Representative REPRESENTANTE;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "contract_id")
     private Contract CONTRATO;
 }

@@ -21,15 +21,16 @@ public class CreditorsBranchController {
     @Autowired
     private CreditorBranchService service;
 
-    @PostMapping
-    public ResponseEntity<CreditorBranchResponseId> save(@RequestBody @Valid CreditorBranchRequest request) {
+    @PostMapping("/{id_contract}")
+    public ResponseEntity<CreditorBranchResponseId> save(@RequestBody @Valid CreditorBranchRequest request, @PathVariable(value = "id_contract") Long id_contract) {
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(service.saveUpdate(request));
+                .body(service.saveUpdate(request, id_contract));
     }
-    @PutMapping
-    public ResponseEntity<CreditorBranchResponseId> update(@RequestBody @Valid CreditorBranchRequest request) {
+    @PutMapping("/{id_contract}/id-creditor/{id_creditor}")
+    public ResponseEntity<CreditorBranchResponseId> update(@RequestBody @Valid CreditorBranchRequest request, @PathVariable(value = "id_contract") Long id_contract, @PathVariable(value = "id_creditor") Long id_creditor) {
+        request.setId(id_creditor);
         return ResponseEntity.status(HttpStatus.OK)
-                .body(service.saveUpdate(request));
+                .body(service.saveUpdate(request, id_contract));
     }
     @GetMapping
     public ResponseEntity<List<CreditorBranchResponseId>> findAll() {

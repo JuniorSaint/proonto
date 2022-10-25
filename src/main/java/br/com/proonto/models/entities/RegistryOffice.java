@@ -19,7 +19,7 @@ public class RegistryOffice implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(unique=true)
+    @Column(unique=true, nullable=false)
     private String CNS;
     private String NOME;
     private String COMARCA;

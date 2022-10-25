@@ -37,16 +37,6 @@ public class Contract implements Serializable {
     private LocalDate DATACONTRATO;
     private String LOCALCONTRATO;
 
-
-    @OneToOne(mappedBy = "CONTRATO", cascade = CascadeType.ALL, orphanRemoval = true)
-    @PrimaryKeyJoinColumn
-    private Sender REMETENTE;
-
-    @OneToOne(mappedBy = "CONTRATO", cascade = CascadeType.ALL, orphanRemoval = true)
-    @PrimaryKeyJoinColumn
-    private Presenter APRESENTANTE;
-
-
     @OneToMany(cascade = CascadeType.ALL)
     private List<ModalityOfOperation> MODALIDADESOPERACAO;
 

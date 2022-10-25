@@ -33,11 +33,13 @@ public class ContractFirstService {
     private Utils utils;
 
     @Transactional
-    public ContractFirstResponse saveFirst(ContractFirstRequest request) {
+    public ContractFirstResponse saveUpdade(ContractFirstRequest request) {
         Set<RegistryOffice> resultToInset = new HashSet<>();
         if (!request.getCARTORIOS().isEmpty()) {
             resultToInset = registryOfficeService.verifyIncludeAndSave(request.getCARTORIOS());
-
+        }
+        if(request.getId() != null){
+            findById(request.getId());
         }
         Contract contractTocheck = mapper.map(request, Contract.class);
         contractTocheck.setCARTORIOS(resultToInset);

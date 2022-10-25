@@ -5,7 +5,9 @@ import br.com.proonto.exceptions.DataBaseException;
 import br.com.proonto.exceptions.EntityNotFoundException;
 import br.com.proonto.models.entities.Contact;
 import br.com.proonto.models.entities.Creditor;
+import br.com.proonto.models.requests.ContractRequest;
 import br.com.proonto.models.requests.CreditorMatrixRequest;
+import br.com.proonto.models.responses.ContractFirstResponse;
 import br.com.proonto.models.responses.CreditorMatrixResponseId;
 import br.com.proonto.repositories.CreditorRepository;
 import org.modelmapper.ModelMapper;
@@ -25,17 +27,19 @@ public class CreditorMatrixService {
     @Autowired
     private CreditorRepository repository;
     @Autowired
+    private ContractFirstService contractFirstService;
+    @Autowired
     private ModelMapper mapper;
     @Autowired
     private Utils utils;
     Contact contact = new Contact();
 
     @Transactional
-    public CreditorMatrixResponseId saveUpdate(CreditorMatrixRequest request) {
-
+    public CreditorMatrixResponseId saveUpdate(CreditorMatrixRequest request, Long id_contract) {
         if (request.getId() != null) {
             findById(request.getId());
         }
+        request.setCONTRATO(mapper.map(contractFirstService.findById(id_contract), ContractRequest.class));
         Creditor response = mapper.map(request, Creditor.class);
         return mapper.map(repository.save(response), CreditorMatrixResponseId.class);
     }

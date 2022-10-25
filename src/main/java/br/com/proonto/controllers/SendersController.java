@@ -27,8 +27,9 @@ public class SendersController {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(service.saveUpdate(request, id_contract));
     }
-    @PutMapping("/{id_contract}")
-    public ResponseEntity<SenderResponseId> update(@RequestBody @Valid SenderRequest request, @PathVariable(value = "id_contract") Long id_contract) {
+    @PutMapping("/{id_contract}/id-sender/{id_sender}")
+    public ResponseEntity<SenderResponseId> update(@RequestBody @Valid SenderRequest request, @PathVariable(value = "id_contract") Long id_contract, @PathVariable(value = "id_sender") Long id_sender) {
+      request.setId(id_sender);
         return ResponseEntity.status(HttpStatus.OK)
                 .body(service.saveUpdate(request, id_contract));
     }

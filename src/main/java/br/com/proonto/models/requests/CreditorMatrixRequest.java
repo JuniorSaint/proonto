@@ -31,4 +31,5 @@ public class CreditorMatrixRequest  implements Serializable {
     private AddressRequest ENDERECO;
     private List<PartRequest> QUALIFICACOES;
     private ContactRequest CONTATO;
+    private ContractRequest CONTRATO;
 }

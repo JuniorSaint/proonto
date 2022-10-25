@@ -5,6 +5,7 @@ import br.com.proonto.exceptions.DataBaseException;
 import br.com.proonto.exceptions.EntityNotFoundException;
 import br.com.proonto.models.entities.Contact;
 import br.com.proonto.models.entities.Creditor;
+import br.com.proonto.models.requests.ContractRequest;
 import br.com.proonto.models.requests.CreditorBranchRequest;
 import br.com.proonto.models.responses.CreditorBranchResponse;
 import br.com.proonto.models.responses.CreditorBranchResponseId;
@@ -27,20 +28,21 @@ public class CreditorBranchService {
     @Autowired
     private CreditorRepository repository;
     @Autowired
+    private ContractFirstService contractFirstService;
+    @Autowired
     private ModelMapper mapper;
     @Autowired
     private Utils utils;
     Contact contact = new Contact();
 
     @Transactional
-    public CreditorBranchResponseId saveUpdate(CreditorBranchRequest request) {
-
+    public CreditorBranchResponseId saveUpdate(CreditorBranchRequest request, Long id_contract) {
         if (request.getId() != null) {
             findById(request.getId());
         }
-        Creditor response = mapper.map(request, Creditor.class);
-        response.setCPFCNPJ(response.getCPFCNPJ().replaceAll("\\D", ""));
-        return mapper.map(repository.save(response), CreditorBranchResponseId.class);
+        request.setCONTRATO(mapper.map(contractFirstService.findById(id_contract), ContractRequest.class));
+        request.setCPFCNPJ(request.getCPFCNPJ().replaceAll("\\D", ""));
+        return mapper.map(repository.save(mapper.map(request, Creditor.class)), CreditorBranchResponseId.class);
     }
 
     @Transactional(readOnly = true)

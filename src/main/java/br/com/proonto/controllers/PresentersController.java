@@ -26,23 +26,28 @@ public class PresentersController {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(service.saveUpdate(request, id_contract));
     }
-    @PutMapping("/{id_contract}")
-    public ResponseEntity<PresenterResponseId> update(@RequestBody @Valid PresenterRequest request, @PathVariable(value = "id_contract") Long id_contract) {
+
+    @PutMapping("/{id_contract}/id-presenter/{id_presenter}")
+    public ResponseEntity<PresenterResponseId> update(@RequestBody @Valid PresenterRequest request, @PathVariable(value = "id_contract") Long id_contract, @PathVariable(value = "id_presenter") Long id_presenter) {
+        request.setId(id_presenter);
         return ResponseEntity.status(HttpStatus.OK)
                 .body(service.saveUpdate(request, id_contract));
     }
+
     @GetMapping
     public ResponseEntity<List<PresenterResponseId>> findAll() {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(service.findAll());
     }
+
     @GetMapping("/{id}")
     public ResponseEntity<PresenterResponseId> findById(@PathVariable(value = "id") Long id) {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(service.findById(id));
     }
+
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> delete(@PathVariable(value = "id") Long id)  {
+    public ResponseEntity<String> delete(@PathVariable(value = "id") Long id) {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(service.delete(id));
     }

@@ -26,8 +26,9 @@ public class PartsController {
                 .body(service.saveUpdate(request, id_contract));
     }
 
-    @PutMapping("/{id_contract}")
-    public ResponseEntity<PartResponseId> update(@RequestBody @Valid PartRequest request, @PathVariable(value = "id_contract") Long id_contract) {
+    @PutMapping("/{id_contract}/id-part/{id_part}")
+    public ResponseEntity<PartResponseId> update(@RequestBody @Valid PartRequest request, @PathVariable(value = "id_contract") Long id_contract, @PathVariable(value = "id_part") Long id_part) {
+       request.setId(id_part);
         return ResponseEntity.status(HttpStatus.OK)
                 .body(service.saveUpdate(request, id_contract));
     }

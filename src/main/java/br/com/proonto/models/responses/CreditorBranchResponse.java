@@ -26,6 +26,6 @@ public class CreditorBranchResponse implements Serializable {
     private CreditorBranchResponse matrix;
     private Template template;
     private AddressResponseId ENDERECO;
-    private List<PartResponseId> QUALIFICACOES;
+    private List<PartsRoleResponse> QUALIFICACOES;
     private ContactResponseId CONTATO;
 }

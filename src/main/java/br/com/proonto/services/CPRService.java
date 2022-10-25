@@ -33,7 +33,7 @@ public class CPRService {
     @Transactional
     public CPRResponseId saveUpdate(CPRRequest request, Long id_contract) {
         if (request.getId() != null) {
-            CPRResponse resp = findById(request.getId());
+            findById(request.getId());
         }
         request.setCONTRATO(mapper.map(contractFirstService.findById(id_contract), ContractRequest.class));
         return mapper.map(repository.save(mapper.map(request, CPR.class)), CPRResponseId.class);

@@ -23,18 +23,25 @@ public class ContractFirstsController {
     @PostMapping
     public ResponseEntity<ContractFirstResponse> saveFirst(@RequestBody @Valid ContractFirstRequest request) {
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(service.saveFirst(request));
+                .body(service.saveUpdade(request));
     }
 
-    @PutMapping
-    public ResponseEntity<ContractFirstResponse> updateFirst(@RequestBody @Valid ContractFirstRequest request) {
-        return ResponseEntity.status(HttpStatus.CREATED)
-                .body(service.saveFirst(request));
+    @PutMapping("/{id}")
+    public ResponseEntity<ContractFirstResponse> updateFirst(@RequestBody @Valid ContractFirstRequest request, @PathVariable(value = "id") Long id) {
+        request.setId(id);
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(service.saveUpdade(request));
     }
 
-//    @DeleteMapping("/{id}")
-//    public ResponseEntity<String> delete(@PathVariable(value = "id") Long id)  {
-//        return ResponseEntity.status(HttpStatus.OK)
-//                .body(service.delete(id));
-//    }
+    @GetMapping("/{id}")
+    public ResponseEntity<ContractFirstResponse> findById(@PathVariable(value = "id") Long id) {
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(service.findById(id));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> delete(@PathVariable(value = "id") Long id)  {
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(service.delete(id));
+    }
 }

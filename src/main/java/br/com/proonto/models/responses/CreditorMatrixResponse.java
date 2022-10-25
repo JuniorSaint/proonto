@@ -22,6 +22,6 @@ public class CreditorMatrixResponse implements Serializable {
     private List<UserResponse> users;
     private Template template;
     private AddressResponseId ENDERECO;
-    private List<PartResponseId> QUALIFICACOES;
+    private List<PartsRoleResponse> QUALIFICACOES;
     private ContactResponseId CONTATO;
 }

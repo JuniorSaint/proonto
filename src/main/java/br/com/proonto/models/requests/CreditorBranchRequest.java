@@ -30,4 +30,5 @@ public class CreditorBranchRequest implements Serializable {
     private ContactRequest CONTATO;
     @NotBlank(message = "Matrix is a mandatory field")
     private CreditorMatrixRequest matrix;
+    private ContractRequest CONTRATO;
 }

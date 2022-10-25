@@ -49,7 +49,7 @@ public class Creditor implements Serializable {
     @JoinColumn(name = "endereco_id", referencedColumnName = "id")
     private Address ENDERECO;
 
-    @OneToMany(mappedBy = "creditor",cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy="part")
     private List<PartsRole> QUALIFICACOES;
 
     @OneToOne(cascade = CascadeType.ALL)

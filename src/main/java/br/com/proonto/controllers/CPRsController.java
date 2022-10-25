@@ -25,8 +25,9 @@ public class CPRsController {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(service.saveUpdate(request, id_contract));
     }
-    @PutMapping("/{id_contract}")
-    public ResponseEntity<CPRResponse> update(@RequestBody @Valid CPRRequest request, @PathVariable(value = "id_contract") Long id_contract) {
+    @PutMapping("/{id_contract}/id-cpr/{id_cpr}")
+    public ResponseEntity<CPRResponse> update(@RequestBody @Valid CPRRequest request, @PathVariable(value = "id_contract") Long id_contract, @PathVariable(value = "id_cpr") Long id_cpr) {
+        request.setId(id_cpr);
         return ResponseEntity.status(HttpStatus.OK)
                 .body(service.saveUpdate(request, id_contract));
     }
