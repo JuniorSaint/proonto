@@ -31,7 +31,7 @@ public class ProductService {
     @Transactional
     public ProductResponseId saveUpdate(ProductRequest request) {
         if (request.getId() != null) {
-            ProductResponseId resp = findById(request.getId());
+            findById(request.getId());
         }
         return mapper.map(repository.save(mapper.map(request, Product.class)), ProductResponseId.class);
     }

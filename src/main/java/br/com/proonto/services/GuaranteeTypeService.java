@@ -24,7 +24,6 @@ public class GuaranteeTypeService {
     @Autowired
     private ModelMapper mapper;
     GuaranteeType guaranteeType = new GuaranteeType();
-
     @Transactional
     public GuaranteeType saveUpdate(GuaranteeTypeRequest guaranteeTypeRequest) {
         if (guaranteeTypeRequest.getDomain() != (null)) {

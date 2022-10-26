@@ -29,7 +29,6 @@ public class AreaService {
     @Autowired
     private Utils utils;
 
-
     @Transactional
     public AreaResponseId saveUpdate(AreaRequest request) {
         if (request.getId() != null) {
@@ -51,5 +50,4 @@ public class AreaService {
         }
         return mapper.map(response.get(), AreaResponseId.class);
     }
-
 }

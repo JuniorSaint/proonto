@@ -42,7 +42,7 @@ public class SenderService {
         if (request.getId() != null) {
             findById(request.getId());
         }
-        if(contractFirstService.findById(id_contract) != null && request.getId() == null){
+        if(repository.findByIdAndContract(id_contract).isPresent() && request.getId() == null){
             throw new BadRequestException("Sender for this contract already exists, It's not allowed more than one for contract");
         }
         request.setCONTRATO(mapper.map(contractFirstService.findById(id_contract), ContractRequest.class));

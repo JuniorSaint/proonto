@@ -3,13 +3,9 @@ package br.com.proonto.services;
 import br.com.proonto.configs.Utils;
 import br.com.proonto.exceptions.DataBaseException;
 import br.com.proonto.exceptions.EntityNotFoundException;
-import br.com.proonto.models.entities.Contract;
 import br.com.proonto.models.entities.Contracts;
-import br.com.proonto.models.requests.ContractRequest;
 import br.com.proonto.models.requests.ContractsRequest;
-import br.com.proonto.models.responses.ContractResponse;
 import br.com.proonto.models.responses.ContractsResponse;
-import br.com.proonto.repositories.ContractRepository;
 import br.com.proonto.repositories.ContractsRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +29,6 @@ public class ContractsService {
     @Autowired
     private Utils utils;
 
-
     @Transactional
     public ContractsResponse saveUpdate(ContractsRequest request) {
         if (request.getId() != null) {
@@ -50,6 +45,7 @@ public class ContractsService {
         }
         return mapper.map(response, ContractsResponse.class);
     }
+
     @Transactional
     public String delete(Long id) {
         try {

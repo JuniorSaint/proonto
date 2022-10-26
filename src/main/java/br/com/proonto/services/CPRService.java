@@ -39,7 +39,8 @@ public class CPRService {
         if (request.getId() != null) {
             findById(request.getId());
         }
-        if(contractFirstService.findById(id_contract) != null && request.getId() == null){
+
+        if(repository.findByIdAndContract(id_contract).isPresent() && request.getId() == null){
             throw new BadRequestException("Cpr for this contract already exists, It's not allowed more than one for contract");
         }
 
@@ -50,8 +51,7 @@ public class CPRService {
             while (namesIterator.hasNext()) {
                 RegistryOffice registerOfficeFromIterator = namesIterator.next();
                 if (r.getLOCALPRODUCAO().getREGISTRO().getCNS().getCNS().equals(registerOfficeFromIterator.getCNS())) {
-                    RegistryOfficeRequest testToSeeRegistry = mapper.map(registerOfficeFromIterator, RegistryOfficeRequest.class);
-                    r.getLOCALPRODUCAO().getREGISTRO().setCNS(testToSeeRegistry);
+                    r.getLOCALPRODUCAO().getREGISTRO().setCNS(mapper.map(registerOfficeFromIterator, RegistryOfficeRequest.class));
                 }
             }
             return r;

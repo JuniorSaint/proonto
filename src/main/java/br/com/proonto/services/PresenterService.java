@@ -5,14 +5,11 @@ import br.com.proonto.exceptions.BadRequestException;
 import br.com.proonto.exceptions.DataBaseException;
 import br.com.proonto.exceptions.EntityNotFoundException;
 import br.com.proonto.models.entities.Presenter;
-import br.com.proonto.models.entities.Sender;
 import br.com.proonto.models.requests.ContractRequest;
 import br.com.proonto.models.requests.PresenterRequest;
-import br.com.proonto.models.requests.SenderRequest;
+import br.com.proonto.models.responses.ContractFirstResponse;
 import br.com.proonto.models.responses.PresenterResponseId;
-import br.com.proonto.models.responses.SenderResponseId;
 import br.com.proonto.repositories.PresenterRepository;
-import br.com.proonto.repositories.SenderRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -42,7 +39,8 @@ public class PresenterService {
         if (request.getId() != null) {
             findById(request.getId());
         }
-        if(contractFirstService.findById(id_contract) != null && request.getId() == null){
+        ContractFirstResponse contractFirstResponse = contractFirstService.findById(id_contract);
+        if(repository.findByIdAndContract(id_contract).isPresent() && request.getId() == null){
             throw new BadRequestException("Presenter for this contract already exists, It's not allowed more than one for contract");
         }
         request.setCONTRATO(mapper.map(contractFirstService.findById(id_contract), ContractRequest.class));

@@ -1,6 +1,7 @@
 package br.com.proonto.services;
 
 import br.com.proonto.configs.Utils;
+import br.com.proonto.exceptions.BadRequestException;
 import br.com.proonto.exceptions.DataBaseException;
 import br.com.proonto.exceptions.EntityNotFoundException;
 import br.com.proonto.models.entities.Contact;
@@ -40,7 +41,13 @@ public class CreditorBranchService {
         if (request.getId() != null) {
             findById(request.getId());
         }
-        request.setCPFCNPJ(request.getCPFCNPJ().replaceAll("\\D", ""));
+        if(request.getMatrix() == null || String.valueOf(request.getTIPODECREDOR()).equals("BRANCH")){
+            throw new BadRequestException("It's not allowed create branch without matrix or belong another branch");
+        }
+        Long idMatrix = request.getMatrix().getId();
+        if(repository.findById(idMatrix).isEmpty()){
+            throw new EntityNotFoundException("Creditor Matrix" + NOT_FOUND + "id: " + idMatrix);
+        }
         return mapper.map(repository.save(mapper.map(request, Creditor.class)), CreditorBranchResponseId.class);
     }
 

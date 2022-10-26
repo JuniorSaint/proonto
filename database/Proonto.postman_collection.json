@@ -1,0 +1,1144 @@
+{
+	"info": {
+		"_postman_id": "640c7fd9-b929-4315-ae31-3089820bcfd9",
+		"name": "Proonto",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11618265"
+	},
+	"item": [
+		{
+			"name": "Contract_First",
+			"item": [
+				{
+					"name": "1 - Contract First Part",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"titulodocabecalho\": \"CÉDULA RURAL PIGNORATÍCIA\",\n    \"cidadeestadodatacontrato\": \"Nova Andradina- MS, 01 de outubro de 2022.\",\n    \"vencimentoporextenso\": \"25 de dezembro de 2023\",\n    \"vencimento\": \"2023-12-25\",\n    \"cobrancaencargoapartir\": \"2024-01-25\",\n    \"numerocontrato\": \"1522-25\",\n    \"tipocedula\": {\n        \"domain\": \"CPR\"\n    },\n    \"datacontrato\": \"2022-09-27\",\n    \"localcontrato\": \"Carandaí\",\n    \"cartorios\": [\n        {        \n            \"uf\": \"SP\",\n            \"nome\": \"Cartório Savio Motta\",\n            \"comarca\": \"Andradina\",\n            \"cns\": \"111113\"\n        },\n           {        \n            \"uf\": \"SP\",\n            \"nome\": \"Cartório Savio Motta\",\n            \"comarca\": \"Andradina\",\n            \"cns\": \"1y11r1134\"\n        }\n        \n    ],\n    \"umidade\": \"10%\",\n    \"impureza\": \"5%\",\n    \"avariados_ARDIDOS\": \"2%\",\n    \"clausulasadicionais\": [\n        {\n            \"clausula\": \"Primeira Clausula quando houver\"\n        },\n        {\n            \"clausula\": \"Segunda Clausula quando houver\"\n        }\n    ],\n    \"autorizacoes\": {\n        \"declaro\": \"DECLARO QUE ESTES DADOS CORRESPONDEM FIDEDIGNAMENTE AOS QUE CONSTAM NO RESPECTIVO INSTRUMENTO PARTICULAR COM FORÇA DE ESCRITURA PÚBLICA OU TÍTULO DE CRÉDITO QUE LHE DEU ORIGEM, FORMALIZADO COM TODAS AS CLÁUSULAS OBRIGATÓRIAS, QUE SE ENCONTRA EM SEU ARQUIVO, E QUE FOI VERIFICADA A IDENTIFICAÇÃO E A REGULARIDADE DA REPRESENTAÇÃO DAS PARTES QUE SUBSCREVERAM O DOCUMENTO ORIGINAL.\",\n        \"autorizo\": \"AUTORIZO O OFICIAL DE REGISTRO DE IMÓVEIS A PRATICAR OS ATOS EXCLUSIVAMENTE COM BASE NOS DADOS PRESENTES NESTE DOCUMENTO.\"\n    },\n    \"procuracoes\": [\n        {\n            \"numero\": \"1234\",\n            \"representante\": \"996.054.000-72\",\n            \"contrato\": \"contrato procuração\",\n            \"representado\": \"00.000.000/2222-22\",\n            \"tiporegistro\": {\n                \"code\": \"5\"\n            },\n            \"orgao\": \"1 TABELIAO DE NOTAS DE SP\",\n            \"formaregistro\": \"Forma de registro procuração\",\n            \"numerolivro\": \"123\",\n            \"folha\": \"234\",\n            \"numeroregistro\": \"número registro procuração\",\n            \"dataregistro\": \"2022-09-27\"\n        }\n    ],\n    \"modalidadesoperacao\": [\n        {\n            \"destinofinanciamento\": \"destino do financiamento\",\n            \"origemrecursos\": {\n                \"id\": \"0102\"\n            },\n            \"modalidade\": {\n                \"id\": \"0101\"\n            }\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local8080}}v1/contract/",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"contract",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1 - Contract First Part - Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Local8080}}v1/contract/2",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"contract",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1 - Contract First Part - Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n    \"tipocedula\": {\n        \"domain\": \"CPR\"\n    },\n    \"datacontrato\": \"2022-09-27\",\n    \"localcontrato\": \"Carandaí\",\n    \"modalidadesoperacao\": [\n        {\n            \"id\": 2,\n            \"modalidade\": {\n                \"id\": \"0101\"\n            },\n            \"origemrecursos\": {\n                \"id\": \"0102\"\n            },\n            \"destinofinanciamento\": \"destino do financiamento - update\"\n        }\n    ],\n    \"procuracoes\": [\n        {\n            \"id\": 2,\n            \"numero\": \"1234\",\n            \"representante\": \"996.054.000-72\",\n            \"representado\": \"00.000.000/2222-22\",\n            \"tiporegistro\": {\n                \"code\": \"5\"\n            },\n            \"orgao\": \"1 TABELIAO DE NOTAS DE SP\",\n            \"formaregistro\": \"Forma de registro procuração - update\",\n            \"numerolivro\": \"123\",\n            \"folha\": \"234\",\n            \"numeroregistro\": \"número registro procuração\",\n            \"dataregistro\": \"2022-09-27\"\n        }\n    ],\n    \"autorizacoes\": {\n        \"id\": 2,\n        \"declaro\": \"DECLARO QUE ESTES DADOS CORRESPONDEM FIDEDIGNAMENTE AOS QUE CONSTAM NO RESPECTIVO INSTRUMENTO PARTICULAR COM FORÇA DE ESCRITURA PÚBLICA OU TÍTULO DE CRÉDITO QUE LHE DEU ORIGEM, FORMALIZADO COM TODAS AS CLÁUSULAS OBRIGATÓRIAS, QUE SE ENCONTRA EM SEU ARQUIVO, E QUE FOI VERIFICADA A IDENTIFICAÇÃO E A REGULARIDADE DA REPRESENTAÇÃO DAS PARTES QUE SUBSCREVERAM O DOCUMENTO ORIGINAL.\",\n        \"autorizo\": \"AUTORIZO O OFICIAL DE REGISTRO DE IMÓVEIS A PRATICAR OS ATOS EXCLUSIVAMENTE COM BASE NOS DADOS PRESENTES NESTE DOCUMENTO.\"\n    },\n    \"clausulasadicionais\": [\n        {\n            \"id\": 3,\n            \"clausula\": \"Primeira Clausula quando houver\"\n        },\n        {\n            \"id\": 4,\n            \"clausula\": \"Segunda Clausula quando houver\"\n        }\n    ],\n    \"vencimento\": \"2023-12-25\",\n    \"cobrancaencargoapartir\": \"2024-01-25\",\n    \"umidade\": \"10%\",\n    \"impureza\": \"5%\",\n    \"avariados_ARDIDOS\": \"2%\",\n    \"numerocontrato\": \"1522-25\",\n    \"vencimentoporextenso\": \"25 de dezembro de 2023\",\n    \"titulodocabecalho\": \"CÉDULA RURAL PIGNORATÍCIA\",\n    \"cidadeestadodatacontrato\": \"Nova Andradina- MS, 01 de outubro de 2022. - update\",\n    \"cartorios\": [\n        {\n            \"id\": 2,\n            \"uf\": \"SP\",\n            \"comarca\": \"Andradina\",\n            \"nome\": \"Cartório Savio Motta\",\n            \"cns\": \"111113\"\n        },\n        {\n            \"id\": 1,\n            \"uf\": \"SP\",\n            \"comarca\": \"Andradina\",\n            \"nome\": \"Cartório Savio Motta\",\n            \"cns\": \"1y11r1134\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local8080}}v1/contract/2",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"contract",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Guarantee",
+			"item": [
+				{
+					"name": "Post - Guarantee",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"descricao\": \"50 cabeças de boi nelore\",\n    \"area\": {\n        \"arquivos\": [\n            {\n                \"nome\": \"Area 1\",\n                \"tipo\": \"Tipo 1\"\n            },\n            {\n                \"nome\": \"Area 2\",\n                \"tipo\": \"Tipo 2\"\n            }\n        ],\n        \"descricao\": \"Descrição da área\"\n    },\n    \"valor\": 100000.0,\n    \"tipogarantia\": {\n        \"id\": \"0202\"\n    },\n    \"tipobem\": {\n        \"domain\": \"99\"\n    },\n    \"percentualcomprometido\": 100,\n    \"qualidade\": \"boa\",\n    \"quantidade\": 50,\n    \"marca\": \"sem marca\",\n    \"periodoproducao\": \"2022/2023\",\n    \"grau\": \"primeiro\",\n    \"registros\": [\n        {\n            \"complemento\": \"Complemento\",\n            \"livro\": \"Livro\",\n            \"imovel\": {\n                \"dadosarrendamento\": \"string\",\n                \"edificacao\": \"string\",\n                \"descricao\": \"string\",\n                \"endereco\": {\n                    \"logradouro\": \"Rua amanha talvez\",\n                    \"numero\": \"25\",\n                    \"bairro\": \"Centro\",\n                    \"cidade\": \"Miradouro\",\n                    \"uf\": \"MG\",\n                    \"cep\": \"36.258\",\n                    \"tipologradouro\": {\n                        \"code\": \"081\"\n                    }\n                },\n                \"tipoimovel\": {\n                    \"domain\": \"02\"\n                },\n                \"tipolocalizacao\": {\n                    \"domain\": \"1\"\n                }\n            },\n            \"numeroregistro\": \"string\",\n            \"cns\": {\n                \"uf\": \"MG\",\n                \"nome\": \"Cartório Boa Vista\",\n                \"cns\": \"152l4l87\",\n                \"comarca\": \"São Paulo\"\n            }\n        },\n        {\n            \"complemento\": \"Complemento 2\",\n            \"livro\": \"Livro\",\n            \"imovel\": {\n                \"dadosarrendamento\": \"string\",\n                \"edificacao\": \"string\",\n                \"descricao\": \"string\",\n                \"endereco\": {\n                    \"logradouro\": \"Rua amanha talvez\",\n                    \"numero\": \"25\",\n                    \"bairro\": \"Centro\",\n                    \"cidade\": \"Miradouro\",\n                    \"uf\": \"MG\",\n                    \"cep\": \"36.258\",\n                    \"tipologradouro\": {\n                        \"code\": \"081\"\n                    }\n                },\n                \"tipoimovel\": {\n                    \"domain\": \"02\"\n                },\n                \"tipolocalizacao\": {\n                    \"domain\": \"1\"\n                }\n            },\n            \"numeroregistro\": \"string\",\n            \"cns\": {\n                \"uf\": \"MG\",\n                \"nome\": \"Cartório Boa Vista\",\n                \"cns\": \"152l487\",\n                \"comarca\": \"São Paulo\"\n            }\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local8080}}v1/contract/2/guarantee",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"contract",
+								"2",
+								"guarantee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Gurantee - Find by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Local8080}}v1/contract/2/guarantee/28",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"contract",
+								"2",
+								"guarantee",
+								"28"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put - Guarantee",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n    \"contrato\": {\n        \"id\": 2\n    },\n    \"descricao\": \"50 cabeças de boi nelore update\",\n    \"registros\": [\n        {\n            \"id\": 59,\n            \"numeroregistro\": \"string\",\n            \"complemento\": \"Complemento 2\",\n            \"cns\": {\n                \"id\": 41,\n                \"uf\": \"MG\",\n                \"cns\": \"152l487\",\n                \"nome\": \"Cartório Boa Vista\",\n                \"comarca\": \"São Paulo\"\n            },\n            \"livro\": \"Livro\",\n            \"imovel\": {\n                \"id\": 59,\n                \"descricao\": \"string\",\n                \"endereco\": {\n                    \"id\": 62,\n                    \"logradouro\": \"Rua amanha talvez\",\n                    \"numero\": \"25\",\n                    \"bairro\": \"Centro\",\n                    \"cidade\": \"Miradouro\",\n                    \"uf\": \"MG\",\n                    \"lote\": null,\n                    \"quadra\": null,\n                    \"torre\": null,\n                    \"complemento\": null,\n                    \"cep\": \"36258\",\n                    \"tipologradouro\": {\n                        \"code\": \"081\"\n                    }\n                },\n                \"tipoimovel\": {\n                    \"domain\": \"02\"\n                },\n                \"tipolocalizacao\": {\n                    \"domain\": \"1\"\n                },\n                \"edificacao\": \"string\",\n                \"dadosarrendamento\": \"string\"\n            }\n        },\n        {\n            \"id\": 60,\n            \"numeroregistro\": \"string\",\n            \"complemento\": \"Complemento\",\n            \"cns\": {\n                \"id\": 59,\n                \"uf\": \"MG\",\n                \"cns\": \"152l4l87\",\n                \"nome\": \"Cartório Boa Vista\",\n                \"comarca\": \"São Paulo\"\n            },\n            \"livro\": \"Livro\",\n            \"imovel\": {\n                \"id\": 60,\n                \"descricao\": \"string\",\n                \"endereco\": {\n                    \"id\": 63,\n                    \"logradouro\": \"Rua amanha talvez\",\n                    \"numero\": \"25\",\n                    \"bairro\": \"Centro\",\n                    \"cidade\": \"Miradouro\",\n                    \"uf\": \"MG\",\n                    \"lote\": null,\n                    \"quadra\": null,\n                    \"torre\": null,\n                    \"complemento\": null,\n                    \"cep\": \"36258\",\n                    \"tipologradouro\": {\n                        \"code\": \"081\"\n                    }\n                },\n                \"tipoimovel\": {\n                    \"domain\": \"02\"\n                },\n                \"tipolocalizacao\": {\n                    \"domain\": \"1\"\n                },\n                \"edificacao\": \"string\",\n                \"dadosarrendamento\": \"string\"\n            }\n        }\n    ],\n    \"valor\": 100000.0,\n    \"area\": {\n        \"id\": 32,\n        \"descricao\": \"Descrição da área\",\n        \"arquivos\": [\n            {\n                \"nome\": \"Area 1\",\n                \"tipo\": \"Tipo 1\"\n            },\n            {\n                \"nome\": \"Area 2\",\n                \"tipo\": \"Tipo 2\"\n            }\n        ]\n    },\n    \"tipogarantia\": {\n        \"id\": \"0202\"\n    },\n    \"tipobem\": {\n        \"domain\": \"99\"\n    },\n    \"percentualcomprometido\": 100.0,\n    \"qualidade\": \"boa\",\n    \"quantidade\": 50,\n    \"marca\": \"sem marca\",\n    \"periodoproducao\": \"2022/2023\",\n    \"grau\": \"primeiro\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local8080}}v1/contract/2/guarantee/34",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"contract",
+								"2",
+								"guarantee",
+								"34"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Presenter",
+			"item": [
+				{
+					"name": "Post - Presenter",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"cpfcnpj\": \"24.268.258/0001-20\",\n  \"contato\": {   \n    \"telefone\": \"(32) 98585-5258\",\n    \"nome\": \"Jose das Graças\",\n    \"email\": \"ze@ze.com\"\n  },\n  \"nome\": \"Presenter sei lá o que\",\n  \"endereco\": {\n    \"tipologradouro\": {\n      \"code\": \"081\"\n    },\n    \"numero\": \"585\",\n    \"bairro\": \"Centro\",\n    \"cidade\": \"Juiz de Fora\",\n    \"uf\": \"MG\",\n    \"cep\": \"36.257-520\",\n    \"logradouro\": \"Rua Oliveira Fortes\",\n    \"complemento\": \"Ao lado oeste da rua principal\"\n  },\n  \"representante\": {\n    \"cpfcnpj\": \"852.258.365-20\",\n    \"nome\": \"Maximila Fabiana da Silva\"\n  },\n  \"tipopessoa\": {\n    \"domain\": \"1\"\n  }\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local8080}}v1/contract/2/presenter",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"contract",
+								"2",
+								"presenter"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put = Presenter",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"endereco\": {\n        \"id\": 8,\n        \"tipologradouro\": {\n            \"code\": \"081\"\n        },\n        \"logradouro\": \"Rua Oliveira Fortes - update\",\n        \"numero\": \"585\",\n        \"bairro\": \"Centro\",\n        \"cidade\": \"Juiz de Fora\",\n        \"uf\": \"MG\",\n        \"lote\": null,\n        \"quadra\": null,\n        \"torre\": null,\n        \"complemento\": \"Ao lado oeste da rua principal\",\n        \"cep\": \"36257520\"\n    },\n    \"representante\": {\n        \"id\": 1,\n        \"nome\": \"Maximila Fabiana da Silva\",\n        \"cpfcnpj\": \"85225836520\"\n    },\n    \"nome\": \"Presenter sei lá o que\",\n    \"tipopessoa\": {\n        \"domain\": \"1\"\n    },\n    \"contato\": {\n        \"id\": 1,\n        \"email\": \"ze@ze.com\",\n        \"nome\": \"Jose das Graças\",\n        \"telefone\": \"32985855258\"\n    },\n    \"contrato\": {\n        \"id\": 1\n    },\n    \"cpfcnpj\": \"24.268.258/0001-20\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local8080}}v1/contract/1/presenter/1",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"contract",
+								"1",
+								"presenter",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find by id - Presenter",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Local8080}}v1/contract/1/presenter/1",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"contract",
+								"1",
+								"presenter",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sender",
+			"item": [
+				{
+					"name": "Post - Sender",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Cooperativa dos Produtores Rurais de Carandaí\",\n    \"tipopessoa\": {\n        \"domain\": \"1\"\n    },\n    \"cpfcnpj\": \"258.258.369/0001-20\",\n    \"endereco\": {\n        \"complemento\": \"Complemento endereço apresentante\",\n        \"cep\": \"36.250-250\",\n        \"tipologradouro\": \"645\",\n        \"logradouro\": \"Rua endereço apresentante\",\n        \"quadra\": \"Quadra apresentante\",\n        \"bairro\": \"Bairro apresentante\",\n        \"numero\": \"365-B\",\n        \"cidade\": \"Juiz de Fora\",\n        \"uf\": \"MG\",\n        \"lote\": \"Lote apresentante\",\n        \"torre\": \"Torre apresentante\"\n    },\n    \"contato\": {\n        \"nome\": \"Maria Joaquina da Silva\",\n        \"email\": \"quin@quim.com.br\",\n        \"telefone\": \"(32) 99999-8887\"\n    },\n    \"representante\": {\n        \"cpfcnpj\": \"159.159.159-20\",\n        \"nome\": \"john Doe\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local8080}}v1/contract/2/sender",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"contract",
+								"2",
+								"sender"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put - Sender",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"endereco\": {\n        \"id\": 9,\n        \"tipologradouro\": {\n            \"code\": \"645\"\n        },\n        \"logradouro\": \"Rua endereço apresentante - update\",\n        \"numero\": \"365-B\",\n        \"bairro\": \"Bairro apresentante\",\n        \"cidade\": \"Juiz de Fora\",\n        \"uf\": \"MG\",\n        \"lote\": \"Lote apresentante\",\n        \"quadra\": \"Quadra apresentante\",\n        \"torre\": \"Torre apresentante\",\n        \"complemento\": \"Complemento endereço apresentante\",\n        \"cep\": \"36250250\"\n    },\n    \"representante\": {\n        \"id\": 2,\n        \"nome\": \"john Doe\",\n        \"cpfcnpj\": \"15915915920\"\n    },\n    \"nome\": \"Cooperativa dos Produtores Rurais de Carandaí - update\",\n    \"tipopessoa\": {\n        \"domain\": \"1\"\n    },\n    \"contato\": {\n        \"id\": 2,\n        \"email\": \"quin@quim.com.br\",\n        \"nome\": \"Maria Joaquina da Silva\",\n        \"telefone\": \"32999998887\"\n    },\n    \"cpfcnpj\": \"258.258.369/0001-20\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local8080}}v1/contract/1/sender/1",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"contract",
+								"1",
+								"sender",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get - Sender",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Local8080}}v1/contract/1/sender/1",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"contract",
+								"1",
+								"sender",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Part",
+			"item": [
+				{
+					"name": "Part - Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"genero\": \"MASCULINO\",\n    \"datanascimento\": \"1990-10-15\",\n    \"documento\": \"m-153.258\",\n    \"orgaoemissor\": \"SSPMG\",\n    \"nacionalidade\": \"Brasileira\",\n    \"uniaoestavel\": \"string\",\n    \"estadocivil\": {\n        \"domain\": \"1\"\n    },\n    \"regimebens\": {\n        \"domain\": \"1\"\n    },\n    \"profissao\": \"Agricultor\",\n    \"filiacao1\": \"Jose Maria Pereira\",\n    \"filiacao2\": \"Maria Jofina Pereira\",\n    \"cpfconjuge\": \"882.258.687-25\",\n    \"tipopessoa\": {\n        \"domain\": \"1\"\n    },\n    \"nome\": \"Carlos Alberto Resende\",\n    \"cpfcnpj\": \"875.587.369-52\",\n    \"endereco\": {\n        \"logradouro\": \"Avenida de Melo Franco\",\n        \"numero\": \"258\",\n        \"bairro\": \"Garças\",\n        \"cidade\": \"Carandaí\",\n        \"uf\": \"MG\",\n        \"complemento\": \"\",\n        \"cep\": \"36.280-000\",\n        \"tipologradouro\": {\n            \"code\": \"008\"\n        }\n    },\n    \"qualificacoes\": [\n        {\n            \"domain\": \"5\"\n        },\n        {\n            \"domain\": \"17\"\n        }\n    ],\n    \"contato\": {\n        \"telefone\": \"(32) 87552-2585\",\n        \"nome\": \"Priscila Joaquina Silva\",\n        \"email\": \"pri@pri.com\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local8080}}v1/contract/1/part",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"contract",
+								"1",
+								"part"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Part - Find by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Local8080}}v1/contract/1/part/3",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"contract",
+								"1",
+								"part",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Part - Put",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 3,\n    \"endereco\": {\n        \"id\": 12,\n        \"tipologradouro\": {\n            \"code\": \"008\"\n        },\n        \"logradouro\": \"Avenida de Melo Franco\",\n        \"numero\": \"258\",\n        \"bairro\": \"Garças\",\n        \"cidade\": \"Carandaí\",\n        \"uf\": \"MG\",\n        \"lote\": null,\n        \"quadra\": null,\n        \"torre\": null,\n        \"complemento\": \"\",\n        \"cep\": \"36280000\"\n    },\n    \"genero\": \"MASCULINO\",\n    \"datanascimento\": \"1990-10-15\",\n    \"documento\": \"m-153.258\",\n    \"orgaoemissor\": \"SSPMG\",\n    \"nacionalidade\": \"Brasileira\",\n    \"uniaoestavel\": \"string\",\n    \"outroregime\": null,\n    \"estadocivil\": {\n        \"domain\": \"1\"\n    },\n    \"regimebens\": {\n        \"domain\": \"1\"\n    },\n    \"profissao\": \"Agricultor\",\n    \"filiacao1\": \"Jose Maria Pereira - update\",\n    \"filiacao2\": \"Maria Jofina Pereira\",\n    \"cpfconjuge\": \"88225868725\",\n    \"nome\": \"Carlos Alberto Resende - update\",\n    \"tipopessoa\": {\n        \"domain\": \"1\"\n    },\n    \"qualificacoes\": [\n        {\n            \"domain\": \"5\"\n        },\n        {\n            \"domain\": \"17\"\n        }\n    ],\n    \"contato\": {\n        \"id\": 5,\n        \"email\": \"pri@pri.com\",\n        \"nome\": \"Priscila Joaquina Silva\",\n        \"telefone\": \"32875522585\"\n    },\n    \"contrato\": {\n        \"id\": 1\n    },\n    \"cpfcnpj\": \"87558736952\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local8080}}v1/contract/1/part/3",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"contract",
+								"1",
+								"part",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Financial",
+			"item": [
+				{
+					"name": "Post - Financial",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"criterioobtencaoliquidacao\": \"Critério Obtenção Liquidação\",\n    \"moeda\": {\n        \"domain\": \"790\"\n    },\n    \"saldoremanescente\": 50000.0,\n    \"valorparcelainicial\": 500.0,\n    \"formapagamento\": \"parcelado\",\n    \"taxajurosnominalanualporextenso\": \"5.5\",\n    \"taxajurosnominalmensal\": 0,\n    \"taxajurosnominalmensalporextenso\": \"Cinco ponto cinco por cento\",\n    \"pracapagamento\": \"Mage\",\n    \"foro\": \"Rio de Janeiro\", \n    \"comissaofiscalizacao\": \"Comissão fiscalizadora\",\n    \"valortotal\": 60000.0,\n    \"valorextenso\": \"sessenta mil reais\",\n    \"taxajurosefetivamensal\": 0.8,\n    \"taxajurosefetivamensalporextenso\": \"zero ponto oito por cento\",\n    \"taxajurosefetivaanual\": 8.0,\n    \"taxajurosefetivaanualporextenso\": \"oito por cento\",\n    \"multa\": 0,\n    \"multaporextenso\": \"string\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local8080}}v1/contract/1/financial",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"contract",
+								"1",
+								"financial"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put - Financial",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n    \"taxajurosnominalanualporextenso\": \"5.5\",\n    \"taxajurosnominalmensalporextenso\": \"Cinco ponto cinco por cento\",\n    \"taxajurosefetivamensalporextenso\": \"zero ponto oito por cento\",\n    \"taxajurosefetivaanualporextenso\": \"oito por cento\",\n    \"multa\": 0.0,\n    \"multaporextenso\": \"string\",\n    \"valortotal\": 60000.0,\n    \"valorextenso\": \"sessenta mil reais\",\n    \"criterioobtencaoliquidacao\": \"Critério Obtenção Liquidação - update\",\n    \"saldoremanescente\": 50000.0,\n    \"valorparcelainicial\": 500.0,\n    \"formapagamento\": \"parcelado\",\n    \"taxajurosnominalanual\": null,\n    \"taxajurosnominalmensal\": 0.0,\n    \"taxajurosefetivamensal\": 0.8,\n    \"taxajurosefetivaanual\": 8.0,\n    \"pracapagamento\": \"Mage\",\n    \"foro\": \"Rio de Janeiro\",\n    \"comissaofiscalizacao\": \"Comissão fiscalizadora\",\n    \"moeda\": {\n        \"domain\": \"790\"\n    },\n    \"indexador\": null\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local8080}}v1/contract/1/financial/1",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"contract",
+								"1",
+								"financial",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get - Financial",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Local8080}}v1/contract/1/financial/1",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"contract",
+								"1",
+								"financial",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CPR",
+			"item": [
+				{
+					"name": "CPR  - Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"financeiro\": {\n        \"criterioobtencaoliquidacao\": \"Critério Obtenção Liquidação\",\n        \"moeda\": {\n            \"domain\": \"790\"\n        },\n        \"saldoremanescente\": 50000.0,\n        \"valorparcelainicial\": 500.0,\n        \"formapagamento\": \"parcelado\",\n        \"taxajurosnominalanualporextenso\": \"5.5\",\n        \"taxajurosnominalmensal\": 0,\n        \"taxajurosnominalmensalporextenso\": \"Cinco ponto cinco por cento\",\n        \"pracapagamento\": \"Mage\",\n        \"foro\": \"Rio de Janeiro\",\n        \"comissaofiscalizacao\": \"Comissão fiscalizadora\",\n        \"valortotal\": 60000.0,\n        \"valorextenso\": \"sessenta mil reais\",\n        \"taxajurosefetivamensal\": 0.8,\n        \"taxajurosefetivamensalporextenso\": \"zero ponto oito por cento\",\n        \"taxajurosefetivaanual\": 8.0,\n        \"taxajurosefetivaanualporextenso\": \"oito por cento\",\n        \"multa\": 0,\n        \"multaporextenso\": \"string\"\n    },\n    \"localentrega\": \"Ibitipoca\",\n    \"periodo\": \"novembro/2023\",\n    \"condicoes\": \"à prazo\",\n    \"produtos\": [\n        {\n            \"localproducao\": {\n                \"registro\": {\n                    \"complemento\": \"Complemento Local de produção\",\n                    \"livro\": \"Livro Local de produção\",\n                    \"imovel\": {\n                        \"dadosarrendamento\": \"Arrendado por cinco anos\",\n                        \"edificacao\": \"string\",\n                        \"descricao\": \"Fazenda mista de produção de arroz e criação de gado\",\n                        \"endereco\": {\n                            \"logradouro\": \"Estrada mata burro\",\n                            \"numero\": \"s/n\",\n                            \"bairro\": \"Zona Rural\",\n                            \"cidade\": \"Carmópolis\",\n                            \"uf\": \"MG\",\n                            \"lote\": \"lote 100\",\n                            \"complemento\": \"Ao lado da fazenda Boa Esperança\",\n                            \"cep\": \"36875-200\",\n                            \"tipologradouro\": {\n                                \"code\": \"031\"\n                            }\n                        },\n                        \"tipoimovel\": {\n                            \"domain\": \"03\"\n                        },\n                        \"tipolocalizacao\": {\n                            \"domain\": \"2\"\n                        }\n                    },\n                    \"numeroregistro\": \"158258\",\n                    \"cns\": {\n                        \"uf\": \"MG\",\n                        \"nome\": \"Cartório do Notas de Barbacena\",\n                        \"cns\": \"1582584\",\n                        \"comarca\": \"Barbacena\"\n                    }\n                }\n            },\n            \"descricao\": \"Sacos de arroz\",\n            \"qualidade\": \"Seco, produto para exportação\",\n            \"quantidade\": \"10 sc\"\n        },\n        {\n            \"localproducao\": {\n                \"registro\": {\n                    \"complemento\": \"Complemento Local de produção - 2\",\n                    \"livro\": \"Livro Local de produção\",\n                    \"imovel\": {\n                        \"dadosarrendamento\": \"Arrendado por três anos\",\n                        \"edificacao\": \"string\",\n                        \"descricao\": \"Fazenda Santo Agostinho\",\n                        \"endereco\": {\n                            \"logradouro\": \"Estrada meia Lua\",\n                            \"numero\": \"s/n\",\n                            \"bairro\": \"Zona Rural\",\n                            \"cidade\": \"Hermilo Alves\",\n                            \"uf\": \"MG\",\n                            \"lote\": \"lote 100\",\n                            \"complemento\": \"Ao lado da fazenda Boa Esperança\",\n                            \"cep\": \"36875-200\",\n                            \"tipologradouro\": {\n                                \"code\": \"031\"\n                            }\n                        },\n                        \"tipoimovel\": {\n                            \"domain\": \"03\"\n                        },\n                        \"tipolocalizacao\": {\n                            \"domain\": \"2\"\n                        }\n                    },\n                    \"numeroregistro\": \"158258\",\n                    \"cns\": {\n                        \"uf\": \"MG\",\n                        \"nome\": \"Cartório do Notas de Barbacena\",\n                        \"cns\": \"15k8258P\",\n                        \"comarca\": \"Barbacena\"\n                    }\n                }\n            },\n            \"descricao\": \"Sacos de arroz\",\n            \"qualidade\": \"Seco, produto para exportação\",\n            \"quantidade\": \"10 sc\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local8080}}v1/contract/2/cpr",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"contract",
+								"2",
+								"cpr"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CPR  - Put",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"localentrega\": \"Ibitipoca\",\n    \"periodo\": \"novembro/2023 - update\",\n    \"condicoes\": \"à prazo\",\n\n    \"produtos\": [\n        {\n            \"id\": 15,\n            \"descricao\": \"Sacos de arroz\",\n            \"localproducao\": {\n                \"id\": 15,\n                \"registro\": {\n                    \"id\": 63,\n                    \"cns\": {\n                        \"id\": 57,\n                        \"cns\": \"1582584\",\n                        \"nome\": \"Cartório do Notas de Barbacena\",\n                        \"comarca\": \"Barbacena\",\n                        \"uf\": \"MG\"\n                    },\n                    \"numeroregistro\": \"158258\",\n                    \"livro\": \"Livro Local de produção\",\n                    \"imovel\": {\n                        \"id\": 63,\n                        \"endereco\": null,\n                        \"tipoimovel\": {\n                            \"domain\": \"03\"\n                        },\n                        \"tipolocalizacao\": {\n                            \"domain\": \"2\"\n                        },\n                        \"descricao\": \"Fazenda mista de produção de arroz e criação de gado\",\n                        \"edificacao\": \"string\",\n                        \"dadosarrendamento\": \"Arrendado por cinco anos\"\n                    },\n                    \"complemento\": \"Complemento Local de produção\"\n                }\n            },\n            \"qualidade\": \"Seco, produto para exportação\",\n            \"quantidade\": \"10 sc\"\n        },\n        {\n            \"id\": 16,\n            \"descricao\": \"Sacos de arroz\",\n            \"localproducao\": {\n                \"id\": 16,\n                \"registro\": {\n                    \"id\": 64,\n                    \"cns\": {\n                        \"id\": 58,\n                        \"cns\": \"15k8258P\",\n                        \"nome\": \"Cartório do Notas de Barbacena\",\n                        \"comarca\": \"Barbacena\",\n                        \"uf\": \"MG\"\n                    },\n                    \"numeroregistro\": \"158258\",\n                    \"livro\": \"Livro Local de produção\",\n                    \"imovel\": {\n                        \"id\": 64,\n                        \"endereco\": null,\n                        \"tipoimovel\": {\n                            \"domain\": \"03\"\n                        },\n                        \"tipolocalizacao\": {\n                            \"domain\": \"2\"\n                        },\n                        \"descricao\": \"Fazenda Santo Agostinho\",\n                        \"edificacao\": \"string\",\n                        \"dadosarrendamento\": \"Arrendado por três anos\"\n                    },\n                    \"complemento\": \"Complemento Local de produção - 2\"\n                }\n            },\n            \"qualidade\": \"Seco, produto para exportação\",\n            \"quantidade\": \"10 sc\"\n        }\n    ],\n    \"financeiro\": {\n        \"id\": 16,\n        \"taxajurosefetivamensalporextenso\": \"zero ponto oito por cento\",\n        \"taxajurosefetivaanualporextenso\": \"oito por cento\",\n        \"multa\": 0.0,\n        \"multaporextenso\": \"string\",\n        \"taxajurosnominalanualporextenso\": \"5.5\",\n        \"taxajurosnominalmensalporextenso\": \"Cinco ponto cinco por cento\",\n        \"contrato\": null,\n        \"taxajurosefetivamensal\": 0.8,\n        \"taxajurosefetivaanual\": 8.0,\n        \"pracapagamento\": \"Mage\",\n        \"foro\": \"Rio de Janeiro\",\n        \"comissaofiscalizacao\": \"Comissão fiscalizadora\",\n        \"moeda\": {\n            \"domain\": \"790\"\n        },\n        \"indexador\": null,\n        \"valortotal\": 60000.0,\n        \"valorextenso\": \"sessenta mil reais\",\n        \"criterioobtencaoliquidacao\": \"Critério Obtenção Liquidação\",\n        \"saldoremanescente\": 50000.0,\n        \"valorparcelainicial\": 500.0,\n        \"formapagamento\": \"parcelado\",\n        \"taxajurosnominalanual\": null,\n        \"taxajurosnominalmensal\": 0.0\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local8080}}v1/contract/2/cpr/15",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"contract",
+								"2",
+								"cpr",
+								"15"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CPR - Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Local8080}}v1/contract/1/cpr/15",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"contract",
+								"1",
+								"cpr",
+								"15"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bank",
+			"item": [
+				{
+					"name": "Find by Id - Bank",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/bank/402",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"bank",
+								"402"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update - Bank",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 2,\n    \"code\": \"014\",\n    \"ispb\": \"09274232\",\n    \"cnpj\": \"09274232000102\",\n    \"nameBank\": \"State Street Brasil S.A. - Banco Comercial\",\n    \"url\": \"statebrasil@statebrasil.com\"    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/bank",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"bank"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post - Bank",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"000000\",\n    \"ispb\": \"09274232\",\n    \"cnpj\": \"09.274.232/0001-02\",\n    \"nameBank\": \"teste de post\",\n    \"url\": \"www.post.com.br\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/bank",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"bank"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find all - Bank",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/bank",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"bank"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete - Bank",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/bank/721",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"bank",
+								"721"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Agency_Bank",
+			"item": [
+				{
+					"name": "Post - Agency bank",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"agency\": \"78548\",\n    \"count\": \"125423-2\",\n    \"active\": true,\n    \"contact\": {\n        \"nome\": \"Maria Aparecida\",\n        \"email\": \"maria@maria.com\",\n        \"telefone\": \"32-15515-8525\"\n    },\n    \"bank\": {\n        \"id\": 1\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local8080}}v1/agency-bank",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"agency-bank"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find by Id - Agency bank",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/agency-bank/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"agency-bank",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update - Agency bank",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 4,\n    \"agency\": \"78548\",\n    \"count\": \"125423-2\",\n    \"active\": true,\n    \"contact\": {\n        \"id\": 2,\n        \"name\": \"John Doe\",\n        \"email\": \"doe@gi.com.br\",\n        \"phone\": \"(32) 99999-8888\"\n    },\n    \"bank\": {\n        \"id\": 2\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/agency-bank/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"agency-bank",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find all - Agency Bank",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/agencybank/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"agencybank",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete - Agency Bank",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/agencybank/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"agencybank",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Contract",
+			"item": [
+				{
+					"name": "Post - Contract",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"titulodocabecalho\": \"CÉDULA RURAL PIGNORATÍCIA\",\n    \"cidadeestadodatacontrato\": \"Nova Andradina- MS, 01 de outubro de 2022.\",\n    \"vencimentoporextenso\": \"25 de dezembro de 2023\",\n    \"vencimento\": \"2023-12-25\",\n    \"cobrancaencargoapartir\": \"2024-01-25\",\n    \"cartorios\": [\n        {\n            \"uf\": \"SP\",\n            \"nome\": \"Cartório Savio Motta\",\n            \"comarca\": \"Andradina\",\n            \"cns\": \"119719\"\n        },\n        {\n            \"uf\": \"MT\",\n            \"nome\": \"Cartório Ormindo Maia\",\n            \"comarca\": \"Nova Andradina\",\n            \"cns\": \"119719\"\n        }\n    ],\n    \"numerocontrato\": \"1522-25\",\n    \"tipocedula\": \"CPR\",\n    \"datacontrato\": \"2022-09-27\",\n    \"localcontrato\": \"Carandaí\",\n    \"remetente\": {\n        \"nome\": \"Banco Remetente\",\n        \"tipopessoa\": {\n            \"domain\": \"2\"\n        },\n        \"cpfcnpj\": \"25.258.258/0001-20\",\n        \"endereco\": {\n            \"complemento\": \"Complemento endereço remetente\",\n            \"cep\": \"36.250-250\",\n            \"tipologradouro\": {\n                \"code\": \"081\"\n            },\n            \"logradouro\": \"Rua endereço remetente\",\n            \"quadra\": \"Quadra remetente\",\n            \"bairro\": \"Bairro remetente\",\n            \"numero\": \"365-B\",\n            \"cidade\": \"Juiz de Fora\",\n            \"uf\": \"MG\",\n            \"lote\": \"Lote Rementente\",\n            \"torre\": \"Torre remetente\"\n        },\n        \"contato\": {\n            \"nome\": \"Contato remetente\",\n            \"email\": \"remetente@remetente.com.br\",\n            \"telefone\": \"(32) 99999-8887\"\n        },\n        \"representante\": {\n            \"cpfcnpj\": \"852.258.258-00\",\n            \"nome\": \"José das Coves\"\n        }\n    },\n    \"apresentante\": {\n        \"nome\": \"Cooperativa dos Produtores Rurais de Carandaí\",\n        \"tipopessoa\": {\n            \"domain\": \"1\"\n        },\n        \"cpfcnpj\": \"258.258.369/0001-20\",\n        \"endereco\": {\n            \"complemento\": \"Complemento endereço apresentante\",\n            \"cep\": \"36.250-250\",\n            \"tipologradouro\": \"645\",\n            \"logradouro\": \"Rua endereço apresentante\",\n            \"quadra\": \"Quadra apresentante\",\n            \"bairro\": \"Bairro apresentante\",\n            \"numero\": \"365-B\",\n            \"cidade\": \"Juiz de Fora\",\n            \"uf\": \"MG\",\n            \"lote\": \"Lote apresentante\",\n            \"torre\": \"Torre apresentante\"\n        },\n        \"contato\": {\n            \"nome\": \"Maria Joaquina da Silva\",\n            \"email\": \"quin@quim.com.br\",\n            \"telefone\": \"(32) 99999-8887\"\n        },\n        \"representante\": {\n            \"cpfcnpj\": \"159.159.159-20\",\n            \"nome\": \"john Doe\"\n        }\n    },\n    \"financeiro\": {\n        \"valortotal\": 500000.0,\n        \"valorextenso\": \"Quinhentos mil reais\",\n        \"criterioobtencaoliquidacao\": \"critério\",\n        \"moeda\": {\n            \"domain\": \"790\"\n        },\n        \"saldoremanescente\": 450000.0,\n        \"valorparcelainicial\": 50000.0,\n        \"formapagamento\": \"Forma pagamento\",\n        \"taxajurosnominalanual\": 7.5,\n        \"taxajurosnominalmensal\": 0.6,\n        \"taxajurosefetivamensal\": 0.7,\n        \"taxajurosefetivaanual\": 7.9,\n        \"pracapagamento\": \"Carandaí\",\n        \"foro\": \"Carandaí\",\n        \"indexador\": {\n            \"id\": \"11\"\n        },\n        \"comissaofiscalizacao\": \"Comissão fiscalizadora\",\n        \"taxajurosnominalanualporextenso\": \"sete e meio por cento\",\n        \"taxajurosnominalmensalporextenso\": \"zero ponto seis por cento\",\n        \"taxajurosefetivamensalporextenso\": \"zero ponto sete por cento\",\n        \"taxajurosefetivaanualporextenso\": \"sete ponto nove por cento\",\n        \"multa\": 2.0,\n        \"multaporextenso\": \"Dois por cento\"\n    },\n    \"modalidadesoperacao\": [\n        {\n            \"origemrecursos\": {\n                \"id\": \"0102\"\n            },\n            \"destinofinanciamento\": \"destino do financiamento\",\n            \"modalidade\": {\n                \"id\": \"0101\"\n            }\n        }\n    ],\n    \"partes\": [\n        {\n            \"nome\": \"Salvador da Cruz Regini\",\n            \"qualificacoes\": [\n                {\n                    \"domain\": \"5\"\n                },\n                {\n                    \"domain\": \"10\"\n                }\n            ],\n            \"tipopessoa\": {\n                \"domain\": \"1\"\n            },\n            \"cpfcnpj\": \"257.257.257-20\",\n            \"genero\": \"MASCULINO\",\n            \"datanascimento\": \"1985-09-27\",\n            \"documento\": \"M258.258.369\",\n            \"orgaoemissor\": \"SSPMG\",\n            \"nacionalidade\": \"Brasileira\",\n            \"estadocivil\": {\n                \"domain\": \"2\"\n            },\n            \"pacto\": {\n                \"folha\": \"Folha 10\",\n                \"cartorio\": \"158\",\n                \"local\": \"São José do Pádua\",\n                \"data\": \"2022-09-27\",\n                \"livro\": \"Livro 10\",\n                \"registro\": \"Registro b52\"\n            },\n            \"regimebens\": {\n                \"domain\": \"3\"\n            },\n            \"profissao\": \"Agricultor\",\n            \"endereco\": {\n                \"complemento\": \"Complemento endereço partes\",\n                \"cep\": \"36.250-250\",\n                \"tipologradouro\": {\n                    \"code\": \"645\"\n                },\n                \"logradouro\": \"Rua endereço partes\",\n                \"quadra\": \"Quadra partes\",\n                \"bairro\": \"Bairro partes\",\n                \"numero\": \"365-B\",\n                \"cidade\": \"Correia de Almeida\",\n                \"uf\": \"MG\",\n                \"lote\": \"Lote partes\",\n                \"torre\": \"Torre partes\"\n            },\n            \"contato\": {\n                \"nome\": \"Contato novamente\",\n                \"email\": \"novamente@novamente.com\",\n                \"telefone\": \"(36) 98798-2585\"\n            },\n            \"filiacao1\": \"Jose Maria Silva\",\n            \"filiacao2\": \"Maria Jose Silva\",\n            \"cpfconjuge\": \"357.357.357-25\"\n        },\n        {\n            \"nome\": \"Cooperativa dos Produtores Rurais de Carandaí\",\n            \"qualificacoes\": [\n                {\n                    \"domain\": \"3\"\n                }\n            ],\n            \"tipopessoa\": {\n                \"domain\": \"2\"\n            },\n            \"cpfcnpj\": \"00.000.000/2222-22\",\n            \"genero\": \"EM_BRANCO\",\n            \"pacto\": {\n                \"folha\": \"Folha 10\",\n                \"cartorio\": \"158\",\n                \"local\": \"São José do Pádua\",\n                \"data\": \"2022-09-27\",\n                \"livro\": \"Livro 10\",\n                \"registro\": \"Registro b52\"\n            },\n            \"endereco\": {\n                \"complemento\": \"Complemento endereço partes\",\n                \"cep\": \"36.250-250\",\n                \"tipologradouro\": {\n                    \"code\": \"645\"\n                },\n                \"logradouro\": \"Rua endereço partes\",\n                \"quadra\": \"Quadra partes\",\n                \"bairro\": \"Bairro partes\",\n                \"numero\": \"365-B\",\n                \"cidade\": \"Correia de Almeida\",\n                \"uf\": \"MG\",\n                \"lote\": \"Lote partes\",\n                \"torre\": \"Torre partes\"\n            },\n            \"contato\": {\n                \"nome\": \"Contato Cooperativa\",\n                \"email\": \"novamente@novamente.com\",\n                \"telefone\": \"(36) 98798-2585\"\n            }\n        },\n        {\n            \"nome\": \"Priscila Fontine\",\n            \"qualificacoes\": [\n                {\n                    \"domain\": \"14\"\n                }\n            ],\n            \"tipopessoa\": {\n                \"domain\": \"1\"\n            },\n            \"cpfcnpj\": \"257.257.257-20\",\n            \"genero\": \"FEMININO\",\n            \"datanascimento\": \"1985-09-27\",\n            \"documento\": \"M258.258.369\",\n            \"orgaoemissor\": \"SSPMG\",\n            \"nacionalidade\": \"Brasileira\",\n            \"estadocivil\": {\n                \"domain\": \"2\"\n            },\n            \"pacto\": {\n                \"folha\": \"Folha 10\",\n                \"cartorio\": \"158\",\n                \"local\": \"São José do Pádua\",\n                \"data\": \"2022-09-27\",\n                \"livro\": \"Livro 10\",\n                \"registro\": \"Registro b52\"\n            },\n            \"regimebens\": {\n                \"domain\": \"3\"\n            },\n            \"profissao\": \"Gerente Administrivo\",\n            \"endereco\": {\n                \"complemento\": \"Complemento endereço partes\",\n                \"cep\": \"36.250-250\",\n                \"tipologradouro\": {\n                    \"code\": \"645\"\n                },\n                \"logradouro\": \"Rua endereço partes\",\n                \"quadra\": \"Quadra partes\",\n                \"bairro\": \"Bairro partes\",\n                \"numero\": \"365-B\",\n                \"cidade\": \"Correia de Almeida\",\n                \"uf\": \"MG\",\n                \"lote\": \"Lote partes\",\n                \"torre\": \"Torre partes\"\n            },\n            \"contato\": {\n                \"nome\": \"Maria José\",\n                \"email\": \"novamente@novamente.com\",\n                \"telefone\": \"(36) 98798-2585\"\n            },\n            \"filiacao1\": \"Jose Maria Silva\",\n            \"filiacao2\": \"Maria Jose Silva\",\n            \"cpfconjuge\": \"357.357.357-25\"\n        },\n        {\n            \"nome\": \"Maria das Graça Pereira\",\n            \"qualificacoes\": [\n                {\n                    \"domain\": \"17\"\n                }\n            ],\n            \"tipopessoa\": {\n                \"domain\": \"1\"\n            },\n            \"cpfcnpj\": \"258.247.259-20\",\n            \"genero\": \"FEMININO\",\n            \"datanascimento\": \"1990-09-27\",\n            \"documento\": \"6.258.258.369\",\n            \"orgaoemissor\": \"EB\",\n            \"nacionalidade\": \"Brasileira\",\n            \"estadocivil\": {\n                \"domain\": \"2\"\n            },\n            \"pacto\": {\n                \"folha\": \"Folha 10\",\n                \"cartorio\": \"158\",\n                \"local\": \"São José do Pádua\",\n                \"data\": \"2022-09-27\",\n                \"livro\": \"Livro 10\",\n                \"registro\": \"Registro b52\"\n            },\n            \"regimebens\": {\n                \"domain\": \"3\"\n            },\n            \"profissao\": \"Empresária\",\n            \"endereco\": {\n                \"complemento\": \"Complemento endereço partes\",\n                \"cep\": \"36.250-250\",\n                \"tipologradouro\": {\n                    \"code\": \"645\"\n                },\n                \"logradouro\": \"Rua endereço partes\",\n                \"quadra\": \"Quadra partes\",\n                \"bairro\": \"Bairro partes\",\n                \"numero\": \"365-B\",\n                \"cidade\": \"Correia de Almeida\",\n                \"uf\": \"MG\",\n                \"lote\": \"Lote partes\",\n                \"torre\": \"Torre partes\"\n            },\n            \"contato\": {\n                \"nome\": \"Júlio Martins\",\n                \"email\": \"julio@novamente.com\",\n                \"telefone\": \"(36) 25874-2585\"\n            },\n            \"filiacao1\": \"Sebastiao Gonçalves Pinto\",\n            \"filiacao2\": \"Maria Jose Silva Pinto\",\n            \"cpfconjuge\": \"369.777.357-25\"\n        }\n    ],\n    \"cpr\": {\n        \"produtos\": [\n            {\n                \"descricao\": \"BOI DA RAÇA MARFRIG\",\n                \"qualidade\": \"BOI ANGUS MISTURADO COM O WAGYU, COM PESAGEM DE 600 KG CADA UM\",\n                \"quantidade\": \"100 CABEÇAS DE BOI\",\n                \"localproducao\": {\n                    \"registro\": {\n                        \"cns\": {\n                            \"uf\": \"MT\",\n                            \"nome\": \"Cartório Ormindo Maia\",\n                            \"comarca\": \"Nova Andradina\",\n                            \"cns\": \"119719\"\n                        },\n                        \"livro\": \"livro registro\",\n                        \"numeroregistro\": \"numero do registro \",\n                        \"complemento\": \"Complemento registro 2\",\n                        \"imovel\": {\n                            \"descricao\": \"descrição do imóvel\",\n                            \"tipolocalizacao\": {\n                                \"domain\": \"2\"\n                            },\n                            \"tipoimovel\": {\n                                \"domain\": \"02\"\n                            },\n                            \"edificacao\": \"tipo de edificação\",\n                            \"endereco\": {\n                                \"tipologradouro\": {\n                                    \"code\": \"645\"\n                                },\n                                \"logradouro\": \"Rua dos teste 4\",\n                                \"numero\": \"365N\",\n                                \"bairro\": \"Culhões\",\n                                \"cidade\": \"Miradouro\",\n                                \"uf\": \"MG\",\n                                \"lote\": \"Lote 10\",\n                                \"quadra\": \"quadra 21\",\n                                \"torre\": \"torre\",\n                                \"complemento\": \"Complemento registro\",\n                                \"cep\": \"56.258-524\"\n                            }\n                        }\n                    }\n                }\n            }\n        ],\n        \"financeiro\": {\n            \"valortotal\": 249998.8,\n            \"valorextenso\": \"Dez mil reais\",\n            \"criterioobtencaoliquidacao\": \"criterio de avaliação\",\n            \"moeda\": {\n                \"domain\": \"790\"\n            },\n            \"saldoremanescente\": 500.0,\n            \"valorparcelainicial\": 500.0,\n            \"formapagamento\": \"Forma de pagamento\",\n            \"taxajurosnominalanual\": 1.8,\n            \"taxajurosnominalmensal\": 0.8,\n            \"taxajurosefetivamensal\": 0.5,\n            \"taxajurosefetivaanual\": 10.0,\n            \"pracapagamento\": \"Praça de pagamento\",\n            \"foro\": \"Foro\",\n            \"indexador\": {\n                \"id\": \"11\"\n            },\n            \"comissaofiscalizacao\": \"Comissão fiscalizadora\"\n        },\n        \"localentrega\": \"SÃO PAULO\",\n        \"periodo\": \"OS BOIS SERÃO PREPARADOS ATÉ 20/04/2023\",\n        \"condicoes\": \"ELES SERÃO ENTREGUES LIMPOS\"\n    },\n    \"garantias\": [\n        {\n            \"registros\": [\n                {\n                    \"numeroregistro\": \"12237\",\n                    \"imovel\": {\n                        \"endereco\": {\n                            \"tipologradouro\": {\n                                \"code\": \"645\"\n                            },\n                            \"logradouro\": \"Rua dos teste 4\",\n                            \"numero\": \"365N\",\n                            \"bairro\": \"Culhões\",\n                            \"cidade\": \"Miradouro\",\n                            \"uf\": \"MG\",\n                            \"lote\": \"Lote 10\",\n                            \"quadra\": \"quadra 21\",\n                            \"torre\": \"torre\",\n                            \"complemento\": \"Complemento registro\",\n                            \"cep\": \"56.258-524\"\n                        },\n                        \"descricao\": \"descrição do imóvel\",\n                        \"edificacao\": \"tipo de edificação\",\n                        \"tipolocalizacao\": {\n                            \"domain\": \"2\"\n                        },\n                        \"tipoimovel\": {\n                            \"domain\": \"99\"\n                        }\n                    },\n                    \"complemento\": \"COM RESERVA DE USUFRUTO VITALICIO DE 50% A ANA MARIA SALVADOR CAPARROZ.\",\n                    \"cns\": {\n                        \"uf\": \"MT\",\n                        \"nome\": \"Cartório Ormindo Maia\",\n                        \"comarca\": \"Nova Andradina\",\n                        \"cns\": \"119715\"\n                    },\n                    \"livro\": \"livro registro\"\n                }\n            ],\n            \"tipogarantia\": {\n                \"id\": \"0322\"\n            },\n            \"tipobem\": {\n                \"domain\": \"32\"\n            },\n            \"descricao\": \"VACA COM 72 MESES\",\n            \"percentualcomprometido\": 0.0,\n            \"valor\": 451500.00,\n            \"qualidade\": \"boa\",\n            \"quantidade\": 36,\n            \"marca\": \"ainda não sei\",\n            \"periodoproducao\": \"2022 - 2023\",\n            \"grau\": \"PRIMEIRO GRAU\"\n        }\n    ],\n    \"impostos\": [\n        {\n            \"numero\": \"2125\",\n            \"emissor\": \"emissor impostos\",\n            \"serie\": \"serie impostos\",\n            \"valor\": 2000.0,\n            \"isento\": \"não\",\n            \"justificativa\": \"justificativa impostos\"\n        }\n    ],\n    \"procuracoes\": [\n        {\n            \"numero\": \"1234\",\n            \"representante\": \"996.054.000-72\",\n            \"contrato\": \"contrato procuração\",\n            \"representado\": \"00.000.000/2222-22\",\n            \"tiporegistro\": {\n                \"code\": \"5\"\n            },\n            \"orgao\": \"1 TABELIAO DE NOTAS DE SP\",\n            \"formaregistro\": \"Forma de registro procuração\",\n            \"numerolivro\": \"123\",\n            \"folha\": \"234\",\n            \"numeroregistro\": \"número registro procuração\",\n            \"dataregistro\": \"2022-09-27\"\n        }\n    ],\n    \"autorizacoes\": {\n        \"declaro\": \"DECLARO QUE ESTES DADOS CORRESPONDEM FIDEDIGNAMENTE AOS QUE CONSTAM NO RESPECTIVO INSTRUMENTO PARTICULAR COM FORÇA DE ESCRITURA PÚBLICA OU TÍTULO DE CRÉDITO QUE LHE DEU ORIGEM, FORMALIZADO COM TODAS AS CLÁUSULAS OBRIGATÓRIAS, QUE SE ENCONTRA EM SEU ARQUIVO, E QUE FOI VERIFICADA A IDENTIFICAÇÃO E A REGULARIDADE DA REPRESENTAÇÃO DAS PARTES QUE SUBSCREVERAM O DOCUMENTO ORIGINAL.\",\n        \"autorizo\": \"AUTORIZO O OFICIAL DE REGISTRO DE IMÓVEIS A PRATICAR OS ATOS EXCLUSIVAMENTE COM BASE NOS DADOS PRESENTES NESTE DOCUMENTO.\"\n    },\n    \"clausulasadicionais\": [\n        {\n            \"clausula\": \"CLAUSULA DO CONTRATO ADITIVO SE HOUVER\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local8080}}v1/contract/",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"contract",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find by Id - Contract",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Local8080}}v1/contract-general/9",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"contract-general",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3 - Contract  - Partes",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 5,\n    \"garantias\": [\n        {\n            \"id\": 3,\n            \"area\": null,\n            \"tipogarantia\": {\n                \"id\": \"0322\"\n            },\n            \"tipobem\": {\n                \"domain\": \"32\"\n            },\n            \"percentualcomprometido\": 0.0,\n            \"qualidade\": \"boa\",\n            \"quantidade\": 36,\n            \"marca\": \"ainda não sei\",\n            \"periodoproducao\": \"2022 - 2023\",\n            \"grau\": \"PRIMEIRO GRAU\",\n            \"registros\": [\n                {\n                    \"id\": 3,\n                    \"imovel\": {\n                        \"id\": 3,\n                        \"edificacao\": \"tipo de edificação\",\n                        \"dadosarrendamento\": null,\n                        \"descricao\": \"descrição do imóvel\",\n                        \"endereco\": {\n                            \"id\": 3,\n                            \"logradouro\": \"Rua dos teste 4\",\n                            \"numero\": \"365N\",\n                            \"bairro\": \"Culhões\",\n                            \"cidade\": \"Miradouro\",\n                            \"uf\": \"MG\",\n                            \"lote\": \"Lote 10\",\n                            \"quadra\": \"quadra 21\",\n                            \"torre\": \"torre\",\n                            \"complemento\": \"Complemento registro\",\n                            \"cep\": \"56258524\",\n                            \"tipologradouro\": {\n                                \"code\": \"645\"\n                            }\n                        },\n                        \"tipoimovel\": {\n                            \"domain\": \"99\"\n                        },\n                        \"tipolocalizacao\": {\n                            \"domain\": \"2\"\n                        }\n                    },\n                    \"cns\": {\n                        \"id\": 13,\n                        \"comarca\": \"Nova Andradina\",\n                        \"cns\": \"119715\",\n                        \"uf\": \"MT\",\n                        \"nome\": \"Cartório Ormindo Maia\"\n                    },\n                    \"complemento\": \"COM RESERVA DE USUFRUTO VITALICIO DE 50% A ANA MARIA SALVADOR CAPARROZ.\",\n                    \"numeroregistro\": \"12237\",\n                    \"livro\": \"livro registro\"\n                }\n            ],\n            \"descricao\": \"VACA COM 72 MESES\",\n            \"valor\": 451500.0\n        }\n    ],\n    \"vencimentoporextenso\": \"25 de dezembro de 2023\",\n    \"titulodocabecalho\": \"CÉDULA RURAL PIGNORATÍCIA\",\n    \"cidadeestadodatacontrato\": \"Nova Andradina- MS, 01 de outubro de 2022.\",\n    \"numerocontrato\": \"1522-25\",\n    \"cartorios\": [\n        {\n            \"id\": 10,\n            \"comarca\": \"Andradina\",\n            \"cns\": \"119719\",\n            \"uf\": \"SP\",\n            \"nome\": \"Cartório Savio Motta\"\n        },\n        {\n            \"id\": 11,\n            \"comarca\": \"Nova Andradina\",\n            \"cns\": \"119719\",\n            \"uf\": \"MT\",\n            \"nome\": \"Cartório Ormindo Maia\"\n        }\n    ],\n    \"tipocedula\": {\n        \"domain\": \"CPR\"\n    },\n    \"datacontrato\": \"2022-09-27\",\n    \"localcontrato\": \"Carandaí\",\n    \"modalidadesoperacao\": [\n        {\n            \"id\": 1,\n            \"modalidade\": {\n                \"id\": \"0101\"\n            },\n            \"origemrecursos\": {\n                \"id\": \"0102\"\n            },\n            \"destinofinanciamento\": \"destino do financiamento\"\n        }\n    ],\n    \"procuracoes\": [\n        {\n            \"id\": 1,\n            \"numero\": \"1234\",\n            \"representante\": \"996.054.000-72\",\n            \"representado\": \"00.000.000/2222-22\",\n            \"tiporegistro\": {\n                \"code\": \"5\"\n            },\n            \"orgao\": \"1 TABELIAO DE NOTAS DE SP\",\n            \"formaregistro\": \"Forma de registro procuração\",\n            \"numerolivro\": \"123\",\n            \"folha\": \"234\",\n            \"numeroregistro\": \"número registro procuração\",\n            \"dataregistro\": \"2022-09-27\"\n        }\n    ],\n    \"autorizacoes\": {\n        \"id\": 2,\n        \"autorizo\": \"AUTORIZO O OFICIAL DE REGISTRO DE IMÓVEIS A PRATICAR OS ATOS EXCLUSIVAMENTE COM BASE NOS DADOS PRESENTES NESTE DOCUMENTO.\",\n        \"declaro\": \"DECLARO QUE ESTES DADOS CORRESPONDEM FIDEDIGNAMENTE AOS QUE CONSTAM NO RESPECTIVO INSTRUMENTO PARTICULAR COM FORÇA DE ESCRITURA PÚBLICA OU TÍTULO DE CRÉDITO QUE LHE DEU ORIGEM, FORMALIZADO COM TODAS AS CLÁUSULAS OBRIGATÓRIAS, QUE SE ENCONTRA EM SEU ARQUIVO, E QUE FOI VERIFICADA A IDENTIFICAÇÃO E A REGULARIDADE DA REPRESENTAÇÃO DAS PARTES QUE SUBSCREVERAM O DOCUMENTO ORIGINAL.\"\n    },\n    \"clausulasadicionais\": [\n        {\n            \"id\": 5,\n            \"clausula\": \"Primeira Clausula quando houver\"\n        },\n        {\n            \"id\": 6,\n            \"clausula\": \"Segunda Clausula quando houver\"\n        }\n    ],\n    \"vencimento\": \"2023-12-25\",\n    \"cobrancaencargoapartir\": \"2024-01-25\",\n    \"umidade\": \"10%\",\n    \"impureza\": \"5%\",\n    \"avariados_ARDIDOS\": \"2%\",\n    \"partes\": [\n        {\n            \"nome\": \"Salvador da Cruz Regini\",\n            \"qualificacoes\": [\n                {\n                    \"domain\": \"5\"\n                },\n                {\n                    \"domain\": \"10\"\n                }\n            ],\n            \"tipopessoa\": {\n                \"domain\": \"1\"\n            },\n            \"cpfcnpj\": \"257.257.257-20\",\n            \"genero\": \"MASCULINO\",\n            \"datanascimento\": \"1985-09-27\",\n            \"documento\": \"M258.258.369\",\n            \"orgaoemissor\": \"SSPMG\",\n            \"nacionalidade\": \"Brasileira\",\n            \"estadocivil\": {\n                \"domain\": \"2\"\n            },\n            \"pacto\": {\n                \"folha\": \"Folha 10\",\n                \"cartorio\": \"158\",\n                \"local\": \"São José do Pádua\",\n                \"data\": \"2022-09-27\",\n                \"livro\": \"Livro 10\",\n                \"registro\": \"Registro b52\"\n            },\n            \"regimebens\": {\n                \"domain\": \"3\"\n            },\n            \"profissao\": \"Agricultor\",\n            \"endereco\": {\n                \"complemento\": \"Complemento endereço partes\",\n                \"cep\": \"36.250-250\",\n                \"tipologradouro\": {\n                    \"code\": \"645\"\n                },\n                \"logradouro\": \"Rua endereço partes\",\n                \"quadra\": \"Quadra partes\",\n                \"bairro\": \"Bairro partes\",\n                \"numero\": \"365-B\",\n                \"cidade\": \"Correia de Almeida\",\n                \"uf\": \"MG\",\n                \"lote\": \"Lote partes\",\n                \"torre\": \"Torre partes\"\n            },\n            \"contato\": {\n                \"nome\": \"Contato novamente\",\n                \"email\": \"novamente@novamente.com\",\n                \"telefone\": \"(36) 98798-2585\"\n            },\n            \"filiacao1\": \"Jose Maria Silva\",\n            \"filiacao2\": \"Maria Jose Silva\",\n            \"cpfconjuge\": \"357.357.357-25\"\n        },\n        {\n            \"nome\": \"Cooperativa dos Produtores Rurais de Carandaí\",\n            \"qualificacoes\": [\n                {\n                    \"domain\": \"3\"\n                }\n            ],\n            \"tipopessoa\": {\n                \"domain\": \"2\"\n            },\n            \"cpfcnpj\": \"00.000.000/2222-22\",\n            \"genero\": \"EM_BRANCO\",\n            \"pacto\": {\n                \"folha\": \"Folha 10\",\n                \"cartorio\": \"158\",\n                \"local\": \"São José do Pádua\",\n                \"data\": \"2022-09-27\",\n                \"livro\": \"Livro 10\",\n                \"registro\": \"Registro b52\"\n            },\n            \"endereco\": {\n                \"complemento\": \"Complemento endereço partes\",\n                \"cep\": \"36.250-250\",\n                \"tipologradouro\": {\n                    \"code\": \"645\"\n                },\n                \"logradouro\": \"Rua endereço partes\",\n                \"quadra\": \"Quadra partes\",\n                \"bairro\": \"Bairro partes\",\n                \"numero\": \"365-B\",\n                \"cidade\": \"Correia de Almeida\",\n                \"uf\": \"MG\",\n                \"lote\": \"Lote partes\",\n                \"torre\": \"Torre partes\"\n            },\n            \"contato\": {\n                \"nome\": \"Contato Cooperativa\",\n                \"email\": \"novamente@novamente.com\",\n                \"telefone\": \"(36) 98798-2585\"\n            }\n        },\n        {\n            \"nome\": \"Priscila Fontine\",\n            \"qualificacoes\": [\n                {\n                    \"domain\": \"14\"\n                }\n            ],\n            \"tipopessoa\": {\n                \"domain\": \"1\"\n            },\n            \"cpfcnpj\": \"257.257.257-20\",\n            \"genero\": \"FEMININO\",\n            \"datanascimento\": \"1985-09-27\",\n            \"documento\": \"M258.258.369\",\n            \"orgaoemissor\": \"SSPMG\",\n            \"nacionalidade\": \"Brasileira\",\n            \"estadocivil\": {\n                \"domain\": \"2\"\n            },\n            \"pacto\": {\n                \"folha\": \"Folha 10\",\n                \"cartorio\": \"158\",\n                \"local\": \"São José do Pádua\",\n                \"data\": \"2022-09-27\",\n                \"livro\": \"Livro 10\",\n                \"registro\": \"Registro b52\"\n            },\n            \"regimebens\": {\n                \"domain\": \"3\"\n            },\n            \"profissao\": \"Gerente Administrivo\",\n            \"endereco\": {\n                \"complemento\": \"Complemento endereço partes\",\n                \"cep\": \"36.250-250\",\n                \"tipologradouro\": {\n                    \"code\": \"645\"\n                },\n                \"logradouro\": \"Rua endereço partes\",\n                \"quadra\": \"Quadra partes\",\n                \"bairro\": \"Bairro partes\",\n                \"numero\": \"365-B\",\n                \"cidade\": \"Correia de Almeida\",\n                \"uf\": \"MG\",\n                \"lote\": \"Lote partes\",\n                \"torre\": \"Torre partes\"\n            },\n            \"contato\": {\n                \"nome\": \"Maria José\",\n                \"email\": \"novamente@novamente.com\",\n                \"telefone\": \"(36) 98798-2585\"\n            },\n            \"filiacao1\": \"Jose Maria Silva\",\n            \"filiacao2\": \"Maria Jose Silva\",\n            \"cpfconjuge\": \"357.357.357-25\"\n        },\n        {\n            \"nome\": \"Maria das Graça Pereira\",\n            \"qualificacoes\": [\n                {\n                    \"domain\": \"17\"\n                }\n            ],\n            \"tipopessoa\": {\n                \"domain\": \"1\"\n            },\n            \"cpfcnpj\": \"258.247.259-20\",\n            \"genero\": \"FEMININO\",\n            \"datanascimento\": \"1990-09-27\",\n            \"documento\": \"6.258.258.369\",\n            \"orgaoemissor\": \"EB\",\n            \"nacionalidade\": \"Brasileira\",\n            \"estadocivil\": {\n                \"domain\": \"2\"\n            },\n            \"pacto\": {\n                \"folha\": \"Folha 10\",\n                \"cartorio\": \"158\",\n                \"local\": \"São José do Pádua\",\n                \"data\": \"2022-09-27\",\n                \"livro\": \"Livro 10\",\n                \"registro\": \"Registro b52\"\n            },\n            \"regimebens\": {\n                \"domain\": \"3\"\n            },\n            \"profissao\": \"Empresária\",\n            \"endereco\": {\n                \"complemento\": \"Complemento endereço partes\",\n                \"cep\": \"36.250-250\",\n                \"tipologradouro\": {\n                    \"code\": \"645\"\n                },\n                \"logradouro\": \"Rua endereço partes\",\n                \"quadra\": \"Quadra partes\",\n                \"bairro\": \"Bairro partes\",\n                \"numero\": \"365-B\",\n                \"cidade\": \"Correia de Almeida\",\n                \"uf\": \"MG\",\n                \"lote\": \"Lote partes\",\n                \"torre\": \"Torre partes\"\n            },\n            \"contato\": {\n                \"nome\": \"Júlio Martins\",\n                \"email\": \"julio@novamente.com\",\n                \"telefone\": \"(36) 25874-2585\"\n            },\n            \"filiacao1\": \"Sebastiao Gonçalves Pinto\",\n            \"filiacao2\": \"Maria Jose Silva Pinto\",\n            \"cpfconjuge\": \"369.777.357-25\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local8080}}v1/contract/part",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"contract",
+								"part"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4 - Contract - CPR",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 5,\n    \"partes\": [\n        {\n            \"id\": 9,\n            \"endereco\": {\n                \"id\": 14,\n                \"tipologradouro\": {\n                    \"code\": \"645\"\n                },\n                \"logradouro\": \"Rua endereço partes\",\n                \"numero\": \"365-B\",\n                \"bairro\": \"Bairro partes\",\n                \"cidade\": \"Correia de Almeida\",\n                \"uf\": \"MG\",\n                \"lote\": \"Lote partes\",\n                \"quadra\": \"Quadra partes\",\n                \"torre\": \"Torre partes\",\n                \"complemento\": \"Complemento endereço partes\",\n                \"cep\": \"36250250\"\n            },\n            \"cpfcnpj\": \"25725725720\",\n            \"genero\": \"MASCULINO\",\n            \"datanascimento\": \"1985-09-27\",\n            \"documento\": \"M258.258.369\",\n            \"orgaoemissor\": \"SSPMG\",\n            \"nacionalidade\": \"Brasileira\",\n            \"uniaoestavel\": null,\n            \"outroregime\": null,\n            \"estadocivil\": {\n                \"domain\": \"2\"\n            },\n            \"regimebens\": {\n                \"domain\": \"3\"\n            },\n            \"profissao\": \"Agricultor\",\n            \"filiacao1\": \"Jose Maria Silva\",\n            \"filiacao2\": \"Maria Jose Silva\",\n            \"cpfconjuge\": \"35735735725\",\n            \"nome\": \"Salvador da Cruz Regini\",\n            \"tipopessoa\": {\n                \"domain\": \"1\"\n            },\n            \"qualificacoes\": [\n                {\n                    \"domain\": \"5\"\n                },\n                {\n                    \"domain\": \"10\"\n                }\n            ],\n            \"contato\": {\n                \"id\": 11,\n                \"telefone\": \"36987982585\",\n                \"nome\": \"Contato novamente\",\n                \"email\": \"novamente@novamente.com\"\n            }\n        },\n        {\n            \"id\": 10,\n            \"endereco\": {\n                \"id\": 15,\n                \"tipologradouro\": {\n                    \"code\": \"645\"\n                },\n                \"logradouro\": \"Rua endereço partes\",\n                \"numero\": \"365-B\",\n                \"bairro\": \"Bairro partes\",\n                \"cidade\": \"Correia de Almeida\",\n                \"uf\": \"MG\",\n                \"lote\": \"Lote partes\",\n                \"quadra\": \"Quadra partes\",\n                \"torre\": \"Torre partes\",\n                \"complemento\": \"Complemento endereço partes\",\n                \"cep\": \"36250250\"\n            },\n            \"cpfcnpj\": \"00000000222222\",\n            \"genero\": \"EM_BRANCO\",\n            \"datanascimento\": null,\n            \"documento\": null,\n            \"orgaoemissor\": null,\n            \"nacionalidade\": null,\n            \"uniaoestavel\": null,\n            \"outroregime\": null,\n            \"estadocivil\": null,\n            \"regimebens\": null,\n            \"profissao\": null,\n            \"filiacao1\": null,\n            \"filiacao2\": null,\n            \"cpfconjuge\": null,\n            \"nome\": \"Cooperativa dos Produtores Rurais de Carandaí\",\n            \"tipopessoa\": {\n                \"domain\": \"2\"\n            },\n            \"qualificacoes\": [\n                {\n                    \"domain\": \"3\"\n                }\n            ],\n            \"contato\": {\n                \"id\": 12,\n                \"telefone\": \"36987982585\",\n                \"nome\": \"Contato Cooperativa\",\n                \"email\": \"novamente@novamente.com\"\n            }\n        },\n        {\n            \"id\": 11,\n            \"endereco\": {\n                \"id\": 16,\n                \"tipologradouro\": {\n                    \"code\": \"645\"\n                },\n                \"logradouro\": \"Rua endereço partes\",\n                \"numero\": \"365-B\",\n                \"bairro\": \"Bairro partes\",\n                \"cidade\": \"Correia de Almeida\",\n                \"uf\": \"MG\",\n                \"lote\": \"Lote partes\",\n                \"quadra\": \"Quadra partes\",\n                \"torre\": \"Torre partes\",\n                \"complemento\": \"Complemento endereço partes\",\n                \"cep\": \"36250250\"\n            },\n            \"cpfcnpj\": \"25725725720\",\n            \"genero\": \"FEMININO\",\n            \"datanascimento\": \"1985-09-27\",\n            \"documento\": \"M258.258.369\",\n            \"orgaoemissor\": \"SSPMG\",\n            \"nacionalidade\": \"Brasileira\",\n            \"uniaoestavel\": null,\n            \"outroregime\": null,\n            \"estadocivil\": {\n                \"domain\": \"2\"\n            },\n            \"regimebens\": {\n                \"domain\": \"3\"\n            },\n            \"profissao\": \"Gerente Administrivo\",\n            \"filiacao1\": \"Jose Maria Silva\",\n            \"filiacao2\": \"Maria Jose Silva\",\n            \"cpfconjuge\": \"35735735725\",\n            \"nome\": \"Priscila Fontine\",\n            \"tipopessoa\": {\n                \"domain\": \"1\"\n            },\n            \"qualificacoes\": [\n                {\n                    \"domain\": \"14\"\n                }\n            ],\n            \"contato\": {\n                \"id\": 13,\n                \"telefone\": \"36987982585\",\n                \"nome\": \"Maria José\",\n                \"email\": \"novamente@novamente.com\"\n            }\n        },\n        {\n            \"id\": 12,\n            \"endereco\": {\n                \"id\": 17,\n                \"tipologradouro\": {\n                    \"code\": \"645\"\n                },\n                \"logradouro\": \"Rua endereço partes\",\n                \"numero\": \"365-B\",\n                \"bairro\": \"Bairro partes\",\n                \"cidade\": \"Correia de Almeida\",\n                \"uf\": \"MG\",\n                \"lote\": \"Lote partes\",\n                \"quadra\": \"Quadra partes\",\n                \"torre\": \"Torre partes\",\n                \"complemento\": \"Complemento endereço partes\",\n                \"cep\": \"36250250\"\n            },\n            \"cpfcnpj\": \"25824725920\",\n            \"genero\": \"FEMININO\",\n            \"datanascimento\": \"1990-09-27\",\n            \"documento\": \"6.258.258.369\",\n            \"orgaoemissor\": \"EB\",\n            \"nacionalidade\": \"Brasileira\",\n            \"uniaoestavel\": null,\n            \"outroregime\": null,\n            \"estadocivil\": {\n                \"domain\": \"2\"\n            },\n            \"regimebens\": {\n                \"domain\": \"3\"\n            },\n            \"profissao\": \"Empresária\",\n            \"filiacao1\": \"Sebastiao Gonçalves Pinto\",\n            \"filiacao2\": \"Maria Jose Silva Pinto\",\n            \"cpfconjuge\": \"36977735725\",\n            \"nome\": \"Maria das Graça Pereira\",\n            \"tipopessoa\": {\n                \"domain\": \"1\"\n            },\n            \"qualificacoes\": [\n                {\n                    \"domain\": \"17\"\n                }\n            ],\n            \"contato\": {\n                \"id\": 14,\n                \"telefone\": \"36258742585\",\n                \"nome\": \"Júlio Martins\",\n                \"email\": \"julio@novamente.com\"\n            }\n        }\n    ],\n    \"garantias\": [\n        {\n            \"id\": 3,\n            \"descricao\": \"VACA COM 72 MESES\",\n            \"valor\": 451500.0,\n            \"area\": null,\n            \"tipogarantia\": {\n                \"id\": \"0322\"\n            },\n            \"tipobem\": {\n                \"domain\": \"32\"\n            },\n            \"percentualcomprometido\": 0.0,\n            \"qualidade\": \"boa\",\n            \"quantidade\": 36,\n            \"marca\": \"ainda não sei\",\n            \"periodoproducao\": \"2022 - 2023\",\n            \"grau\": \"PRIMEIRO GRAU\",\n            \"registros\": [\n                {\n                    \"id\": 3,\n                    \"cns\": {\n                        \"id\": 13,\n                        \"cns\": \"119715\",\n                        \"comarca\": \"Nova Andradina\",\n                        \"uf\": \"MT\",\n                        \"nome\": \"Cartório Ormindo Maia\"\n                    },\n                    \"imovel\": {\n                        \"id\": 3,\n                        \"descricao\": \"descrição do imóvel\",\n                        \"endereco\": {\n                            \"id\": 3,\n                            \"tipologradouro\": {\n                                \"code\": \"645\"\n                            },\n                            \"logradouro\": \"Rua dos teste 4\",\n                            \"numero\": \"365N\",\n                            \"bairro\": \"Culhões\",\n                            \"cidade\": \"Miradouro\",\n                            \"uf\": \"MG\",\n                            \"lote\": \"Lote 10\",\n                            \"quadra\": \"quadra 21\",\n                            \"torre\": \"torre\",\n                            \"complemento\": \"Complemento registro\",\n                            \"cep\": \"56258524\"\n                        },\n                        \"tipoimovel\": {\n                            \"domain\": \"99\"\n                        },\n                        \"tipolocalizacao\": {\n                            \"domain\": \"2\"\n                        },\n                        \"dadosarrendamento\": null,\n                        \"edificacao\": \"tipo de edificação\"\n                    },\n                    \"numeroregistro\": \"12237\",\n                    \"livro\": \"livro registro\",\n                    \"complemento\": \"COM RESERVA DE USUFRUTO VITALICIO DE 50% A ANA MARIA SALVADOR CAPARROZ.\"\n                }\n            ]\n        }\n    ],\n    \"vencimentoporextenso\": \"25 de dezembro de 2023\",\n    \"titulodocabecalho\": \"CÉDULA RURAL PIGNORATÍCIA\",\n    \"cidadeestadodatacontrato\": \"Nova Andradina- MS, 01 de outubro de 2022.\",\n    \"numerocontrato\": \"1522-25\",\n    \"cartorios\": [\n        {\n            \"id\": 10,\n            \"cns\": \"119719\",\n            \"comarca\": \"Andradina\",\n            \"uf\": \"SP\",\n            \"nome\": \"Cartório Savio Motta\"\n        },\n        {\n            \"id\": 11,\n            \"cns\": \"119719\",\n            \"comarca\": \"Nova Andradina\",\n            \"uf\": \"MT\",\n            \"nome\": \"Cartório Ormindo Maia\"\n        }\n    ],\n    \"tipocedula\": {\n        \"domain\": \"CPR\"\n    },\n    \"datacontrato\": \"2022-09-27\",\n    \"localcontrato\": \"Carandaí\",\n    \"modalidadesoperacao\": [\n        {\n            \"id\": 1,\n            \"modalidade\": {\n                \"id\": \"0101\"\n            },\n            \"origemrecursos\": {\n                \"id\": \"0102\"\n            },\n            \"destinofinanciamento\": \"destino do financiamento\"\n        }\n    ],\n    \"procuracoes\": [\n        {\n            \"id\": 1,\n            \"representante\": \"996.054.000-72\",\n            \"representado\": \"00.000.000/2222-22\",\n            \"tiporegistro\": {\n                \"code\": \"5\"\n            },\n            \"orgao\": \"1 TABELIAO DE NOTAS DE SP\",\n            \"formaregistro\": \"Forma de registro procuração\",\n            \"numerolivro\": \"123\",\n            \"folha\": \"234\",\n            \"numeroregistro\": \"número registro procuração\",\n            \"dataregistro\": \"2022-09-27\",\n            \"numero\": \"1234\"\n        }\n    ],\n    \"autorizacoes\": {\n        \"id\": 2,\n        \"autorizo\": \"AUTORIZO O OFICIAL DE REGISTRO DE IMÓVEIS A PRATICAR OS ATOS EXCLUSIVAMENTE COM BASE NOS DADOS PRESENTES NESTE DOCUMENTO.\",\n        \"declaro\": \"DECLARO QUE ESTES DADOS CORRESPONDEM FIDEDIGNAMENTE AOS QUE CONSTAM NO RESPECTIVO INSTRUMENTO PARTICULAR COM FORÇA DE ESCRITURA PÚBLICA OU TÍTULO DE CRÉDITO QUE LHE DEU ORIGEM, FORMALIZADO COM TODAS AS CLÁUSULAS OBRIGATÓRIAS, QUE SE ENCONTRA EM SEU ARQUIVO, E QUE FOI VERIFICADA A IDENTIFICAÇÃO E A REGULARIDADE DA REPRESENTAÇÃO DAS PARTES QUE SUBSCREVERAM O DOCUMENTO ORIGINAL.\"\n    },\n    \"clausulasadicionais\": [\n        {\n            \"id\": 5,\n            \"clausula\": \"Primeira Clausula quando houver\"\n        },\n        {\n            \"id\": 6,\n            \"clausula\": \"Segunda Clausula quando houver\"\n        }\n    ],\n    \"vencimento\": \"2023-12-25\",\n    \"cobrancaencargoapartir\": \"2024-01-25\",\n    \"umidade\": \"10%\",\n    \"impureza\": \"5%\",\n    \"avariados_ARDIDOS\": \"2%\",\n    \"cpr\": {\n        \"produtos\": [\n            {\n                \"descricao\": \"BOI DA RAÇA MARFRIG\",\n                \"qualidade\": \"BOI ANGUS MISTURADO COM O WAGYU, COM PESAGEM DE 600 KG CADA UM\",\n                \"quantidade\": \"100 CABEÇAS DE BOI\",\n                \"localproducao\": {\n                    \"registro\": {\n                        \"cns\": {\n                            \"uf\": \"MT\",\n                            \"nome\": \"Cartório Ormindo Maia\",\n                            \"comarca\": \"Nova Andradina\",\n                            \"cns\": \"119719\"\n                        },\n                        \"livro\": \"livro registro\",\n                        \"numeroregistro\": \"numero do registro \",\n                        \"complemento\": \"Complemento registro 2\",\n                        \"imovel\": {\n                            \"descricao\": \"descrição do imóvel\",\n                            \"tipolocalizacao\": {\n                                \"domain\": \"2\"\n                            },\n                            \"tipoimovel\": {\n                                \"domain\": \"02\"\n                            },\n                            \"edificacao\": \"tipo de edificação\",\n                            \"endereco\": {\n                                \"tipologradouro\": {\n                                    \"code\": \"645\"\n                                },\n                                \"logradouro\": \"Rua dos teste 4\",\n                                \"numero\": \"365N\",\n                                \"bairro\": \"Culhões\",\n                                \"cidade\": \"Miradouro\",\n                                \"uf\": \"MG\",\n                                \"lote\": \"Lote 10\",\n                                \"quadra\": \"quadra 21\",\n                                \"torre\": \"torre\",\n                                \"complemento\": \"Complemento registro\",\n                                \"cep\": \"56.258-524\"\n                            }\n                        }\n                    }\n                }\n            }\n        ],\n        \"financeiro\": {\n            \"valortotal\": 249998.8,\n            \"valorextenso\": \"Dez mil reais\",\n            \"criterioobtencaoliquidacao\": \"criterio de avaliação\",\n            \"moeda\": {\n                \"domain\": \"790\"\n            },\n            \"saldoremanescente\": 500.0,\n            \"valorparcelainicial\": 500.0,\n            \"formapagamento\": \"Forma de pagamento\",\n            \"taxajurosnominalanual\": 1.8,\n            \"taxajurosnominalmensal\": 0.8,\n            \"taxajurosefetivamensal\": 0.5,\n            \"taxajurosefetivaanual\": 10.0,\n            \"pracapagamento\": \"Praça de pagamento\",\n            \"foro\": \"Foro\",\n            \"indexador\": {\n                \"id\": \"11\"\n            },\n            \"comissaofiscalizacao\": \"Comissão fiscalizadora\"\n        },\n        \"localentrega\": \"SÃO PAULO\",\n        \"periodo\": \"OS BOIS SERÃO PREPARADOS ATÉ 20/04/2023\",\n        \"condicoes\": \"ELES SERÃO ENTREGUES LIMPOS\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local8080}}v1/contract/cpr",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"contract",
+								"cpr"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5 - Contract - Financial",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 5,\n    \"cpr\": {\n        \"id\": 3,\n        \"financeiro\": {\n            \"id\": 3,\n            \"taxajurosnominalanualporextenso\": null,\n            \"taxajurosnominalmensalporextenso\": null,\n            \"taxajurosefetivamensalporextenso\": null,\n            \"taxajurosefetivaanualporextenso\": null,\n            \"multa\": null,\n            \"multaporextenso\": null,\n            \"valortotal\": 249998.8,\n            \"valorextenso\": \"Dez mil reais\",\n            \"criterioobtencaoliquidacao\": \"criterio de avaliação\",\n            \"saldoremanescente\": 500.0,\n            \"valorparcelainicial\": 500.0,\n            \"formapagamento\": \"Forma de pagamento\",\n            \"taxajurosnominalanual\": null,\n            \"taxajurosnominalmensal\": 0.8,\n            \"taxajurosefetivamensal\": 0.5,\n            \"taxajurosefetivaanual\": 10.0,\n            \"pracapagamento\": \"Praça de pagamento\",\n            \"foro\": \"Foro\",\n            \"comissaofiscalizacao\": \"Comissão fiscalizadora\",\n            \"moeda\": {\n                \"domain\": \"790\"\n            },\n            \"indexador\": {\n                \"id\": \"11\"\n            }\n        },\n        \"localentrega\": \"SÃO PAULO\",\n        \"periodo\": \"OS BOIS SERÃO PREPARADOS ATÉ 20/04/2023\",\n        \"condicoes\": \"ELES SERÃO ENTREGUES LIMPOS\",\n        \"produtos\": [\n            {\n                \"id\": 3,\n                \"descricao\": \"BOI DA RAÇA MARFRIG\",\n                \"qualidade\": \"BOI ANGUS MISTURADO COM O WAGYU, COM PESAGEM DE 600 KG CADA UM\",\n                \"quantidade\": \"100 CABEÇAS DE BOI\",\n                \"localproducao\": {\n                    \"id\": 3,\n                    \"registro\": {\n                        \"id\": 6,\n                        \"complemento\": \"Complemento registro 2\",\n                        \"numeroregistro\": \"numero do registro \",\n                        \"livro\": \"livro registro\",\n                        \"cns\": {\n                            \"id\": 16,\n                            \"uf\": \"MT\",\n                            \"nome\": \"Cartório Ormindo Maia\",\n                            \"cns\": \"119719\",\n                            \"comarca\": \"Nova Andradina\"\n                        },\n                        \"imovel\": {\n                            \"id\": 6,\n                            \"descricao\": \"descrição do imóvel\",\n                            \"dadosarrendamento\": null,\n                            \"edificacao\": \"tipo de edificação\",\n                            \"endereco\": {\n                                \"id\": 20,\n                                \"tipologradouro\": {\n                                    \"code\": \"645\"\n                                },\n                                \"logradouro\": \"Rua dos teste 4\",\n                                \"numero\": \"365N\",\n                                \"bairro\": \"Culhões\",\n                                \"cidade\": \"Miradouro\",\n                                \"uf\": \"MG\",\n                                \"lote\": \"Lote 10\",\n                                \"quadra\": \"quadra 21\",\n                                \"torre\": \"torre\",\n                                \"complemento\": \"Complemento registro\",\n                                \"cep\": \"56258524\"\n                            },\n                            \"tipoimovel\": {\n                                \"domain\": \"02\"\n                            },\n                            \"tipolocalizacao\": {\n                                \"domain\": \"2\"\n                            }\n                        }\n                    }\n                }\n            }\n        ]\n    },\n    \"remetente\": null,\n    \"apresentante\": null,\n    \"partes\": [\n        {\n            \"id\": 9,\n            \"tipopessoa\": {\n                \"domain\": \"1\"\n            },\n            \"qualificacoes\": [\n                {\n                    \"domain\": \"5\"\n                },\n                {\n                    \"domain\": \"10\"\n                }\n            ],\n            \"contato\": {\n                \"id\": 11,\n                \"telefone\": \"36987982585\",\n                \"nome\": \"Contato novamente\",\n                \"email\": \"novamente@novamente.com\"\n            },\n            \"cpfcnpj\": \"25725725720\",\n            \"nome\": \"Salvador da Cruz Regini\",\n            \"genero\": \"MASCULINO\",\n            \"datanascimento\": \"1985-09-27\",\n            \"documento\": \"M258.258.369\",\n            \"orgaoemissor\": \"SSPMG\",\n            \"nacionalidade\": \"Brasileira\",\n            \"uniaoestavel\": null,\n            \"outroregime\": null,\n            \"estadocivil\": {\n                \"domain\": \"2\"\n            },\n            \"regimebens\": {\n                \"domain\": \"3\"\n            },\n            \"profissao\": \"Agricultor\",\n            \"filiacao1\": \"Jose Maria Silva\",\n            \"filiacao2\": \"Maria Jose Silva\",\n            \"cpfconjuge\": \"35735735725\",\n            \"endereco\": {\n                \"id\": 14,\n                \"tipologradouro\": {\n                    \"code\": \"645\"\n                },\n                \"logradouro\": \"Rua endereço partes\",\n                \"numero\": \"365-B\",\n                \"bairro\": \"Bairro partes\",\n                \"cidade\": \"Correia de Almeida\",\n                \"uf\": \"MG\",\n                \"lote\": \"Lote partes\",\n                \"quadra\": \"Quadra partes\",\n                \"torre\": \"Torre partes\",\n                \"complemento\": \"Complemento endereço partes\",\n                \"cep\": \"36250250\"\n            }\n        },\n        {\n            \"id\": 10,\n            \"tipopessoa\": {\n                \"domain\": \"2\"\n            },\n            \"qualificacoes\": [\n                {\n                    \"domain\": \"3\"\n                }\n            ],\n            \"contato\": {\n                \"id\": 12,\n                \"telefone\": \"36987982585\",\n                \"nome\": \"Contato Cooperativa\",\n                \"email\": \"novamente@novamente.com\"\n            },\n            \"cpfcnpj\": \"00000000222222\",\n            \"nome\": \"Cooperativa dos Produtores Rurais de Carandaí\",\n            \"genero\": \"EM_BRANCO\",\n            \"datanascimento\": null,\n            \"documento\": null,\n            \"orgaoemissor\": null,\n            \"nacionalidade\": null,\n            \"uniaoestavel\": null,\n            \"outroregime\": null,\n            \"estadocivil\": null,\n            \"regimebens\": null,\n            \"profissao\": null,\n            \"filiacao1\": null,\n            \"filiacao2\": null,\n            \"cpfconjuge\": null,\n            \"endereco\": {\n                \"id\": 15,\n                \"tipologradouro\": {\n                    \"code\": \"645\"\n                },\n                \"logradouro\": \"Rua endereço partes\",\n                \"numero\": \"365-B\",\n                \"bairro\": \"Bairro partes\",\n                \"cidade\": \"Correia de Almeida\",\n                \"uf\": \"MG\",\n                \"lote\": \"Lote partes\",\n                \"quadra\": \"Quadra partes\",\n                \"torre\": \"Torre partes\",\n                \"complemento\": \"Complemento endereço partes\",\n                \"cep\": \"36250250\"\n            }\n        },\n        {\n            \"id\": 11,\n            \"tipopessoa\": {\n                \"domain\": \"1\"\n            },\n            \"qualificacoes\": [\n                {\n                    \"domain\": \"14\"\n                }\n            ],\n            \"contato\": {\n                \"id\": 13,\n                \"telefone\": \"36987982585\",\n                \"nome\": \"Maria José\",\n                \"email\": \"novamente@novamente.com\"\n            },\n            \"cpfcnpj\": \"25725725720\",\n            \"nome\": \"Priscila Fontine\",\n            \"genero\": \"FEMININO\",\n            \"datanascimento\": \"1985-09-27\",\n            \"documento\": \"M258.258.369\",\n            \"orgaoemissor\": \"SSPMG\",\n            \"nacionalidade\": \"Brasileira\",\n            \"uniaoestavel\": null,\n            \"outroregime\": null,\n            \"estadocivil\": {\n                \"domain\": \"2\"\n            },\n            \"regimebens\": {\n                \"domain\": \"3\"\n            },\n            \"profissao\": \"Gerente Administrivo\",\n            \"filiacao1\": \"Jose Maria Silva\",\n            \"filiacao2\": \"Maria Jose Silva\",\n            \"cpfconjuge\": \"35735735725\",\n            \"endereco\": {\n                \"id\": 16,\n                \"tipologradouro\": {\n                    \"code\": \"645\"\n                },\n                \"logradouro\": \"Rua endereço partes\",\n                \"numero\": \"365-B\",\n                \"bairro\": \"Bairro partes\",\n                \"cidade\": \"Correia de Almeida\",\n                \"uf\": \"MG\",\n                \"lote\": \"Lote partes\",\n                \"quadra\": \"Quadra partes\",\n                \"torre\": \"Torre partes\",\n                \"complemento\": \"Complemento endereço partes\",\n                \"cep\": \"36250250\"\n            }\n        },\n        {\n            \"id\": 12,\n            \"tipopessoa\": {\n                \"domain\": \"1\"\n            },\n            \"qualificacoes\": [\n                {\n                    \"domain\": \"17\"\n                }\n            ],\n            \"contato\": {\n                \"id\": 14,\n                \"telefone\": \"36258742585\",\n                \"nome\": \"Júlio Martins\",\n                \"email\": \"julio@novamente.com\"\n            },\n            \"cpfcnpj\": \"25824725920\",\n            \"nome\": \"Maria das Graça Pereira\",\n            \"genero\": \"FEMININO\",\n            \"datanascimento\": \"1990-09-27\",\n            \"documento\": \"6.258.258.369\",\n            \"orgaoemissor\": \"EB\",\n            \"nacionalidade\": \"Brasileira\",\n            \"uniaoestavel\": null,\n            \"outroregime\": null,\n            \"estadocivil\": {\n                \"domain\": \"2\"\n            },\n            \"regimebens\": {\n                \"domain\": \"3\"\n            },\n            \"profissao\": \"Empresária\",\n            \"filiacao1\": \"Sebastiao Gonçalves Pinto\",\n            \"filiacao2\": \"Maria Jose Silva Pinto\",\n            \"cpfconjuge\": \"36977735725\",\n            \"endereco\": {\n                \"id\": 17,\n                \"tipologradouro\": {\n                    \"code\": \"645\"\n                },\n                \"logradouro\": \"Rua endereço partes\",\n                \"numero\": \"365-B\",\n                \"bairro\": \"Bairro partes\",\n                \"cidade\": \"Correia de Almeida\",\n                \"uf\": \"MG\",\n                \"lote\": \"Lote partes\",\n                \"quadra\": \"Quadra partes\",\n                \"torre\": \"Torre partes\",\n                \"complemento\": \"Complemento endereço partes\",\n                \"cep\": \"36250250\"\n            }\n        }\n    ],\n    \"garantias\": [\n        {\n            \"id\": 3,\n            \"descricao\": \"VACA COM 72 MESES\",\n            \"valor\": 451500.0,\n            \"area\": null,\n            \"tipogarantia\": {\n                \"id\": \"0322\"\n            },\n            \"tipobem\": {\n                \"domain\": \"32\"\n            },\n            \"percentualcomprometido\": 0.0,\n            \"qualidade\": \"boa\",\n            \"quantidade\": 36,\n            \"marca\": \"ainda não sei\",\n            \"periodoproducao\": \"2022 - 2023\",\n            \"grau\": \"PRIMEIRO GRAU\",\n            \"registros\": [\n                {\n                    \"id\": 3,\n                    \"complemento\": \"COM RESERVA DE USUFRUTO VITALICIO DE 50% A ANA MARIA SALVADOR CAPARROZ.\",\n                    \"numeroregistro\": \"12237\",\n                    \"livro\": \"livro registro\",\n                    \"cns\": {\n                        \"id\": 13,\n                        \"uf\": \"MT\",\n                        \"nome\": \"Cartório Ormindo Maia\",\n                        \"cns\": \"119715\",\n                        \"comarca\": \"Nova Andradina\"\n                    },\n                    \"imovel\": {\n                        \"id\": 3,\n                        \"descricao\": \"descrição do imóvel\",\n                        \"dadosarrendamento\": null,\n                        \"edificacao\": \"tipo de edificação\",\n                        \"endereco\": {\n                            \"id\": 3,\n                            \"tipologradouro\": {\n                                \"code\": \"645\"\n                            },\n                            \"logradouro\": \"Rua dos teste 4\",\n                            \"numero\": \"365N\",\n                            \"bairro\": \"Culhões\",\n                            \"cidade\": \"Miradouro\",\n                            \"uf\": \"MG\",\n                            \"lote\": \"Lote 10\",\n                            \"quadra\": \"quadra 21\",\n                            \"torre\": \"torre\",\n                            \"complemento\": \"Complemento registro\",\n                            \"cep\": \"56258524\"\n                        },\n                        \"tipoimovel\": {\n                            \"domain\": \"99\"\n                        },\n                        \"tipolocalizacao\": {\n                            \"domain\": \"2\"\n                        }\n                    }\n                }\n            ]\n        }\n    ],\n    \"vencimentoporextenso\": \"25 de dezembro de 2023\",\n    \"titulodocabecalho\": \"CÉDULA RURAL PIGNORATÍCIA\",\n    \"cidadeestadodatacontrato\": \"Nova Andradina- MS, 01 de outubro de 2022.\",\n    \"numerocontrato\": \"1522-25\",\n    \"cartorios\": [\n        {\n            \"id\": 10,\n            \"uf\": \"SP\",\n            \"nome\": \"Cartório Savio Motta\",\n            \"cns\": \"119719\",\n            \"comarca\": \"Andradina\"\n        },\n        {\n            \"id\": 11,\n            \"uf\": \"MT\",\n            \"nome\": \"Cartório Ormindo Maia\",\n            \"cns\": \"119719\",\n            \"comarca\": \"Nova Andradina\"\n        }\n    ],\n    \"tipocedula\": {\n        \"domain\": \"CPR\"\n    },\n    \"datacontrato\": \"2022-09-27\",\n    \"localcontrato\": \"Carandaí\",\n    \"modalidadesoperacao\": [\n        {\n            \"id\": 1,\n            \"modalidade\": {\n                \"id\": \"0101\"\n            },\n            \"origemrecursos\": {\n                \"id\": \"0102\"\n            },\n            \"destinofinanciamento\": \"destino do financiamento\"\n        }\n    ],\n    \"procuracoes\": [\n        {\n            \"id\": 1,\n            \"numero\": \"1234\",\n            \"representante\": \"996.054.000-72\",\n            \"representado\": \"00.000.000/2222-22\",\n            \"tiporegistro\": {\n                \"code\": \"5\"\n            },\n            \"orgao\": \"1 TABELIAO DE NOTAS DE SP\",\n            \"formaregistro\": \"Forma de registro procuração\",\n            \"numerolivro\": \"123\",\n            \"folha\": \"234\",\n            \"numeroregistro\": \"número registro procuração\",\n            \"dataregistro\": \"2022-09-27\"\n        }\n    ],\n    \"autorizacoes\": {\n        \"id\": 2,\n        \"declaro\": \"DECLARO QUE ESTES DADOS CORRESPONDEM FIDEDIGNAMENTE AOS QUE CONSTAM NO RESPECTIVO INSTRUMENTO PARTICULAR COM FORÇA DE ESCRITURA PÚBLICA OU TÍTULO DE CRÉDITO QUE LHE DEU ORIGEM, FORMALIZADO COM TODAS AS CLÁUSULAS OBRIGATÓRIAS, QUE SE ENCONTRA EM SEU ARQUIVO, E QUE FOI VERIFICADA A IDENTIFICAÇÃO E A REGULARIDADE DA REPRESENTAÇÃO DAS PARTES QUE SUBSCREVERAM O DOCUMENTO ORIGINAL.\",\n        \"autorizo\": \"AUTORIZO O OFICIAL DE REGISTRO DE IMÓVEIS A PRATICAR OS ATOS EXCLUSIVAMENTE COM BASE NOS DADOS PRESENTES NESTE DOCUMENTO.\"\n    },\n    \"clausulasadicionais\": [\n        {\n            \"id\": 5,\n            \"clausula\": \"Primeira Clausula quando houver\"\n        },\n        {\n            \"id\": 6,\n            \"clausula\": \"Segunda Clausula quando houver\"\n        }\n    ],\n    \"vencimento\": \"2023-12-25\",\n    \"cobrancaencargoapartir\": \"2024-01-25\",\n    \"umidade\": \"10%\",\n    \"impureza\": \"5%\",\n    \"avariados_ARDIDOS\": \"2%\",\n     \"financeiro\": {\n        \"valortotal\": 500000.0,\n        \"valorextenso\": \"Quinhentos mil reais\",\n        \"criterioobtencaoliquidacao\": \"critério\",\n        \"moeda\": {\n            \"domain\": \"790\"\n        },\n        \"saldoremanescente\": 450000.0,\n        \"valorparcelainicial\": 50000.0,\n        \"formapagamento\": \"Forma pagamento\",\n        \"taxajurosnominalanual\": 7.5,\n        \"taxajurosnominalmensal\": 0.6,\n        \"taxajurosefetivamensal\": 0.7,\n        \"taxajurosefetivaanual\": 7.9,\n        \"pracapagamento\": \"Carandaí\",\n        \"foro\": \"Carandaí\",\n        \"indexador\": {\n            \"id\": \"11\"\n        },\n        \"comissaofiscalizacao\": \"Comissão fiscalizadora\",\n        \"taxajurosnominalanualporextenso\": \"sete e meio por cento\",\n        \"taxajurosnominalmensalporextenso\": \"zero ponto seis por cento\",\n        \"taxajurosefetivamensalporextenso\": \"zero ponto sete por cento\",\n        \"taxajurosefetivaanualporextenso\": \"sete ponto nove por cento\",\n        \"multa\": 2.0,\n        \"multaporextenso\": \"Dois por cento\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local8080}}v1/contract/financial",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"contract",
+								"financial"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Dictionary",
+			"item": [
+				{
+					"name": "Post - Dictionary",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"fromDic\": \"@_VENCIMENTOEXTENSO_@ \",\n  \"toDic\": \"${tst.VENCIMENTOEXTENSO}\",\n  \"active\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local8080}}v1/dictionary/",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"dictionary",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Creditor",
+			"item": [
+				{
+					"name": "Post - Creditor Matrix",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"parameter\": {\n        \"minBlockChain\": 5000.0,\n        \"maxBlockChain\": 10000.0,\n        \"minRegistryOffice\": 11000.0,\n        \"maxRegistryOffice\": 150000.0,\n        \"active\": true\n    },\n    \"cpfcnpj\": \"25.258.369/0001-20\",\n    \"nome\": \"Cooperativa dos Produtores Rurais de Carandaí\",\n    \"tipopessoa\": {\n        \"domain\": \"2\"\n    },\n    \"endereco\": {\n        \"tipologradouro\": {\n            \"code\": \"081\"\n        },\n        \"numero\": \"158-B\",\n        \"bairro\": \"Centro\",\n        \"cidade\": \"Carandaí\",\n        \"uf\": \"MG\",\n        \"cep\": \"36.280-000\",\n        \"logradouro\": \"Rua Jose Maria Souza\",\n        \"lote\": \"\",\n        \"quadra\": \"\",\n        \"torre\": \"\",\n        \"complemento\": \"Complemento\"\n    },\n    \"qualificacoes\": [\n        {\n            \"domain\": \"3\"\n        }\n    ],\n    \"contato\": {\n        \"nome\": \"Maria Rose Silva\",\n        \"telefone\": \"(32) 99935-2552\",\n        \"email\": \"mariarose@coop.com\"\n    },\n    \"tipodecredor\": \"MATRIX\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local8080}}v1/creditor-matrix",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"creditor-matrix"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post - Creditor Branch",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"parameter\": {\n        \"minBlockChain\": 5000.0,\n        \"maxBlockChain\": 10000.0,\n        \"minRegistryOffice\": 11000.0,\n        \"maxRegistryOffice\": 150000.0,\n        \"active\": true\n    },\n    \"cpfcnpj\": \"25.258.369/0001-20\",\n    \"nome\": \"Cooperativa dos Produtores Rurais de Carandaí\",\n    \"tipopessoa\": {\n        \"domain\": \"2\"\n    },\n    \"endereco\": {\n        \"tipologradouro\": {\n            \"code\": \"081\"\n        },\n        \"numero\": \"158-B\",\n        \"bairro\": \"Centro\",\n        \"cidade\": \"Carandaí\",\n        \"uf\": \"MG\",\n        \"cep\": \"36.280-000\",\n        \"logradouro\": \"Rua Jose Maria Souza\",\n        \"lote\": \"\",\n        \"quadra\": \"\",\n        \"torre\": \"\",\n        \"complemento\": \"Complemento\"\n    },\n    \"qualificacoes\": [\n        {\n            \"qualificacao\": {\n                \"domain\": \"3\"\n            }\n        }\n    ],\n    \"contato\": {\n        \"nome\": \"Maria Rose Silva\",\n        \"telefone\": \"(32) 99935-2552\",\n        \"email\": \"mariarose@coop.com\"\n    },\n    \"matrix\": {\n        \"id\": 1\n    },\n    \"tipodecredor\": \"BRANCH\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local8080}}v1/creditor-branch",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"creditor-branch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get - Creditor Matrix",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Local8080}}v1/creditor-matrix/1",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"creditor-matrix",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put - Creditor Matrix",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"parameter\": {\n        \"id\": 1,\n        \"minBlockChain\": 5000.0,\n        \"maxBlockChain\": 10000.0,\n        \"minRegistryOffice\": 11000.0,\n        \"maxRegistryOffice\": 150000.0,\n        \"active\": true\n    },\n    \"users\": [],\n    \"template\": null,\n    \"cpfcnpj\": \"25.258.369/0001-20\",\n    \"endereco\": {\n        \"id\": 35,\n        \"tipologradouro\": {\n            \"code\": \"081\"\n        },\n        \"logradouro\": \"Rua Jose Maria Souza - update 2\",\n        \"numero\": \"158-B\",\n        \"bairro\": \"Centro\",\n        \"cidade\": \"Carandaí\",\n        \"uf\": \"MG\",\n        \"lote\": \"\",\n        \"quadra\": \"\",\n        \"torre\": \"\",\n        \"complemento\": \"Complemento\",\n        \"cep\": \"36280000\"\n    },\n    \"nome\": \"Cooperativa dos Produtores Rurais de Carandaí - update 2\",\n    \"tipopessoa\": {\n        \"domain\": \"2\"\n    },\n    \"tipodecredor\": \"MATRIX\",\n    \"qualificacoes\": [],\n    \"contato\": {\n        \"id\": 6,\n        \"telefone\": \"32999352552\",\n        \"nome\": \"Maria Rose Silva\",\n        \"email\": \"mariarose@coop.com\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local8080}}v1/creditor-matrix/1",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"creditor-matrix",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put - Creditor Branch",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"parameter\": {\n        \"id\": 1,\n        \"minBlockChain\": 5000.0,\n        \"maxBlockChain\": 10000.0,\n        \"minRegistryOffice\": 11000.0,\n        \"maxRegistryOffice\": 150000.0,\n        \"active\": true\n    },\n    \"users\": [],\n    \"template\": null,\n    \"id\": 1,\n    \"cpfcnpj\": \"25258369000120\",\n    \"nome\": \"Cooperativa dos Produtores Rurais de Carandaí - update 2\",\n    \"endereco\": {\n        \"id\": 35,\n        \"logradouro\": \"Rua Jose Maria Souza - update 2\",\n        \"numero\": \"158-B\",\n        \"bairro\": \"Centro\",\n        \"cidade\": \"Carandaí\",\n        \"uf\": \"MG\",\n        \"lote\": \"\",\n        \"quadra\": \"\",\n        \"torre\": \"\",\n        \"complemento\": \"Complemento\",\n        \"cep\": \"36280000\",\n        \"tipologradouro\": {\n            \"code\": \"081\"\n        }\n    },\n    \"tipopessoa\": {\n        \"domain\": \"2\"\n    },\n    \"tipodecredor\": \"MATRIX\",\n    \"qualificacoes\": [],\n    \"contato\": {\n        \"id\": 6,\n        \"nome\": \"Maria Rose Silva\",\n        \"email\": \"mariarose@coop.com\",\n        \"telefone\": \"32999352552\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Local8080}}v1/creditor-branch/7",
+							"host": [
+								"{{Local8080}}v1"
+							],
+							"path": [
+								"creditor-branch",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "import",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/v1/chargeunique/property-regime",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"v1",
+						"chargeunique",
+						"property-regime"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
