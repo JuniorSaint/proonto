@@ -16,7 +16,7 @@ import java.util.List;
 @Table(name = "creditor")
 @NoArgsConstructor
 @Getter
-
+@Setter
 @AllArgsConstructor
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Creditor implements Serializable {
@@ -60,17 +60,7 @@ public class Creditor implements Serializable {
     @JoinColumn(name = "contrato_id")
     private Contract CONTRATO;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
-    public void setNOME(String NOME) {
-        this.NOME = NOME;
-    }
-
-    public void setTIPOPESSOA(PersonType TIPOPESSOA) {
-        this.TIPOPESSOA = TIPOPESSOA;
-    }
 
     public void setCPFCNPJ(String CPFCNPJ) {
         if (CPFCNPJ == null) {
@@ -80,39 +70,4 @@ public class Creditor implements Serializable {
         }
     }
 
-    public void setTIPODECREDOR(CreditorTypeEnum TIPODECREDOR) {
-        this.TIPODECREDOR = TIPODECREDOR;
-    }
-
-    public void setParameter(Parameter parameter) {
-        this.parameter = parameter;
-    }
-
-    public void setUsers(List<User> users) {
-        this.users = users;
-    }
-
-    public void setMatrix(Creditor matrix) {
-        this.matrix = matrix;
-    }
-
-    public void setTemplate(Template template) {
-        this.template = template;
-    }
-
-    public void setENDERECO(Address ENDERECO) {
-        this.ENDERECO = ENDERECO;
-    }
-
-    public void setQUALIFICACOES(List<PartsRole> QUALIFICACOES) {
-        this.QUALIFICACOES = QUALIFICACOES;
-    }
-
-    public void setCONTATO(Contact CONTATO) {
-        this.CONTATO = CONTATO;
-    }
-
-    public void setCONTRATO(Contract CONTRATO) {
-        this.CONTRATO = CONTRATO;
-    }
 }

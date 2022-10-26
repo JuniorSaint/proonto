@@ -1,6 +1,7 @@
 package br.com.proonto.services;
 
 import br.com.proonto.configs.Utils;
+import br.com.proonto.exceptions.BadRequestException;
 import br.com.proonto.exceptions.DataBaseException;
 import br.com.proonto.exceptions.EntityNotFoundException;
 import br.com.proonto.models.entities.Presenter;
@@ -41,10 +42,11 @@ public class PresenterService {
         if (request.getId() != null) {
             findById(request.getId());
         }
+        if(contractFirstService.findById(id_contract) != null && request.getId() == null){
+            throw new BadRequestException("Presenter for this contract already exists, It's not allowed more than one for contract");
+        }
         request.setCONTRATO(mapper.map(contractFirstService.findById(id_contract), ContractRequest.class));
-        Presenter response = mapper.map(request, Presenter.class);
-
-        return mapper.map(repository.save(response), PresenterResponseId.class);
+        return mapper.map(repository.save(mapper.map(request, Presenter.class)), PresenterResponseId.class);
     }
 
     @Transactional(readOnly = true)

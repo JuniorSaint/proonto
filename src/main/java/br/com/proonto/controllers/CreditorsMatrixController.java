@@ -27,7 +27,7 @@ public class CreditorsMatrixController {
                 .body(service.saveUpdate(request));
     }
     @PutMapping("/{id}")
-    public ResponseEntity<CreditorMatrixResponseId> update(@RequestBody @Valid CreditorMatrixRequest request, @PathVariable(value = "id_contract") Long id) {
+    public ResponseEntity<CreditorMatrixResponseId> update(@RequestBody @Valid CreditorMatrixRequest request, @PathVariable(value = "id") Long id) {
         request.setId(id);
         return ResponseEntity.status(HttpStatus.OK)
                 .body(service.saveUpdate(request));

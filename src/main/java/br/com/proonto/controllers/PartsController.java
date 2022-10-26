@@ -40,7 +40,7 @@ public class PartsController {
     }
 
     @GetMapping("/{id_contract}/part/{id_part}")
-    public ResponseEntity<PartResponseId> findById(@PathVariable(value = "id") Long id, @PathVariable(value = "id_part") Long id_part) {
+    public ResponseEntity<PartResponseId> findById(@PathVariable(value = "id_contract") Long id_contract, @PathVariable(value = "id_part") Long id_part) {
         return ResponseEntity.status(HttpStatus.ACCEPTED)
                 .body(service.findById(id_part));
     }

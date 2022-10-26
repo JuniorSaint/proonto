@@ -28,7 +28,7 @@ public class GuaranteesController {
     }
 
     @PutMapping("/{id_contract}/guarantee/{id_guarantee}")
-    public ResponseEntity<GuaranteeResponse> update(@PathVariable(value = "id") Long id_contract, @RequestBody @Valid GuaranteeRequest request, @PathVariable(value = "id") Long id_guarantee) {
+    public ResponseEntity<GuaranteeResponse> update(@PathVariable(value = "id_contract") Long id_contract, @PathVariable(value = "id_guarantee") Long id_guarantee, @RequestBody @Valid GuaranteeRequest request) {
         request.setId(id_guarantee);
         return ResponseEntity.status(HttpStatus.OK)
                 .body(service.saveUpdate(request, id_contract));

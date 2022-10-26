@@ -4,11 +4,9 @@ import br.com.proonto.exceptions.DataBaseException;
 import br.com.proonto.exceptions.EntityNotFoundException;
 import br.com.proonto.models.entities.Contract;
 import br.com.proonto.models.entities.Guarantee;
+import br.com.proonto.models.entities.Registry;
 import br.com.proonto.models.entities.RegistryOffice;
-import br.com.proonto.models.requests.ContractFirstRequest;
-import br.com.proonto.models.requests.ContractRequest;
-import br.com.proonto.models.requests.GuaranteeRequest;
-import br.com.proonto.models.requests.RegistryOfficeRequest;
+import br.com.proonto.models.requests.*;
 import br.com.proonto.models.responses.GuaranteeResponse;
 import br.com.proonto.models.responses.GuaranteeResponseId;
 import br.com.proonto.repositories.GuaranteeRepository;
@@ -46,18 +44,16 @@ public class GuaranteeService {
         }
         Set<RegistryOfficeRequest> getOfCnsFromGuarantee = new HashSet<>(request.getREGISTROS().stream().map(r -> r.getCNS()).collect(Collectors.toList()));
         Set<RegistryOffice> registryOfficeRequest = registryOfficeService.verifyIncludeAndSave(getOfCnsFromGuarantee);
-        request.getREGISTROS().stream().map(r -> r.getCNS()).collect(Collectors.toList());
-        request.getREGISTROS().stream().map(r -> {
-            String checkStrCns = r.getCNS().getCNS();
+        List<RegistryRequest> listResgitr = request.getREGISTROS().stream().map(r -> {
             Iterator<RegistryOffice> namesIterator = registryOfficeRequest.iterator();
             while (namesIterator.hasNext()) {
-                if (checkStrCns.equals(namesIterator.next().getCNS())) {
-                    RegistryOffice checkToSee = namesIterator.next();
-                    r.setCNS(mapper.map(namesIterator.next(), RegistryOfficeRequest.class));
+                RegistryOffice registerOfficeFromIterator = namesIterator.next();
+                if (r.getCNS().getCNS().equals(registerOfficeFromIterator.getCNS())) {
+                    r.setCNS((mapper.map(registerOfficeFromIterator, RegistryOfficeRequest.class)));
                 }
             }
-            return "Ok";
-        });
+            return r;
+        }).collect(Collectors.toList());
         request.setCONTRATO(mapper.map(contractFirstService.findById(id), ContractRequest.class));
 
         return mapper.map(repository.save(mapper.map(request, Guarantee.class)), GuaranteeResponseId.class);

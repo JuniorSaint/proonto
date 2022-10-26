@@ -11,6 +11,5 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class PartsRoleResponse implements Serializable {
     private static final long serialVersionUID = 1L;
-
     private String domain;
 }

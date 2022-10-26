@@ -1,7 +1,5 @@
 package br.com.proonto.models.responses;
 
-import br.com.proonto.models.entities.Address;
-import br.com.proonto.models.entities.Creditor;
 import br.com.proonto.models.entities.Parameter;
 import br.com.proonto.models.entities.Template;
 import br.com.proonto.models.enums.CreditorTypeEnum;
@@ -23,7 +21,7 @@ public class CreditorBranchResponse implements Serializable {
     private CreditorTypeEnum TIPODECREDOR;
     private Parameter parameter;
     private List<UserResponse> users;
-    private CreditorBranchResponse matrix;
+    private CreditorMatrixResponseForBranch matrix;
     private Template template;
     private AddressResponseId ENDERECO;
     private List<PartsRoleResponse> QUALIFICACOES;
