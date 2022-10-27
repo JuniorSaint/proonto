@@ -30,16 +30,11 @@ public class AgencyBank implements Serializable {
     private String agency;
     private String count;
     private boolean active;
-    @CreationTimestamp
-    private Instant createdAt;
-    @UpdateTimestamp
-    private Instant updatedAt;
-
     @OneToOne
     @JoinColumn(name = "bank_id", referencedColumnName = "id")
     private Bank bank;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "contato_id", referencedColumnName = "id")
     private Contact contact;
 

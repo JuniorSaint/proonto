@@ -18,5 +18,5 @@ public class AgencyBankResponse implements Serializable {
     private Boolean active;
     private BankResponseId bank;
     private ContactResponseId contact;
-    private CreditorMatrixResponse creditor;
+    private CreditorMatrixResponseForBranch creditor;
 }

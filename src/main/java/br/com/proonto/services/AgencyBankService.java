@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import br.com.proonto.models.requests.AgencyBankRequest;
+import br.com.proonto.models.requests.BankRequest;
 import br.com.proonto.models.responses.AgencyBankResponseId;
 import br.com.proonto.repositories.BankRepository;
 import br.com.proonto.repositories.ContactRepository;
@@ -19,9 +20,7 @@ import br.com.proonto.exceptions.DataBaseException;
 import br.com.proonto.exceptions.EntityNotFoundException;
 import br.com.proonto.models.entities.AgencyBank;
 import br.com.proonto.models.entities.Bank;
-import br.com.proonto.models.entities.Contact;
 import br.com.proonto.repositories.AgencyBankRepository;
-
 import static br.com.proonto.configs.CP.DELETE_MESSAGE;
 import static br.com.proonto.configs.CP.NOT_FOUND;
 
@@ -35,28 +34,31 @@ public class AgencyBankService {
     @Autowired
     private BankRepository bankRepository;
     @Autowired
+    private CreditorMatrixService creditorMatrixService;
+    @Autowired
     private Utils utils;
     @Autowired
     private ModelMapper mapper;
 
-    AgencyBank agencyBank = new AgencyBank();
-
     @Transactional
-    public AgencyBankResponseId saveUpdate(AgencyBankRequest agencyBankRequest) {
-        if (agencyBankRequest.getId() != null) {
-            AgencyBankResponseId response = findById(agencyBankRequest.getId());
+    public AgencyBankResponseId saveUpdate(AgencyBankRequest request) {
+//        request.setBank(mapper.map(responseBank.get(), BankRequest.class));
+        if (request.getId() != null) {
+            AgencyBankResponseId response = findById(request.getId());
         }
-        if (agencyBankRequest.getBank().getId() == null)
-            throw new BadRequestException("It's not allowed agency without bank");
-
-        Contact re = agencyBankRequest.getContact() != null ? contactRepository.save(mapper.map(agencyBankRequest.getContact(), Contact.class)) : new Contact();
-        Optional<Bank> reBank = bankRepository.findById(agencyBankRequest.getBank().getId());
-        if (reBank.isEmpty()) throw new EntityNotFoundException("Bank" + NOT_FOUND);
-        mapper.map(agencyBankRequest, agencyBank);
-        agencyBank.setBank(reBank.get());
-        agencyBank.setContact(re);
-        AgencyBank res = repository.save(agencyBank);
-        return mapper.map(res, AgencyBankResponseId.class);
+        if (request.getBank().getId() == null) {
+            throw new BadRequestException("It's not allowed register an agency bank without bank");
+        }
+        Optional<Bank> responseBank = bankRepository.findById(request.getBank().getId());
+        if (responseBank.isEmpty()) {
+            throw new EntityNotFoundException("Bank" + NOT_FOUND);
+        }
+        if (request.getCreditor() == null) {
+            throw new BadRequestException("It's not allowed register an agency bank without a creditor");
+        }
+        request.setBank(mapper.map(responseBank.get(), BankRequest.class));
+        AgencyBank agencyBank = mapper.map(request, AgencyBank.class);
+        return mapper.map(repository.save(agencyBank), AgencyBankResponseId.class);
     }
 
     @Transactional(readOnly = true)
@@ -64,7 +66,6 @@ public class AgencyBankService {
         Optional<AgencyBank> response = repository.findById(id);
         if (response.isEmpty())
             throw new EntityNotFoundException("Agency bank" + NOT_FOUND + "id: " + id);
-
         return mapper.map(response.get(), AgencyBankResponseId.class);
     }
 

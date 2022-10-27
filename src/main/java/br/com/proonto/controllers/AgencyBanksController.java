@@ -31,15 +31,16 @@ public class AgencyBanksController {
     private AgencyBankService service;
 
     @PostMapping
-    public ResponseEntity<AgencyBankResponseId> save(@RequestBody @Valid AgencyBankRequest agencyBank) {
+    public ResponseEntity<AgencyBankResponseId> save(@RequestBody @Valid AgencyBankRequest request) {
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(service.saveUpdate(agencyBank));
+                .body(service.saveUpdate(request));
     }
 
-    @PutMapping
-    public ResponseEntity<AgencyBankResponseId> update(@RequestBody @Valid AgencyBankRequest agencyBank) {
+    @PutMapping("/{id}")
+    public ResponseEntity<AgencyBankResponseId> update(@RequestBody @Valid AgencyBankRequest request, @PathVariable(value = "id") Long id) {
+        request.setId(id);
         return ResponseEntity.status(HttpStatus.OK)
-                .body(service.saveUpdate(agencyBank));
+                .body(service.saveUpdate(request));
     }
 
     @GetMapping
