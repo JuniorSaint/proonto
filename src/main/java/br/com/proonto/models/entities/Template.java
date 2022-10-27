@@ -24,4 +24,8 @@ public class Template implements Serializable {
     private Long id;
     @Column(columnDefinition="TEXT")
     private String body;
+
+    @ManyToOne
+    @JoinColumn(name="creditor_id")
+    private Creditor creditor;
 }

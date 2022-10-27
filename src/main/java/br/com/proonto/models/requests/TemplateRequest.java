@@ -2,6 +2,7 @@ package br.com.proonto.models.requests;
 
 import br.com.proonto.models.entities.Contract;
 import br.com.proonto.models.entities.Creditor;
+import br.com.proonto.models.responses.CreditorMatrixResponse;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.*;
@@ -21,4 +22,5 @@ public class TemplateRequest implements Serializable {
 
     private Long id;
     private String body;
+    private CreditorMatrixRequest creditor;
 }

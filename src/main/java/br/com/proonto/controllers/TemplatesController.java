@@ -36,8 +36,9 @@ public class TemplatesController {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(service.saveUpdate(request));
     }
-    @PutMapping
-    public ResponseEntity<TemplateResponse> update(@RequestBody @Valid TemplateRequest request) {
+    @PutMapping("/{id}")
+    public ResponseEntity<TemplateResponse> update(@RequestBody @Valid TemplateRequest request, @PathVariable(value = "id") Long id) {
+
         return ResponseEntity.status(HttpStatus.OK)
                 .body(service.saveUpdate(request));
     }

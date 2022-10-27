@@ -6,6 +6,9 @@ import static br.com.proonto.configs.CP.NOT_FOUND;
 import java.util.List;
 import java.util.Optional;
 
+import br.com.proonto.models.entities.Creditor;
+import br.com.proonto.models.requests.CreditorMatrixRequest;
+import br.com.proonto.repositories.CreditorRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -25,6 +28,8 @@ public class TemplateService {
     @Autowired
     private TemplateRepository repository;
     @Autowired
+    private CreditorRepository creditorRepository;
+    @Autowired
     private ModelMapper mapper;
     @Autowired
     private Utils utils;
@@ -35,8 +40,12 @@ public class TemplateService {
         if (request.getId() != null) {
             findById(request.getId());
         }
-        Template template = mapper.map(request, Template.class);
-        return mapper.map(repository.save(template), TemplateResponse.class);
+        Optional<Creditor> creditor = creditorRepository.findById(request.getCreditor().getId());
+        if(creditor.isEmpty()){
+            throw new EntityNotFoundException("Creditor" + NOT_FOUND + "id: " + request.getCreditor().getId());
+        }
+        request.setCreditor(mapper.map(creditor.get(), CreditorMatrixRequest.class));
+        return mapper.map(repository.save(mapper.map(request, Template.class)), TemplateResponse.class);
     }
 
     @Transactional(readOnly = true)

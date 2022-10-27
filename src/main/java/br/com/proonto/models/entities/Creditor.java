@@ -64,6 +64,9 @@ public class Creditor implements Serializable {
     @OneToMany(mappedBy="creditor")
     private Set<AgencyBank> agencyBanks;
 
+    @OneToMany(mappedBy="creditor")
+    private Set<Template> templates;
+
     public void setCPFCNPJ(String CPFCNPJ) {
         if (CPFCNPJ == null) {
             this.CPFCNPJ = CPFCNPJ;

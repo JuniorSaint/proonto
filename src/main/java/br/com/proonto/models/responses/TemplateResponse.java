@@ -18,4 +18,5 @@ public class TemplateResponse implements Serializable {
 
     private Long id;
     private String body;
+    private CreditorMatrixResponseForBranch creditor;
 }
