@@ -1,6 +1,7 @@
 package br.com.proonto.models.responses;
 
 import br.com.proonto.models.entities.Bank;
+import br.com.proonto.models.entities.Creditor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,4 +18,5 @@ public class AgencyBankResponse implements Serializable {
     private Boolean active;
     private BankResponseId bank;
     private ContactResponseId contact;
+    private CreditorMatrixResponse creditor;
 }

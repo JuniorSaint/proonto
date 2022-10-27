@@ -11,6 +11,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "creditor")
@@ -60,7 +61,8 @@ public class Creditor implements Serializable {
     @JoinColumn(name = "contrato_id")
     private Contract CONTRATO;
 
-
+    @OneToMany(mappedBy="creditor")
+    private Set<AgencyBank> agencyBanks;
 
     public void setCPFCNPJ(String CPFCNPJ) {
         if (CPFCNPJ == null) {

@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
 @NoArgsConstructor
 @Getter
@@ -24,4 +25,5 @@ public class CreditorMatrixResponse implements Serializable {
     private AddressResponseId ENDERECO;
     private List<PartsRoleResponse> QUALIFICACOES;
     private ContactResponseId CONTATO;
+    private Set<AgencyBankResponseId> agencyBanks;
 }

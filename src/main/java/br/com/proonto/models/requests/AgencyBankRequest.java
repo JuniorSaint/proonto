@@ -1,5 +1,6 @@
 package br.com.proonto.models.requests;
 
+import br.com.proonto.models.entities.Creditor;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,4 +19,5 @@ public class AgencyBankRequest implements Serializable {
     private Boolean active;
     private BankRequest bank;
     private ContactRequest contact;
+    private CreditorMatrixRequest creditor;
 }
