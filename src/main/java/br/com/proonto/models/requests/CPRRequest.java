@@ -1,6 +1,7 @@
 package br.com.proonto.models.requests;
 
 import br.com.proonto.models.entities.Financial;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

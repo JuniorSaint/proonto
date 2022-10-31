@@ -5,6 +5,7 @@ import br.com.proonto.models.entities.Contact;
 import br.com.proonto.models.entities.PersonType;
 import br.com.proonto.models.entities.Representative;
 import br.com.proonto.models.enums.GenderType;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,6 +18,7 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
+@JsonPropertyOrder({"nome", "cpfcnpj", "contrato", "tipopessoa", "endereco", "contato", "representante"})
 public class PresenterResponse implements Serializable {
     private static final long serialVersionUID = 1L;
     private String NOME;

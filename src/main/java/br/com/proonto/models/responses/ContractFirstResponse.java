@@ -2,6 +2,7 @@ package br.com.proonto.models.responses;
 
 import br.com.proonto.models.entities.BallotType;
 import br.com.proonto.models.requests.*;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,6 +14,9 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
+@JsonPropertyOrder({"id", "numerocontrato", "tipocedula", "datacontrato", "localcontrato", "cartorios", "modalidadesoperacao", "procuracoes", "autorizacoes",
+        "clausulasadicionais", "vencimentoporextenso", "vencimento", "cobrancaencargoapartir", "titulodocabecalho", "cidadeestadodatacontrato", "umidade", "impureza",
+"avariados_ardidos"})
 public class ContractFirstResponse implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long id;

@@ -23,6 +23,15 @@ public class Presenter implements Serializable {
     private Long id;
 
     private String NOME;
+
+    public void setCPFCNPJ(String CPFCNPJ) {
+        if(CPFCNPJ == null){
+            this.CPFCNPJ = CPFCNPJ;
+        }else{
+            this.CPFCNPJ = CPFCNPJ.replaceAll("\\D", "");
+        }
+    }
+
     private String CPFCNPJ;
 
     @OneToOne

@@ -61,11 +61,11 @@ public class CPRService {
     }
 
     @Transactional(readOnly = true)
-    public CPRResponse findById(Long id) {
+    public CPRResponseId findById(Long id) {
         Optional<CPR> response = repository.findById(id);
         if (response.isEmpty()) {
             throw new EntityNotFoundException("CPR" + NOT_FOUND + "id: " + id);
         }
-        return mapper.map(response, CPRResponse.class);
+        return mapper.map(response, CPRResponseId.class);
     }
 }
