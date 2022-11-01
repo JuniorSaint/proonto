@@ -34,14 +34,13 @@ public class TemplateService {
     @Autowired
     private Utils utils;
 
-
     @Transactional
     public TemplateResponse saveUpdate(TemplateRequest request) {
         if (request.getId() != null) {
             findById(request.getId());
         }
         Optional<Creditor> creditor = creditorRepository.findById(request.getCreditor().getId());
-        if(creditor.isEmpty()){
+        if (creditor.isEmpty()) {
             throw new EntityNotFoundException("Creditor" + NOT_FOUND + "id: " + request.getCreditor().getId());
         }
         request.setCreditor(mapper.map(creditor.get(), CreditorMatrixRequest.class));

@@ -21,6 +21,7 @@ import br.com.proonto.exceptions.EntityNotFoundException;
 import br.com.proonto.models.entities.AgencyBank;
 import br.com.proonto.models.entities.Bank;
 import br.com.proonto.repositories.AgencyBankRepository;
+
 import static br.com.proonto.configs.CP.DELETE_MESSAGE;
 import static br.com.proonto.configs.CP.NOT_FOUND;
 
@@ -42,9 +43,8 @@ public class AgencyBankService {
 
     @Transactional
     public AgencyBankResponseId saveUpdate(AgencyBankRequest request) {
-//        request.setBank(mapper.map(responseBank.get(), BankRequest.class));
         if (request.getId() != null) {
-            AgencyBankResponseId response = findById(request.getId());
+            findById(request.getId());
         }
         if (request.getBank().getId() == null) {
             throw new BadRequestException("It's not allowed register an agency bank without bank");

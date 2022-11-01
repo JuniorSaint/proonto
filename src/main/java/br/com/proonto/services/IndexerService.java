@@ -31,9 +31,9 @@ public class IndexerService {
     @Transactional
     public IndexerResponse saveUpdate(IndexerRequest request) {
         if (request.getDomain() != null) {
-            IndexerResponse responseBank = findById(request.getDomain());
+            findById(request.getDomain());
         }
-        Indexer indexer =  mapper.map(request, Indexer.class);
+        Indexer indexer = mapper.map(request, Indexer.class);
         return mapper.map(repository.save(indexer), IndexerResponse.class);
     }
 
@@ -54,7 +54,7 @@ public class IndexerService {
     @Transactional
     public String delete(String id) {
         try {
-            IndexerResponse response = findById(id);
+            findById(id);
             repository.deleteById(id);
             return "Indexer" + DELETE_MESSAGE;
         } catch (DataIntegrityViolationException e) {

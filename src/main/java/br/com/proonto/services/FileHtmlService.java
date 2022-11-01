@@ -41,7 +41,6 @@ public class FileHtmlService {
     private ContractRepository contractRepository;
     @Autowired
     private TemplateService templateService;
-
     @Autowired
     private TemplateEngine templateEngine;
     @Autowired
@@ -49,7 +48,6 @@ public class FileHtmlService {
     @Autowired
     private Utils utils;
 
-    // convert variable from front to variable to back
     public String convertDataFromFrontToDataToBack(Long id) throws IOException {
         final Pattern PATTERN = Pattern.compile("\\@\\_(.*?)\\_\\@");
         final String TEXT_TO_CHANGE = templateService.findById(id).getBody();
@@ -61,7 +59,6 @@ public class FileHtmlService {
         return result;
     }
 
-    // Generate entity in the form html
     public String generateHtmlFromContract(Long id) throws IOException, TemplateException {
         StringTemplateLoader stringLoader = new StringTemplateLoader();
         stringLoader.putTemplate("templateToShow", convertDataFromFrontToDataToBack(id));
@@ -80,7 +77,6 @@ public class FileHtmlService {
         return stringWriter.toString();
     }
 
-    // Generate html into pdf
     public void generatePdfFromHtml(Long id) throws IOException, DocumentException, TemplateException {
         try (OutputStream outputStream = new FileOutputStream(CP.PATH_PDF + "Pignoratic - " + Instant.now() + ".pdf")) {
             ITextRenderer renderer = new ITextRenderer();
@@ -121,21 +117,4 @@ public class FileHtmlService {
                 .build();
         return response;
     }
-
-//    private PartResponseId findCreditor(List<PartResponseId> list, String str) {
-//        PartResponseId part = new PartResponseId();
-//        PartResponseId partResult = new PartResponseId();
-//        QualificationResponseId qualification = new QualificationResponseId();
-//        for (int x = 0; x < list.size(); x++) {
-//            partResult = list.get(x);
-//            for (int i = 0; i < partResult.getQUALIFICACOES().size(); i++) {
-//                qualification = partResult.getQUALIFICACOES().get(i);
-//                if (qualification.getQUALIFICACAO().equals(str)) {
-//                    part = partResult;
-//                }
-//            }
-//        }
-//        return part;
-//    }
-
 }

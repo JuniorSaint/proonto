@@ -44,7 +44,7 @@ public class ImmovableService {
     @Transactional
     public ImmovableRequest saveUpdate(ImmovableRequest request) {
         if (request.getId() != null) {
-            ImmovableResponseId resp = findById(request.getId());
+            findById(request.getId());
         }
         mapper.map(request, immovable);
         immovable.setENDERECO(addressService.saveUpdate(mapper.map(request.getENDERECO(), AddressRequest.class)));
@@ -70,7 +70,7 @@ public class ImmovableService {
     @Transactional
     public String delete(Long id) {
         try {
-            ImmovableResponseId response = findById(id);
+            findById(id);
             repository.deleteById(id);
             return "Immovable" + DELETE_MESSAGE;
         } catch (DataIntegrityViolationException e) {

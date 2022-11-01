@@ -22,12 +22,10 @@ public class ContactService {
     @Autowired
     private ModelMapper mapper;
 
-    Contact contact = new Contact();
-
     @Transactional
     public Contact saveUpdate(Contact contact) {
         if (contact.getId() != null) {
-            Contact resp = findById(contact.getId());
+            findById(contact.getId());
         }
         contact.setTELEFONE(contact.getTELEFONE().replaceAll("\\D", ""));
         return repository.save(contact);

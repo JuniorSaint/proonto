@@ -22,16 +22,12 @@ public class BaseInformationToBuildHtml {
     private PersonTypeRepository personTypeRepository;
     @Autowired
     private IndexerRepository indexerRepository;
-
     @Autowired
     private MaritalStatusRepository maritalStatusRepository;
     @Autowired
     private PropertyTypeRepository propertyTypeRepository;
     @Autowired
     private ModelMapper mapper;
-
-
-
 
     @Transactional(readOnly = true)
     public CurrencyResponse currency(String str){

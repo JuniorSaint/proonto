@@ -18,14 +18,6 @@ public class PartsRoleService {
     @Autowired
     private PartsRoleRepository repository;
 
-    @Autowired
-    private ModelMapper mapper;
-
-    @Autowired
-    private Utils utils;
-
-    PartsRole partsRole = new PartsRole();
-
     @Transactional(readOnly = true)
     public PartsRole findById(String id) {
         Optional<PartsRole> response = repository.findById(id);

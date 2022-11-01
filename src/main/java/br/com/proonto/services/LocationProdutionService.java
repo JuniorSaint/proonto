@@ -23,10 +23,10 @@ public class LocationProdutionService {
     @Transactional
     public LocationProductionRequest saveUpdate(LocationProductionRequest request) {
         if (request.getId() != null) {
-            LocationProductionRequest resp = findById(request.getId());
+            findById(request.getId());
         }
-      LocationProdution tes =   mapper.map(request, LocationProdution.class);
-        return mapper.map(repository.save(tes),LocationProductionRequest.class);
+        LocationProdution tes = mapper.map(request, LocationProdution.class);
+        return mapper.map(repository.save(tes), LocationProductionRequest.class);
     }
 
     public LocationProductionRequest findById(Long id) {

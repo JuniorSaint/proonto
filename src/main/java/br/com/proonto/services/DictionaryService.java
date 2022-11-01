@@ -28,7 +28,6 @@ public class DictionaryService {
     @Autowired
     private Utils utils;
 
-
     @Transactional
     public DictionaryResponseId saveUpdate(DictionaryRequest request) {
         if (request.getId() != null) {

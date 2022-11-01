@@ -30,9 +30,9 @@ public class FinancialService {
     @Transactional
     public FinancialResponseId saveUpdate(FinancialRequest request, Long id_contract) {
         if (request.getId() != null) {
-            FinancialResponseId responseBank = findById(request.getId());
+            findById(request.getId());
         }
-        if(contractFirstService.findById(id_contract) != null && request.getId() == null){
+        if (contractFirstService.findById(id_contract) != null && request.getId() == null) {
             throw new BadRequestException("Financial for this contract already exists, It's not allowed more than one for contract");
         }
         request.setCONTRATO(mapper.map(contractFirstService.findById(id_contract), ContractRequest.class));

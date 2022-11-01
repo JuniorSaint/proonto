@@ -36,7 +36,6 @@ public class SenderService {
     @Autowired
     private Utils utils;
 
-
     @Transactional
     public SenderResponseId saveUpdate(SenderRequest request, Long id_contract) {
         if (request.getId() != null) {

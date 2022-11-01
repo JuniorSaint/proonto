@@ -94,15 +94,4 @@ public class RegistryOfficeService {
     public List<RegistryOfficeResponseId> findAll() {
         return utils.mapListIntoDtoList(repository.findAll(), RegistryOfficeResponseId.class);
     }
-
-    @Transactional
-    public String delete(Long id) {
-        try {
-            findById(id);
-            repository.deleteById(id);
-            return "Registry Office" + DELETE_MESSAGE;
-        } catch (DataIntegrityViolationException e) {
-            throw new DataBaseException("Integrity violation");
-        }
-    }
 }

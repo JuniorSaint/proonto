@@ -33,14 +33,13 @@ public class PresenterService {
     @Autowired
     private Utils utils;
 
-
     @Transactional
     public PresenterResponseId saveUpdate(PresenterRequest request, Long id_contract) {
         if (request.getId() != null) {
             findById(request.getId());
         }
-        ContractFirstResponse contractFirstResponse = contractFirstService.findById(id_contract);
-        if(repository.findByIdAndContract(id_contract).isPresent() && request.getId() == null){
+        contractFirstService.findById(id_contract);
+        if (repository.findByIdAndContract(id_contract).isPresent() && request.getId() == null) {
             throw new BadRequestException("Presenter for this contract already exists, It's not allowed more than one for contract");
         }
         request.setCONTRATO(mapper.map(contractFirstService.findById(id_contract), ContractRequest.class));

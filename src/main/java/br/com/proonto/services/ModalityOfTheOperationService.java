@@ -29,11 +29,10 @@ public class ModalityOfTheOperationService {
     @Autowired
     private Utils utils;
 
-
     @Transactional
     public ModalityOfTheOperationResponse saveUpdate(ModalityOfTheOperationRequest request) {
         if (request.getDomain() != null) {
-            ModalityOfTheOperationResponse responseBank = findById(request.getDomain());
+            findById(request.getDomain());
         }
         return mapper.map(repository.save(mapper.map(request, ModalityOfTheOperation.class)), ModalityOfTheOperationResponse.class);
     }
@@ -55,7 +54,7 @@ public class ModalityOfTheOperationService {
     @Transactional
     public String delete(String id) {
         try {
-            ModalityOfTheOperationResponse response = findById(id);
+            findById(id);
             repository.deleteById(id);
             return "Modality of the operation" + DELETE_MESSAGE;
         } catch (DataIntegrityViolationException e) {

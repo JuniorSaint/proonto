@@ -31,9 +31,9 @@ public class FileService {
     @Transactional
     public FileRequest saveUpdate(FileRequest request) {
         if (request.getId() != null) {
-            FileResponseId response = findById(request.getId());
+            findById(request.getId());
         }
-        return mapper.map(repository.save( mapper.map(request, FileArea.class)), FileRequest.class);
+        return mapper.map(repository.save(mapper.map(request, FileArea.class)), FileRequest.class);
     }
 
     @Transactional(readOnly = true)
@@ -47,13 +47,13 @@ public class FileService {
 
     @Transactional(readOnly = true)
     public List<FileResponseId> findAll() {
-        return utils.mapListIntoDtoList(repository.findAll(), FileResponseId.class) ;
+        return utils.mapListIntoDtoList(repository.findAll(), FileResponseId.class);
     }
 
     @Transactional
     public String delete(Long id) {
         try {
-            FileResponseId response = findById(id);
+            findById(id);
             repository.deleteById(id);
             return "File" + DELETE_MESSAGE;
         } catch (DataIntegrityViolationException e) {

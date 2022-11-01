@@ -24,10 +24,11 @@ public class GuaranteeTypeService {
     @Autowired
     private ModelMapper mapper;
     GuaranteeType guaranteeType = new GuaranteeType();
+
     @Transactional
     public GuaranteeType saveUpdate(GuaranteeTypeRequest guaranteeTypeRequest) {
         if (guaranteeTypeRequest.getDomain() != (null)) {
-            GuaranteeType responseGuarantee = findById(guaranteeTypeRequest.getDomain());
+            findById(guaranteeTypeRequest.getDomain());
         }
         mapper.map(guaranteeTypeRequest, guaranteeType);
         GuaranteeType response = repository.save(guaranteeType);
@@ -51,9 +52,8 @@ public class GuaranteeTypeService {
     @Transactional
     public String delete(String id) {
         try {
-            GuaranteeType response = findById(id);
-            repository.delete(response);
-            return "Guarantee type" +DELETE_MESSAGE;
+            repository.delete(findById(id));
+            return "Guarantee type" + DELETE_MESSAGE;
         } catch (DataIntegrityViolationException e) {
             throw new DataBaseException("Integrity violation");
         }

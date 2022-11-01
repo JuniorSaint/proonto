@@ -33,17 +33,14 @@ public class CPRService {
     @Autowired
     private Utils utils;
 
-
     @Transactional
     public CPRResponseId saveUpdate(CPRRequest request, Long id_contract) {
         if (request.getId() != null) {
             findById(request.getId());
         }
-
         if(repository.findByIdAndContract(id_contract).isPresent() && request.getId() == null){
             throw new BadRequestException("Cpr for this contract already exists, It's not allowed more than one for contract");
         }
-
         Set<RegistryOfficeRequest> getCnsFromGuarantee = new HashSet<>(request.getPRODUTOS().stream().map(r -> r.getLOCALPRODUCAO().getREGISTRO().getCNS()).collect(Collectors.toList()));
         Set<RegistryOffice> registryOfficeRequest = registryOfficeService.verifyIncludeAndSave(getCnsFromGuarantee);
         List<ProductRequest> listResgitr =  request.getPRODUTOS().stream().map(r -> {

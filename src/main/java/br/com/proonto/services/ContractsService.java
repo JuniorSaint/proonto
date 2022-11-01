@@ -25,14 +25,13 @@ public class ContractsService {
     private ContractsRepository repository;
     @Autowired
     private ModelMapper mapper;
-
     @Autowired
     private Utils utils;
 
     @Transactional
     public ContractsResponse saveUpdate(ContractsRequest request) {
         if (request.getId() != null) {
-            ContractsResponse resp = findById(request.getId());
+            findById(request.getId());
         }
         return mapper.map(repository.save(mapper.map(request, Contracts.class)), ContractsResponse.class);
     }

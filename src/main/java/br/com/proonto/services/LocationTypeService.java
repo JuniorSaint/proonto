@@ -29,11 +29,10 @@ public class LocationTypeService {
     @Autowired
     private Utils utils;
 
-
     @Transactional
     public LocationTypeResponse saveUpdate(LocationTypeRequest request) {
         if (request.getDomain() != null) {
-            LocationTypeResponse responseBank = findById(request.getDomain());
+            findById(request.getDomain());
         }
         return mapper.map(repository.save(mapper.map(request, LocationType.class)), LocationTypeResponse.class);
     }
@@ -55,7 +54,7 @@ public class LocationTypeService {
     @Transactional
     public String delete(String id) {
         try {
-            LocationTypeResponse response = findById(id);
+            findById(id);
             repository.deleteById(id);
             return "Location type" + DELETE_MESSAGE;
         } catch (DataIntegrityViolationException e) {

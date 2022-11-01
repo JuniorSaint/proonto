@@ -31,7 +31,7 @@ public class RegistryService {
     @Transactional
     public RegistryRequest saveUpdate(RegistryRequest request) {
         if (request.getId() != null) {
-            RegistryResponse resp = findById(request.getId());
+            findById(request.getId());
         }
         request.setIMOVEL(immovableService.saveUpdate(mapper.map(request.getIMOVEL(), ImmovableRequest.class)));
         return mapper.map(repository.save(mapper.map(request, Registry.class)), RegistryRequest.class);
