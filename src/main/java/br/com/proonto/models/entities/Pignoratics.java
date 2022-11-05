@@ -21,7 +21,7 @@ public class Pignoratics implements Serializable {
     private String valueUnabbreviated;
     private String creditor;
     private String cnpjCreditor;
-    private String typeStreetCreditor; //corrigir
+    private String typeStreetCreditor;
     private String streetCreditor;
     private String numberCreditor;
     private String districtCreditor;
@@ -41,9 +41,9 @@ public class Pignoratics implements Serializable {
     private String humidity;
     private String impurities;
     private String damagedAndBurnt;
-    private String typeStreetGuarantee; //corrigir
+    private String typeStreetGuarantee;
     private String streetGuarantee;
-    private String immovableRegister; //corrigir
+    private String immovableRegister;
     private String numberGuarantee;
     private String districtGuarantee;
     private String cityGuarantee;
@@ -51,8 +51,8 @@ public class Pignoratics implements Serializable {
     private String zipCodeGuarantee;
     private String county;
     private String cns;
-    private String cnsUfGuarantee;  //corrigir
-    private String cnsCityGuarantee;   //corrigir
+    private String cnsUfGuarantee;
+    private String cnsCityGuarantee;
     private String ufRegistry;
     private String faithfulDepositary;
     private String maritalStatusfaithful;

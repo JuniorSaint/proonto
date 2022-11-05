@@ -9,9 +9,11 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.hateoas.RepresentationModel;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.Set;
 
 @Entity
 @Table(name = "bank")
@@ -36,6 +38,6 @@ public class Bank extends RepresentationModel<Bank> implements Serializable {
     @UpdateTimestamp
     private Instant updatedAt;
 
-    @OneToOne(mappedBy = "bank")
-    private AgencyBank AGENCYBANK;
+    @OneToMany(mappedBy = "bank")
+    private Set<AgencyBank> agencyBanks;
 }

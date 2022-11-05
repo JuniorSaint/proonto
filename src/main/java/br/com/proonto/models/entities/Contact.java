@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 @Builder
 @Entity
-@Table(name = "contact")
+@Table(name = "contacts")
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor

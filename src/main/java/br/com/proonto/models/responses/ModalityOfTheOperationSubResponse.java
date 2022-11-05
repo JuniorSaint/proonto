@@ -1,14 +1,10 @@
 package br.com.proonto.models.responses;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.*;
 
 import java.io.Serializable;
 
-@Builder
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class ModalityOfTheOperationSubResponse implements Serializable {

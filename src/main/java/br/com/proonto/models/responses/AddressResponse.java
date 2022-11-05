@@ -1,13 +1,12 @@
 package br.com.proonto.models.responses;
 
-import br.com.proonto.models.requests.AddressTypeRequest;
 import lombok.*;
 
 import java.io.Serializable;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class AddressResponse implements Serializable {
     private static final long serialVersionUID = 1L;
     private AddressTypeReponse TIPOLOGRADOURO;

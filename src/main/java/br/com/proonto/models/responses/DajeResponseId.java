@@ -2,10 +2,7 @@ package br.com.proonto.models.responses;
 
 import lombok.*;
 
-import java.io.Serializable;
-
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class DajeResponseId extends DajeResponse {

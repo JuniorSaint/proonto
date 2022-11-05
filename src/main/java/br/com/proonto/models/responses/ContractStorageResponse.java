@@ -5,9 +5,7 @@ import lombok.*;
 
 import java.io.Serializable;
 
-@Builder
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class ContractStorageResponse implements Serializable {

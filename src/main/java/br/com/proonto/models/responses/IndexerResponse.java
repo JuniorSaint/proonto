@@ -1,17 +1,15 @@
 package br.com.proonto.models.responses;
 
-import br.com.proonto.models.entities.IndexerSub;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.io.Serializable;
-import java.util.List;
 
 
-@Getter
-@Setter
+import lombok.*;
+
+@Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class IndexerResponse implements Serializable {
     private static final long serialVersionUID = 1L;
     private String domain;

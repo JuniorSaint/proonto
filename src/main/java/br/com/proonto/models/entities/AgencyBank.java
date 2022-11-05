@@ -15,7 +15,7 @@ import lombok.Setter;
 
 
 @Entity
-@Table(name = "agencyBank")
+@Table(name = "agenciesBanks")
 @NoArgsConstructor
 @Getter
 @Setter
@@ -28,10 +28,11 @@ public class AgencyBank implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String agency;
+    @Column(unique = true)
     private String count;
     private boolean active;
-    @OneToOne
-    @JoinColumn(name = "bank_id", referencedColumnName = "id")
+    @ManyToOne
+    @JoinColumn(name = "bank_id")
     private Bank bank;
 
     @OneToOne(cascade = CascadeType.PERSIST)

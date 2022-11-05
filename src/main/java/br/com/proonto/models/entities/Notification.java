@@ -11,7 +11,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "notification")
+@Table(name = "notifications")
 @NoArgsConstructor
 @Getter
 @Setter

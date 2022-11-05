@@ -1,16 +1,12 @@
 package br.com.proonto.models.responses;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.io.Serializable;
-import java.time.LocalDate;
-import java.util.List;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class ContractOnlyIdResponse implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long id;

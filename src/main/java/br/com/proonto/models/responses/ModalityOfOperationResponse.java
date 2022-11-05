@@ -1,17 +1,12 @@
 package br.com.proonto.models.responses;
 
-import br.com.proonto.models.entities.ModalityOfTheOperationSub;
-import br.com.proonto.models.entities.ResourcesOriginSub;
-import br.com.proonto.models.requests.ContractRequest;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.io.Serializable;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class ModalityOfOperationResponse implements Serializable {
     private static final long serialVersionUID = 1L;
     private ModalityOfTheOperationSubResponse MODALIDADE;

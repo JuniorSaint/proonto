@@ -1,19 +1,17 @@
 package br.com.proonto.models.responses;
 
-import br.com.proonto.models.entities.BallotType;
 import br.com.proonto.models.requests.*;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
-@Getter
-@Setter
+import lombok.*;
+
+@Data
 @NoArgsConstructor
+@AllArgsConstructor
 @JsonPropertyOrder({"id", "numerocontrato", "tipocedula", "datacontrato", "localcontrato", "cartorios", "modalidadesoperacao", "procuracoes", "autorizacoes",
         "clausulasadicionais", "vencimentoporextenso", "vencimento", "cobrancaencargoapartir", "titulodocabecalho", "cidadeestadodatacontrato", "umidade", "impureza",
 "avariados_ardidos"})

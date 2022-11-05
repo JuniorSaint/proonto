@@ -10,7 +10,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "file")
+@Table(name = "files")
 @NoArgsConstructor
 @Getter
 @Setter

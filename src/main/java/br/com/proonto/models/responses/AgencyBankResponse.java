@@ -1,15 +1,12 @@
 package br.com.proonto.models.responses;
 
-import br.com.proonto.models.entities.Bank;
-import br.com.proonto.models.entities.Creditor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.io.Serializable;
 
+@Data
 @NoArgsConstructor
-@Getter
+@AllArgsConstructor
 @Setter
 public class AgencyBankResponse implements Serializable {
     private static final long serialVersionUID = 1L;

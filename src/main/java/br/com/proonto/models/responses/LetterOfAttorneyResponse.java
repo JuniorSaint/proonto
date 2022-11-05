@@ -1,16 +1,15 @@
 package br.com.proonto.models.responses;
 
-import br.com.proonto.models.requests.ContractRequest;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 
+import lombok.*;
+
+@Data
 @NoArgsConstructor
-@Getter
-@Setter
+@AllArgsConstructor
 public class LetterOfAttorneyResponse implements Serializable {
     private static final long serialVersionUID = 1L;
     private String REPRESENTANTE;

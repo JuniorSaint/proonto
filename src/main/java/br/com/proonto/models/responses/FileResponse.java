@@ -4,9 +4,9 @@ import lombok.*;
 
 import java.io.Serializable;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class FileResponse implements Serializable {
     private static final long serialVersionUID = 1L;
     private String NOME;

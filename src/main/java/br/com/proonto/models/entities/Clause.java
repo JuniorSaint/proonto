@@ -10,7 +10,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "clause")
+@Table(name = "clauses")
 @NoArgsConstructor
 @Getter
 @Setter

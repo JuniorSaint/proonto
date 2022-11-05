@@ -14,7 +14,7 @@ import java.io.Serializable;
 
 @Builder
 @Entity
-@Table(name = "registry")
+@Table(name = "registries")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter

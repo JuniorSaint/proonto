@@ -10,7 +10,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "representative")
+@Table(name = "representatives")
 @NoArgsConstructor
 @Getter
 @AllArgsConstructor

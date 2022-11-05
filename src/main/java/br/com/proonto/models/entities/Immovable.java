@@ -16,7 +16,7 @@ import java.io.Serializable;
 import java.time.Instant;
 
 @Entity
-@Table(name = "immovable")
+@Table(name = "immovables")
 @NoArgsConstructor
 @Getter
 @Setter

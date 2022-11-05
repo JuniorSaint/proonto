@@ -1,12 +1,9 @@
 package br.com.proonto.models.responses;
 
 import lombok.*;
-
 import java.io.Serializable;
 
-@Builder
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class DajeResponse implements Serializable {

@@ -11,7 +11,7 @@ import java.util.List;
 
 @Builder
 @Entity
-@Table(name = "template")
+@Table(name = "templates")
 @NoArgsConstructor
 @Getter
 @Setter

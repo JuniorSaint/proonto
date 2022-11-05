@@ -1,14 +1,14 @@
 package br.com.proonto.models.responses;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import lombok.*;
 
 import java.io.Serializable;
 
+@Data
 @NoArgsConstructor
-@Getter
-@Setter
+@AllArgsConstructor
+@JsonPropertyOrder({"id","agency", "count", "active",  "bank","contact", "creditor"})
 public class AgencyBankResponseId extends AgencyBankResponse  implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long id;

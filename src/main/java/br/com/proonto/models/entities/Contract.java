@@ -65,7 +65,7 @@ public class Contract implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "contratos_id")
-    private Contracts CONTRATO;
+    private MainContract CONTRATO;
 
     @OneToOne
     @JoinColumn(name = "template_id", referencedColumnName = "id")

@@ -12,7 +12,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "parameter")
+@Table(name = "parameters")
 @NoArgsConstructor
 @Getter
 @Setter

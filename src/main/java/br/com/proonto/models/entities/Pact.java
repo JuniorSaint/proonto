@@ -11,7 +11,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "pact")
+@Table(name = "pacts")
 @NoArgsConstructor
 @Getter
 @Setter

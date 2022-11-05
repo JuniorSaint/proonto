@@ -2,12 +2,9 @@ package br.com.proonto.models.responses;
 
 import lombok.*;
 
-import javax.persistence.*;
 import java.io.Serializable;
 
-@Builder
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class IndexerSubResponse implements Serializable {

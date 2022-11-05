@@ -1,15 +1,14 @@
 package br.com.proonto.models.responses;
 
-import br.com.proonto.models.entities.*;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.*;
 
 import java.io.Serializable;
 import java.util.List;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
+@AllArgsConstructor
 @JsonPropertyOrder({"descricao","contrato", "percentualcomprometido", "valor", "qualidade", "quantidade", "marca", "periodoproducao",
 "grua", "tipogarantia", "tipobem", "area", "registros"})
 public class GuaranteeResponse implements Serializable {

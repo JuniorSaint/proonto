@@ -3,7 +3,7 @@ package br.com.proonto.services;
 import br.com.proonto.configs.Utils;
 import br.com.proonto.exceptions.DataBaseException;
 import br.com.proonto.exceptions.EntityNotFoundException;
-import br.com.proonto.models.entities.Contracts;
+import br.com.proonto.models.entities.MainContract;
 import br.com.proonto.models.requests.ContractsRequest;
 import br.com.proonto.models.responses.ContractsResponse;
 import br.com.proonto.repositories.ContractsRepository;
@@ -33,12 +33,12 @@ public class ContractsService {
         if (request.getId() != null) {
             findById(request.getId());
         }
-        return mapper.map(repository.save(mapper.map(request, Contracts.class)), ContractsResponse.class);
+        return mapper.map(repository.save(mapper.map(request, MainContract.class)), ContractsResponse.class);
     }
 
     @Transactional(readOnly = true)
     public ContractsResponse findById(Long id) {
-        Optional<Contracts> response = repository.findById(id);
+        Optional<MainContract> response = repository.findById(id);
         if (response.isEmpty()) {
             throw new EntityNotFoundException("Contracts" + NOT_FOUND + "id: " + id);
         }

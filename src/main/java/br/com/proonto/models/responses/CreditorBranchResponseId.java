@@ -1,14 +1,15 @@
 package br.com.proonto.models.responses;
 
-import lombok.Getter;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-
 import java.io.Serializable;
 
+import lombok.*;
+
+@Data
 @NoArgsConstructor
-@Getter
-@Setter
+@AllArgsConstructor
+@JsonPropertyOrder({"id","nome", "tipopessoa", "cpfcnpj",  "parameter","endereco", "users", "contato", "agencyBanks"})
 public class CreditorBranchResponseId extends CreditorBranchResponse implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long id;

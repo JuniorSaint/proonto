@@ -6,6 +6,7 @@ import java.util.Optional;
 import br.com.proonto.models.requests.AgencyBankRequest;
 import br.com.proonto.models.requests.BankRequest;
 import br.com.proonto.models.responses.AgencyBankResponseId;
+import br.com.proonto.models.responses.AgencyBankResponseTest;
 import br.com.proonto.repositories.BankRepository;
 import br.com.proonto.repositories.ContactRepository;
 import org.modelmapper.ModelMapper;
@@ -70,6 +71,14 @@ public class AgencyBankService {
     }
 
     @Transactional(readOnly = true)
+    public AgencyBankResponseTest findByAgencyBank(String count) {
+        AgencyBankResponseTest response = repository.findByCount(count);
+        if (response == null)
+            throw new EntityNotFoundException("Agency bank" + NOT_FOUND + "count: " + count);
+        return response;
+    }
+
+    @Transactional(readOnly = true)
     public List<AgencyBankResponseId> findAll() {
         return utils.mapListIntoDtoList(repository.findAll(), AgencyBankResponseId.class);
     }
@@ -77,7 +86,7 @@ public class AgencyBankService {
     @Transactional
     public String delete(Long id) {
         try {
-            AgencyBankResponseId response = findById(id);
+            findById(id);
             repository.deleteById(id);
             return "Agency bank" + DELETE_MESSAGE;
         } catch (DataIntegrityViolationException e) {

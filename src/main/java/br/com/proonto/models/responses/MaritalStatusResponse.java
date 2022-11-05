@@ -4,9 +4,7 @@ import lombok.*;
 
 import java.io.Serializable;
 
-@Builder
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class MaritalStatusResponse implements Serializable {

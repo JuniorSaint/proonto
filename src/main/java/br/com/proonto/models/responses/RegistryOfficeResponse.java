@@ -1,16 +1,12 @@
 package br.com.proonto.models.responses;
 
-
-import br.com.proonto.models.requests.ContractRequest;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.io.Serializable;
 
+@Data
 @NoArgsConstructor
-@Getter
-@Setter
+@AllArgsConstructor
 public class RegistryOfficeResponse implements Serializable {
     private static final long serialVersionUID = 1L;
     private String CNS;

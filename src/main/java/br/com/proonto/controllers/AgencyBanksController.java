@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import br.com.proonto.models.entities.AgencyBank;
+import br.com.proonto.models.responses.AgencyBankResponseTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -53,6 +55,12 @@ public class AgencyBanksController {
     public ResponseEntity<AgencyBankResponseId> findById(@PathVariable(value = "id") Long id) {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(service.findById(id));
+    }
+
+    @GetMapping("/count/{count}")
+    public ResponseEntity<AgencyBankResponseTest> findByIdT(@PathVariable(value = "count") String count) {
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(service.findByAgencyBank(count));
     }
 
     @DeleteMapping("/{id}")

@@ -1,19 +1,15 @@
 package br.com.proonto.models.responses;
 
-import br.com.proonto.models.entities.*;
 import br.com.proonto.models.enums.GenderType;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
-
+@Data
 @NoArgsConstructor
-@Getter
-@Setter
+@AllArgsConstructor
 public class PartResponse implements Serializable {
     private static final long serialVersionUID = 1L;
     private String NOME;
