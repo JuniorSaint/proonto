@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ContractsRepository extends JpaRepository<MainContract, Long> {
+    //teste
 }
